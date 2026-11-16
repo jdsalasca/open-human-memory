@@ -103,6 +103,42 @@ pasado y futuro, no de su tamaño.
 cobertura idéntica en continuidad total y pierde 22,1 pp en continuidad cero. C5 y
 C6 **empeoran** frente a C4. **No es confirmatorio: no hubo congelamiento previo.**
 
+### `POLICY-*` — política de activación (Prototipo 006-A)
+
+Documento: `prototipo-006-politica/` y su `protocolo-congelado.md` (hashes de
+protocolo, código y datos; semillas 1 y 2).
+
+| ID | Condición |
+|---|---|
+| POLICY-B0 | Sin memoria, profundidad 3, presupuesto de pasos |
+| POLICY-B1 | Biblioteca congelada, macros primero, profundidad 2 |
+| POLICY-B2 | Biblioteca congelada, primitivas primero, profundidad 2 |
+| POLICY-P1 | Política lineal sobre probe de aplicabilidad |
+| POLICY-P2 | Política ciega (probe a cero), control |
+| POLICY-RULE | Regla del probe escrita a mano (referencia) |
+| POLICY-ORACLE | Mejor acción por tarea (techo) |
+
+**Hipótesis:** una señal barata de aplicabilidad permite aprender a elegir entre
+memoria y búsqueda.
+**Estado:** ejecutado (semillas 1–2, 48 tareas). Las cuatro predicciones congeladas
+se cumplen; **la economía no**: el probe cuesta 96–122 pasos y la política ahorra
+29. Ver `protocolo-addendum.md`.
+
+### `LLM-CEILING` — test de techo con agente real (Prototipo 006-B)
+
+Documento: `prototipo-006-agente-llm/`.
+
+| Campo | Valor |
+|---|---|
+| Agente | `gpt-6-luna`, esfuerzo `low`, `codex-cli 0.169.0` |
+| Condición | sin historial, sin herramientas, 3 ejemplos, 1 llamada por tarea |
+| Tareas | 64 de `DEPTH3_GRID`, semilla 0 |
+| Resultado | **30/64 (46,9 %)** |
+
+**Qué decide:** el banco no está saturado por un agente general, pero los fallos
+son de resolución, no de memoria. Habilita el experimento de dar al agente un
+procedimiento recuperado y medir si sube del 47 % al techo.
+
 ### `CAUSAL-A..E` — experimento causal (histórico)
 
 Documento: `resources/investigation/24-programa-de-investigacion-v2.md`
@@ -150,10 +186,13 @@ nada.
 
 ## Prioridad actual
 
-1. `BUDGET-*` — hecho (005-A, exploratorio). El valor de la memoria es condicional
-   a la continuidad; acumular sin criterio empeora.
+1. `BUDGET-*` — hecho (005-A). Valor condicional a la continuidad; acumular sin
+   criterio empeora.
 2. `VALID-*` — hecho (004-A). H1 refutada; H2 acotada a presupuesto bajo.
-3. `COMP-*` — siguiente: política de activación aprendida, contraejemplos, tareas
-   reservadas y protocolo congelado con hash de código y datos.
-4. `MAIN-*` — solo si `COMP-*` muestra que la memoria/procedimiento es el cuello.
-5. `CAUSAL-*` — solo si `COMP-*` muestra que la identificación causal es el cuello.
+3. `POLICY-*` — hecho (006-A). La política aprende a cambiar; **no paga su probe**.
+4. `LLM-CEILING` — hecho (006-B). Un agente real acierta 46,9 %: el banco no está
+   saturado.
+5. `COMP-*` — siguiente: procedimiento recuperado en el agente real y probe
+   barato; protocolo congelado con hashes de código y datos.
+6. `MAIN-*` — solo si `COMP-*` muestra que la memoria/procedimiento es el cuello.
+7. `CAUSAL-*` — solo si `COMP-*` muestra que la identificación causal es el cuello.

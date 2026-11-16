@@ -1,0 +1,12 @@
+{
+  "similar": {
+    "mean_probe_steps": 96.0,
+    "max_probe_steps": 207,
+    "n": 48
+  },
+  "novel": {
+    "mean_probe_steps": 122.4,
+    "max_probe_steps": 216,
+    "n": 48
+  }
+}

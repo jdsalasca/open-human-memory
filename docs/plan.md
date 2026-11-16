@@ -62,7 +62,19 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 - Requisito para el 005-B: protocolo congelado con hash de código y datos, tareas
   reservadas y una política de activación aprendida, no heurística.
 
-### R2.7 — Experimento de competencia `COMP-*`
+### R2.7 — Política de activación y techo del agente `POLICY-*` (006)
+
+- Entregable: `prototipo-006-politica/` con protocolo, código y datos congelados
+  por hash; `prototipo-006-agente-llm/` con el test de techo.
+- Criterio: la política aprendida debe superar a cada acción fija en acierto y
+  pagar su propio costo de señal.
+- Resultado: **acierto sí, economía no.** +3,1 pp sobre la mejor acción fija y
+  +10,4 pp sobre buscar, pero el probe cuesta 96–122 pasos frente a 29 ahorrados.
+  El agente real acierta **30/64 (46,9 %)**, por debajo de BFS profundidad 2.
+- Siguiente: procedimiento recuperado en el agente real y probe barato (caché por
+  firma o índice), con protocolo congelado.
+
+### R2.8 — Experimento de competencia `COMP-*`
 
 - Entregable: sandbox con verdad causal conocida, tareas adversariales (ruido,
   ambigüedad, equivalencias, deriva, macros perjudiciales) y actualización online

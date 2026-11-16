@@ -64,25 +64,28 @@ empeora nada medible, no entra).
 | [prototipo-003-aprendizaje/](prototipo-003-aprendizaje/) | Registro exploratorio; su conclusión fue retirada por el 004 |
 | [prototipo-004-validez/](prototipo-004-validez/) | Protocolo congelado; las macros no amplían capacidad |
 | [prototipo-005-presupuesto/](prototipo-005-presupuesto/) | Continuidad, orden de búsqueda y acumulación en línea |
+| [prototipo-006-politica/](prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
+| [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
 | [papers/](papers/) | CUMULUS final (EN/ES) y JANUS final (ES) |
 
 ## Estado
 
-`v1.6` — memoria bajo presupuesto. Los documentos 01–06 son la evidencia base; 07
-es la síntesis; 08 es el protocolo v2.0; 09–12 amplían con Weber, psicología,
-biología comparada y humano–máquina; 13 es el paper sobre el riesgo del olvido; 14
-es la bibliografía; 15 responde la pregunta central; 16–20 desarrollan momento
-cero, contexto, filosofía, compactación y sueño; 21 audita la evidencia; 22
-responde a la primera revisión; 23 fija el marco de validez; 24 es el programa v2
-(histórico); 25 es el protocolo de fuentes; 26 integra DeepSeek y atención; 27 es
-el plan JANUS-C; 28 es el programa de competencia v3; 29 es el experimento
-diagnóstico; `prototipo-001` es smoke test invalidado; `prototipo-002` es benchmark
-de solucionador; `prototipo-003` es el registro exploratorio cuya conclusión fue
-retirada; `prototipo-004` es la validación con protocolo congelado; `prototipo-005`
-mide cuándo la memoria paga su costo; `src/ohmem/` implementa los cinco;
-`precedentes/` cataloga lo intentado; `papers/` contiene CUMULUS (EN/ES) y JANUS
-(ES).
+`v1.7` — política de activación y techo del agente. Los documentos 01–06 son la
+evidencia base; 07 es la síntesis; 08 es el protocolo v2.0; 09–12 amplían con
+Weber, psicología, biología comparada y humano–máquina; 13 es el paper sobre el
+riesgo del olvido; 14 es la bibliografía; 15 responde la pregunta central; 16–20
+desarrollan momento cero, contexto, filosofía, compactación y sueño; 21 audita la
+evidencia; 22 responde a la primera revisión; 23 fija el marco de validez; 24 es
+el programa v2 (histórico); 25 es el protocolo de fuentes; 26 integra DeepSeek y
+atención; 27 es el plan JANUS-C; 28 es el programa de competencia v3; 29 es el
+experimento diagnóstico; `prototipo-001` es smoke test invalidado; `prototipo-002`
+es benchmark de solucionador; `prototipo-003` es el registro exploratorio cuya
+conclusión fue retirada; `prototipo-004` es la validación con protocolo congelado;
+`prototipo-005` mide cuándo la memoria paga su costo; `prototipo-006-politica`
+prueba la política de activación; `prototipo-006-agente-llm` mide el techo de un
+agente real; `src/ohmem/` implementa los seis; `precedentes/` cataloga lo
+intentado; `papers/` contiene CUMULUS (EN/ES) y JANUS (ES).
 
 ## La tesis en una frase
 

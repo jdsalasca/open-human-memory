@@ -1,0 +1,270 @@
+{
+  "seeds": [
+    1,
+    2
+  ],
+  "policies": {
+    "policy-applicability": {
+      "sets": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.35,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8125,
+            "mean_steps": 71.85,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926
+          },
+          "probe-rule": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.35,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 1.0,
+            "mean_steps": 34.15,
+            "mean_reward": 0.9146
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.8125,
+            "mean_steps": 48.9,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.05,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8542,
+            "mean_steps": 47.35,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 0.875,
+            "mean_steps": 41.85,
+            "mean_reward": 0.7828
+          },
+          "learned-policy": {
+            "accuracy": 0.875,
+            "mean_steps": 41.55,
+            "mean_reward": 0.7835
+          },
+          "probe-rule": {
+            "accuracy": 0.875,
+            "mean_steps": 45.7,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 0.875,
+            "mean_steps": 35.45,
+            "mean_reward": 0.7995
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8646,
+            "mean_steps": 51.1,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8334,
+            "mean_steps": 59.55,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 0.9271,
+            "mean_steps": 42.85,
+            "mean_reward": 0.8273
+          },
+          "learned-policy": {
+            "accuracy": 0.9375,
+            "mean_steps": 42.25,
+            "mean_reward": 0.838
+          },
+          "probe-rule": {
+            "accuracy": 0.8959,
+            "mean_steps": 49.5,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 0.9375,
+            "mean_steps": 34.8,
+            "mean_reward": 0.857
+          }
+        }
+      },
+      "weights": {
+        "memory_first": [
+          1.4512,
+          5.3415,
+          1.2576
+        ],
+        "search": [
+          -0.7688,
+          0.9251,
+          -0.812
+        ]
+      }
+    },
+    "policy-blind": {
+      "sets": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.35,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8125,
+            "mean_steps": 71.85,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926
+          },
+          "probe-rule": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.35,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 1.0,
+            "mean_steps": 34.15,
+            "mean_reward": 0.9146
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.8125,
+            "mean_steps": 48.9,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.05,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8542,
+            "mean_steps": 47.35,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 0.8334,
+            "mean_steps": 45.35,
+            "mean_reward": 0.7375
+          },
+          "learned-policy": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.05,
+            "mean_reward": 0.7171
+          },
+          "probe-rule": {
+            "accuracy": 0.875,
+            "mean_steps": 45.7,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 0.875,
+            "mean_steps": 35.45,
+            "mean_reward": 0.7995
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8646,
+            "mean_steps": 51.1,
+            "mean_reward": null
+          },
+          "memory_first": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_reward": null
+          },
+          "search": {
+            "accuracy": 0.8334,
+            "mean_steps": 59.55,
+            "mean_reward": null
+          },
+          "random-action": {
+            "accuracy": 0.8959,
+            "mean_steps": 45.05,
+            "mean_reward": 0.7942
+          },
+          "learned-policy": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_reward": 0.8049
+          },
+          "probe-rule": {
+            "accuracy": 0.8959,
+            "mean_steps": 49.5,
+            "mean_reward": null
+          },
+          "oracle": {
+            "accuracy": 0.9375,
+            "mean_steps": 34.8,
+            "mean_reward": 0.857
+          }
+        }
+      },
+      "weights": {
+        "memory_first": [
+          0.6539,
+          0.0,
+          0.4939
+        ],
+        "search": [
+          0.0137,
+          0.0,
+          -0.1106
+        ]
+      }
+    }
+  },
+  "decisions": {
+    "P1_policy_beats_best_fixed_on_mixed": true,
+    "P1_margin_vs_search": 0.1041,
+    "P2_recovers_on_novel": true,
+    "P2_gap": 0.0625,
+    "P3_probe_matters": true,
+    "P4_saves_steps_on_similar": true
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "seed": 2,
+  "budget_steps": 120,
+  "cap": 4,
+  "library": [
+    [
+      "sort_asc",
+      "double"
+    ],
+    [
+      "sort_desc",
+      "add_one"
+    ],
+    [
+      "double",
+      "add_one"
+    ]
+  ],
+  "probe": {
+    "similar": 0.417,
+    "novel": 0.222,
+    "mixed": 0.319
+  },
+  "policies": {
+    "policy-applicability": {
+      "weights": {
+        "memory_first": [
+          2.1142,
+          5.4752,
+          1.936
+        ],
+        "search": [
+          -0.8659,
+          -0.3775,
+          -0.8533
+        ]
+      },
+      "conditions": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "solved_rate": 0.9167
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "solved_rate": 1.0
+          },
+          "search": {
+            "accuracy": 0.8333,
+            "mean_steps": 72.0,
+            "solved_rate": 0.8333
+          },
+          "random-action": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.9143,
+            "accuracy": 1.0,
+            "mean_steps": 34.3
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.875,
+            "mean_steps": 40.2,
+            "solved_rate": 0.875
+          },
+          "memory_first": {
+            "accuracy": 0.875,
+            "mean_steps": 39.6,
+            "solved_rate": 0.875
+          },
+          "search": {
+            "accuracy": 0.9167,
+            "mean_steps": 36.7,
+            "solved_rate": 0.9167
+          },
+          "random-action": {
+            "accuracy": 0.9583,
+            "mean_steps": 34.9,
+            "mean_reward": 0.8752,
+            "decisions": {
+              "search": 9,
+              "memory_first": 15
+            }
+          },
+          "learned-policy": {
+            "accuracy": 0.9583,
+            "mean_steps": 34.3,
+            "mean_reward": 0.8767,
+            "decisions": {
+              "search": 8,
+              "memory_first": 16
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9583,
+            "mean_steps": 36.2,
+            "decisions": {
+              "search": 8,
+              "memory_first": 16
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.8969,
+            "accuracy": 0.9583,
+            "mean_steps": 26.3
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8958,
+            "mean_steps": 46.7,
+            "solved_rate": 0.8958
+          },
+          "memory_first": {
+            "accuracy": 0.9375,
+            "mean_steps": 41.3,
+            "solved_rate": 0.9375
+          },
+          "search": {
+            "accuracy": 0.875,
+            "mean_steps": 54.3,
+            "solved_rate": 0.875
+          },
+          "random-action": {
+            "accuracy": 0.9583,
+            "mean_steps": 39.8,
+            "mean_reward": 0.863,
+            "decisions": {
+              "memory_first": 39,
+              "search": 9
+            }
+          },
+          "learned-policy": {
+            "accuracy": 0.9792,
+            "mean_steps": 38.6,
+            "mean_reward": 0.8846,
+            "decisions": {
+              "memory_first": 40,
+              "search": 8
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9375,
+            "mean_steps": 44.7,
+            "decisions": {
+              "memory_first": 40,
+              "search": 8
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.9056,
+            "accuracy": 0.9792,
+            "mean_steps": 30.3
+          }
+        }
+      }
+    },
+    "policy-blind": {
+      "weights": {
+        "memory_first": [
+          1.4813,
+          0.0,
+          1.1329
+        ],
+        "search": [
+          -0.5547,
+          0.0,
+          -0.5234
+        ]
+      },
+      "conditions": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "solved_rate": 0.9167
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "solved_rate": 1.0
+          },
+          "search": {
+            "accuracy": 0.8333,
+            "mean_steps": 72.0,
+            "solved_rate": 0.8333
+          },
+          "random-action": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_reward": 0.8926,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.9143,
+            "accuracy": 1.0,
+            "mean_steps": 34.3
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.875,
+            "mean_steps": 40.2,
+            "solved_rate": 0.875
+          },
+          "memory_first": {
+            "accuracy": 0.875,
+            "mean_steps": 39.6,
+            "solved_rate": 0.875
+          },
+          "search": {
+            "accuracy": 0.9167,
+            "mean_steps": 36.7,
+            "solved_rate": 0.9167
+          },
+          "random-action": {
+            "accuracy": 0.9167,
+            "mean_steps": 38.2,
+            "mean_reward": 0.8299,
+            "decisions": {
+              "search": 2,
+              "memory_first": 22
+            }
+          },
+          "learned-policy": {
+            "accuracy": 0.875,
+            "mean_steps": 39.6,
+            "mean_reward": 0.7892,
+            "decisions": {
+              "memory_first": 24
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9583,
+            "mean_steps": 36.2,
+            "decisions": {
+              "search": 8,
+              "memory_first": 16
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.8969,
+            "accuracy": 0.9583,
+            "mean_steps": 26.3
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8958,
+            "mean_steps": 46.7,
+            "solved_rate": 0.8958
+          },
+          "memory_first": {
+            "accuracy": 0.9375,
+            "mean_steps": 41.3,
+            "solved_rate": 0.9375
+          },
+          "search": {
+            "accuracy": 0.875,
+            "mean_steps": 54.3,
+            "solved_rate": 0.875
+          },
+          "random-action": {
+            "accuracy": 0.9167,
+            "mean_steps": 42.5,
+            "mean_reward": 0.8192,
+            "decisions": {
+              "memory_first": 47,
+              "search": 1
+            }
+          },
+          "learned-policy": {
+            "accuracy": 0.9375,
+            "mean_steps": 41.3,
+            "mean_reward": 0.8409,
+            "decisions": {
+              "memory_first": 48
+            }
+          },
+          "probe-rule": {
+            "accuracy": 0.9375,
+            "mean_steps": 44.7,
+            "decisions": {
+              "memory_first": 40,
+              "search": 8
+            }
+          },
+          "oracle": {
+            "mean_reward": 0.9056,
+            "accuracy": 0.9792,
+            "mean_steps": 30.3
+          }
+        }
+      }
+    }
+  }
+}

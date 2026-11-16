@@ -69,6 +69,39 @@ macros sí, y hacen el mismo trabajo con 26 % menos cómputo** — mientras la
 distribución se mantenga. Acumular sin criterio empeora. El controlador que debía
 decidir *cuándo* confiar en lo guardado falló y lo publico como fallo.
 
+## La política aprende a cambiar; su instrumento la arruina (006)
+
+Prototipo 006-A, protocolo congelado en `frozen.sha256` (protocolo + código +
+datos), evaluado en semillas no usadas para diseñar. Decisión binaria por tarea:
+usar la biblioteca (profundidad 2, macros primero) o buscar (profundidad 3).
+
+| Condición | Similar | Novel | Mixto | Pasos (mixto) |
+|---|---|---|---|---|
+| Buscar sin memoria | 81,3 % | 85,4 % | 83,3 % | 59,6 |
+| Macros primero | 100 % | 81,3 % | 90,6 % | 44,5 |
+| **Política aprendida** | **100 %** | **87,5 %** | **93,8 %** | **42,3** |
+| Política ciega (control) | 100 % | 81,3 % | 90,6 % | 44,5 |
+
+Las cuatro predicciones congeladas se cumplieron: la política iguala al oráculo en
+el conjunto mixto y recupera **+6,25 pp** en tareas nuevas. Pero el probe de
+aplicabilidad cuesta **96–122 pasos** por tarea y la decisión solo ahorra **29**:
+**la política no paga su propio instrumento.** Para el 007, el probe tiene que ser
+barato —cacheado por firma o índice— o no hay política.
+
+## Un agente real acierta 46,9 % (006-B)
+
+`gpt-6-luna` (esfuerzo `low`), sin historial, sin herramientas, tres ejemplos por
+tarea, 64 tareas: **30/64 = 46,9 %**. Nuestro BFS de profundidad 2 acierta 51,6 % y
+el de profundidad 3, 100 %.
+
+Dos consecuencias:
+
+- **El banco no está saturado** por un agente general. La frase «el espacio es
+  diminuto y enumerable» vale para el solucionador exhaustivo, no para un LLM.
+- **Los fallos del agente son de resolución, no de memoria.** Abren el experimento
+  que de verdad importa: darle un procedimiento recuperado y medir si sube del
+  47 % al techo.
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64
@@ -113,6 +146,8 @@ que el 004 retiró.
 | [prototipo-003-aprendizaje/](resources/investigation/prototipo-003-aprendizaje/) | Registro exploratorio; su conclusión fue retirada por el 004 |
 | [prototipo-004-validez/](resources/investigation/prototipo-004-validez/) | Validación con protocolo congelado: las macros no amplían capacidad |
 | [prototipo-005-presupuesto/](resources/investigation/prototipo-005-presupuesto/) | Memoria bajo presupuesto: continuidad, orden y acumulación |
+| [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
+| [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Test de techo: `gpt-6-luna` acierta 46,9 % |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |
