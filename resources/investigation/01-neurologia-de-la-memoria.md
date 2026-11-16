@@ -119,6 +119,134 @@ y versión.
 La amígdala modula la consolidación de lo emocionalmente relevante (McGaugh,
 2004). No guarda el recuerdo: le pone una etiqueta que decide cuánto se refuerza.
 
+### 2.9 Taxonomía de los sistemas de memoria
+
+Squire (2004) ordena la memoria en dos grandes ramas con circuitos distintos:
+
+```
+Memoria declarativa (explícita)
+├── Episódica   → hipocampo + lóbulo temporal medial
+└── Semántica   → corteza temporal y asociativa
+
+Memoria no declarativa (implícita)
+├── Procedimental (habilidades) → ganglios basales
+├── Priming perceptual          → neocorteza
+├── Condicionamiento clásico    → amígdala / cerebelo
+└── No asociativo (habituación) → vías reflejas
+```
+
+No son "niveles" de la misma cosa: son sistemas con sustratos, dinámicas y
+patologías propias. Un amnésico puede perder episodios y conservar habilidades.
+
+**Implicación:** un solo índice vectorial mezcla tipos de memoria que el cerebro
+mantiene separados. Conocimiento, episodios, procedimientos y miedos necesitan
+estructuras y políticas distintas.
+
+### 2.10 Plasticidad sináptica: la fuerza tiene historia
+
+- **Potenciación a largo plazo (LTP)** (Bliss y Lømo, 1973): la coactivación
+  repetida fortalece la sinapsis.
+- **Depresión a largo plazo (LTD)**: el patrón opuesto la debilita.
+- **Plasticidad dependiente del tiempo de espiga (STDP)** (Bi y Poo, 1998): el
+  orden temporal importa; antes-después fortalece, después-antes debilita.
+- **Metaplasticidad**: la historia previa cambia la facilidad para plasticidad
+  futura.
+- **Etiquetado sináptico** (Frey y Morris, 1997): una marca local permite que
+  una señal global convierta un cambio débil en duradero.
+
+**Implicación:** el peso de una asociación no es un booleano, es una función de
+la historia (co-ocurrencias, orden, resultado). Y la plasticidad tiene techo:
+sin metaplasticidad, el sistema oscila entre rigidez y caos.
+
+### 2.11 Mapas cognitivos: generalizar es navegar estructura
+
+- **Células de lugar** (O'Keefe y Dostrovsky, 1971) y **células de rejilla**
+  (Moser y Moser): el hipocampo representa el espacio como un mapa.
+- **Mapa cognitivo** (Tolman, 1948): no es una lista de rutas, es una
+  representación relacional que permite atajos.
+- **Mapas de conocimiento** (Behrens et al., 2018): el mismo mecanismo soporta
+  generalización entre tareas con estructura compartida; el hipocampo construye
+  mapas de relaciones, no solo de lugares.
+- **Replay y planificación** (Pfeiffer y Foster, 2013): el hipocampo simula
+  trayectorias futuras reutilizando secuencias.
+
+**Implicación:** un grafo de recuerdos debe capturar **relaciones** (causa,
+antes/después, parte/todo), no solo cercanía semántica. La transferencia entre
+dominios ocurre cuando dos problemas comparten estructura y el sistema puede
+navegar de uno a otro.
+
+### 2.12 Sueño: seleccionar, no copiar
+
+- **Ondas lentas + husos + ripples**: coordinación hipocampo–corteza durante el
+  sueño de ondas lentas (Buzsáki, 2015).
+- **Bucle cortico-hipocampal-cortical** (Rothschild, Eban y Frank, 2017):
+  reactivación y transferencia de información.
+- **Triaje de memoria** (Stickgold y Walker, 2013): el sueño no copia todo;
+  **selecciona**, integra y generaliza. Decide qué se queda, qué se transforma y
+  qué se descarta.
+- **REM**: integración asociativa y reconfiguración; no solo "descanso".
+
+**Implicación:** la consolidación ideal no es un resumen del día. Es un proceso
+de selección con criterios (saliencia, novedad, utilidad futura), que además
+prueba generalizaciones y descarta lo que no encaja.
+
+### 2.13 Dinámica de engramas: el olvido como accesibilidad
+
+- **Asignación de engramas** (Han et al., 2007): no todas las neuronas compiten
+  igual; la excitabilidad y CREB deciden quién entra en la huella.
+- **Olvido como plasticidad adaptativa** (Ryan y Frankland, 2022): olvidar no es
+  borrar la huella, es cambiar su **accesibilidad**. La memoria puede seguir ahí
+  y no poder recuperarse.
+- **Neurogénesis adulta y olvido** (Akers et al., 2014): integrar neuronas nuevas
+  degrada recuerdos viejos; el olvido es el precio de la plasticidad.
+- **Decaimiento vs. interferencia** (Hardt, Nader y Nadel, 2013): ambas cosas
+  ocurren; la pregunta es cuándo domina cada una.
+
+**Implicación:** el olvido debe implementarse como **cambio de estado de
+recuperación** (peso, claves, contexto), no como `DELETE`. Eso permite archivar,
+auditar y, a veces, recuperar lo "olvidado" con la clave correcta.
+
+### 2.14 Memoria, yo y futuro
+
+- **Memoria constructiva** (Schacter y Addis, 2007): recordar y imaginar el
+  futuro usan la misma maquinaria; la memoria sirve para simular, no solo para
+  archivar.
+- **Sistema de memoria del yo** (Conway, 2005): la identidad es una narrativa
+  jerárquica que filtra qué se recuerda y cómo.
+- **Pensamiento episódico futuro**: proyectar escenarios pasados a situaciones
+  nuevas es la base de la planificación.
+
+**Implicación:** un agente sin narrativa de sí mismo no puede decidir qué es
+relevante. Un "diario de identidad" (decisiones, valores, compromisos) es tan
+parte de la memoria como el índice técnico.
+
+### 2.15 Neurobiología de lo social
+
+- **Hipótesis del cerebro social** (Dunbar, 1998): el tamaño del neocórtex
+  correlaciona con el tamaño del grupo en primates; gran parte del cerebro se
+  dedica a gestionar relaciones.
+- **Memoria social**: rostros, voces, reputaciones e historias se almacenan con
+  carga afectiva y se recuperan por pistas sociales.
+- **Oxitocina y vasopresina**: modulan confianza, reconocimiento y sesgo
+  endogrupal (Kosfeld et al., 2005; De Dreu et al., 2010).
+
+**Implicación:** la memoria de personas/agentes (quién es confiable, quién falló,
+quién sabe qué) es un sistema propio, no un atributo de los hechos técnicos.
+
+### 2.16 Decisión: modelo vs. hábito
+
+- **Model-based vs. model-free** (Daw et al., 2011): el cerebro combina un
+  control deliberativo (simula consecuencias) con un control habitual (responde
+  a estímulos). El estrés y la práctica inclinan la balanza hacia el hábito.
+- **Control prefrontal** (Miller y Cohen, 2001): la corteza prefrontal mantiene
+  metas y sesga la competición entre representaciones.
+- **Hábitos** (Balleine y Dickinson; Graybiel, 2008): secuencias que se
+  automatizan y dejan de ser sensibles a la recompensa inmediata.
+
+**Implicación:** un agente necesita ambos modos: deliberación para lo nuevo y
+procedimientos automáticos para lo repetido. El riesgo es que el hábito se
+ejecute cuando la situación cambió; de ahí la importancia de la validez temporal.
+
 ## 3. Neuromoduladores como canales de control
 
 No hacen falta neuronas simuladas para usar su lógica. Cada neuromodulador es una
@@ -137,6 +265,13 @@ señal global que cambia *qué se codifica, cuánto se consolida y qué se recup
 codificar, que module consolidación, decaimiento y ranking de recuperación. Es
 la pieza que convierte "guardar todo" en "guardar lo que importa".
 
+La noradrenalina merece un matiz: la **teoría de ganancia adaptativa** (Aston-Jones
+y Cohen, 2005) propone que el locus coeruleus regula el equilibrio entre
+exploración y explotación. No es solo "arousal": es una señal de control que
+decide si el sistema se abre a información nueva o se concentra en la tarea
+actual. En un agente, ese canal puede modular la tasa de exploración del
+retrieval y la probabilidad de aceptar un esquema nuevo.
+
 ## 4. Principios computacionales derivables
 
 1. **Dos velocidades.** Rápido y específico arriba; lento y general abajo.
@@ -153,6 +288,18 @@ la pieza que convierte "guardar todo" en "guardar lo que importa".
    cien reglas locales.
 9. **La emoción etiqueta.** El fallo y la amenaza se recuerdan distinto.
 10. **Límite de memoria de trabajo.** El contexto se administra, no se llena.
+11. **La fuerza tiene historia.** Los pesos reflejan co-ocurrencia, orden y
+    resultado; no son etiquetas.
+12. **Generalizar es navegar estructura.** La transferencia ocurre entre
+    problemas que comparten forma, no entre textos parecidos.
+13. **Consolidar es seleccionar y abstraer.** No es copiar; es decidir qué
+    merece pasar y en qué forma.
+14. **Olvidar es cambiar accesibilidad.** Archivar, no borrar; regular claves,
+    no destruir.
+15. **La memoria sirve para simular el futuro.** Recordar es ensayar escenarios,
+    no reproducir películas.
+16. **Lo social es memoria de primer orden.** Personas, roles y confianza no son
+    metadatos: son contenido.
 
 ## 5. Qué NO copiar
 

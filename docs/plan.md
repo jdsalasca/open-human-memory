@@ -7,9 +7,10 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R1 — Investigación (completada)
 
-- Entregable: `resources/investigation/` con 9 documentos y bibliografía.
+- Entregable: `resources/investigation/` con 14 documentos, paper de trabajo y
+  bibliografía.
 - Criterio: cada mecanismo propuesto tiene fuente, traducción computacional y
-  riesgo declarado.
+  riesgo declarado; el paper integra la tesis y la somete a criterios de muerte.
 
 ### R2 — Documento de diseño
 

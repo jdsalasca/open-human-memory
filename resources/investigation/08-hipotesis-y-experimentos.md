@@ -22,9 +22,11 @@ elegante y aun así no servir.
 | H5 | La enseñanza explícita acelera el arranque de un agente nuevo | Sesiones hasta paridad de desempeño | ↓ |
 | H6 | El olvido selectivo mejora la precisión sin perder lo crítico | Precisión de recall; retención crítica | ↑ / = |
 | H7 | El campo estigmérgico mejora la coordinación multi-agente | Tareas duplicadas; tiempo de convergencia | ↓ |
+| H8 | Un régimen de validez explícito (tipo Weber) reduce la contaminación por rumores | % de recuerdos sin procedencia aceptados | ↓ |
+| H9 | Las políticas por dominio gestionan el trade-off transferencia/interferencia mejor que un índice único | Transferencia e interferencia medidas juntas | ↑ / ↓ |
 
-Hipótesis secundarias: menor tasa de contradicción (H8), menor costo por tarea
-exitosa (H9), mejor calibración de confianza (H10).
+Hipótesis secundarias: menor tasa de contradicción (H10), menor costo por tarea
+exitosa (H11), mejor calibración de confianza (H12).
 
 ## 3. Métricas operacionales
 

@@ -67,6 +67,38 @@ compartirlo.
 | Gobernanza | [C] | Reglas de escritura y procedencia | Políticas por pod | Contaminación | Burocracia |
 | Vínculos débiles | [B] | La novedad viene de lejos | Enlaces entre pods | Descubrimientos cruzados | Ruido |
 
+### F. Instituciones, psicología y biología comparada
+
+| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+|---|---|---|---|---|---|
+| Expediente y procedencia (Weber) | [C] | Un recuerdo vale por su respaldo | Autor, fecha, norma, estado | Trazabilidad | Burocracia |
+| Tres legitimidades | [C] | Cada conocimiento se valida distinto | Canon / prestigio / evidencia | Consistencia de validación | Rigidez |
+| Rutinización del carisma | [B] | La intuición exitosa se vuelve procedimiento | Episodio → playbook → regla | Reutilización | Jaula de hierro |
+| Reconstrucción y contaminación | [A] | Recuperar puede distorsionar | Fuente separada de interpretación | Tasa de confabulación | Parálisis por duda |
+| Olvido inducido por recuperación | [A] | Recordar A debilita B | Cuotas de diversidad en recall | Cobertura | Ruido |
+| Inhibición colaborativa | [A] | El grupo recuerda menos que la suma | Buffers individuales | Ítems únicos recuperados | Costo de coordinación |
+| Seguridad psicológica | [B] | Sin reporte seguro no hay aprendizaje del error | Registro de fallos sin castigo | Tasa de errores reportados | Impunidad |
+| Identidad narrativa | [B] | La identidad filtra relevancia | Diario de compromisos | Coherencia de decisiones | Rigidez identitaria |
+| Memoria por selección (inmune) | [B] | Variantes → resultado → amplificación | Playbooks competitivos | Mejora por ciclo | Convergencia local |
+| Período crítico / onboarding | [B] | El dialecto se aprende al entrar | Andamiaje temprano | Tiempo a paridad | Exclusión |
+| Identidad por señal | [B] | El nombre y el dialecto reconocen pertenencia | ID estable + glosario | Reconocimiento entre pods | Colusión |
+
+**Síntesis de las ampliaciones (09–12):**
+
+- **Weber** aporta la capa institucional: sin expediente, jurisdicción y reglas de
+  validez, la memoria compartida es un rumor. Su advertencia —la jaula de
+  hierro— es el límite superior de la consolidación.
+- **Psicología** aporta la higiene: la memoria reconstruye, se contamina, se
+  inhibe en grupo y se sesga hacia la decisión vigente. Procedencia,
+  contraevidencia y buffers individuales no son opcionales.
+- **Biología comparada** aporta la prueba de que la memoria puede ser externa
+  (moho), selectiva (inmune), química (bacteria) y cultural (cetáceos). También
+  aporta el antiejemplo: el pulpo es inteligente y solitario, y su conocimiento
+  muere con él.
+- **Humano vs. máquina** aporta el realismo: el trade-off transferencia /
+  interferencia es compartido (Holton et al., 2026), así que el sistema no puede
+  prometer eliminar la interferencia; solo gestionarla por dominio.
+
 ## 3. Los cinco subsistemas
 
 ```

@@ -38,13 +38,19 @@ empeora nada medible, no entra).
 | [06-estado-del-arte-computacional.md](06-estado-del-arte-computacional.md) | ¿Qué existe ya y dónde está el hueco real? |
 | [07-sintesis-mecanismos-y-diseno.md](07-sintesis-mecanismos-y-diseno.md) | ¿Qué construimos y por qué? |
 | [08-hipotesis-y-experimentos.md](08-hipotesis-y-experimentos.md) | ¿Cómo sabremos si funciona? |
-| [09-referencias.md](09-referencias.md) | Bibliografía completa |
+| [09-weber-y-la-memoria-burocratica.md](09-weber-y-la-memoria-burocratica.md) | ¿Cómo se institucionaliza la memoria? (Weber) |
+| [10-psicologia-de-la-memoria.md](10-psicologia-de-la-memoria.md) | ¿Cómo se distorsiona, interfiere y contagia la memoria? |
+| [11-biologia-comparada-y-sociobiologia.md](11-biologia-comparada-y-sociobiologia.md) | ¿Cómo recuerdan y transmiten otros seres vivos? |
+| [12-aprendizaje-humano-vs-maquinas.md](12-aprendizaje-humano-vs-maquinas.md) | ¿En qué se diferencian y qué se puede importar? |
+| [13-paper-el-riesgo-del-olvido.md](13-paper-el-riesgo-del-olvido.md) | Documento de trabajo: la tesis completa |
+| [14-referencias.md](14-referencias.md) | Bibliografía completa |
 
 ## Estado
 
-`v0.1` — revisión inicial. Los documentos 01–06 son la evidencia; 07 es la
-síntesis que alimenta el documento de diseño; 08 define el benchmark
-longitudinal que decidirá si la tesis se sostiene.
+`v0.2` — revisión ampliada. Los documentos 01–06 son la evidencia base; 07 es la
+síntesis que alimenta el diseño; 08 define el benchmark longitudinal; 09–12
+amplían con Weber, psicología, biología comparada y la comparación humano–máquina;
+13 es el documento de trabajo que integra la tesis; 14 es la bibliografía.
 
 ## La tesis en una frase
 
