@@ -144,10 +144,11 @@ a igual coste. Si una forma fija iguala o supera, **ese resultado no respalda la
 ventaja del selector evaluado**; las formas todavía podrían diferir entre tareas, y
 el selector podría ser deficiente o demasiado caro.
 
-**LIRE-001 (piloto ejecutado).** La misma regla de cuatro ramas en cinco
+**LIRE-001 (piloto ejecutado, negativo).** La misma regla de cuatro ramas en cinco
 representaciones (español, inglés, chino, español conciso, DSL), con tokens reales
-del modelo. Mide **fidelidad y coste de representar una competencia conocida**, no
-adquisición. Ver `../resources/investigation/lire-001/`.
+del modelo. Las prosas 8/8; el DSL 7/8. El chino usó 64 % menos caracteres y +2
+tokens de mediana. **No se demostró ahorro de tokens** y el DSL perdió fidelidad.
+Ver `../resources/investigation/lire-001/`.
 
 ---
 

@@ -75,11 +75,12 @@ herramienta contiene información, cambia la representación y puede modificar l
 política. Sin una regla operacional para asignar efectos, sirven para diseñar
 condiciones, no para atribuir causas.
 
-**Línea LIRE (en curso).** El canal de representación se estudia en
+**Línea LIRE (ejecutada, negativa).** El canal de representación se estudió en
 `../resources/investigation/lire-001/`: la misma regla de cuatro ramas en español,
 inglés, chino, español conciso y DSL simbólico, con **tokens reales** del modelo.
-Mide fidelidad y coste de representar una competencia conocida; no mide adquisición
-y no se presenta como tal.
+Las prosas conservaron 8/8; el DSL falló 1/8. El chino usó 64 % menos caracteres y
+**+2 tokens** de mediana. Los caracteres no predicen los tokens. No se demostró
+ahorro; se demostró que la escala del arnés domina.
 
 ---
 
@@ -328,6 +329,7 @@ Ninguna alcanza E3 (varias distribuciones) ni E4 (reproducción con tareas reale
 No es una arquitectura. No es una revisión de literatura
 (`../resources/investigation/revision-sistematica/`). No es un plan (`plan.md`). Es la afirmación que el plan
 debe poner a prueba, con sus canales, rivales y falsadores.
+
 
 
 

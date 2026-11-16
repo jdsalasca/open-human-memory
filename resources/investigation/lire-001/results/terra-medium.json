@@ -1,0 +1,1250 @@
+{
+  "model": "gpt-6.1-terra",
+  "effort": "medium",
+  "n_cases": 8,
+  "rules": {
+    "es": "Regla: 1) Si la lista tiene duplicados y su primer elemento es par, ord\u00e9nala de menor a mayor y suma 1 a cada elemento. 2) Si tiene duplicados y el primero es impar, ord\u00e9nala de mayor a menor. 3) Si no tiene duplicados y el \u00faltimo elemento es negativo, invierte el orden y duplica cada elemento. 4) En cualquier otro caso, invierte el orden, suma 1 a cada elemento y elimina el \u00faltimo.",
+    "en": "Rule: 1) If the list has duplicates and its first element is even, sort it ascending and add 1 to each element. 2) If it has duplicates and the first element is odd, sort it descending. 3) If it has no duplicates and the last element is negative, reverse the order and double each element. 4) Otherwise, reverse the order, add 1 to each element and drop the last.",
+    "zh": "\u89c4\u5219\uff1a1) \u5982\u679c\u5217\u8868\u6709\u91cd\u590d\u5143\u7d20\u4e14\u7b2c\u4e00\u4e2a\u5143\u7d20\u4e3a\u5076\u6570\uff0c\u6309\u4ece\u5c0f\u5230\u5927\u6392\u5e8f\u5e76\u5c06\u6bcf\u4e2a\u5143\u7d20\u52a0 1\u30022) \u5982\u679c\u6709\u91cd\u590d\u5143\u7d20\u4e14\u7b2c\u4e00\u4e2a\u5143\u7d20\u4e3a\u5947\u6570\uff0c\u6309\u4ece\u5927\u5230\u5c0f\u6392\u5e8f\u30023) \u5982\u679c\u6ca1\u6709\u91cd\u590d\u5143\u7d20\u4e14\u6700\u540e\u4e00\u4e2a\u5143\u7d20\u4e3a\u8d1f\u6570\uff0c\u53cd\u8f6c\u987a\u5e8f\u5e76\u5c06\u6bcf\u4e2a\u5143\u7d20\u4e58\u4ee5 2\u30024) \u5176\u4ed6\u60c5\u51b5\uff1a\u53cd\u8f6c\u987a\u5e8f\uff0c\u5c06\u6bcf\u4e2a\u5143\u7d20\u52a0 1\uff0c\u5e76\u5220\u9664\u6700\u540e\u4e00\u4e2a\u5143\u7d20\u3002",
+    "es_concise": "Dup + 1.\u00ba par \u2192 orden asc +1. Dup + 1.\u00ba impar \u2192 orden desc. Sin dup + \u00faltimo < 0 \u2192 invertir y \u00d72. Otro \u2192 invertir, +1, quitar \u00faltimo.",
+    "dsl": "IF has_duplicates(x) AND even(x[0]): ADD1(SORT_ASC(x))\nELIF has_duplicates(x) AND odd(x[0]): SORT_DESC(x)\nELIF NOT has_duplicates(x) AND x[-1] < 0: DOUBLE(REVERSE(x))\nELSE: DROP_LAST(ADD1(REVERSE(x)))"
+  },
+  "summary": {
+    "es": {
+      "correct": 8,
+      "n": 8,
+      "accuracy": 1.0,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "mean_input_tokens": 27771.1,
+      "mean_output_tokens": 54.9,
+      "mean_seconds": 8.13
+    },
+    "en": {
+      "correct": 8,
+      "n": 8,
+      "accuracy": 1.0,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "mean_input_tokens": 26073.0,
+      "mean_output_tokens": 49.2,
+      "mean_seconds": 8.01
+    },
+    "zh": {
+      "correct": 8,
+      "n": 8,
+      "accuracy": 1.0,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "mean_input_tokens": 26649.0,
+      "mean_output_tokens": 55.5,
+      "mean_seconds": 7.17
+    },
+    "es_concise": {
+      "correct": 8,
+      "n": 8,
+      "accuracy": 1.0,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "mean_input_tokens": 27181.9,
+      "mean_output_tokens": 53.6,
+      "mean_seconds": 7.45
+    },
+    "dsl": {
+      "correct": 7,
+      "n": 8,
+      "accuracy": 0.875,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "mean_input_tokens": 27185.0,
+      "mean_output_tokens": 53.6,
+      "mean_seconds": 6.82
+    }
+  },
+  "rows": [
+    {
+      "representation": "es",
+      "case": [
+        4,
+        1,
+        4,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 30610,
+      "cached_tokens": 28800,
+      "output_tokens": 60,
+      "reasoning_tokens": 36,
+      "seconds": 7.07
+    },
+    {
+      "representation": "es",
+      "case": [
+        2,
+        9,
+        2,
+        5
+      ],
+      "expected": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "answer": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 26075,
+      "cached_tokens": 24192,
+      "output_tokens": 52,
+      "reasoning_tokens": 28,
+      "seconds": 7.6
+    },
+    {
+      "representation": "es",
+      "case": [
+        3,
+        1,
+        3,
+        7
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 26073,
+      "cached_tokens": 24192,
+      "output_tokens": 58,
+      "reasoning_tokens": 34,
+      "seconds": 7.43
+    },
+    {
+      "representation": "es",
+      "case": [
+        5,
+        5,
+        2,
+        8
+      ],
+      "expected": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "answer": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 30597,
+      "cached_tokens": 14848,
+      "output_tokens": 46,
+      "reasoning_tokens": 22,
+      "seconds": 9.81
+    },
+    {
+      "representation": "es",
+      "case": [
+        7,
+        2,
+        0,
+        -1
+      ],
+      "expected": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "answer": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 26071,
+      "cached_tokens": 24192,
+      "output_tokens": 50,
+      "reasoning_tokens": 25,
+      "seconds": 6.86
+    },
+    {
+      "representation": "es",
+      "case": [
+        9,
+        4,
+        1,
+        -3
+      ],
+      "expected": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "answer": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 26071,
+      "cached_tokens": 24192,
+      "output_tokens": 48,
+      "reasoning_tokens": 23,
+      "seconds": 7.34
+    },
+    {
+      "representation": "es",
+      "case": [
+        8,
+        3,
+        6,
+        2
+      ],
+      "expected": [
+        3,
+        7,
+        4
+      ],
+      "answer": [
+        3,
+        7,
+        4
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 26073,
+      "cached_tokens": 24192,
+      "output_tokens": 63,
+      "reasoning_tokens": 41,
+      "seconds": 8.76
+    },
+    {
+      "representation": "es",
+      "case": [
+        1,
+        0,
+        5,
+        4
+      ],
+      "expected": [
+        5,
+        6,
+        1
+      ],
+      "answer": [
+        5,
+        6,
+        1
+      ],
+      "correct": true,
+      "chars": 385,
+      "bytes": 389,
+      "words": 73,
+      "input_tokens": 30599,
+      "cached_tokens": 14848,
+      "output_tokens": 62,
+      "reasoning_tokens": 40,
+      "seconds": 10.15
+    },
+    {
+      "representation": "en",
+      "case": [
+        4,
+        1,
+        4,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26060,
+      "cached_tokens": 24192,
+      "output_tokens": 22,
+      "reasoning_tokens": 0,
+      "seconds": 16.32
+    },
+    {
+      "representation": "en",
+      "case": [
+        2,
+        9,
+        2,
+        5
+      ],
+      "expected": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "answer": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26038,
+      "cached_tokens": 14848,
+      "output_tokens": 68,
+      "reasoning_tokens": 44,
+      "seconds": 6.95
+    },
+    {
+      "representation": "en",
+      "case": [
+        3,
+        1,
+        3,
+        7
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26060,
+      "cached_tokens": 24192,
+      "output_tokens": 45,
+      "reasoning_tokens": 21,
+      "seconds": 6.65
+    },
+    {
+      "representation": "en",
+      "case": [
+        5,
+        5,
+        2,
+        8
+      ],
+      "expected": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "answer": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26062,
+      "cached_tokens": 24192,
+      "output_tokens": 46,
+      "reasoning_tokens": 22,
+      "seconds": 6.67
+    },
+    {
+      "representation": "en",
+      "case": [
+        7,
+        2,
+        0,
+        -1
+      ],
+      "expected": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "answer": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26058,
+      "cached_tokens": 24192,
+      "output_tokens": 49,
+      "reasoning_tokens": 24,
+      "seconds": 6.94
+    },
+    {
+      "representation": "en",
+      "case": [
+        9,
+        4,
+        1,
+        -3
+      ],
+      "expected": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "answer": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26123,
+      "cached_tokens": 24320,
+      "output_tokens": 48,
+      "reasoning_tokens": 23,
+      "seconds": 6.85
+    },
+    {
+      "representation": "en",
+      "case": [
+        8,
+        3,
+        6,
+        2
+      ],
+      "expected": [
+        3,
+        7,
+        4
+      ],
+      "answer": [
+        3,
+        7,
+        4
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26060,
+      "cached_tokens": 24192,
+      "output_tokens": 53,
+      "reasoning_tokens": 31,
+      "seconds": 6.63
+    },
+    {
+      "representation": "en",
+      "case": [
+        1,
+        0,
+        5,
+        4
+      ],
+      "expected": [
+        5,
+        6,
+        1
+      ],
+      "answer": [
+        5,
+        6,
+        1
+      ],
+      "correct": true,
+      "chars": 363,
+      "bytes": 363,
+      "words": 69,
+      "input_tokens": 26123,
+      "cached_tokens": 24320,
+      "output_tokens": 63,
+      "reasoning_tokens": 41,
+      "seconds": 7.03
+    },
+    {
+      "representation": "zh",
+      "case": [
+        4,
+        1,
+        4,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26076,
+      "cached_tokens": 24192,
+      "output_tokens": 53,
+      "reasoning_tokens": 29,
+      "seconds": 6.18
+    },
+    {
+      "representation": "zh",
+      "case": [
+        2,
+        9,
+        2,
+        5
+      ],
+      "expected": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "answer": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26054,
+      "cached_tokens": 24192,
+      "output_tokens": 68,
+      "reasoning_tokens": 44,
+      "seconds": 7.95
+    },
+    {
+      "representation": "zh",
+      "case": [
+        3,
+        1,
+        3,
+        7
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26076,
+      "cached_tokens": 24192,
+      "output_tokens": 46,
+      "reasoning_tokens": 22,
+      "seconds": 5.79
+    },
+    {
+      "representation": "zh",
+      "case": [
+        5,
+        5,
+        2,
+        8
+      ],
+      "expected": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "answer": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26078,
+      "cached_tokens": 24192,
+      "output_tokens": 45,
+      "reasoning_tokens": 21,
+      "seconds": 6.09
+    },
+    {
+      "representation": "zh",
+      "case": [
+        7,
+        2,
+        0,
+        -1
+      ],
+      "expected": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "answer": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26147,
+      "cached_tokens": 14848,
+      "output_tokens": 60,
+      "reasoning_tokens": 35,
+      "seconds": 8.46
+    },
+    {
+      "representation": "zh",
+      "case": [
+        9,
+        4,
+        1,
+        -3
+      ],
+      "expected": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "answer": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26076,
+      "cached_tokens": 24192,
+      "output_tokens": 50,
+      "reasoning_tokens": 25,
+      "seconds": 7.27
+    },
+    {
+      "representation": "zh",
+      "case": [
+        8,
+        3,
+        6,
+        2
+      ],
+      "expected": [
+        3,
+        7,
+        4
+      ],
+      "answer": [
+        3,
+        7,
+        4
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 30609,
+      "cached_tokens": 28800,
+      "output_tokens": 57,
+      "reasoning_tokens": 35,
+      "seconds": 8.07
+    },
+    {
+      "representation": "zh",
+      "case": [
+        1,
+        0,
+        5,
+        4
+      ],
+      "expected": [
+        5,
+        6,
+        1
+      ],
+      "answer": [
+        5,
+        6,
+        1
+      ],
+      "correct": true,
+      "chars": 139,
+      "bytes": 381,
+      "words": 8,
+      "input_tokens": 26076,
+      "cached_tokens": 24192,
+      "output_tokens": 65,
+      "reasoning_tokens": 43,
+      "seconds": 7.54
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        4,
+        1,
+        4,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26018,
+      "cached_tokens": 24192,
+      "output_tokens": 62,
+      "reasoning_tokens": 38,
+      "seconds": 7.63
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        2,
+        9,
+        2,
+        5
+      ],
+      "expected": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "answer": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 30684,
+      "cached_tokens": 14848,
+      "output_tokens": 57,
+      "reasoning_tokens": 33,
+      "seconds": 11.91
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        3,
+        1,
+        3,
+        7
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26014,
+      "cached_tokens": 24192,
+      "output_tokens": 45,
+      "reasoning_tokens": 21,
+      "seconds": 6.27
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        5,
+        5,
+        2,
+        8
+      ],
+      "expected": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "answer": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26079,
+      "cached_tokens": 24320,
+      "output_tokens": 47,
+      "reasoning_tokens": 23,
+      "seconds": 7.22
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        7,
+        2,
+        0,
+        -1
+      ],
+      "expected": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "answer": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 30612,
+      "cached_tokens": 14848,
+      "output_tokens": 49,
+      "reasoning_tokens": 24,
+      "seconds": 7.16
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        9,
+        4,
+        1,
+        -3
+      ],
+      "expected": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "answer": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26016,
+      "cached_tokens": 24192,
+      "output_tokens": 48,
+      "reasoning_tokens": 23,
+      "seconds": 6.43
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        8,
+        3,
+        6,
+        2
+      ],
+      "expected": [
+        3,
+        7,
+        4
+      ],
+      "answer": [
+        3,
+        7,
+        4
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26018,
+      "cached_tokens": 24192,
+      "output_tokens": 64,
+      "reasoning_tokens": 42,
+      "seconds": 6.66
+    },
+    {
+      "representation": "es_concise",
+      "case": [
+        1,
+        0,
+        5,
+        4
+      ],
+      "expected": [
+        5,
+        6,
+        1
+      ],
+      "answer": [
+        5,
+        6,
+        1
+      ],
+      "correct": true,
+      "chars": 133,
+      "bytes": 146,
+      "words": 31,
+      "input_tokens": 26014,
+      "cached_tokens": 24192,
+      "output_tokens": 57,
+      "reasoning_tokens": 35,
+      "seconds": 6.3
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        4,
+        1,
+        4,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        5
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26041,
+      "cached_tokens": 24192,
+      "output_tokens": 52,
+      "reasoning_tokens": 28,
+      "seconds": 6.98
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        2,
+        9,
+        2,
+        5
+      ],
+      "expected": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "answer": [
+        3,
+        3,
+        6,
+        10
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 30633,
+      "cached_tokens": 14848,
+      "output_tokens": 53,
+      "reasoning_tokens": 29,
+      "seconds": 6.56
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        3,
+        1,
+        3,
+        7
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26037,
+      "cached_tokens": 24192,
+      "output_tokens": 45,
+      "reasoning_tokens": 21,
+      "seconds": 6.06
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        5,
+        5,
+        2,
+        8
+      ],
+      "expected": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "answer": [
+        8,
+        5,
+        5,
+        2
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26041,
+      "cached_tokens": 24192,
+      "output_tokens": 45,
+      "reasoning_tokens": 21,
+      "seconds": 7.15
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        7,
+        2,
+        0,
+        -1
+      ],
+      "expected": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "answer": [
+        -2,
+        0,
+        4,
+        14
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26017,
+      "cached_tokens": 24192,
+      "output_tokens": 61,
+      "reasoning_tokens": 36,
+      "seconds": 7.79
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        9,
+        4,
+        1,
+        -3
+      ],
+      "expected": [
+        -6,
+        2,
+        8,
+        18
+      ],
+      "answer": [
+        -2,
+        2,
+        5
+      ],
+      "correct": false,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26037,
+      "cached_tokens": 24192,
+      "output_tokens": 53,
+      "reasoning_tokens": 30,
+      "seconds": 5.93
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        8,
+        3,
+        6,
+        2
+      ],
+      "expected": [
+        3,
+        7,
+        4
+      ],
+      "answer": [
+        3,
+        7,
+        4
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 26104,
+      "cached_tokens": 24320,
+      "output_tokens": 61,
+      "reasoning_tokens": 39,
+      "seconds": 6.07
+    },
+    {
+      "representation": "dsl",
+      "case": [
+        1,
+        0,
+        5,
+        4
+      ],
+      "expected": [
+        5,
+        6,
+        1
+      ],
+      "answer": [
+        5,
+        6,
+        1
+      ],
+      "correct": true,
+      "chars": 200,
+      "bytes": 200,
+      "words": 20,
+      "input_tokens": 30570,
+      "cached_tokens": 28800,
+      "output_tokens": 59,
+      "reasoning_tokens": 37,
+      "seconds": 7.98
+    }
+  ]
+}

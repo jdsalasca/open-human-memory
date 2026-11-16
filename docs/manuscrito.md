@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 51 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 55 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -517,7 +517,7 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-51 afirmaciones en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
+55 afirmaciones en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
 replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró
@@ -529,5 +529,6 @@ replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 - «96 episodios no caben en una ventana» (no se midió).
 - «JANUS es novedoso» (la verificación operacional ya existe).
 - «El procedimiento retenido ayuda» (007: empata con un placebo falso).
+
 
 

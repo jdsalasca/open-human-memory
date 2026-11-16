@@ -77,6 +77,7 @@ empeora nada medible, no entra).
 | [prototipo-006-politica/](prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
 | [prototipo-007-transferencia/](prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
+| [lire-001/](lire-001/) | Representación: chino ahorra caracteres, no tokens |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
 | [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |

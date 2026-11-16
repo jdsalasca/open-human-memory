@@ -98,15 +98,24 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | G2 | Un procedimiento verificado presentado como programa completo perjudica la composición (8/0) | Sostenida | E2 local | Repetir sin el anclaje del prompt |
 | G3 | Presentado como subrutina, no supera a un placebo (11/11) | Sostenida | E2 local | Un artefacto necesario, no solo útil |
 
+## H. Representación (LIRE-001)
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| L1 | La representación cambia los tokens reales de entrada | **No demostrada** | E2 local | Diferencia ≤ 61 tokens entre medianas, dentro del ruido del arnés |
+| L2 | La fidelidad se conserva en las cinco representaciones | **Refutada parcialmente** | E2 local | DSL 7/8; las prosas 8/8 |
+| L3 | El DSL conserva el acierto con menos tokens | **Refutada** | E2 local | Sin ahorro medible y un fallo de rama |
+| L4 | Menos caracteres implican menos tokens | **Refutada** | E2 local | Chino −64 % caracteres, +2 tokens de mediana |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
 - **34 sostenidas**: 29 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **8 refutadas**, incluidas nuestras dos hipótesis principales.
-- **9 abiertas o inválidas**, y son justo las que responderían la pregunta del
-  proyecto.
+- **11 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
+- **10 abiertas, inválidas o no demostradas**, y son justo las que responderían la
+  pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**
 

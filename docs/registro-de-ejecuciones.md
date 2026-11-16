@@ -146,7 +146,21 @@ Los smokes de calibración (n=1, n=3, profundidades 7 y 9, n=4) usaron 53 llamad
 adicionales y no se reportan como evidencia. El de n=3 se ejecutó con los probes de
 verificación defectuosos; corregidos antes de las corridas principales.
 
-## 5. Revisión de literatura
+## 5. LIRE-001 (representación)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6.1-terra` |
+| `reasoning_effort` | `medium` |
+| Llamadas | 40 (5 representaciones × 8 casos) |
+| Métrica | acierto exacto + `input_tokens`/`output_tokens` de `--json` |
+| Resultado | prosas 8/8; DSL 7/8; chino −64 % caracteres, +2 tokens |
+| Archivo | `lire-001/results/terra-medium.json` |
+
+El `input_tokens` incluye ~26.000 tokens del arnés; la comparación válida es la
+diferencia entre representaciones (≤61 tokens de mediana).
+
+## 6. Revisión de literatura
 
 | Campo | Valor |
 |---|---|
@@ -161,7 +175,7 @@ Reproducir: `resources/investigation/revision-sistematica/busquedas.md`.
 
 ---
 
-## 6. Versiones y artefactos
+## 7. Versiones y artefactos
 
 | Artefacto | Versión / commit |
 |---|---|

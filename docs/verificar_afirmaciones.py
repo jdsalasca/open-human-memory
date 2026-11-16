@@ -23,6 +23,8 @@ def classify(line: str) -> str:
     low = line.lower()
     if "refutada" in low:
         return "refutada"
+    if "no demostrada" in low:
+        return "no_demostrada"
     if "inválida" in low or "invalida" in low:
         return "inválida"
     if "abierta" in low:
@@ -43,6 +45,7 @@ def main() -> None:
         "abierta": 0,
         "inválida": 0,
         "declarada": 0,
+        "no_demostrada": 0,
         "otra": 0,
     }
     for line in rows:

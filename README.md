@@ -192,6 +192,28 @@ tiene margen. Resultado negativo de calibración, no evidencia contra la
 transferencia. Detalle en
 [`prototipo-007-transferencia/`](resources/investigation/prototipo-007-transferencia/).
 
+## LIRE-001: el chino ahorra caracteres, no tokens (negativo)
+
+Una regla de cuatro ramas en cinco representaciones, con **tokens reales** de
+`gpt-6.1-terra` medium:
+
+| Representación | Acierto | Caracteres | Bytes | Tokens (mediana) |
+|---|---|---|---|---|
+| Español | **8/8** | 385 | 389 | 26.074 |
+| Inglés | **8/8** | 363 | 363 | 26.060 |
+| Chino | **8/8** | **139** | 381 | 26.076 |
+| Español conciso | **8/8** | 133 | **146** | 26.018 |
+| DSL simbólico | **7/8** | 200 | 200 | 26.041 |
+
+- **El chino usa 64 % menos caracteres y +2 tokens.** Los caracteres no predicen los
+  tokens; los bytes tampoco (381 vs 389).
+- **El DSL compacto perdió un caso**: aplicó la rama equivocada. Compacto no es
+  fiel.
+- El arnés aporta ~26.000 tokens; las diferencias entre representaciones caben en el
+  ruido. **No se puede afirmar ahorro.**
+
+Detalle y límites en [`lire-001/`](resources/investigation/lire-001/).
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64
@@ -239,6 +261,7 @@ que el 004 retiró.
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Línea base del agente: 46,9 % |
 | [prototipo-007-transferencia/](resources/investigation/prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
+| [lire-001/](resources/investigation/lire-001/) | Representación: chino ahorra caracteres, no tokens |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
 | [teoria.md](docs/teoria.md) | **Documento central:** canales, rivales y predicciones |
 | [registro-de-afirmaciones.md](docs/registro-de-afirmaciones.md) | Qué sostenemos, qué refutamos y qué está abierto |
@@ -288,5 +311,6 @@ https://github.com/jdsalasca/open-human-memory
 Documentos de trabajo, no arbitrados. La afiliación MIT es la declarada por el
 autor humano y debe verificarse antes de un envío; la participación de IA debe
 declararse conforme a las normas del venue.
+
 
 
