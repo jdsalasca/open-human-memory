@@ -262,6 +262,25 @@ contradicciones, transferencia negativa, abstención correcta.
 **Criterio de muerte:** si E no supera a C o D en las primarias, la complejidad
 adicional no se justifica.
 
+### 11.1 Nota empírica: prototipo 001 (sintético)
+
+El diagnóstico A–E se ejecutó con 200 tareas de entrenamiento, 50 de evaluación y
+tres semillas. Media de accuracy:
+
+| Condición | D1 | D2 | D3 |
+|---|---|---|---|
+| A sin memoria | 0.240 | 0.507 | 0.000 |
+| B retrieval | 0.980 | 0.993 | 0.027 |
+| C oráculo | 1.000 | 1.000 | 0.000 |
+| D procedimiento | 0.920 | 1.000 | 0.007 |
+| E abstracción | 0.487 | 0.000 | 0.000 |
+
+El instrumento separa las condiciones; en este juguete, retrieval y procedimiento
+se acercan al techo en familias conocidas, mientras la abstracción placeholder
+falla en familias nuevas. **JANUS no se probó todavía**: el prototipo valida el
+instrumento, no la hipótesis causal. El siguiente paso es conectar A–E a tareas
+reales y a un adaptador de política LLM.
+
 ## 12. Límites, seguridad y gobernanza
 
 - Estado parcialmente oculto: la identificación puede ser imposible.

@@ -188,6 +188,25 @@ Protocol `08-hipotesis-y-experimentos.md` v2.0:
 **Kill criterion:** if CUMULUS does not beat the simple rival on the primary
 metric with a 95% CI excluding zero, the architecture adds nothing.
 
+### 7.1 Empirical note: prototype 001 (synthetic)
+
+A synthetic diagnostic was run with 200 training tasks, 50 evaluation tasks, and
+three seeds (0, 1, 2). Mean accuracy:
+
+| Condition | D1 | D2 | D3 |
+|---|---|---|---|
+| A no memory | 0.240 | 0.507 | 0.000 |
+| B retrieval | 0.980 | 0.993 | 0.027 |
+| C oracle | 1.000 | 1.000 | 0.000 |
+| D procedure | 0.920 | 1.000 | 0.007 |
+| E abstraction | 0.487 | 0.000 | 0.000 |
+
+The instrument separates the conditions and confirms the oracle ceiling. In this
+toy, retrieval and procedure approach the ceiling on known families; the
+implemented family-level abstraction does not transfer to a new family. This is a
+result about the **instrument**, not about CUMULUS or an LLM. Details and
+reproduction in `prototipo-001-diagnostico/`.
+
 ## 8. Limits and safety
 
 - Transfer may be partial; report it.

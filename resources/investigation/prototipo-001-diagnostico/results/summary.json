@@ -1,0 +1,129 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "rows": [
+    {
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "mean_accuracy": 0.24,
+      "min": 0.2,
+      "max": 0.26,
+      "n": 3
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "mean_accuracy": 0.5067,
+      "min": 0.4,
+      "max": 0.58,
+      "n": 3
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n": 3
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "mean_accuracy": 0.98,
+      "min": 0.96,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "mean_accuracy": 0.9933,
+      "min": 0.98,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "mean_accuracy": 0.0267,
+      "min": 0.02,
+      "max": 0.04,
+      "n": 3
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n": 3
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D1",
+      "mean_accuracy": 0.92,
+      "min": 0.76,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D3",
+      "mean_accuracy": 0.0067,
+      "min": 0.0,
+      "max": 0.02,
+      "n": 3
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D1",
+      "mean_accuracy": 0.4867,
+      "min": 0.44,
+      "max": 0.56,
+      "n": 3
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D2",
+      "mean_accuracy": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n": 3
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "n": 3
+    }
+  ]
+}

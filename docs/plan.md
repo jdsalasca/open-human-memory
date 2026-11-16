@@ -18,9 +18,13 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 ### R1.5 — Programa de competencia y diagnóstico
 
 - Entregable: `28-programa-de-competencia.md`,
-  `29-experimento-diagnostico.md` y harness `src/ohmem/` con tests.
+  `29-experimento-diagnostico.md`, harness `src/ohmem/` y
+  `prototipo-001-diagnostico/` con resultados crudos.
 - Criterio: el diagnóstico distingue memoria, selección, procedimiento y
   abstracción antes de construir otra arquitectura.
+- Resultado: el instrumento separa las condiciones; retrieval y procedimiento
+  alcanzan el techo en familias conocidas; la abstracción placeholder falla en
+  familias nuevas. No es un resultado sobre LLM.
 
 ### R2 — Documento de diseño
 

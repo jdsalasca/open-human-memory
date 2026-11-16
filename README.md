@@ -40,6 +40,23 @@ transferir; no hay evidencia de que se pueda hacer durante meses con deriva real
 ni de que la validación causal esté resuelta.** El programa estudia ambas cosas y,
 sobre todo, la corrección.
 
+## Primer resultado (sintético)
+
+Prototipo 001 compara sin memoria, retrieval, oráculo, procedimiento y
+abstracción en tres distribuciones. Media de 3 semillas:
+
+| Condición | D1 | D2 | D3 |
+|---|---|---|---|
+| A sin memoria | 0.240 | 0.507 | 0.000 |
+| B retrieval | 0.980 | 0.993 | 0.027 |
+| C oráculo | 1.000 | 1.000 | 0.000 |
+| D procedimiento | 0.920 | 1.000 | 0.007 |
+| E abstracción | 0.487 | 0.000 | 0.000 |
+
+Es un instrumento sintético, no un benchmark de LLM. Detalles, resultados crudos
+y reproducción en
+[`prototipo-001-diagnostico/`](resources/investigation/prototipo-001-diagnostico/).
+
 ## Por dónde empezar
 
 | Documento | Para qué |
@@ -47,6 +64,7 @@ sobre todo, la corrección.
 | [24-programa-de-investigacion-v2.md](resources/investigation/24-programa-de-investigacion-v2.md) | Horizontes, hipótesis y experimento diferencial A–E |
 | [28-programa-de-competencia.md](resources/investigation/28-programa-de-competencia.md) | Programa v3: continuidad, competencia y expansión |
 | [29-experimento-diagnostico.md](resources/investigation/29-experimento-diagnostico.md) | El experimento que decide qué capa importa |
+| [prototipo-001-diagnostico/](resources/investigation/prototipo-001-diagnostico/) | Resultados, reproducibilidad y lectura crítica |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

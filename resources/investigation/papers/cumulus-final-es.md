@@ -209,6 +209,25 @@ Protocolo `08-hipotesis-y-experimentos.md` v2.0:
 **Criterio de muerte:** si CUMULUS no supera al rival simple en la métrica
 primaria con IC 95% que excluya cero, la arquitectura no aporta.
 
+### 7.1 Nota empírica: prototipo 001 (sintético)
+
+Se ejecutó un diagnóstico sintético con 200 tareas de entrenamiento, 50 de
+evaluación y tres semillas (0, 1, 2). Media de accuracy:
+
+| Condición | D1 | D2 | D3 |
+|---|---|---|---|
+| A sin memoria | 0.240 | 0.507 | 0.000 |
+| B retrieval | 0.980 | 0.993 | 0.027 |
+| C oráculo | 1.000 | 1.000 | 0.000 |
+| D procedimiento | 0.920 | 1.000 | 0.007 |
+| E abstracción | 0.487 | 0.000 | 0.000 |
+
+El instrumento separa las condiciones y confirma el techo del oráculo. En este
+juguete, retrieval y procedimiento se acercan al techo en familias conocidas; la
+abstracción implementada (por familia) no transfiere a una familia nueva. Es un
+resultado del **instrumento**, no de CUMULUS ni de un LLM. Detalles y
+reproducción en `prototipo-001-diagnostico/`.
+
 ## 8. Límites y seguridad
 
 - La transferencia puede ser parcial; hay que reportarla.

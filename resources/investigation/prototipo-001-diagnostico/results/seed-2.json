@@ -1,0 +1,97 @@
+{
+  "seed": 2,
+  "n_train": 200,
+  "n_eval": 50,
+  "rows": [
+    {
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.26,
+      "memory_reads": 0
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.54,
+      "memory_reads": 0
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.96,
+      "memory_reads": 50
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.98,
+      "memory_reads": 50
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.02,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "D-procedure",
+      "distribution": "D3",
+      "accuracy": 0.02,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D1",
+      "accuracy": 0.44,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D2",
+      "accuracy": 0.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-abstraction",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "memory_reads": 0
+    }
+  ]
+}
