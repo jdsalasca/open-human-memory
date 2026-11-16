@@ -173,49 +173,51 @@ queda es una línea base de 46,9 % y una lista de cinco fallos metodológicos.
 Detalle en [`docs/errata-006b.md`](docs/errata-006b.md) y el plan en
 [`docs/problema-central.md`](docs/problema-central.md).
 
-## 007: retención real, reinicio y placebo (bloqueado en adquisición)
+## 007: retención real, reinicio y placebo (negativo)
 
 Primera prueba con retención genuina: el agente aprende un procedimiento, **nosotros
 lo verificamos** con 60 entradas, se reinicia el contexto y lo aplica a
 composiciones de cinco pasos.
 
-**Con `gpt-6-luna` low (modelo de experimentos), la sesión 1 no produjo un artefacto
-verificable:** devolvió `double → reverse → sort_desc`, que no reproduce el motivo.
-El experimento **abortó antes de la sesión 2**, como está diseñado. No hay datos de
-transferencia con el modelo válido: el cuello es la **adquisición**, no el uso.
+**Con `gpt-6-luna` low (modelo de experimentos), la adquisición falló con seis
+ejemplos:** el programa devuelto no reprodujo el motivo y el experimento **abortó
+antes de la sesión 2**, como está diseñado. Con **doce ejemplos y «exactamente dos
+operaciones»** verificó (`double → sort_asc`, equivalente).
 
-La corrida con terra (exploratoria, no evidencia) mostró:
-
-| Régimen (terra) | `clone` | `memory` | `placebo` |
+| Régimen (`luna` low) | `clone` | `memory` | `placebo` |
 |---|---|---|---|
-| 3 ejemplos | 12/12 | 11/12 | 12/12 |
-| 1 ejemplo, artefacto como programa completo | 10/12 | 2/12 | 11/12 |
-| 1 ejemplo, artefacto como subrutina | 9/12 | 11/12 | 11/12 |
+| 1 ejemplo de soporte | 0/12 | 0/12 | 2/12 |
+| 2 ejemplos de soporte | 1/12 | 3/12 | **6/12** |
 
-La memoria empató con un artefacto falso: la diferencia frente al clon era de
-contexto, no de conocimiento. Pero esas cifras **no cuentan como evidencia** porque
-el modelo era distinto. Detalle en
+Con un ejemplo, el clon está en el suelo. Con dos, **el placebo acierta el doble que
+la memoria** (cuatro tareas discordantes a favor del placebo, una a favor de la
+memoria; p = 0,38). El artefacto verificado no supera a uno falso: **no hay ventaja
+atribuible al contenido retenido**. La familia no tiene margen para medir
+transferencia; el siguiente paso es 007B con un dominio donde el clon falle y el
+artefacto sea necesario. Detalle en
 [`prototipo-007-transferencia/`](resources/investigation/prototipo-007-transferencia/).
+
+La corrida con terra (exploratoria, no evidencia) mostró el mismo problema por
+arriba: clon 9–12/12, memoria 11/12 y placebo 11/12. Tampoco discrimina.
 
 ## LIRE-001b: el ahorro de tokens se paga en fidelidad
 
-120 reglas, seis casos, **`gpt-6-luna` low** (modelo de experimentos):
+120 reglas, doce casos, **`gpt-6-luna` low** (modelo de experimentos):
 
 | Representación | Acierto | Caracteres | Bytes | Tokens (mín.) |
 |---|---|---|---|---|
-| Español | 4/6 | 9.267 | 9.388 | 28.230 |
-| Inglés | **6/6** | 9.034 | 9.034 | 28.107 |
-| Chino | **6/6** | **4.258** | 8.412 | 27.868 |
-| Español conciso | 4/6 | **3.052** | **3.295** | **26.532** |
-| DSL simbólico | 4/6 | 4.963 | 4.963 | 27.009 |
+| Español | 8/12 | 9.267 | 9.388 | 28.250 |
+| Inglés | 10/12 | 9.034 | 9.034 | 28.100 |
+| Chino | **11/12** | **4.258** | 8.412 | 27.861 |
+| Español conciso | 8/12 | **3.052** | **3.295** | **26.534** |
+| DSL simbólico | 7/12 | 4.963 | 4.963 | 27.009 |
 
-- **El ahorro es real pero pequeño:** 0,4–6,0 % de la llamada completa.
-- **Todos los fallos son de condición:** el modelo encuentra la regla correcta y no
-  comprueba el umbral; devuelve `S051` donde tocaba `NONE`. No es un fallo de
-  búsqueda.
-- **El chino es el mejor compromiso:** 6/6 y −1,3 % de tokens.
-- **El español conciso y el DSL ahorran más y fallan más:** 2/6 cada uno, siempre en
-  los casos `NONE`.
+- **El ahorro es real pero pequeño:** 0,5–6,1 % de la llamada completa.
+- **Todos los fallos son de umbral:** el modelo devuelve el código correcto con el
+  estado equivocado, o `NONE` en un caso válido. No es un fallo de búsqueda.
+- **El chino es el mejor compromiso:** 11/12 y −1,4 % de tokens.
+- **El español conciso y el DSL ahorran más y fallan más:** 4–5 de 12, incluyendo
+  falsos negativos.
 - La corrida con terra (6/6 en todas) es **exploratoria y no se usa**.
 
 Detalle y límites en [`lire-001b/`](resources/investigation/lire-001b/).

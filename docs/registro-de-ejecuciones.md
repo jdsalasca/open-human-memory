@@ -140,11 +140,11 @@ decisión del autor y no se usa.
 | Modelo | `gpt-6-luna` (evidencia) · `gpt-6.1-terra` (exploratorio) |
 | Esfuerzo | `low` (evidencia) · `medium` (exploratorio) |
 | CLI | `codex-cli 0.169.0` |
-| Llamadas principales | 37 con luna (abortó en sesión 1) · 111 con terra (exploratorio) |
-| Tareas | 12 por condición (terra) |
+| Llamadas principales | 37 con luna, 6 ejemplos (abortó en sesión 1) · 74 con luna, 12 ejemplos y soporte 1–2 · 111 con terra (exploratorio) |
+| Tareas | 12 por condición |
 | Condiciones | `clone`, `memory`, `placebo` |
-| Resultado | **luna: sesión 1 no verificó; abortado antes de la sesión 2** · terra: subrutina 9/11/11; programa completo 10/2/11; 3 ejemplos 12/11/12 |
-| Archivos | `prototipo-007-transferencia/results/terra-medium-*.json` |
+| Resultado | **luna: con 6 ejemplos la sesión 1 no verificó (abortado); con 12 ejemplos verificó. Soporte 1: 0/0/2. Soporte 2: 1/3/6 — el placebo supera a la memoria** · terra: subrutina 9/11/11; programa completo 10/2/11; 3 ejemplos 12/11/12 |
+| Archivos | `prototipo-007-transferencia/results/luna-low-support1-12ex.json`, `luna-low-support2-12ex.json`, `terra-medium-*.json` |
 
 Los smokes de calibración (n=1, n=3, profundidades 7 y 9, n=4) usaron 53 llamadas
 adicionales y no se reportan como evidencia. El de n=3 se ejecutó con los probes de
@@ -156,10 +156,10 @@ verificación defectuosos; corregidos antes de las corridas principales.
 |---|---|
 | Modelo | `gpt-6-luna` (evidencia) · `gpt-6.1-terra` (exploratorio) |
 | Esfuerzo | `low` (evidencia) · `medium` (exploratorio) |
-| Llamadas | 30 con luna · 30 con terra (exploratorio) |
+| Llamadas | 60 con luna · 30 con terra (exploratorio) |
 | Métrica | acierto + `input_tokens` mínimo por representación |
-| Resultado | **luna: inglés y chino 6/6; español, conciso y DSL 4/6; ahorro 0,4–6,0 %** |
-| Archivo | `lire-001b/results/luna-low.json` (evidencia), `terra-medium.json` (exploratorio) |
+| Resultado | **luna (12 casos): chino 11/12; inglés 10/12; español 8/12; conciso 8/12; DSL 7/12; ahorro 0,5–6,1 %** |
+| Archivo | `lire-001b/results/luna-low-12cases.json` (evidencia), `luna-low.json` (6 casos), `terra-medium.json` (exploratorio) |
 
 LIRE-001 (regla corta) se ejecutó solo con terra y queda como exploratorio: el arnés
 dominaba la medición. No se usa como evidencia.

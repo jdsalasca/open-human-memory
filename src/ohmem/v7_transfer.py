@@ -58,9 +58,9 @@ SESSION1_PROMPT = """Has resuelto tareas de transformación de listas. Cada fila
 un par entrada -> salida. Las operaciones disponibles son: {ops}.
 
 {examples}
-
-¿Qué programa de 1 a 4 operaciones reproduce todos los pares? Responde con la
-secuencia de operaciones, sin explicación."""
+{hint}
+¿Qué programa reproduce todos los pares? Responde con la secuencia de operaciones,
+sin explicación."""
 
 SESSION2_PROMPT = """Resuelve esta tarea de transformación de listas. Las
 operaciones disponibles son: {ops}.
@@ -85,10 +85,11 @@ def extra_examples(
     ]
 
 
-def session1_prompt() -> str:
-    pairs = extra_examples(MOTIF, 6, "session1")
-    examples = "\n".join(f"{list(x)} -> {list(y)}" for x, y in pairs)
-    return SESSION1_PROMPT.format(ops=", ".join(OPS), examples=examples)
+def session1_prompt(examples: int = 6, exact_ops: bool = False) -> str:
+    pairs = extra_examples(MOTIF, examples, "session1")
+    rows = "\n".join(f"{list(x)} -> {list(y)}" for x, y in pairs)
+    hint = "El programa tiene exactamente 2 operaciones." if exact_ops else ""
+    return SESSION1_PROMPT.format(ops=", ".join(OPS), examples=rows, hint=hint)
 
 
 def session2_prompt(task, extra: str, support: int = 3) -> str:
@@ -185,6 +186,9 @@ def main() -> None:
     parser.add_argument("--n", type=int, default=12)
     parser.add_argument("--suffix", type=int, default=3)
     parser.add_argument("--support", type=int, default=3)
+    parser.add_argument("--session1-examples", type=int, default=6)
+    parser.add_argument("--exact-ops", action="store_true")
+    parser.add_argument("--session1-only", action="store_true")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--model", default="gpt-6.1-terra")
     parser.add_argument("--effort", default="medium")
@@ -194,13 +198,34 @@ def main() -> None:
 
     # Session 1: learn and verify a procedure.
     learned = run_codex(
-        session1_prompt(), SESSION1_SCHEMA, args.model, args.effort, args.timeout
+        session1_prompt(args.session1_examples, args.exact_ops),
+        SESSION1_SCHEMA,
+        args.model,
+        args.effort,
+        args.timeout,
     )
     program = (learned["payload"] or {}).get("program")
     verified = verify(program)
     print(
         f"session1 program={program} verified={verified} seconds={learned['seconds']}"
     )
+
+    if args.session1_only:
+        summary = {
+            "model": args.model,
+            "effort": args.effort,
+            "session1_examples": args.session1_examples,
+            "exact_ops": args.exact_ops,
+            "session1": {
+                "program": program,
+                "verified": verified,
+                "seconds": learned["seconds"],
+            },
+            "session1_only": True,
+        }
+        Path(args.out).write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        print("session1 only")
+        return
 
     if not verified:
         summary = {

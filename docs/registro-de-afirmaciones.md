@@ -92,13 +92,16 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## G. Retención y transferencia (Prototipo 007)
 
-> **Exploratorio.** Las cifras de esta sección son de `gpt-6.1-terra` medium y no
-> cuentan como evidencia. La evidencia válida es la de `gpt-6-luna` low.
+> **Evidencia:** `gpt-6-luna` low, 12 tareas por condición. Las cifras de
+> `gpt-6.1-terra` medium son exploratorias y no cuentan como evidencia.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| G1 | Con `luna` low, la sesión 1 no produjo un artefacto verificado (devolvió 3 operaciones que no reproducen el motivo); el 007 abortó antes de la sesión 2 | Sostenida (local) | E2 local | Un prompt o motivo que sí verifique |
-| G2 | La transferencia del procedimiento retenido no está medida con el modelo de experimentos | Abierta | — | Ejecutar 007 con un artefacto verificado |
+| G1 | Con 6 ejemplos, `luna` no produjo un artefacto verificado y el 007 abortó antes de la sesión 2 | Sostenida (local) | E2 local | Un prompt o motivo que sí verifique |
+| G2 | Con 12 ejemplos y «exactamente 2 operaciones», `luna` verifica el motivo (`double → sort_asc`) | Sostenida (local) | E2 local | Un motivo que no verifique con ese prompt |
+| G3 | Con 1 ejemplo de soporte, el clon queda en 0/12 y la familia no discrimina (memoria 0/12, placebo 2/12) | Sostenida (local) | E2 local | Clon entre 20 % y 80 % |
+| G4 | Con 2 ejemplos de soporte, la memoria real no supera al placebo (3/12 vs 6/12; 4 pares a favor del placebo, 1 a favor de la memoria) | Sostenida (local) | E2 local | Repetición donde la memoria supere al placebo de forma estable |
+| G5 | La transferencia del procedimiento retenido no está demostrada con el modelo de experimentos | Abierta | — | 007B con una familia que tenga margen |
 
 ## H. Representación (LIRE-001)
 
@@ -113,23 +116,23 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## I. Representación con skill larga (LIRE-001b)
 
-> **Exploratorio.** Cifras de `gpt-6.1-terra` medium; no cuentan como evidencia.
+> **Evidencia:** `gpt-6-luna` low, 12 casos. La corrida con terra es exploratoria.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| B1 | Con skill larga, la representación cambia los tokens de entrada (0,4–6,0 %) | Sostenida (local) | E2 local | Diferencia ≤ 500 tokens entre la más larga y la más corta |
-| B2 | El chino usa menos tokens que el español (−362) y conserva el acierto (6/6) | Sostenida (local) | E2 local | Chino ≥ español o falla algún caso |
-| B3 | El español conciso usa menos tokens que el español (−1.698) | Sostenida (local) | E2 local | Conciso ≥ español |
-| B4 | El DSL conserva el acierto con la skill larga | **Refutada** | E2 local | 4/6; falla los dos `NONE` por no comprobar el umbral |
-| B5 | Las prosas conservan el acierto | **Refutada parcialmente** | E2 local | Español 4/6; inglés y chino 6/6 |
-| B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,3 % con seis casos y mínimo |
-| B7 | Los fallos de las formas compactas son de condición (`NONE`), no de búsqueda | Sostenida (local) | E2 local | Fallos en casos que cumplen el umbral |
+| B1 | Con skill larga, la representación cambia los tokens de entrada (0,5–6,1 %) | Sostenida (local) | E2 local | Diferencia ≤ 500 tokens entre la más larga y la más corta |
+| B2 | El chino usa menos tokens que el español (−389) y acierta más (11/12 vs 8/12) | Sostenida (local) | E2 local | Chino ≥ español o no supera el acierto |
+| B3 | El español conciso usa menos tokens que el español (−1.716) | Sostenida (local) | E2 local | Conciso ≥ español |
+| B4 | El DSL conserva el acierto con la skill larga | **Refutada** | E2 local | 7/12; falla cuatro `NONE` y un caso válido |
+| B5 | Las prosas conservan el acierto | **Refutada parcialmente** | E2 local | Español 8/12, inglés 10/12, chino 11/12 |
+| B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,4 % con 12 casos y mínimo |
+| B7 | Los fallos son de evaluación del umbral, no de búsqueda | Sostenida (local) | E2 local | Alguna respuesta devuelve un código de regla distinto del correcto |
 
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **36 sostenidas**: 31 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **39 sostenidas**: 34 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
 - **11 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
 - **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la

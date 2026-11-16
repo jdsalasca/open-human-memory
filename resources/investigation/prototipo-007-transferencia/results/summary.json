@@ -1,4 +1,114 @@
 {
+  "luna-low-support1-12ex.json": {
+    "n": 12,
+    "support": 1,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "verified": true,
+      "seconds": 6.58
+    },
+    "conditions": {
+      "clone": {
+        "correct": 0,
+        "n": 12,
+        "accuracy": 0.0,
+        "mean_seconds": 6.3
+      },
+      "memory": {
+        "correct": 0,
+        "n": 12,
+        "accuracy": 0.0,
+        "mean_seconds": 6.9
+      },
+      "placebo": {
+        "correct": 2,
+        "n": 12,
+        "accuracy": 0.1667,
+        "mean_seconds": 6.5
+      }
+    },
+    "paired_vs_clone": {
+      "memory": {
+        "both": 0,
+        "clone_only": 0,
+        "other_only": 0,
+        "neither": 12
+      },
+      "placebo": {
+        "both": 0,
+        "clone_only": 0,
+        "other_only": 2,
+        "neither": 10
+      }
+    }
+  },
+  "luna-low-support1.json": {
+    "n": 12,
+    "support": 1,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "double",
+        "reverse",
+        "sort_desc"
+      ],
+      "verified": false,
+      "seconds": 6.11
+    },
+    "conditions": {},
+    "paired_vs_clone": {}
+  },
+  "luna-low-support2-12ex.json": {
+    "n": 12,
+    "support": 2,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "verified": true,
+      "seconds": 5.61
+    },
+    "conditions": {
+      "clone": {
+        "correct": 1,
+        "n": 12,
+        "accuracy": 0.0833,
+        "mean_seconds": 7.6
+      },
+      "memory": {
+        "correct": 3,
+        "n": 12,
+        "accuracy": 0.25,
+        "mean_seconds": 7.2
+      },
+      "placebo": {
+        "correct": 6,
+        "n": 12,
+        "accuracy": 0.5,
+        "mean_seconds": 7.9
+      }
+    },
+    "paired_vs_clone": {
+      "memory": {
+        "both": 0,
+        "clone_only": 1,
+        "other_only": 3,
+        "neither": 8
+      },
+      "placebo": {
+        "both": 0,
+        "clone_only": 1,
+        "other_only": 6,
+        "neither": 5
+      }
+    }
+  },
   "terra-medium-seed0.json": {
     "n": 12,
     "support": 3,

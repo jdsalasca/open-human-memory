@@ -28,9 +28,15 @@ CASES = [
     (3, 2),  # satisfies -> S003
     (27, 20),  # satisfies -> S027
     (99, 90),  # satisfies -> S099
+    (15, 10),  # satisfies -> S015
+    (64, 60),  # satisfies -> S064
+    (110, 100),  # satisfies -> S110
     (51, 60),  # does not satisfy -> NONE
     (78, 90),  # does not satisfy -> NONE
     (117, 120),  # does not satisfy -> NONE
+    (40, 50),  # does not satisfy -> NONE
+    (88, 95),  # does not satisfy -> NONE
+    (105, 110),  # does not satisfy -> NONE
 ]
 
 HEADER = {

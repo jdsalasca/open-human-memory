@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 61 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 64 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -303,7 +303,8 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 005 | valor condicional | 96 tareas, 4 fases | NOLEARN, FROZEN, ONLINE, GATED | steps | FROZEN 76 % con −26,2 % trabajo | 3 semillas | Condicional |
 | 006-A′ | la política aprende | 48 tareas, semillas 1–2 | 7 condiciones | steps + probe | 92,7 % vs regla 93,8 %; 1,42× | bootstrap optimista | Negativo |
 | 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
-| 007 | retención + reinicio + transferencia | 12 tareas, `terra` medium | clone, memory, placebo | llamadas | 9/11/11 (subrutina); 10/2/11 (programa completo) | 0–2 pares | Negativo |
+| 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
+| LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Mixto: ahorro real, fidelidad menor |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -372,26 +373,55 @@ inválida). Ninguna intervención se distingue de cero.
 ### 5.7 Prototipo 007: retención, reinicio y transferencia
 
 Primera prueba con retención real, reinicio de contexto y **placebo**. Sesión 1: el
-agente devuelve el programa de `sort_asc → double`; nosotros lo verificamos con 60
-entradas. Reinicio. Sesión 2: 12 tareas de cinco pasos (motivo + tres operaciones),
-en tres condiciones pareadas.
+agente devuelve un programa que nosotros verificamos con 60 entradas. Reinicio.
+Sesión 2: 12 tareas de cinco pasos (motivo + tres operaciones), en tres condiciones
+pareadas.
 
-| Régimen | `clone` | `memory` | `placebo` |
+Con el modelo de experimentos (`gpt-6-luna` low), **la adquisición falló con seis
+ejemplos**: el programa devuelto no reprodujo el motivo y el experimento abortó antes
+de la sesión 2, como está diseñado. Con **doce ejemplos y «exactamente dos
+operaciones»** verificó un programa conductualmente equivalente (`double → sort_asc`).
+
+| Régimen (`luna` low) | `clone` | `memory` | `placebo` |
 |---|---|---|---|
-| 3 ejemplos | **12/12** | 11/12 | **12/12** |
-| 1 ejemplo, artefacto como programa completo | 10/12 | **2/12** | 11/12 |
-| 1 ejemplo, artefacto como subrutina | 9/12 | **11/12** | **11/12** |
+| 1 ejemplo de soporte | 0/12 | 0/12 | 2/12 |
+| 2 ejemplos de soporte | 1/12 | 3/12 | **6/12** |
 
-Con el encuadre de subrutina, `memory` y `placebo` aciertan lo mismo (11/12) y
-difieren entre sí en una tarea a favor de cada uno. **La memoria no supera a un
-artefacto falso**: la diferencia de +2 frente al clon es de contexto o formato, no
-de contenido. Presentado como programa completo, el artefacto **perjudica** (8
-tareas discordantes a favor del clon, 0 en contra).
+Con un ejemplo, el clon está en el suelo: la familia no discrimina. Con dos, el
+placebo acierta el doble que la memoria (cuatro tareas discordantes a favor del
+placebo, una a favor de la memoria; p = 0,38). **El artefacto verificado no supera a
+uno falso.** La retención funcionó —el artefacto sobrevivió al reinicio— pero no
+produjo ventaja.
 
-El clon resuelve profundidad 5 con uno o tres ejemplos; también 7 y 9 con tres
-(4/4). **La familia no tiene margen**: sin espacio para fallar, no hay nada que
-transferir. El resultado es negativo y de calibración, no evidencia contra la
-transferencia en general.
+La corrida con `gpt-6.1-terra` medium (exploratoria, no evidencia) había mostrado el
+mismo patrón por arriba: clon 9–12/12, memoria 11/12 y placebo 11/12; el clon estaba
+en techo. Las dos corridas, con modelos distintos, coinciden en el diagnóstico: **la
+familia no tiene margen** para medir transferencia. Sin espacio para fallar, no hay
+nada que transferir.
+
+### 5.8 LIRE-001b: representación con skill larga
+
+La representación de una competencia conocida se midió aparte, con una skill
+sintética de **120 reglas** con código, umbral y estado, en cinco formas: español,
+inglés, chino, español conciso y DSL simbólico. **Doce casos**: seis cumplen el
+umbral (`Sxxx`) y seis no (`NONE`). Modelo de experimentos: `gpt-6-luna` low.
+
+| Representación | Acierto | Caracteres | Tokens (mín.) | Δ vs español |
+|---|---|---|---|---|
+| Español | 8/12 | 9.267 | 28.250 | — |
+| Inglés | 10/12 | 9.034 | 28.100 | −0,5 % |
+| Chino | **11/12** | **4.258** | 27.861 | −1,4 % |
+| Español conciso | 8/12 | **3.052** | **26.534** | **−6,1 %** |
+| DSL simbólico | 7/12 | 4.963 | 27.009 | −4,4 % |
+
+El ahorro de tokens es real y **pequeño sobre la llamada** (0,5–6,1 %), porque el
+arnés domina el coste. La fidelidad no acompaña al ahorro: la forma concisa y el
+DSL fallan 4–5 de 12. **Todos los fallos son de evaluación del umbral, no de
+búsqueda**: el modelo devuelve el código correcto con el estado equivocado, o
+`NONE` en un caso válido. Comprimir la representación ahorra tokens y pierde
+excepciones, que es justo lo que la competencia debía conservar. El chino es el
+mejor compromiso de esta muestra (11/12 y −1,4 %), pero la diferencia de acierto
+es de 1–4 casos y no permite significación.
 
 ---
 
@@ -430,11 +460,12 @@ no lo demuestra.
 posible es una medición: clon, canales, `E`/`K`/`P`, formas y verificación en cinco
 etapas. Si esa medición no distingue nada, tampoco habrá contribución.
 
-**Lo que 007 enseña.** La retención funcionó —el artefacto sobrevivió al reinicio y
-se aplicó— pero no ayudó. Un procedimiento verificado no sustituye la inferencia que
-el modelo ya hace. Para medir acumulación hace falta un dominio donde el clon
-**falle**: horizonte de 20+ pasos, vocabulario abierto o un dominio sin priors
-fuertes. Sin ese margen, cualquier artefacto empata con un placebo.
+**Lo que 007 enseña.** La retención funcionó —el artefacto sobrevivió al reinicio—
+pero no bastó. Con `luna`, el clon está en el suelo y la memoria no lo saca: el
+artefacto verificado no supera a uno falso. El cuello es la familia, no el
+mecanismo. Para medir acumulación hace falta un dominio donde el clon falle **y** el
+artefacto sea necesario: vocabulario opaco, horizonte de 20+ pasos o un dominio sin
+priors fuertes. Sin ese margen, cualquier artefacto empata con un placebo.
 
 **El siguiente test.** 007B: familia donde el clon falle de forma estable, artefacto
 necesario (no solo útil), y comparación contra clon y placebo. Después, P1 y P6.
@@ -517,8 +548,9 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-61 afirmaciones en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
-replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
+64 afirmaciones en `docs/registro-de-afirmaciones.md`: 34 sostenidas (5 de terceros,
+no replicadas), 11 refutadas, 14 abiertas, inválidas o no demostradas. Ninguna propia
+alcanza E3.
 
 ## Apéndice B. Qué se retiró
 

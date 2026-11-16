@@ -1,12 +1,15 @@
 # Prototipo 007 — Retención, reinicio y transferencia
 
 **Fecha:** 16 de noviembre de 2026
-**Estado:** **ejecutado, resultado negativo**. Primera prueba del proyecto con
+**Estado:** **ejecutado, resultado negativo.** Primera prueba del proyecto con
 retención real, reinicio de contexto y control placebo.
-**Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, `codex-cli 0.169.0`
-— **exploratoria, no evidencia**. La evidencia válida es `gpt-6-luna` low, en curso.
+**Modelo (evidencia):** `gpt-6-luna`, `reasoning_effort = low`, `codex-cli 0.169.0`.
+**Modelo (exploratorio):** `gpt-6.1-terra` medium; sus cifras no cuentan como
+evidencia.
 **Código:** `src/ohmem/v7_transfer.py`.
-**Resultados:** `results/terra-medium-*.json` y `results/summary.json`.
+**Resultados:** `results/luna-low-support1-12ex.json`,
+`results/luna-low-support2-12ex.json` (evidencia); `results/terra-medium-*.json`
+(exploratorio); `results/summary.json` (pares).
 
 ## 1. La pregunta
 
@@ -18,9 +21,9 @@ siguiente paso.
 
 ## 2. Diseño
 
-**Sesión 1.** Una llamada con seis pares de la transformación `sort_asc → double`.
-El agente devuelve el programa; **nosotros lo verificamos** con 60 entradas nuevas.
-Si no coincide, se rechaza. No se confía en el modelo.
+**Sesión 1.** Una llamada con pares de la transformación `sort_asc → double`. El
+agente devuelve el programa; **nosotros lo verificamos** con 60 entradas nuevas. Si
+no coincide, se rechaza. No se confía en el modelo.
 
 **Reinicio.** Cada llamada es una sesión `--ephemeral`, sin historial.
 
@@ -32,94 +35,120 @@ de prompt:
 |---|---|
 | `clone` | Solo la tarea actual |
 | `memory` | El programa verificado en la sesión 1 |
-| `placebo` | Un programa **falso** de la misma longitud (`sort_desc → double`) |
+| `placebo` | Un programa **falso** de la misma longitud (`sort_desc → add_one`) |
 
-## 3. Resultados
+## 3. Resultados con `luna` low (evidencia)
 
-### 3.1 Tres regímenes
+### 3.1 Adquisición
 
-| Régimen | `clone` | `memory` | `placebo` |
+| Sesión 1 | Programa devuelto | ¿Verifica? | Decisión |
 |---|---|---|---|
-| 3 ejemplos de soporte, profundidad 5 | **12/12** | 11/12 | **12/12** |
-| 1 ejemplo, artefacto presentado como **programa completo** | 10/12 | **2/12** | 11/12 |
-| 1 ejemplo, artefacto presentado como **subrutina** | 9/12 | **11/12** | **11/12** |
+| 6 ejemplos | `double → reverse → sort_desc` | **No** | aborta antes de la sesión 2 |
+| 12 ejemplos + «exactamente 2 operaciones» | `double → sort_asc` | **Sí** | pasa a la sesión 2 |
 
-### 3.2 Pares discordantes
+La guarda funciona: con 6 ejemplos **no se entregó un artefacto no verificado**. Con
+más información, `luna` adquiere un programa conductualmente equivalente al motivo.
 
-| Comparación | `clone` acierta / `memory` falla | `memory` acierta / `clone` falla |
-|---|---|---|
-| Programa completo | **8** | 0 |
-| Subrutina | 0 | 2 |
+### 3.2 Transferencia con un ejemplo de soporte
 
-| Comparación | `clone` acierta / `placebo` falla | `placebo` acierta / `clone` falla |
-|---|---|---|
-| Programa completo | 0 | **1** |
-| Subrutina | 0 | 2 |
+| Condición | Acierto |
+|---|---|
+| `clone` | 0/12 |
+| `memory` | 0/12 |
+| `placebo` | 2/12 |
 
-Con el encuadre de subrutina, `memory` y `placebo` aciertan **lo mismo** (11/12) y
-difieren entre sí en 1 tarea a favor de cada uno.
+**Suelo.** El clon no resuelve la tarea y la memoria tampoco. La familia no
+discrimina en este régimen: no hay margen que la memoria pueda ocupar.
+
+### 3.3 Transferencia con dos ejemplos de soporte
+
+| Condición | Acierto |
+|---|---|
+| `clone` | 1/12 |
+| `memory` | 3/12 |
+| `placebo` | 6/12 |
+
+Pares discordantes (tarea a tarea):
+
+| Comparación | Acierta A / falla B | Acierta B / falla A | Ambos | Ninguno |
+|---|---|---|---|---|
+| `memory` vs `clone` | 3 | 1 | 0 | 8 |
+| `placebo` vs `clone` | 6 | 1 | 0 | 5 |
+| `memory` vs `placebo` | 1 | **4** | 2 | 5 |
+
+**El artefacto falso supera al verificado.** Cuatro tareas donde solo acierta el
+placebo y una donde solo acierta la memoria. Con 12 tareas, ninguna diferencia es
+significativa (test de signos: `memory` vs `clone` p = 0,63; `placebo` vs `clone`
+p = 0,13; `memory` vs `placebo` p = 0,38). El resultado es negativo: no hay ventaja
+atribuible al contenido retenido, y la dirección observada es la contraria.
 
 ## 4. Lectura
 
-1. **El clon está en techo.** `gpt-6.1-terra` medium resuelve profundidad 5 con uno
-   o tres ejemplos. Probamos también profundidad 7 y 9 con tres ejemplos: 4/4 en
-   todas las condiciones. **La familia no tiene margen para que la memoria aporte.**
-2. **Presentar el artefacto como el programa completo lo vuelve dañino**: 2/12
-   frente a 10/12, ocho tareas discordantes, cero en la dirección contraria. Es un
-   efecto de anclaje: el agente aplica la subrutina y no completa el resto.
-3. **Presentarlo como subrutina elimina el daño, pero no crea ventaja.** La memoria
-   empata con un artefacto falso. Los dos superan al clon en las mismas dos tareas:
-   el efecto es de **contexto o formato**, no del contenido verificado.
-4. **No hay evidencia de transferencia.** La respuesta a la pregunta del §1 es:
-   **no en esta familia**. Un procedimiento verificado retenido no mejora el
-   desempeño futuro más que un placebo.
+1. **La familia no tiene margen para `luna` low.** Con un ejemplo, clon y memoria
+   están en el suelo (0/12). Con dos, el clon sigue en 1/12 y la memoria en 3/12.
+   Es una familia demasiado difícil para el modelo de experimentos: no mide
+   transferencia, mide que la tarea está fuera del alcance.
+2. **La memoria no supera al placebo.** En el único régimen donde algo se mueve
+   (dos ejemplos), el placebo acierta el doble. El encuadre de subrutina basta para
+   producir algo; el contenido verificado no añade.
+3. **No hay evidencia de transferencia.** La respuesta a la pregunta del §1 es:
+   **no en esta familia, con este modelo y este tamaño de muestra**. No se extiende a
+   la transferencia en general.
+4. **El cuello es la familia, no el prompt.** Ya se corrigió la adquisición (más
+   ejemplos y el número de operaciones) sin tocar la verificación. Seguir moviendo
+   el soporte es calibrar el mismo instrumento: hace falta **007B** con un dominio
+   donde el clon falle de forma estable y el artefacto sea necesario.
 
-### 4.1 Corrida con `luna` low (modelo de experimentos)
+## 5. Qué haría falta (007B)
 
-La sesión 1 devolvió `double → reverse → sort_desc`, que **no reproduce el motivo**
-en las 60 sondas. La verificación falló y el experimento **abortó antes de la
-sesión 2**, como está diseñado: no se entrega un artefacto no verificado.
+- **Vocabulario opaco:** operaciones cuyos nombres no revelan la semántica; el
+  artefacto retenido es la única fuente de esa información.
+- **Horizonte largo:** 20+ pasos, donde la composición no se pueda inferir de dos
+  ejemplos.
+- **Artefacto necesario, no solo útil:** sin él, la tarea es inaccesible; con él,
+  resoluble.
+- **Mismo control placebo** y verificación por ejecución.
 
-Por tanto, **con el modelo de experimentos no hay datos de transferencia**: el cuello
-es la **adquisición** del artefacto, no su uso. Siguiente intento: más ejemplos, un
-motivo más simple, o pedir explícitamente el número de operaciones. No se relaja la
-verificación para que pase.
-
-## 5. Qué falló y qué haría falta
-
-- **Fallo de calibración:** el clon resuelve la tarea. Sin espacio para fallar, no
-  hay nada que transferir.
-- **El artefacto no era necesario:** el modelo puede inferir el programa completo
-  con un ejemplo. La subrutina ahorra un paso que el modelo no necesitaba.
-- **Siguiente régimen:** una familia donde el clon falle de forma estable —
-  horizonte de 20+ pasos, vocabulario abierto, o un dominio sin priors fuertes— y
-  donde el artefacto sea **necesario**, no solo útil.
+Sin ese margen, cualquier artefacto empata con un placebo y el experimento no
+distingue memoria de contexto.
 
 ## 6. Límites
 
-- Un modelo, un motivo, una semilla, 12 tareas por condición.
-- Los pares discordantes (0/2) no permiten significación; se reportan conteos.
-- El smoke n=3 se usó para calibrar profundidad; el régimen de 1 ejemplo se eligió
-  tras ver el techo. **No es pre-registrado.**
-- La primera corrida con 1 ejemplo usaba un prompt que presentaba el artefacto como
-  programa completo; se corrigió y se reportan ambos.
+- Un modelo (`luna` low), un motivo, una semilla, 12 tareas por condición.
+- Las diferencias de 1–6 tareas no permiten significación; se reportan conteos y
+  valores p exactos del test de signos.
+- La adquisición con 12 ejemplos se eligió tras el fallo con 6. **No es
+  pre-registrado.**
+- El soporte 1 y 2 se eligieron para calibrar el margen; ninguno lo produjo.
 - La verificación del artefacto usa 60 entradas; no es una prueba formal.
 - **Sesgo de construcción:** las 12 tareas de la sesión 2 empiezan por el motivo
   aprendido. Es una prueba de **reutilización favorable**, no de transferencia a una
   familia independiente. El clon y el placebo mitigan el efecto, pero no lo eliminan.
 - **Longitud de prompt no igualada:** el clon recibe una nota neutra y las otras
   condiciones reciben la subrutina. No se asegura igualdad de tokens.
-- **Equivalencia conductual:** en una corrida el agente devolvió `double → sort_asc`
-  en lugar de `sort_asc → double`. Son equivalentes en este dominio; la verificación
-  es conductual, no de identidad del programa.
+- **Equivalencia conductual:** el agente devolvió `double → sort_asc` en lugar de
+  `sort_asc → double`. Son equivalentes en este dominio; la verificación es
+  conductual, no de identidad del programa.
 
 ## 7. Reproducir
 
 ```powershell
 $env:PYTHONPATH="src"
-python -m ohmem.v7_transfer --n 12 --model gpt-6.1-terra --effort medium `
-  --out resources/investigation/prototipo-007-transferencia/results/terra-medium-seed0.json
-python -m ohmem.v7_transfer --n 12 --support 1 --model gpt-6.1-terra --effort medium `
-  --out resources/investigation/prototipo-007-transferencia/results/terra-medium-support1-subroutine-seed0.json
-python resources/investigation/prototipo-007-transferencia/analyze.py
+python -m ohmem.v7_transfer --model gpt-6-luna --effort low `
+  --n 12 --support 2 --session1-examples 12 --exact-ops `
+  --out resources/investigation/prototipo-007-transferencia/results/luna-low-support2-12ex.json
 ```
+
+## Apéndice. Corrida exploratoria con `terra` medium
+
+| Régimen | `clone` | `memory` | `placebo` |
+|---|---|---|---|
+| 3 ejemplos de soporte | **12/12** | 11/12 | **12/12** |
+| 1 ejemplo, artefacto como programa completo | 10/12 | **2/12** | 11/12 |
+| 1 ejemplo, artefacto como subrutina | 9/12 | **11/12** | **11/12** |
+
+Con `terra`, el clon está en techo: la familia tampoco discrimina, por arriba.
+Presentar el artefacto como programa completo lo vuelve dañino (8 pares a favor del
+clon, 0 en contra); como subrutina, empata con el placebo. **No se usa como
+evidencia** porque el modelo no es el de experimentos. Confirma el diagnóstico: el
+problema es la familia, no el modelo.

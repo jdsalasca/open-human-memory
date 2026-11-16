@@ -87,10 +87,12 @@ de reproducir.
 
 **F0.5 — Retención y transferencia (007, ejecutado).** Sesión 1 aprende un
 procedimiento verificado; reinicio; sesión 2 lo aplica a composiciones de cinco
-pasos. Resultado: `clone` 9/12, `memory` 11/12, `placebo` 11/12 con encuadre de
-subrutina; `memory` 2/12 cuando el artefacto se presenta como programa completo.
-**No hay ventaja atribuible al contenido.** La familia está saturada para
-`gpt-6.1-terra`. Siguiente: **007B** con un dominio donde el clon falle.
+pasos. Con `gpt-6-luna` low: 6 ejemplos no verifican (aborta); 12 ejemplos sí. Con 1
+ejemplo de soporte, clon 0/12, memoria 0/12, placebo 2/12 (suelo); con 2, clon 1/12,
+memoria 3/12, placebo 6/12. **El artefacto verificado no supera al placebo: no hay
+ventaja atribuible al contenido.** La familia no tiene margen para `luna` low (suelo)
+ni para `terra` (techo). Siguiente: **007B** con un dominio donde el clon falle y el
+artefacto sea necesario (vocabulario opaco, horizonte 20+).
 
 ---
 

@@ -1,72 +1,74 @@
 # LIRE-001b — Skill larga: el ahorro se paga en fidelidad
 
 **Fecha:** 16 de noviembre de 2026
-**Estado:** ejecutado con `gpt-6-luna` low (política de experimentos). La corrida con
-terra queda como exploratoria y no se usa como evidencia.
+**Estado:** ejecutado con `gpt-6-luna` low. La corrida con terra queda como
+exploratoria y no se usa como evidencia.
 **Modelo:** `gpt-6-luna`, `reasoning_effort = low`, `codex-cli 0.169.0`.
 **Código:** `src/ohmem/lire_001b.py`.
-**Datos:** `results/luna-low.json` (evidencia) y `results/terra-medium.json`
+**Datos:** `results/luna-low-12cases.json` (evidencia principal),
+`results/luna-low.json` (6 casos, réplica), `results/terra-medium.json`
 (exploratorio).
 
 ## 1. Qué se midió
 
-Una skill de **120 reglas** con código, umbral y estado. Seis casos: tres cumplen el
-umbral (`Sxxx`) y tres no (`NONE`). Cinco representaciones de la misma skill.
+Una skill de **120 reglas** con código, umbral y estado. Doce casos: seis cumplen
+el umbral (`Sxxx`) y seis no (`NONE`). Cinco representaciones de la misma skill.
 
-Métrica principal: **mínimo** de `input_tokens` por representación, para evitar las
-llamadas con ~4.500 tokens extra del arnés.
+Métrica de tokens: **mínimo** de `input_tokens` por representación, para evitar las
+llamadas con decenas de miles de tokens extra del arnés.
 
-## 2. Resultados con luna low (evidencia)
+## 2. Resultados con luna low
 
-| Representación | Acierto | Caracteres | Bytes | Tokens (mín.) | Δ vs español |
-|---|---|---|---|---|---|
-| Español | **4/6** | 9.267 | 9.388 | 28.230 | — |
-| Inglés | **6/6** | 9.034 | 9.034 | 28.107 | −123 (−0,4 %) |
-| Chino | **6/6** | **4.258** | 8.412 | 27.868 | **−362 (−1,3 %)** |
-| Español conciso | **4/6** | **3.052** | **3.295** | **26.532** | **−1.698 (−6,0 %)** |
-| DSL simbólico | **4/6** | 4.963 | 4.963 | 27.009 | **−1.221 (−4,3 %)** |
+| Representación | 6 casos | **12 casos** | Caracteres | Bytes | Tokens (mín.) | Δ vs español |
+|---|---|---|---|---|---|---|
+| Español | 4/6 | **8/12 (66,7 %)** | 9.267 | 9.388 | 28.250 | — |
+| Inglés | 6/6 | **10/12 (83,3 %)** | 9.034 | 9.034 | 28.100 | −150 (−0,5 %) |
+| Chino | 6/6 | **11/12 (91,7 %)** | **4.258** | 8.412 | 27.861 | **−389 (−1,4 %)** |
+| Español conciso | 4/6 | **8/12 (66,7 %)** | **3.052** | **3.295** | **26.534** | **−1.716 (−6,1 %)** |
+| DSL simbólico | 4/6 | **7/12 (58,3 %)** | 4.963 | 4.963 | 27.009 | −1.241 (−4,4 %) |
 
-## 3. El hallazgo: los fallos son de condición, no de búsqueda
+## 3. Dónde falla cada forma
 
-Los seis casos incluyen tres `NONE` (el importe **no** cumple el umbral). **Todos los
-fallos son exactamente esos tres tipos**: el modelo encuentra la regla correcta y
-devuelve su estado **sin comprobar el umbral**.
+Los doce casos incluyen seis `NONE` (el importe **no** cumple el umbral). Los fallos
+se concentran en esa condición, pero no todos son del mismo tipo:
 
-| Representación | Fallos | Caso |
+| Representación | Fallos | Detalle |
 |---|---|---|
-| Español | 2 | C051 (60 ≥ 51) y C078 (90 ≥ 78) devuelven `S051`/`S078` |
-| Español conciso | 2 | C027 y C051 |
-| DSL | 2 | C051 y C078 |
-| Inglés | 0 | — |
-| Chino | 0 | — |
+| Español | 4 | Cuatro falsos positivos: devuelve `Sxxx` en casos `NONE` |
+| Inglés | 2 | Dos falsos positivos |
+| **Chino** | **1** | Un falso positivo |
+| Español conciso | 4 | **Dos falsos negativos** (devuelve `NONE` cuando tocaba `Sxxx`) + dos falsos positivos |
+| DSL | 5 | **Un falso negativo** + cuatro falsos positivos |
 
-No es un fallo de lookup —el código se encuentra— sino de **evaluación de la
-condición**. La forma compacta ahorra tokens y pierde la excepción.
+La forma compacta no solo acepta lo que no debe: también **rechaza casos válidos**.
+Eso es peor que un fallo de búsqueda, porque el agente deja de actuar cuando debía.
 
 ## 4. Lectura
 
-1. **El ahorro es real pero pequeño en la llamada completa:** 0,4–6,0 %. La skill
-   española ocupa ~9.300 caracteres; la concisa, ~3.000. El ahorro absoluto
-   (1.698 tokens) es grande **sobre la skill** y pequeño **sobre la llamada**.
-2. **El chino es el mejor compromiso en esta muestra:** 6/6 y −1,3 % de tokens. No
-   es el más corto en tokens, pero conserva la condición.
-3. **El español conciso y el DSL ahorran más y fallan más.** La compresión se paga
-   en los casos frontera, que es exactamente donde el umbral importa.
+1. **El chino es el mejor compromiso en esta muestra:** 11/12 y −1,4 % de tokens.
+   No es la forma más barata, pero es la más fiel.
+2. **El ahorro es real y pequeño sobre la llamada:** 0,5–6,1 %. Sobre la skill es
+   grande: la concisa ocupa un tercio de la española.
+3. **Las formas más baratas son las menos fieles:** conciso y DSL ahorran 4–6 % y
+   fallan 4–5 de 12, incluyendo casos válidos.
 4. **Los caracteres no predicen los tokens:** el chino usa 54 % menos caracteres y
-   ahorra 1,3 % de tokens.
-5. **La corrida con terra (6/6 en todas) no replica.** Terra es más capaz; por eso
+   ahorra 1,4 % de tokens.
+5. **La réplica de 6 casos coincide en dirección:** chino e inglés arriba; español,
+   conciso y DSL abajo.
+6. **La corrida con terra (6/6 en todas) no replica.** Terra es más capaz; por eso
    los experimentos van con luna y terra solo analiza.
 
 ## 5. Límites
 
-- `gpt-6-luna` low, seis casos, una corrida; sin repetición por caso.
-- Los fallos de condición son 2/6 por representación: el patrón es consistente, pero
-  la muestra no permite significación.
+- `gpt-6-luna` low, 12 casos, una corrida; sin repetición por caso.
+- Las diferencias de acierto son de 1–4 casos: no permiten significación.
 - La skill es sintética y regular.
 - Sin LLMLingua-2 ni compresión establecida como control.
 - Longitud, idioma, redundancia y sintaxis siguen confundidos; no se atribuye la
   diferencia solo al idioma.
 - El mínimo de tokens es una estimación de la ruta limpia del arnés.
+- Algunas llamadas de la forma concisa incluyeron 60–90k tokens de arnés; el mínimo
+  y la mediana las aislan, pero muestran la variabilidad del servicio.
 - No es pre-registrado: se diseñó tras el techo de LIRE-001.
 
 ## 6. Reproducir
@@ -74,11 +76,11 @@ condición**. La forma compacta ahorra tokens y pierde la excepción.
 ```powershell
 $env:PYTHONPATH="src"
 python -m ohmem.lire_001b --model gpt-6-luna --effort low `
-  --out resources/investigation/lire-001b/results/luna-low.json
+  --out resources/investigation/lire-001b/results/luna-low-12cases.json
 ```
 
 ## Apéndice. Corrida exploratoria con terra
 
-`results/terra-medium.json`: 6/6 en las cinco representaciones; ahorro 0,4–5,8 %.
-No se usa como evidencia. Confirma que el ahorro de tokens es estable entre modelos,
-pero la fidelidad no: terra conserva la condición, luna no.
+`results/terra-medium.json`: 6/6 en las cinco representaciones con 6 casos; ahorro
+0,4–5,8 %. No se usa como evidencia. Confirma que el ahorro de tokens es estable
+entre modelos, pero la fidelidad no: terra conserva la condición, luna no siempre.
