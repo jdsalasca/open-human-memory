@@ -5,11 +5,14 @@ empíricos.
 
 | Archivo | Tema | Idioma |
 |---|---|---|
-| [cumulus-en.md](cumulus-en.md) | CUMULUS: conocimiento procedimental acumulativo sin reentrenamiento | English |
-| [cumulus-es.md](cumulus-es.md) | CUMULUS: conocimiento procedimental acumulativo sin reentrenamiento | Español |
+| [cumulus-final-es.md](cumulus-final-es.md) | CUMULUS v1.0 final | Español |
+| [cumulus-final-en.md](cumulus-final-en.md) | CUMULUS v1.0 final | English |
+| [janus-final-es.md](janus-final-es.md) | JANUS v1.0 final | Español |
+| [cumulus-en.md](cumulus-en.md) | CUMULUS v0.1 histórica | English |
+| [cumulus-es.md](cumulus-es.md) | CUMULUS v0.1 histórica | Español |
 | [cumulus-revision-v0.2.md](cumulus-revision-v0.2.md) | Alcance corregido tras la revisión mayor | Español |
-| [janus-es.md](janus-es.md) | JANUS v0.1: memoria contrafactual y consolidación causal | Español |
-| [janus-v0.2.md](janus-v0.2.md) | JANUS v0.2: identificabilidad declarada y tres dimensiones | Español |
+| [janus-es.md](janus-es.md) | JANUS v0.1 histórica | Español |
+| [janus-v0.2.md](janus-v0.2.md) | JANUS v0.2: identificabilidad declarada | Español |
 
 **Autores:** Juan David Salas Camargo (MIT) y DeepSeek / DeepSeek 4.1 Flash.
 

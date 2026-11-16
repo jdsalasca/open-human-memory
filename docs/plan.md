@@ -7,15 +7,16 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R1 — Investigación (completada)
 
-- Entregable: `resources/investigation/` con 25 documentos, papers CUMULUS
-  (EN/ES), revisión v0.2, JANUS v0.1/v0.2 y bibliografía con fuentes primarias.
+- Entregable: `resources/investigation/` con 26 documentos, papers finales de
+  CUMULUS (EN/ES) y JANUS (ES), y bibliografía con fuentes primarias.
 - Criterio: cada mecanismo propuesto tiene fuente, traducción computacional y
   riesgo declarado; las preguntas de momento cero, contexto, filosofía del
-  contexto, compactación humana y sueño tienen respuesta documentada.
+  contexto, compactación humana, sueño, atención y DeepSeek tienen respuesta
+  documentada.
 - Revisión mayor incorporada: `22-respuesta-a-revision.md`,
-  `23-marco-de-validez.md`, `24-programa-de-investigacion-v2.md` y
-  `25-protocolo-fuentes-primarias.md`; competidores 2026 en `precedentes/06` y
-  `precedentes/07`.
+  `23-marco-de-validez.md`, `24-programa-de-investigacion-v2.md`,
+  `25-protocolo-fuentes-primarias.md` y `26-deepseek-y-atencion.md`; competidores
+  2026 en `precedentes/06` y `precedentes/07`.
 
 ### R2 — Documento de diseño
 

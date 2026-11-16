@@ -355,6 +355,28 @@ incluyen volumen y páginas cuando se verificaron.
 - Yang, L., Xu, S., Li, Z., Yang, T., & Huang, L. (2026). *When personal memory has no single answer: Evaluating LLM agents under irreducible conflict*. arXiv:2608.13921.
 - Zhang, S., Ji, T., Chen, J., Xu, E., Chu, B., & Yi, X. (2026). *ConMem: Counterfactual multi-scenario probing for resolving LLM memory misalignment*. arXiv:2610.33432.
 
+## Atención, eficiencia y DeepSeek
+
+- Ainslie, J., Lee-Thorp, J., de Jong, Z., Zemlyanskiy, Y., Lebrón, F., & Sanghai, S. (2023). GQA: Training generalized multi-query transformer models from multi-head checkpoints. *EMNLP 2023*.
+- Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. *ICLR 2015*.
+- Beltagy, I., Peters, M. E., & Cohan, A. (2020). *Longformer: The long-document transformer*. arXiv:2004.05150.
+- Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C. (2022). FlashAttention: Fast and memory-efficient exact attention with IO-awareness. *NeurIPS 35*.
+- DeepSeek-AI. (2024). *DeepSeek LLM: Scaling open-source language models with longtermism*. arXiv:2401.02954.
+- DeepSeek-AI. (2024). *DeepSeek-V2: A strong, economical, and efficient mixture-of-experts language model*. arXiv:2405.04434.
+- DeepSeek-AI. (2024). *DeepSeek-V3 technical report*. arXiv:2412.19437.
+- DeepSeek-AI. (2025). DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning. *Nature, 645*, 633–638. arXiv:2501.12948.
+- Dai, D., Deng, C., Zhao, C., Xu, R. X., Gao, H., Chen, D., Li, J., Zeng, W., Yu, X., Wu, Y., Xie, Z., Li, Y. K., Huang, P., Luo, F., Ruan, C., Sui, Z., & Liang, W. (2024). DeepSeekMoE: Towards ultimate expert specialization in mixture-of-experts language models. *ACL 2024*, 1280–1297.
+- Guo, D., Zhu, Q., Yang, D., Xie, Z., Dong, K., Zhang, W., Chen, G., Bi, X., Wu, Y., Li, Y. K., Luo, F., Xiong, Y., & Liang, W. (2024). *DeepSeek-Coder: When the large language model meets programming*. arXiv:2401.14196.
+- Katharopoulos, A., Vyas, A., Pappas, N., & Fleuret, F. (2020). Transformers are RNNs: Fast autoregressive transformers with linear attention. *ICML 2020*.
+- Shao, Z., Wang, P., Zhu, Q., Xu, R., Song, J., Bi, X., Zhang, H., Zhang, M., Li, Y. K., Wu, Y., & Guo, D. (2024). *DeepSeekMath: Pushing the limits of mathematical reasoning in open language models*. arXiv:2402.03300.
+- Shazeer, N. (2019). *Fast transformer decoding: One write-head is all you need*. arXiv:1911.02150.
+- Su, J., Lu, Y., Pan, S., Murtadha, A., Wen, B., & Liu, Y. (2021). *RoFormer: Enhanced transformer with rotary position embedding*. arXiv:2104.09864.
+- Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to sequence learning with neural networks. *NeurIPS 27*.
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is all you need. *NeurIPS 30*.
+- Xin, H., Guo, D., Shao, Z., Ren, Z., Zhu, Q., Liu, B., Ruan, C., Li, W., & Liang, X. (2024). *DeepSeek-Prover: Advancing theorem proving in LLMs through large-scale synthetic data*. arXiv:2405.14333.
+- Yuan, J., Gao, H., Dai, D., Luo, J., Zhao, L., Zhang, Z., Xie, Z., Wei, Y. X., Wang, L., Xiao, Z., Wang, Y., Ruan, C., Zhang, M., Liang, W., & Zeng, W. (2025). Native Sparse Attention: Hardware-aligned and natively trainable sparse attention. *ACL 2025*, 23078–23097. arXiv:2502.11089.
+- Zaheer, M., Guruganesh, G., Dubey, A., Ainslie, J., Alberti, C., Ontañón, S., Pham, P., Hawes, M., Wang, L., Yang, L., Levine, D., Tagliasacchi, A., Yang, Y., & Ahmed, A. (2020). BigBird: Transformers for longer sequences. *NeurIPS 33*.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios
