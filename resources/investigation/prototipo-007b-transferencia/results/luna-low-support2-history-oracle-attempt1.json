@@ -1,0 +1,710 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 0,
+  "n": 12,
+  "support": 2,
+  "suffix": 3,
+  "motif": [
+    "sort_asc",
+    "double"
+  ],
+  "note": "Reconstruido de los directorios temporales: la corrida original no escribio el JSON por un fallo de ruta. Orden por creacion de directorio: sesion 1, 12 historial, 12 oraculo.",
+  "session1": {
+    "program": [
+      "double",
+      "sort_asc"
+    ],
+    "verified": true,
+    "timed_out": false,
+    "seconds": null
+  },
+  "conditions": {
+    "history": {
+      "correct": 3,
+      "n": 12,
+      "accuracy": 0.25,
+      "timeouts": 0
+    },
+    "oracle": {
+      "correct": 3,
+      "n": 12,
+      "accuracy": 0.25,
+      "timeouts": 0
+    }
+  },
+  "rows": [
+    {
+      "condition": "history",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        18
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        4,
+        10,
+        12,
+        16
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "answer": [
+        4,
+        4,
+        12,
+        14
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "answer": [
+        2,
+        6,
+        8,
+        14
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double",
+        "double"
+      ],
+      "expected": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "answer": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "answer": [
+        4,
+        4,
+        20,
+        32
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc",
+        "reverse"
+      ],
+      "expected": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -16,
+        -10,
+        -6,
+        -4
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "answer": [
+        4,
+        12,
+        14,
+        14
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "reverse",
+        "double"
+      ],
+      "expected": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "answer": [
+        16,
+        16,
+        48,
+        56
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "answer": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "history",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "add_one",
+        "negate"
+      ],
+      "expected": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "answer": [
+        -18,
+        -14,
+        -10,
+        -2
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        18
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -16,
+        -12,
+        -10,
+        -4
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "answer": [
+        18,
+        18,
+        26,
+        30
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "answer": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double",
+        "double"
+      ],
+      "expected": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "answer": [
+        -40,
+        -16,
+        -64,
+        -72
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "answer": [
+        40,
+        40,
+        8,
+        8
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc",
+        "reverse"
+      ],
+      "expected": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -16,
+        -12,
+        -10,
+        -6
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "answer": [
+        14,
+        14,
+        4,
+        12
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "reverse",
+        "double"
+      ],
+      "expected": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "answer": [
+        48,
+        48,
+        18,
+        36
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "answer": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    },
+    {
+      "condition": "oracle",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "add_one",
+        "negate"
+      ],
+      "expected": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "answer": [
+        -11,
+        -11,
+        -15,
+        -19
+      ],
+      "correct": false,
+      "seconds": null,
+      "returncode": 0,
+      "timed_out": false,
+      "recovered": true
+    }
+  ]
+}

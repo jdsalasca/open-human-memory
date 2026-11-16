@@ -94,6 +94,16 @@ ventaja atribuible al contenido.** La familia no tiene margen para `luna` low (s
 ni para `terra` (techo). Siguiente: **007B** con un dominio donde el clon falle y el
 artefacto sea necesario (vocabulario opaco, horizonte 20+).
 
+**007B (diagnóstico, ejecutado).** Se intentó un motivo de 3–4 operaciones para
+cubrir 4 de 5 pasos: `luna` low no lo adquiere (cuatro intentos con 12 y 24
+ejemplos; todos rechazados por la verificación). La corrida diagnóstica usó el motivo
+de 2 operaciones y añadió `history` (los 12 pares de origen) y `oracle` (el programa
+completo) a las 12 tareas del soporte 2. Resultado: clon 1/12, memoria 3/12, placebo
+6/12, historial 4/12, **oráculo 2/12**. Con el programa completo el modelo apenas
+ejecuta 2 de 12: **el cuello es la ejecución, no la memoria**. El siguiente paso es
+F1 (capacidades y ejecución por profundidad); después, 007C con una tarea ejecutable
+pero no identificable.
+
 ---
 
 ## F1 — Descomposición de capacidades (`DECOMP-*`)

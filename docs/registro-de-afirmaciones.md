@@ -102,6 +102,12 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | G3 | Con 1 ejemplo de soporte, el clon queda en 0/12 y la familia no discrimina (memoria 0/12, placebo 2/12) | Sostenida (local) | E2 local | Clon entre 20 % y 80 % |
 | G4 | Con 2 ejemplos de soporte, la memoria real no supera al placebo (3/12 vs 6/12; 4 pares a favor del placebo, 1 a favor de la memoria) | Sostenida (local) | E2 local | Repetición donde la memoria supere al placebo de forma estable |
 | G5 | La transferencia del procedimiento retenido no está demostrada con el modelo de experimentos | Abierta | — | 007B con una familia que tenga margen |
+| G6 | Con el motivo de 4 operaciones y 2 ejemplos de soporte, la respuesta de la consulta está determinada por los ejemplos en las 12 tareas analizadas | Sostenida (local) | E2 local | Alguna tarea con más de una respuesta posible |
+| G7 | Con `luna` low, el control `oracle` (programa completo) acierta ≥ 10/12: la ejecución no es el cuello | **Refutada** | E2 local | `oracle` 2/12 (réplica 3/12) |
+| G8 | La memoria verificada de 2 operaciones supera al clon en ≥ 3 tareas pareadas | Sostenida (local) | E2 local | Menos de 3 pares a favor |
+| G9 | La memoria verificada supera al historial de origen (mismas experiencias, sin programa explícito) | **Refutada** | E2 local | Memoria 3/12 vs historial 4/12; 1 par a favor y 2 en contra |
+| G10 | La memoria verificada supera al placebo de la misma longitud | **Refutada** | E2 local | Memoria 3/12 vs placebo 6/12; 4 pares a favor del placebo y 1 de la memoria |
+| G11 | `luna` low no adquiere motivos de 3 o 4 operaciones desde 12 o 24 ejemplos y la verificación los rechaza | Sostenida (local) | E2 local | Un motivo de 3–4 operaciones que verifique |
 
 ## H. Representación (LIRE-001)
 
@@ -132,9 +138,10 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## Lo que este registro dice del proyecto
 
-- **39 sostenidas**: 34 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **42 sostenidas**: 37 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **11 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
+- **14 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y la
+  hipótesis de ejecución del 007B.
 - **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**

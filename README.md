@@ -192,10 +192,15 @@ operaciones»** verificó (`double → sort_asc`, equivalente).
 Con un ejemplo, el clon está en el suelo. Con dos, **el placebo acierta el doble que
 la memoria** (cuatro tareas discordantes a favor del placebo, una a favor de la
 memoria; p = 0,38). El artefacto verificado no supera a uno falso: **no hay ventaja
-atribuible al contenido retenido**. La familia no tiene margen para medir
-transferencia; el siguiente paso es 007B con un dominio donde el clon falle y el
-artefacto sea necesario. Detalle en
-[`prototipo-007-transferencia/`](resources/investigation/prototipo-007-transferencia/).
+atribuible al contenido retenido**.
+
+El diagnóstico **007B** añadió dos condiciones: **historial de origen** (los 12 pares
+de la sesión 1) y **oráculo** (el programa completo). Resultado con `luna` low:
+clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**. Con el
+programa completo, el modelo apenas ejecuta 2 de 12 tareas: **el cuello es la
+ejecución, no la memoria**. La familia de 5 pasos está fuera del alcance de `luna`
+low; el siguiente paso es medir ejecución (F1) antes de volver a la memoria. Detalle
+en [`prototipo-007b-transferencia/`](resources/investigation/prototipo-007b-transferencia/).
 
 La corrida con terra (exploratoria, no evidencia) mostró el mismo problema por
 arriba: clon 9–12/12, memoria 11/12 y placebo 11/12. Tampoco discrimina.

@@ -7,9 +7,13 @@ from ohmem.v7_transfer import (
     PLACEBO,
     OPS,
     build_conditions,
+    extra_examples,
     transfer_tasks,
     verify,
+    wrong_program,
 )
+
+MOTIF4 = ("sort_asc", "double", "add_one", "negate")
 
 
 class V7Tests(unittest.TestCase):
@@ -49,6 +53,32 @@ class V7Tests(unittest.TestCase):
             self.assertEqual(program[:2], MOTIF)
             for op in program[2:]:
                 self.assertIn(op, OPS)
+
+    def test_custom_motif_verifies_and_builds_its_own_tasks(self):
+        self.assertTrue(verify(list(MOTIF4), MOTIF4))
+        self.assertFalse(verify(list(MOTIF), MOTIF4))
+        for task in transfer_tasks(0, 6, 1, MOTIF4):
+            self.assertEqual(len(task.solution.program), 5)
+            self.assertEqual(task.solution.program[:4], MOTIF4)
+
+    def test_wrong_program_has_the_same_length_and_does_not_verify(self):
+        candidate = wrong_program(MOTIF4)
+        self.assertEqual(len(candidate), 4)
+        self.assertFalse(verify(list(candidate), MOTIF4))
+
+    def test_history_and_oracle_conditions_keep_the_framing(self):
+        conditions = build_conditions(
+            list(MOTIF4),
+            True,
+            motif=MOTIF4,
+            history=extra_examples(MOTIF4, 3, "session1"),
+            include_oracle=True,
+        )
+        self.assertIn("experiencias anteriores", conditions["history"])
+        self.assertIn(" -> ", conditions["history"])
+        self.assertIn("{program}", conditions["oracle"])
+        self.assertIn("candidata", conditions["memory"])
+        self.assertIn("candidata", conditions["placebo"])
 
 
 if __name__ == "__main__":

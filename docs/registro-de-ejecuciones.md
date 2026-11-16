@@ -150,6 +150,24 @@ Los smokes de calibración (n=1, n=3, profundidades 7 y 9, n=4) usaron 53 llamad
 adicionales y no se reportan como evidencia. El de n=3 se ejecutó con los probes de
 verificación defectuosos; corregidos antes de las corridas principales.
 
+## 4b. 007B (diagnóstico de información, instrucción y ejecución)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6-luna` |
+| Esfuerzo | `low` |
+| Llamadas | 54: 4 de adquisición fallida + 25 de la corrida perdida (reconstruida) + 25 de la corrida limpia |
+| Tareas | 12, soporte 2, profundidad 5 |
+| Condiciones | `history` y `oracle`; se combinan con `clone`, `memory` y `placebo` del 007 |
+| Resultado | clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**; réplica: historial 3/12, oráculo 3/12 |
+| Lectura | con el programa completo el modelo apenas ejecuta: el cuello es la ejecución |
+| Archivos | `prototipo-007b-transferencia/results/luna-low-support2-history-oracle.json`, `...-attempt1.json`, `prototipo-007-transferencia/results/luna-low-support2-12ex.json` |
+
+La adquisición de motivos de 3–4 operaciones se intentó con 12 y 24 ejemplos y
+«exactamente N operaciones»; las cuatro llamadas fueron rechazadas por la
+verificación. La corrida perdida no escribió el JSON por un fallo de ruta; sus filas
+se reconstruyeron de los directorios temporales y se guardan como réplica.
+
 ## 5. LIRE-001b (representación con skill larga)
 
 | Campo | Valor |

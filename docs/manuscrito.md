@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 64 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 70 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -304,6 +304,7 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 006-A′ | la política aprende | 48 tareas, semillas 1–2 | 7 condiciones | steps + probe | 92,7 % vs regla 93,8 %; 1,42× | bootstrap optimista | Negativo |
 | 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
 | 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
+| 007B | información, instrucción o ejecución | 12 tareas, `luna` low | clone, memory, placebo, history, oracle | llamadas | 1/3/6/4/2 | — | Negativo: el oráculo 2/12 |
 | LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Mixto: ahorro real, fidelidad menor |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
@@ -399,6 +400,17 @@ en techo. Las dos corridas, con modelos distintos, coinciden en el diagnóstico:
 familia no tiene margen** para medir transferencia. Sin espacio para fallar, no hay
 nada que transferir.
 
+**007B: el cuello es la ejecución.** El diagnóstico añadió dos condiciones a las
+mismas 12 tareas: **historial de origen** (los 12 pares de la sesión 1) y **oráculo**
+(el programa completo, fuga deliberada). Resultado con `luna` low: clon 1/12, memoria
+3/12, placebo 6/12, historial 4/12, **oráculo 2/12** (réplica: historial 3/12,
+oráculo 3/12). Con el programa completo, el modelo apenas ejecuta 2 de 12
+composiciones de cinco pasos; los errores son permutaciones, operaciones saltadas y
+aritmética. **La memoria no puede ayudar si la ejecución está en el suelo.** El
+resultado del 007 no es evidencia contra la retención: es evidencia de que la familia
+está fuera del alcance del modelo. La memoria tampoco supera al historial (3/12 vs
+4/12), así que el programa verificado no aporta sobre las experiencias crudas.
+
 ### 5.8 LIRE-001b: representación con skill larga
 
 La representación de una competencia conocida se midió aparte, con una skill
@@ -461,15 +473,15 @@ posible es una medición: clon, canales, `E`/`K`/`P`, formas y verificación en 
 etapas. Si esa medición no distingue nada, tampoco habrá contribución.
 
 **Lo que 007 enseña.** La retención funcionó —el artefacto sobrevivió al reinicio—
-pero no bastó. Con `luna`, el clon está en el suelo y la memoria no lo saca: el
-artefacto verificado no supera a uno falso. El cuello es la familia, no el
-mecanismo. Para medir acumulación hace falta un dominio donde el clon falle **y** el
-artefacto sea necesario: vocabulario opaco, horizonte de 20+ pasos o un dominio sin
-priors fuertes. Sin ese margen, cualquier artefacto empata con un placebo.
+pero no bastó. El 007B mostró por qué: **con el programa completo, `luna` acierta
+2/12**. El cuello es la **ejecución** de composiciones de cinco pasos, no la
+memoria: el artefacto verificado no supera al historial ni al placebo, y el oráculo
+está en el suelo. Para medir acumulación hace falta primero una tarea que el modelo
+pueda ejecutar; después, una donde el clon no pueda identificar el procedimiento.
+Sin ese margen, cualquier artefacto empata con un placebo.
 
-**El siguiente test.** 007B: familia donde el clon falle de forma estable, artefacto
-necesario (no solo útil), y comparación contra clon y placebo. Después, P1 y P6.
-Antes, F1.
+**El siguiente test.** F1: descomposición de capacidades y ejecución por profundidad.
+Después, 007C con una tarea ejecutable pero no identificable, y P1/P6.
 
 ---
 
@@ -548,9 +560,9 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-64 afirmaciones en `docs/registro-de-afirmaciones.md`: 34 sostenidas (5 de terceros,
-no replicadas), 11 refutadas, 14 abiertas, inválidas o no demostradas. Ninguna propia
-alcanza E3.
+70 afirmaciones en `docs/registro-de-afirmaciones.md`: 42 sostenidas (37 propias; 5 de
+terceros, no replicadas), 14 refutadas, 14 abiertas, inválidas o no demostradas.
+Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró
 

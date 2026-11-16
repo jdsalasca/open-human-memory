@@ -101,16 +101,21 @@ atribuible al contenido retenido, y la dirección observada es la contraria.
 
 ## 5. Qué haría falta (007B)
 
-- **Vocabulario opaco:** operaciones cuyos nombres no revelan la semántica; el
-  artefacto retenido es la única fuente de esa información.
-- **Horizonte largo:** 20+ pasos, donde la composición no se pueda inferir de dos
-  ejemplos.
-- **Artefacto necesario, no solo útil:** sin él, la tarea es inaccesible; con él,
-  resoluble.
-- **Mismo control placebo** y verificación por ejecución.
+Se intentó un artefacto de **4 operaciones** para cubrir 4 de 5 pasos. `luna` low no
+lo adquiere: cuatro intentos con 12 y 24 ejemplos (motivos de 3 y 4 operaciones)
+fueron rechazados por la verificación. El 007B de 4/5 queda **bloqueado en
+adquisición**.
 
-Sin ese margen, cualquier artefacto empata con un placebo y el experimento no
-distingue memoria de contexto.
+La corrida diagnóstica usó el motivo de 2 operaciones y añadió dos condiciones a las
+mismas 12 tareas del soporte 2:
+
+- `history`: los 12 pares de la sesión 1 (experiencias de origen, sin programa).
+- `oracle`: el programa completo de 5 operaciones (fuga; control de ejecución).
+
+Resultado: clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**.
+Con el programa completo el modelo apenas ejecuta 2 de 12: **el cuello es la
+ejecución**, no la retención. Detalle en
+[`../prototipo-007b-transferencia/`](../prototipo-007b-transferencia/).
 
 ## 6. Límites
 
