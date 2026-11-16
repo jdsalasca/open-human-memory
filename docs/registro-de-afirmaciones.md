@@ -167,15 +167,54 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | E3 | Pedir los estados intermedios mejora la aplicación en la profundidad de cruce | Abierta | E2 local | `steps` ≤ `symbolic` |
 | E4 | La longitud mínima equivalente separa el acierto mejor que la profundidad nominal | Sostenida (local, cualitativa) | E2 local | La nominal predice mejor en una muestra mayor |
 
+## L. Memoria en el régimen aplicable (MEM-002, piloto)
+
+> **Pre-registrado antes del piloto.** 3 operaciones, 12 tareas, `gpt-6-luna` low.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| M1 | La memoria verificada supera al clon en ≥ 3 pares | **Refutada** | E2 local | 1 par a favor, 0 en contra |
+| M2 | La memoria verificada supera al placebo en ≥ 3 pares | **Refutada** | E2 local | 2 a favor y 4 en contra |
+| M3 | La memoria verificada supera al historial en ≥ 3 pares | **Refutada** | E2 local | 1 a favor y 2 en contra |
+| M4 | El oráculo de 3 operaciones acierta ≥ 7/12 | Sostenida (local) | E2 local | 8/12 |
+
+> **Observación exploratoria (2 operaciones, no pre-registrada):** memoria 7/12 vs
+> clon 5/12 y placebo 4/12; historial 9/12; oráculo 11/12. La memoria supera al clon
+> y al placebo, pero el historial y el oráculo la superan. Motiva MEM-003; no se usa
+> como confirmación.
+
+## M. Encuadre de la memoria (MEM-003)
+
+> **Pre-registrado antes de la corrida.** 2 operaciones, 12 tareas, `gpt-6-luna` low.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| M5 | `memory_verified` supera a `memory_candidate` en ≥ 3 pares | Sostenida (local) | E2 local | 7 pares a favor, 0 en contra (p = 0,016) |
+| M6 | `memory_verified` acierta ≥ 10/12 | Sostenida (local) | E2 local | 11/12 |
+| M7 | `history` supera a `memory_candidate` en ≥ 2 pares | Sostenida (local) | E2 local | 6 pares a favor, 0 en contra (p = 0,031) |
+| M8 | `memory_verified` supera al placebo en ≥ 3 pares | Sostenida (local) | E2 local | 8 pares a favor, 0 en contra (p = 0,008) |
+| M9 | `oracle` acierta ≥ 10/12 | Sostenida (local) | E2 local | 12/12 |
+
+## N. Placebo verificado y réplica (MEM-004)
+
+> **Pre-registrado antes de la corrida.** El control crítico: un programa falso con
+> el mismo encuadre definitivo que la memoria verificada.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| M10 | `memory_verified` supera a `placebo_verified` en ≥ 3 pares | Sostenida (local) | E2 local | 10 pares a favor, 0 en contra (p = 0,002) |
+| M11 | En 24 tareas, `memory_verified` acierta ≥ 20/24 | Abierta | E2 local | < 20/24 |
+| M12 | En 24 tareas, `memory_verified` supera a `memory_candidate` en ≥ 6 pares | Abierta | E2 local | < 6 pares |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **53 sostenidas**: 48 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **60 sostenidas**: 55 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **15 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y la
-  monotonía de la profundidad nominal.
-- **15 abiertas, inválidas o no demostradas**, y son justo las que responderían la
+- **18 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y las
+  tres hipótesis de memoria en 3 operaciones.
+- **17 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**

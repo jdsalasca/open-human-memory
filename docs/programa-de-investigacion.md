@@ -46,6 +46,21 @@ longitud mínima), 3 operaciones 7/12 (44 %), 4 operaciones 8/12 (50 %), 5 opera
 equivalente** separa mejor. El único régimen aplicable son **2 operaciones
 efectivas**; 3 ya es frágil. La familia de 5 pasos queda cerrada para memoria.
 
+**Lo que añadió MEM-003.** En 2 operaciones, el mismo programa verificado acierta
+**11/12** presentado como definitivo, frente a 4/12 como candidata, 3/12 del clon,
+3/12 del placebo y 10/12 del historial. **El encuadre era el cuello.** La memoria
+verificada empata con el historial y casi con el oráculo. El riesgo es la confianza
+en la etiqueta: MEM-004 prueba un placebo con el mismo encuadre. Si también acierta,
+la ganancia es de la etiqueta, no del contenido, y el sistema debe verificar la
+memoria fuera del prompt.
+
+**Lo que añadió MEM-004.** El placebo verificado acierta **0/12**; la memoria
+verificada, 10/12 (10 pares, p = 0,002). El modelo no confía ciegamente: aplica el
+programa falso y falla. La ganancia es del **contenido verificado**. La etiqueta debe
+provenir de una verificación real fuera del prompt; un artefacto falso etiquetado como
+verificado es un fallo seguro. **El modelo no puede ser el verificador de su propia
+memoria.**
+
 **El orden correcto:**
 
 1. **EXEC-001:** mapa de aplicación por profundidad y **complejidad funcional mínima**

@@ -1,0 +1,2185 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 0,
+  "n": 12,
+  "support": 2,
+  "suffix": 0,
+  "motif": [
+    "sort_asc",
+    "double"
+  ],
+  "placebo": [
+    "sort_desc",
+    "double"
+  ],
+  "session1": {
+    "program": [
+      "double",
+      "sort_asc"
+    ],
+    "verified": true,
+    "timed_out": false,
+    "seconds": 7.79
+  },
+  "conditions": {
+    "clone": {
+      "correct": 5,
+      "n": 12,
+      "accuracy": 0.4167,
+      "mean_seconds": 6.7,
+      "mean_prompt_chars": 395,
+      "timeouts": 0
+    },
+    "memory": {
+      "correct": 3,
+      "n": 12,
+      "accuracy": 0.25,
+      "mean_seconds": 6.7,
+      "mean_prompt_chars": 458,
+      "timeouts": 0
+    },
+    "placebo": {
+      "correct": 2,
+      "n": 12,
+      "accuracy": 0.1667,
+      "mean_seconds": 6.3,
+      "mean_prompt_chars": 459,
+      "timeouts": 0
+    },
+    "memory_verified": {
+      "correct": 10,
+      "n": 12,
+      "accuracy": 0.8333,
+      "mean_seconds": 6.6,
+      "mean_prompt_chars": 370,
+      "timeouts": 0
+    },
+    "placebo_verified": {
+      "correct": 0,
+      "n": 12,
+      "accuracy": 0.0,
+      "mean_seconds": 6.2,
+      "mean_prompt_chars": 371,
+      "timeouts": 0
+    },
+    "history": {
+      "correct": 9,
+      "n": 12,
+      "accuracy": 0.75,
+      "mean_seconds": 6.7,
+      "mean_prompt_chars": 853,
+      "timeouts": 0
+    },
+    "oracle": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "mean_seconds": 6.5,
+      "mean_prompt_chars": 371,
+      "timeouts": 0
+    }
+  },
+  "rows": [
+    {
+      "condition": "clone",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        12,
+        14,
+        2,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 394,
+      "seconds": 7.76,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 395,
+      "seconds": 5.27,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 395,
+      "seconds": 7.64,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        4,
+        9,
+        8,
+        16
+      ],
+      "correct": false,
+      "prompt_chars": 394,
+      "seconds": 5.68,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        14,
+        10,
+        2,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 394,
+      "seconds": 7.7,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 394,
+      "seconds": 7.25,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "correct": true,
+      "prompt_chars": 396,
+      "seconds": 8.27,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        14,
+        16,
+        12
+      ],
+      "correct": false,
+      "prompt_chars": 397,
+      "seconds": 6.25,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 394,
+      "seconds": 7.61,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        18,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 393,
+      "seconds": 5.55,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 394,
+      "seconds": 6.62,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "clone",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        10,
+        18,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 397,
+      "seconds": 5.35,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        12,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 5.9,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        14,
+        12,
+        16
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 6.39,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        4,
+        16,
+        18,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 8.13,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 457,
+      "seconds": 8.21,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        2,
+        10,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 5.52,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        8,
+        18,
+        18,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 6.0,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        6,
+        6,
+        8,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 459,
+      "seconds": 6.26,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        14,
+        16,
+        12
+      ],
+      "correct": false,
+      "prompt_chars": 460,
+      "seconds": 6.9,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        8,
+        16,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 8.75,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 456,
+      "seconds": 7.98,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        2,
+        16,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 5.57,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 460,
+      "seconds": 4.98,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 458,
+      "seconds": 6.7,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        16,
+        14,
+        12,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 459,
+      "seconds": 6.79,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 459,
+      "seconds": 6.39,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        8,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 6.86,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "correct": true,
+      "prompt_chars": 458,
+      "seconds": 5.66,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        18,
+        18,
+        14,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 6.08,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        4,
+        4,
+        6,
+        6
+      ],
+      "correct": false,
+      "prompt_chars": 460,
+      "seconds": 5.45,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        14,
+        16,
+        12
+      ],
+      "correct": false,
+      "prompt_chars": 461,
+      "seconds": 6.21,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        16,
+        16,
+        18,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 5.59,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        14,
+        14,
+        4,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 457,
+      "seconds": 5.16,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 458,
+      "seconds": 9.79,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        2,
+        4,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 461,
+      "seconds": 5.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 6.05,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.19,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 5.5,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 5.81,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        2,
+        10,
+        14
+      ],
+      "correct": false,
+      "prompt_chars": 369,
+      "seconds": 6.12,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 5.63,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "correct": true,
+      "prompt_chars": 371,
+      "seconds": 5.93,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 372,
+      "seconds": 5.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 8.7,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 368,
+      "seconds": 9.48,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 7.01,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "memory_verified",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        2,
+        18,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 372,
+      "seconds": 7.84,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        18,
+        14,
+        12,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 5.93,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        16,
+        14,
+        12,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 371,
+      "seconds": 6.04,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 371,
+      "seconds": 6.08,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        8,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 5.43,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        14,
+        14,
+        10,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 5.39,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        18,
+        18,
+        14,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 5.51,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        8,
+        6,
+        6,
+        4
+      ],
+      "correct": false,
+      "prompt_chars": 372,
+      "seconds": 5.72,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "correct": false,
+      "prompt_chars": 373,
+      "seconds": 6.44,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        16,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 8.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        18,
+        14,
+        14,
+        4
+      ],
+      "correct": false,
+      "prompt_chars": 369,
+      "seconds": 5.54,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        18,
+        16,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 370,
+      "seconds": 6.45,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "placebo_verified",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        18,
+        18,
+        4,
+        2
+      ],
+      "correct": false,
+      "prompt_chars": 373,
+      "seconds": 7.18,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 852,
+      "seconds": 7.32,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 853,
+      "seconds": 5.65,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 853,
+      "seconds": 6.57,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 852,
+      "seconds": 6.02,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "correct": true,
+      "prompt_chars": 852,
+      "seconds": 6.54,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        14,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 852,
+      "seconds": 5.7,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        6,
+        6,
+        8,
+        8
+      ],
+      "correct": false,
+      "prompt_chars": 854,
+      "seconds": 6.31,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 855,
+      "seconds": 5.72,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 852,
+      "seconds": 7.23,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 851,
+      "seconds": 7.67,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 852,
+      "seconds": 9.32,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "history",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        18,
+        18,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 855,
+      "seconds": 6.56,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.54,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 371,
+      "seconds": 6.17,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 371,
+      "seconds": 5.6,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 8.08,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.14,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 5.99,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "correct": true,
+      "prompt_chars": 372,
+      "seconds": 6.35,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 373,
+      "seconds": 8.15,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 7.34,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 5.58,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.22,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 373,
+      "seconds": 5.93,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ]
+}

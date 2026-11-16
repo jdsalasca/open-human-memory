@@ -208,6 +208,7 @@ def build_conditions(
     placebo: tuple[str, ...] | None = None,
     history: list | None = None,
     include_oracle: bool = False,
+    include_verified: bool = False,
 ) -> dict[str, str]:
     """Only a verified artifact may be delivered. No fallback to the true motif."""
     if not verified or not program:
@@ -230,6 +231,15 @@ def build_conditions(
             "el programa completo puede tener más pasos.\n"
         ),
     }
+    if include_verified:
+        conditions["memory_verified"] = (
+            "\nEl programa retenido y verificado es: "
+            f"{artifact}. Aplícalo a la entrada.\n"
+        )
+        conditions["placebo_verified"] = (
+            "\nEl programa retenido y verificado es: "
+            f"{' -> '.join(placebo)}. Aplícalo a la entrada.\n"
+        )
     if history is not None:
         rows = "\n".join(f"{list(x)} -> {list(y)}" for x, y in history)
         conditions["history"] = (
@@ -279,7 +289,17 @@ def main() -> None:
         parser.error("placebo must have the same length and must not verify")
     selected = [x.strip() for x in args.conditions.split(",") if x.strip()]
     if not selected or any(
-        c not in {"clone", "memory", "placebo", "history", "oracle"} for c in selected
+        c
+        not in {
+            "clone",
+            "memory",
+            "memory_verified",
+            "placebo",
+            "placebo_verified",
+            "history",
+            "oracle",
+        }
+        for c in selected
     ):
         parser.error(f"invalid conditions: {args.conditions}")
 
@@ -352,6 +372,7 @@ def main() -> None:
         placebo=placebo,
         history=history_pairs,
         include_oracle="oracle" in selected,
+        include_verified="memory_verified" in selected,
     )
     conditions = {k: v for k, v in conditions.items() if k in selected}
     rows = []

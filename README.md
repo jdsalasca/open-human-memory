@@ -265,6 +265,40 @@ independientes** (~3.759 bits), 12 casos estratificados y **control sin tabla**.
 
 Detalle y límites en [`lire-002/`](resources/investigation/lire-002/).
 
+## MEM-002/MEM-003: la memoria funciona si se presenta como verificada
+
+EXEC-001 mostró que `luna` aplica 2 operaciones al 86 %, 3 al 44–58 % y 5 al 0–33 %.
+MEM-002 bajó la tarea a 2 operaciones, donde hay margen. MEM-003 comparó el **mismo
+programa** con dos encuadres:
+
+| Condición | Acierto |
+|---|---|
+| Clon | 3/12 |
+| Memoria (candidata) | 4/12 |
+| Placebo | 3/12 |
+| Historial de origen | 10/12 |
+| **Memoria verificada** | **11/12** |
+| **Oráculo** | **12/12** |
+
+- **El encuadre era el cuello:** el mismo programa pasa de 4/12 a 11/12 al presentarlo
+  como «retenido y verificado; aplícalo» en vez de «subrutina candidata; verifícala»
+  (7 pares, p = 0,016).
+- **El contenido importa:** verificada 11/12 vs placebo 3/12 (8 pares, p = 0,008).
+- **La etiqueta sola no basta:** en MEM-004, un programa falso etiquetado «verificado»
+  acierta **0/12**; la memoria verificada, 10/12 (10 pares, p = 0,002). El modelo
+  aplica el programa falso y falla; no confía ciegamente.
+- **La memoria verificada empata con el historial y el oráculo** (11, 10 y 12 sobre
+  12); el artefacto comprimido conserva la información en este régimen.
+- **El encuadre de candidata es tóxico:** 4/12, peor que el historial (10/12). Pedir
+  verificación en cada uso hace que el modelo no aplique lo que ya está verificado.
+- **Condición de seguridad:** la etiqueta «verificado» debe provenir de una
+  verificación real fuera del prompt; un artefacto falso etiquetado así se aplica y
+  falla. El modelo no puede ser el verificador de su propia memoria.
+
+Detalle en [`mem-002/`](resources/investigation/mem-002/),
+[`mem-003/`](resources/investigation/mem-003/) y
+[`mem-004/`](resources/investigation/mem-004/).
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64

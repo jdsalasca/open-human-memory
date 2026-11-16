@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 83 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 95 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -306,6 +306,8 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
 | 007B | información, instrucción o ejecución | 12 tareas, `luna` low | clone, memory, placebo, history, oracle | llamadas | 1/3/6/4/2 | — | Negativo: el oráculo 2/12 |
 | EXEC-001 | aplicación con el programa dado | 12 tareas × 4 profundidades, `luna` low | oráculo simbólico | llamadas | 2 ops 11/12; 3 ops 7/12; 4 ops 8/12; 5 ops 4/12 | 1–5 tareas | La longitud efectiva manda |
+| MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
+| MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
 | LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Retractado: la tabla era una fórmula |
 | LIRE-002 | información independiente | 12 casos × 8 formas, `luna` low | 7 representaciones + sin tabla | tokens incrementales | sin tabla 0/7; en/DSL 12/12; tabla 8/12 | 1–2 casos | Mixto: condición, no idioma |
 
@@ -467,6 +469,35 @@ vs 2.841) ni acierta más (11 vs 10): **la ventaja de LIRE-001b no se replica**.
 tabla TSV ahorra 51 % de tokens y baja a 8/12; el conciso ahorra 48 % y se queda en
 10/12. No hay una representación que domine fidelidad, tokens y condición.
 
+### 5.10 MEM-003: la memoria verificada funciona; el encuadre la bloqueaba
+
+En dos operaciones —el régimen aplicable según EXEC-001— se comparó el **mismo
+programa verificado** con dos encuadres, más clon, placebo, historial y oráculo:
+
+| Condición | Acierto |
+|---|---|
+| Clon | 3/12 |
+| Memoria candidata | 4/12 |
+| Placebo | 3/12 |
+| Historial | 10/12 |
+| **Memoria verificada** | **11/12** |
+| **Oráculo** | **12/12** |
+
+El mismo programa pasa de **4/12 a 11/12** al presentarlo como «retenido y
+verificado; aplícalo» en vez de «subrutina candidata; verifícala» (7 pares,
+p = 0,016). Con el encuadre definitivo, el contenido importa: verificada 11/12 vs
+placebo 3/12 (8 pares, p = 0,008). La memoria verificada empata con el historial
+(10/12) y con el oráculo (12/12). El encuadre de candidata es tóxico: 4/12, peor que
+el historial (6 pares, p = 0,031). **La memoria no era el cuello: lo era pedirle al
+modelo que re-verificara en cada uso un artefacto ya verificado.**
+
+**MEM-004: la etiqueta no basta.** Un programa falso etiquetado «retenido y
+verificado» acierta **0/12**, peor que el clon (5/12); la memoria verificada acierta
+10/12 (10 pares, p = 0,002). El modelo no confía ciegamente en la etiqueta: aplica el
+programa y falla si es falso. La ganancia es del **contenido verificado**, y la
+verificación debe ser real, fuera del prompt. Un sistema que permita al modelo
+etiquetar su propia memoria como verificada es vulnerable a este fallo.
+
 ---
 
 ## 6. Revisión de antecedentes
@@ -511,8 +542,19 @@ memoria; no se identifica si falla la ejecución, la interpretación de las oper
 o el seguimiento de instrucciones. El artefacto verificado no supera al historial ni
 al placebo, y el oráculo está en el suelo. Para medir acumulación hace falta primero
 una tarea que el modelo pueda aplicar; después, una donde el clon no pueda
-identificar el procedimiento. Sin ese margen, cualquier artefacto empata con un
-placebo.
+identificar el procedimiento.
+
+**Lo que MEM-003 añade.** En 2 operaciones —el régimen aplicable— el mismo programa
+verificado acierta **11/12** si se presenta como definitivo, frente a 3/12 del clon,
+3/12 del placebo y 4/12 si se presenta como candidata. Empata con el historial
+(10/12) y con el oráculo (12/12). **El 007 no era evidencia contra la memoria:** la
+tarea estaba fuera de la ejecución y el artefacto se presentaba como candidato.
+
+**Lo que MEM-004 añade.** La etiqueta «verificado» no basta: un programa falso
+etiquetado así acierta 0/12, mientras la memoria verificada acierta 10/12 (10 pares,
+p = 0,002). El modelo aplica el programa y falla si es falso. La memoria útil exige
+**verificación real fuera del prompt** y un encuadre definitivo; el modelo no puede
+ser el verificador de su propia memoria.
 
 **El siguiente test.** F1: descomposición de capacidades y ejecución por profundidad.
 Después, 007C con una tarea ejecutable pero no identificable, y P1/P6.
@@ -594,8 +636,8 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-83 afirmaciones en `docs/registro-de-afirmaciones.md`: 53 sostenidas (48 propias; 5 de
-terceros, no replicadas), 15 refutadas, 15 abiertas, inválidas o no demostradas.
+95 afirmaciones en `docs/registro-de-afirmaciones.md`: 60 sostenidas (55 propias; 5 de
+terceros, no replicadas), 18 refutadas, 17 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró

@@ -216,6 +216,22 @@ dominaba la medición. No se usa como evidencia.
 | Lectura | el régimen aplicable son 2 operaciones efectivas; la nominal no es monótona |
 | Archivos | `exec-001/results/oracle-depth-{2,3,4,5}.json` |
 
+## 5d. MEM-002/MEM-003/MEM-004 (memoria en el régimen aplicable)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6-luna` |
+| Esfuerzo | `low` |
+| Llamadas | MEM-002: 122 (61 de 3 ops + 61 de 2 ops) · MEM-003: 73 · MEM-004: 85 |
+| Tareas | 12 por condición, 2 ejemplos de soporte |
+| Condiciones | clon, memoria candidata, memoria verificada, placebo, placebo verificado, historial, oráculo |
+| Resultado MEM-002 (3 ops) | clon 2, memoria 3, placebo 5, historial 4, oráculo 8 |
+| Resultado MEM-002 (2 ops) | clon 5, memoria 7, placebo 4, historial 9, oráculo 11 |
+| Resultado MEM-003 | clon 3, candidata 4, verificada 11, placebo 3, historial 10, oráculo 12 |
+| Resultado MEM-004 | clon 5, candidata 3, verificada 10, placebo 2, placebo verificado 0, historial 9, oráculo 12 |
+| Lectura | el encuadre era el cuello; la etiqueta no basta; el contenido verificado manda |
+| Archivos | `mem-002/results/*.json`, `mem-003/results/*.json`, `mem-004/results/*.json` |
+
 ## 6. Revisión de literatura
 
 | Campo | Valor |

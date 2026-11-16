@@ -80,6 +80,18 @@ class V7Tests(unittest.TestCase):
         self.assertIn("candidata", conditions["memory"])
         self.assertIn("candidata", conditions["placebo"])
 
+    def test_verified_condition_is_definitive(self):
+        conditions = build_conditions(list(MOTIF), True, include_verified=True)
+        self.assertIn("retenido y verificado", conditions["memory_verified"])
+        self.assertIn("Aplícalo", conditions["memory_verified"])
+        self.assertIn("sort_asc", conditions["memory_verified"])
+        self.assertIn("retenido y verificado", conditions["placebo_verified"])
+        self.assertNotEqual(
+            conditions["memory_verified"], conditions["placebo_verified"]
+        )
+        default = build_conditions(list(MOTIF), True)
+        self.assertNotIn("memory_verified", default)
+
 
 if __name__ == "__main__":
     unittest.main()

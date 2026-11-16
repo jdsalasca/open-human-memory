@@ -110,6 +110,17 @@ es monótona. El siguiente paso es **MEM-002** con procedimientos de 2–3 opera
 efectivas, donde el clon aplica pero no identifica; la familia de 5 pasos queda
 cerrada para memoria.
 
+**MEM-003 (ejecutado, positivo).** En 2 operaciones, el mismo programa verificado:
+candidata 4/12, verificada 11/12, placebo 3/12, historial 10/12, oráculo 12/12. El
+encuadre era el cuello (7 pares, p = 0,016); el contenido importa (8 pares vs
+placebo, p = 0,008).
+
+**MEM-004 (ejecutado, control superado).** El programa falso etiquetado «verificado»
+acierta 0/12; la memoria verificada, 10/12 (10 pares, p = 0,002). La etiqueta no
+basta; la verificación debe ser real, fuera del prompt. **Siguiente:** réplica de 24
+tareas (M11/M12), varias semillas; después MEM-005 en 3 operaciones con encuadre
+definitivo y, más adelante, el ciclo longitudinal `E`/`K`/`P`.
+
 ---
 
 ## F1 — Descomposición de capacidades (`DECOMP-*`)
