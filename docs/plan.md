@@ -7,20 +7,20 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R1 — Investigación (completada)
 
-- Entregable: `resources/investigation/` con 27 documentos, papers finales de
+- Entregable: `resources/investigation/` con 29 documentos, papers finales de
   CUMULUS (EN/ES) y JANUS (ES), y bibliografía con fuentes primarias.
 - Criterio: cada mecanismo propuesto tiene fuente, traducción computacional y
   riesgo declarado; las preguntas de momento cero, contexto, filosofía,
   compactación, sueño, atención y DeepSeek tienen respuesta documentada.
-- Revisión mayor incorporada: `22`–`27`; competidores 2026 en `precedentes/06` a
+- Revisión mayor incorporada: `22`–`29`; competidores 2026 en `precedentes/06` a
   `08`.
 
-### R1.5 — Plan de implementación
+### R1.5 — Programa de competencia y diagnóstico
 
-- Entregable: `27-plan-de-implementacion.md` con JANUS-C, sandbox, baselines,
-  métricas y fases.
-- Criterio: el MVP demuestra que los certificados y la calibración reducen el
-  efecto equivocado y la reutilización dañina frente a COUNTERMEM-style.
+- Entregable: `28-programa-de-competencia.md`,
+  `29-experimento-diagnostico.md` y harness `src/ohmem/` con tests.
+- Criterio: el diagnóstico distingue memoria, selección, procedimiento y
+  abstracción antes de construir otra arquitectura.
 
 ### R2 — Documento de diseño
 

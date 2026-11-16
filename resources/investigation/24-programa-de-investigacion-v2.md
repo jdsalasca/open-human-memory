@@ -1,5 +1,8 @@
 # 24 — Programa de investigación v2: de la memoria a la corrección
 
+> **Superado por `28-programa-de-competencia.md`.** Se conserva como histórico:
+> el foco pasa de memoria/corrección a **expansión de competencia**.
+
 **Estado:** reemplaza la formulación centrada en CUMULUS/JANUS como arquitecturas.
 La pregunta ya no es "¿cómo construimos otra memoria?", sino **"¿qué puede
 justificar una trayectoria y cómo se usa ese conocimiento sin convertirlo en

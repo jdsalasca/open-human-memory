@@ -1,5 +1,9 @@
 # 27 — Plan de implementación: qué construimos, qué no, y por qué
 
+> **Actualizado por `29-experimento-diagnostico.md` y `src/ohmem/`.** El primer
+> paso ya no es JANUS-C completo, sino el diagnóstico A–E. JANUS-C se implementa
+> solo si el diagnóstico muestra que la selección/verificación es el cuello.
+
 ## 1. Respuesta corta
 
 **No vamos a implementar COUNTERMEM como producto.** Vamos a implementar un

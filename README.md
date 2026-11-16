@@ -4,9 +4,30 @@ Investigación abierta sobre memoria para agentes: qué puede aprender un sistem
 de su experiencia, qué puede justificar y cómo evitar que sus errores se
 conviertan en certezas permanentes.
 
-**Estado:** programa de investigación, no producto. No hay código de producción
-todavía. El repositorio contiene la base conceptual, la revisión de antecedentes,
-los protocolos experimentales y los papers de trabajo.
+**Estado:** programa de investigación con un **diagnóstico ejecutable**. No hay
+producto todavía; hay un harness mínimo para decidir qué capa importa antes de
+construir otra arquitectura.
+
+## Inicio rápido
+
+```bash
+python -m unittest discover -s tests -v
+PYTHONPATH=src python -m ohmem.experiment --train 200 --eval 50
+```
+
+En Windows PowerShell:
+
+```powershell
+$env:PYTHONPATH="src"; python -m unittest discover -s tests -v
+python -m ohmem.experiment --train 200 --eval 50
+```
+
+El harness compara cinco condiciones (sin memoria, retrieval, oráculo,
+procedimiento y abstracción) en tres distribuciones (instancias nuevas, familias
+nuevas con la misma estructura y familias estructuralmente nuevas). Es un
+instrumento sintético, no un benchmark de LLM.
+
+Licencia: MIT (`LICENSE`).
 
 ## La pregunta
 
@@ -24,6 +45,8 @@ sobre todo, la corrección.
 | Documento | Para qué |
 |---|---|
 | [24-programa-de-investigacion-v2.md](resources/investigation/24-programa-de-investigacion-v2.md) | Horizontes, hipótesis y experimento diferencial A–E |
+| [28-programa-de-competencia.md](resources/investigation/28-programa-de-competencia.md) | Programa v3: continuidad, competencia y expansión |
+| [29-experimento-diagnostico.md](resources/investigation/29-experimento-diagnostico.md) | El experimento que decide qué capa importa |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

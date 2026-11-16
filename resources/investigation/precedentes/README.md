@@ -58,6 +58,14 @@ Un sistema entra si cumple al menos una condición:
 8. [08-antecedentes-2026-iii.md](08-antecedentes-2026-iii.md) — SkillApt, BASM,
    MemCalib, MemTrial, CMI, replay certificado, GCJR, CRR, OAS y MERIT.
 
+## Arquitecturas clásicas y competencia
+
+La discusión de Soar, ACT-R, Dyna, Darwin Gödel Machine, AlphaEvolve, Sleep
+Framework, Nested Learning, MemoryArena, Continual Learning Exam y
+AgentMemoryBench está en
+[`../28-programa-de-competencia.md`](../28-programa-de-competencia.md). No se
+duplica aquí para evitar dos catálogos que se desincronicen.
+
 ## Lo que se repite
 
 - **La memoria se trata como almacén**, no como ciclo de vida.

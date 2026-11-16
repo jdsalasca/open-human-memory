@@ -392,6 +392,20 @@ incluyen volumen y páginas cuando se verificaron.
 - CRR. (2026). *Counterfactual rollout replay: Forkable environments as free process rewards for software engineering agents*. arXiv:2609.33875.
 - Xu, C., Li, Z., & Xu, Q. (2026). *Delivered, not used: Evaluating agent memory at its point of use*. arXiv:2611.01718.
 
+## Arquitecturas clásicas y competencia acumulativa
+
+- Anderson, J. R., Bothell, D., Byrne, M. D., Douglass, S., Lebiere, C., & Qin, Y. (2004). An integrated theory of the mind. *Psychological Review, 111*(4), 1036–1060.
+- AgentMemoryBench. (2026). *Online learning, retention, transfer, and repair under faulty feedback*. GitHub: solomoon313/AgentMemoryBench.
+- Continual Learning Exam. (2026). *120 tasks in five dependent levels*. arXiv:2610.33956.
+- Google Research. (2026). *The Sleep Framework: A new way for LLMs to retain knowledge in continual learning*. Blog.
+- Google Research. (2025). *Nested Learning: A new ML paradigm for continual learning*. Blog.
+- He, et al. (2026). MemoryArena: Benchmarking agent memory in interdependent multi-session agentic tasks. *ICML 2026*, PMLR 306.
+- Laird, J. E. (2012). *The Soar cognitive architecture*. MIT Press.
+- Newell, A. (1990). *Unified theories of cognition*. Harvard University Press.
+- Novikov, A., et al. (2025). *AlphaEvolve: A coding agent for scientific and algorithmic discovery*. arXiv:2506.13131.
+- Sutton, R. S. (1990). Integrated architectures for learning, planning, and reacting based on approximating dynamic programming. *ICML 1990*.
+- Zhang, J., Hu, S., Lu, C., Lange, R., & Clune, J. (2025). *Darwin Gödel Machine: Open-ended evolution of self-improving agents*. arXiv:2505.22954.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios
