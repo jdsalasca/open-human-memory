@@ -295,27 +295,26 @@ contradicciones, transferencia negativa, abstención correcta.
 **Criterio de muerte:** si E no supera a C o D en las primarias, la complejidad
 adicional no se justifica.
 
-### 11.1 Nota empírica: prototipo 002 (sin filtración)
+### 11.1 Nota empírica: prototipo 003 (aprendizaje de macros)
 
-El Prototipo 001 quedó invalidado por target leakage. El 002 separa observación y
-solución, infiere la regla desde tres ejemplos y añade composición.
+El Prototipo 002 resultó ser un benchmark de solucionador: `MEM-A0`, el mismo
+solucionador sin historial, empató con `MEM-E`. El 003 aprende macros de programas
+repetidos y las usa en evaluación.
 
-Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
+Media de 3 semillas, 60 de entrenamiento, 30 de evaluación:
 
-| Condición | D1 | D2 | D3 (composición) |
+| Condición | D1 | D2 | D3 (profundidad 3) |
 |---|---|---|---|
-| A sin memoria | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.553 | 0.513 | 0.027 |
-| C oráculo | 1.000 | 1.000 | 1.000 |
-| D primitiva | 1.000 | 1.000 | 0.000 |
-| E composición | 1.000 | 1.000 | 1.000 |
+| NOLEARN | 1.000 | 1.000 | 0.000 |
+| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
+| LEARNED | 1.000 | 1.000 | 1.000 |
+| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
 
-El instrumento muestra que retrieval no basta cuando la regla está en los
-ejemplos; una primitiva inducida resuelve reglas simples; la composición es el
-discriminador. El coste no es escalar (MEM-E: 20 verificaciones; MEM-D: 4) y la
-curva \(G(n)\) se satura desde \(n=50\). **JANUS no se probó todavía**: el
-prototipo valida el instrumento, no la hipótesis causal. El siguiente paso es
-conectar `COMP-*` a tareas reales y a un adaptador de política LLM.
+**Si se elimina el historial, se pierde D3.** Es un resultado sintético, no de
+JANUS ni de un LLM; las macros son composiciones de primitivas conocidas. JANUS
+sigue sin probarse: el prototipo valida que el historial puede producir una
+capacidad nueva, no la hipótesis causal. Detalles en
+`prototipo-003-aprendizaje/`.
 
 ## 12. Límites, seguridad y gobernanza
 

@@ -1,0 +1,142 @@
+{
+  "seed": 2,
+  "n_train": 60,
+  "n_eval": 30,
+  "solved_train": 60,
+  "learned_macros": [
+    [
+      "sort_asc",
+      "double"
+    ],
+    [
+      "sort_desc",
+      "add_one"
+    ],
+    [
+      "double",
+      "add_one"
+    ]
+  ],
+  "rows": [
+    {
+      "condition": "NOLEARN",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 73,
+        "primitive_ops": 73
+      }
+    },
+    {
+      "condition": "NOLEARN",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 310,
+        "primitive_ops": 500
+      }
+    },
+    {
+      "condition": "NOLEARN",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 600,
+        "primitive_ops": 1080
+      }
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 73,
+        "primitive_ops": 73
+      }
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 460,
+        "primitive_ops": 860
+      }
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 1680,
+        "primitive_ops": 4500
+      }
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 73,
+        "primitive_ops": 73
+      }
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 460,
+        "primitive_ops": 860
+      }
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "library_size": 7,
+      "cost": {
+        "candidates": 740,
+        "primitive_ops": 1680
+      }
+    },
+    {
+      "condition": "ABLATED",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 73,
+        "primitive_ops": 73
+      }
+    },
+    {
+      "condition": "ABLATED",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 310,
+        "primitive_ops": 500
+      }
+    },
+    {
+      "condition": "ABLATED",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "library_size": 4,
+      "cost": {
+        "candidates": 600,
+        "primitive_ops": 1080
+      }
+    }
+  ]
+}

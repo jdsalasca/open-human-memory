@@ -34,6 +34,36 @@
       }
     },
     {
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
+    },
+    {
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
+    },
+    {
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
+    },
+    {
       "condition": "B-retrieval",
       "distribution": "D1",
       "accuracy": 0.52,

@@ -30,6 +30,30 @@
       "n": 3
     },
     {
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "mean_accuracy": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "n": 3
+    },
+    {
       "condition": "B-retrieval",
       "distribution": "D1",
       "mean_accuracy": 0.5533,

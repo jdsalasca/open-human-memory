@@ -5,14 +5,28 @@ from __future__ import annotations
 import argparse
 import json
 
-from .v2_conditions import Abstraction, NoMemory, Oracle, Procedure, Retrieval
+from .v2_conditions import (
+    Abstraction,
+    CurrentSolver,
+    NoMemory,
+    Oracle,
+    Procedure,
+    Retrieval,
+)
 from .v2_tasks import apply_rule, make_splits
 
 
 def run(seed: int = 0, n_train: int = 200, n_eval: int = 50) -> dict:
     splits = make_splits(seed=seed, n_train=n_train, n_eval=n_eval)
     train = splits["train"]
-    conditions = [NoMemory(), Retrieval(train), Oracle(), Procedure(), Abstraction()]
+    conditions = [
+        NoMemory(),
+        CurrentSolver(),
+        Retrieval(train),
+        Oracle(),
+        Procedure(),
+        Abstraction(),
+    ]
     rows = []
     for condition in conditions:
         for distribution in ("D1", "D2", "D3"):

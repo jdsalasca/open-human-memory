@@ -79,7 +79,9 @@ Se reporta éxito por unidad de costo, no tokens por respuesta.
 - Contaminación: D2/D3 no comparten vocabulario ni identificadores con D1.
 - Costo del oráculo reportado aparte; no se compara como si fuera gratis.
 
-## 6.1 Resultados del Prototipo 002 (sin filtración)
+## 6. Implementación mínima
+
+### 6.1 Resultados del Prototipo 002 (sin filtración)
 
 El Prototipo 001 se conserva como *smoke test*: tenía target leakage (el nombre de
 la regla aparecía en la superficie). El 002 separa observación y solución, infiere
@@ -100,7 +102,31 @@ superficie; una primitiva inducida resuelve reglas simples; **la composición es
 el discriminador**: MEM-D falla D3 porque su espacio de hipótesis no incluye
 composiciones, MEM-E acierta porque las busca. Sigue siendo sintético: no prueba
 un LLM ni descubrimiento abierto.
-## 6. Implementación mínima
+## 6.2 Prototipo 003: aprendizaje real desde la experiencia
+
+El 002 incluye `MEM-A0` (mismo solucionador composicional sin historial) y
+`MEM-A0` empata con `MEM-E` en D1/D2/D3. Por tanto, **el 002 no demuestra
+aprendizaje desde la memoria**: es un benchmark de solucionador.
+
+El 003 sí aprende: encapsula programas de dos pasos repetidos como macros y las
+usa en evaluación. Media de 3 semillas:
+
+| Condición | D1 | D2 | D3 (profundidad 3) |
+|---|---|---|---|
+| NOLEARN | 1.000 | 1.000 | 0.000 |
+| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
+| LEARNED | 1.000 | 1.000 | 1.000 |
+| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
+
+Coste D3: LEARNED 740 candidatos / 1.680 operaciones; RANDOM 1.680 / 4.500;
+NOLEARN 600 / 1.080. La ganancia no es gratis: en D2 la biblioteca aprendida
+gasta 460 candidatos frente a 310 de NOLEARN.
+
+Esto responde a la pregunta de la auditoría: **si se elimina la experiencia, se
+pierde D3**. Sigue siendo sintético y las macros son composiciones de primitivas
+conocidas, no conceptos nuevos.
+
+
 
 El repositorio incluye un **diagnóstico sintético** en `src/ohmem/`:
 

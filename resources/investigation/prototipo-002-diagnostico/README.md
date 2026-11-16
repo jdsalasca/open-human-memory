@@ -51,6 +51,7 @@ Media de tres semillas (0, 1, 2); 200 tareas de entrenamiento, 50 de evaluación
 | Condición | D1 | D2 | D3 |
 |---|---|---|---|
 | MEM-A sin memoria | 0.240 | 0.507 | 0.000 |
+| **MEM-A0 solucionador actual** | **1.000** | **1.000** | **1.000** |
 | MEM-B retrieval | 0.553 | 0.513 | 0.027 |
 | MEM-C oráculo | 1.000 | 1.000 | 1.000 |
 | MEM-D primitiva | 1.000 | 1.000 | 0.000 |
@@ -79,26 +80,32 @@ composición. Lo que sí aparece es **transferencia negativa**: MEM-B en D2 tien
 \(G(50) = -0.180\), porque recupera una tarea de familia parecida con regla
 distinta. Resultados en `results/longitudinal-seed-*.json`.
 
-## 4. Lectura
+## 4. Lectura (corregida por la auditoría)
 
-- **Retrieval no basta.** MEM-B queda cerca del azar en D1/D2 (0.55/0.51)
-  porque la superficie no identifica la regla; la información está en los
-  ejemplos, no en la familia.
-- **Una primitiva inducida resuelve D1/D2.** MEM-D llega al techo cuando la
-  regla es una sola operación vista.
-- **La composición es el discriminador.** MEM-D falla D3 (0.00) porque su espacio
-  de hipótesis no incluye composiciones; MEM-E acierta (1.00) porque las busca.
-- **El oráculo confirma el techo.** MEM-C acierta todo, incluida la composición.
+- **MEM-A0 es la línea base decisiva.** Usa el mismo solucionador composicional
+  que MEM-E, con los mismos ejemplos actuales, pero **sin historial**. Empata con
+  MEM-E en D1, D2 y D3 (1.000). Por tanto, el 100% de MEM-E **no demuestra
+  aprendizaje desde la memoria**: demuestra que un solucionador con composición
+  en su espacio de hipótesis resuelve D3.
+- **Retrieval no basta** cuando la regla está en los ejemplos y no en la
+  superficie.
+- **Una primitiva inducida** resuelve reglas simples.
+- **La composición es el discriminador** entre MEM-D y MEM-E, pero es una
+  diferencia de expresividad del solucionador, no de memoria.
+- **El oráculo confirma el techo.**
 
-Esto sí es un diagnóstico de **transferencia composicional**, no de
-reconocimiento de etiquetas. Lo que muestra es que el espacio de hipótesis
-importa: sin composición, no hay transferencia a una composición nueva.
+Conclusión honesta: el 002 es un **benchmark de solucionador**, útil para
+verificar que el instrumento separa recuperación, primitiva y composición. **No
+es evidencia de aprendizaje acumulativo.** Esa prueba es el Prototipo 003, donde
+las macros se aprenden de la experiencia y la ablación las elimina.
 
 ## 5. Qué NO prueba
 
 - No usa un LLM.
-- No mide descubrimiento conceptual abierto: las primitivas y las composiciones
-  están predefinidas en el espacio de búsqueda.
+- **No demuestra aprendizaje desde la memoria:** MEM-E no usa el historial; MEM-A0
+  (mismo solucionador sin historial) empata con MEM-E.
+- No mide descubrimiento conceptual abierto: las primitivas y composiciones están
+  predefinidas en el espacio de búsqueda.
 - No mide costo real de consolidación, verificación o entrenamiento.
 - No mide aprendizaje longitudinal \(G(n)\) con crecimiento real: la curva se
   satura desde \(n=50\) porque las tareas son i.i.d. y el espacio de hipótesis ya

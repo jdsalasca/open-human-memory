@@ -416,6 +416,12 @@ incluyen volumen y páginas cuando se verificaron.
 - SkillsBench. (2026). *Benchmarking how well agent skills work across diverse tasks*. arXiv:2602.12670.
 - Zhang, et al. (2026). *MemSkill: Learning and evolving memory skills for self-evolving agents*. arXiv:2602.02474.
 
+## Programación por ejemplos y aprendizaje de bibliotecas
+
+- Ellis, K., Wong, C., Nye, M., Sablé-Meyer, M., Morales, L., Hewitt, L., Cary, L., Solar-Lezama, A., & Tenenbaum, J. B. (2021). DreamCoder: Bootstrapping inductive program synthesis with wake-sleep library learning. *PLDI 2021*.
+- EvoMemBench. (2026). *A benchmark for memory systems*. arXiv:2605.18421.
+- Gulwani, S. (2011). Automating string processing in spreadsheets using input-output examples. *POPL 2011*.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

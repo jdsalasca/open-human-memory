@@ -22,10 +22,10 @@ $env:PYTHONPATH="src"; python -m unittest discover -s tests -v
 python -m ohmem.experiment --train 200 --eval 50
 ```
 
-El harness compara cinco condiciones (sin memoria, retrieval, oráculo,
-procedimiento y abstracción) en tres distribuciones (instancias nuevas, familias
-nuevas con la misma estructura y familias estructuralmente nuevas). Es un
-instrumento sintético, no un benchmark de LLM.
+El harness compara seis condiciones (sin memoria, solucionador actual,
+retrieval, oráculo, procedimiento y abstracción) en tres distribuciones
+(instancias nuevas, familias nuevas con la misma estructura y familias
+estructuralmente nuevas). Es un instrumento sintético, no un benchmark de LLM.
 
 Licencia: MIT (`LICENSE`).
 
@@ -40,24 +40,26 @@ transferir; no hay evidencia de que se pueda hacer durante meses con deriva real
 ni de que la validación causal esté resuelta.** El programa estudia ambas cosas y,
 sobre todo, la corrección.
 
-## Primer resultado (sintético, sin filtración)
+## Primer resultado con aprendizaje (sintético)
 
-Prototipo 002 compara sin memoria, retrieval, oráculo, procedimiento de una
-primitiva y abstracción composicional. Media de 3 semillas:
+Prototipo 003: el agente aprende macros de programas de dos pasos que se repiten
+y las usa en tareas futuras. Media de 3 semillas:
 
-| Condición | D1 | D2 | D3 (composición) |
+| Condición | D1 | D2 | D3 (profundidad 3) |
 |---|---|---|---|
-| A sin memoria | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.553 | 0.513 | 0.027 |
-| C oráculo | 1.000 | 1.000 | 1.000 |
-| D primitiva | 1.000 | 1.000 | 0.000 |
-| E composición | 1.000 | 1.000 | 1.000 |
+| NOLEARN | 1.000 | 1.000 | 0.000 |
+| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
+| LEARNED | 1.000 | 1.000 | 1.000 |
+| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
 
-Es un instrumento sintético, no un benchmark de LLM. La composición es el
-discriminador. Detalles, resultados crudos y reproducción en
-[`prototipo-002-diagnostico/`](resources/investigation/prototipo-002-diagnostico/).
-El Prototipo 001 quedó invalidado por target leakage y se conserva como smoke
-test.
+**Si se elimina el historial, se pierde D3.** La ganancia no es gratis: LEARNED
+gasta 740 candidatos en D3 frente a 1.680 de RANDOM. Es un instrumento sintético,
+no un benchmark de LLM. Detalles en
+[`prototipo-003-aprendizaje/`](resources/investigation/prototipo-003-aprendizaje/).
+
+El Prototipo 002 fue un **benchmark de solucionador**: `MEM-A0` (mismo
+solucionador sin historial) empató con `MEM-E` en todo. El 001 quedó invalidado
+por target leakage.
 
 ## Por dónde empezar
 
@@ -66,7 +68,8 @@ test.
 | [24-programa-de-investigacion-v2.md](resources/investigation/24-programa-de-investigacion-v2.md) | Horizontes, hipótesis y experimento diferencial A–E |
 | [28-programa-de-competencia.md](resources/investigation/28-programa-de-competencia.md) | Programa v3: continuidad, competencia y expansión |
 | [29-experimento-diagnostico.md](resources/investigation/29-experimento-diagnostico.md) | El experimento que decide qué capa importa |
-| [prototipo-002-diagnostico/](resources/investigation/prototipo-002-diagnostico/) | Resultados sin filtración, reproducibilidad y lectura crítica |
+| [prototipo-002-diagnostico/](resources/investigation/prototipo-002-diagnostico/) | Benchmark de solucionador; A0 == E sin historial |
+| [prototipo-003-aprendizaje/](resources/investigation/prototipo-003-aprendizaje/) | Primer test con macros aprendidas y ablación |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

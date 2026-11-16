@@ -132,7 +132,24 @@ configuraciones; Terminal-Bench 57,7% → 65,5%.
 
 **Referencia:** arXiv:2604.04323.
 
-## 9. Lectura de conjunto
+## 9. Programación por ejemplos y DreamCoder
+
+- **PBE / FlashFill** (Gulwani, 2011): sintetizar un programa a partir de
+  ejemplos input→output; la ambigüedad y el tamaño del espacio son el problema
+  central.
+- **DreamCoder** (Ellis et al., 2021): resuelve tareas, descubre subestructuras
+  reutilizables y amplía su biblioteca de conceptos con wake-sleep; es el
+  antecedente más cercano a "adquirir operaciones nuevas desde la experiencia".
+- **EvoMemBench** (2026): compara sistemas de memoria y muestra que los
+  baselines de contexto largo siguen siendo competitivos.
+
+**Implicación:** el `MEM-E` del 002 es PBE exhaustivo sobre cuatro primitivas y
+profundidad dos; no es una innovación algorítmica. El 003 es un paso mínimo tipo
+DreamCoder: aprende macros de programas repetidos. La contribución debe estar en
+demostrar que esas abstracciones mejoran el aprendizaje futuro, no en enumerar
+composiciones.
+
+## 10. Lectura de conjunto
 
 | Capacidad | Ya cubierta | Sigue abierto |
 |---|---|---|

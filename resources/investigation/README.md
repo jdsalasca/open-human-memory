@@ -60,22 +60,24 @@ empeora nada medible, no entra).
 | [28-programa-de-competencia.md](28-programa-de-competencia.md) | Programa v3: continuidad, competencia y expansión |
 | [29-experimento-diagnostico.md](29-experimento-diagnostico.md) | Experimento A–E y harness ejecutable |
 | [prototipo-001-diagnostico/](prototipo-001-diagnostico/) | Smoke test histórico; invalidado por target leakage |
-| [prototipo-002-diagnostico/](prototipo-002-diagnostico/) | Diagnóstico sin filtración y con composición |
+| [prototipo-002-diagnostico/](prototipo-002-diagnostico/) | Benchmark de solucionador; A0 == E sin historial |
+| [prototipo-003-aprendizaje/](prototipo-003-aprendizaje/) | Macros aprendidas, ablación y coste medido |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
 | [papers/](papers/) | CUMULUS final (EN/ES) y JANUS final (ES) |
 
 ## Estado
 
-`v1.2` — prototipo corregido. Los documentos 01–06 son la evidencia base; 07 es
-la síntesis; 08 es el protocolo v2.0; 09–12 amplían con Weber, psicología,
-biología comparada y humano–máquina; 13 es el paper sobre el riesgo del olvido;
-14 es la bibliografía; 15 responde la pregunta central; 16–20 desarrollan momento
-cero, contexto, filosofía, compactación y sueño; 21 audita la evidencia; 22
-responde a la primera revisión; 23 fija el marco de validez; 24 es el programa v2
-(histórico); 25 es el protocolo de fuentes; 26 integra DeepSeek y atención; 27 es
-el plan JANUS-C; 28 es el programa de competencia v3; 29 es el experimento
-diagnóstico; `prototipo-001` es smoke test invalidado; `prototipo-002` es el
-diagnóstico sin filtración; `src/ohmem/` implementa ambos; `precedentes/` cataloga
+`v1.4` — primer aprendizaje verificable. Los documentos 01–06 son la evidencia
+base; 07 es la síntesis; 08 es el protocolo v2.0; 09–12 amplían con Weber,
+psicología, biología comparada y humano–máquina; 13 es el paper sobre el riesgo
+del olvido; 14 es la bibliografía; 15 responde la pregunta central; 16–20
+desarrollan momento cero, contexto, filosofía, compactación y sueño; 21 audita la
+evidencia; 22 responde a la primera revisión; 23 fija el marco de validez; 24 es
+el programa v2 (histórico); 25 es el protocolo de fuentes; 26 integra DeepSeek y
+atención; 27 es el plan JANUS-C; 28 es el programa de competencia v3; 29 es el
+experimento diagnóstico; `prototipo-001` es smoke test invalidado; `prototipo-002`
+es benchmark de solucionador; `prototipo-003` es el primer test con macros
+aprendidas y ablación; `src/ohmem/` implementa los tres; `precedentes/` cataloga
 lo intentado; `papers/` contiene CUMULUS (EN/ES) y JANUS (ES).
 
 ## La tesis en una frase

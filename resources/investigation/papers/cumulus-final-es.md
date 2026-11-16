@@ -234,28 +234,26 @@ Protocolo `08-hipotesis-y-experimentos.md` v2.0:
 **Criterio de muerte:** si CUMULUS no supera al rival simple en la métrica
 primaria con IC 95% que excluya cero, la arquitectura no aporta.
 
-### 7.1 Nota empírica: prototipo 002 (sin filtración)
+### 7.1 Nota empírica: prototipo 003 (aprendizaje de macros)
 
-El Prototipo 001 quedó invalidado por target leakage: el nombre de la regla
-aparecía en la superficie. El 002 separa observación y solución, infiere la regla
-desde tres ejemplos y añade composición.
+El Prototipo 002 resultó ser un **benchmark de solucionador**: `MEM-A0`, el mismo
+solucionador composicional sin historial, empató con `MEM-E` en D1/D2/D3. El 003
+introduce aprendizaje real: encapsula programas de dos pasos que se repiten como
+macros y las usa en evaluación.
 
-Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
+Media de 3 semillas, 60 de entrenamiento, 30 de evaluación:
 
-| Condición | D1 | D2 | D3 (composición) |
+| Condición | D1 | D2 | D3 (profundidad 3) |
 |---|---|---|---|
-| A sin memoria | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.553 | 0.513 | 0.027 |
-| C oráculo | 1.000 | 1.000 | 1.000 |
-| D primitiva | 1.000 | 1.000 | 0.000 |
-| E composición | 1.000 | 1.000 | 1.000 |
+| NOLEARN | 1.000 | 1.000 | 0.000 |
+| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
+| LEARNED | 1.000 | 1.000 | 1.000 |
+| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
 
-El instrumento muestra que retrieval no basta cuando la regla está en los
-ejemplos; una primitiva inducida resuelve reglas simples; la composición es el
-discriminador. El coste no es escalar: MEM-E gasta 20 verificaciones por tarea
-frente a 4 de MEM-D, y la curva \(G(n)\) se satura desde \(n=50\). Es un resultado
-del **instrumento sintético**, no de CUMULUS ni de un LLM. Detalles en
-`prototipo-002-diagnostico/`.
+**Si se elimina el historial, se pierde D3.** La ganancia no es gratis: LEARNED
+gasta 740 candidatos en D3 frente a 1.680 de RANDOM. Es un resultado sintético,
+no de CUMULUS ni de un LLM; las macros son composiciones de primitivas conocidas,
+no conceptos nuevos. Detalles en `prototipo-003-aprendizaje/`.
 
 ## 8. Límites y seguridad
 

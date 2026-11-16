@@ -33,12 +33,13 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 - Criterio: enfoque elegido, alcance del MVP, no-objetivos, modelo de datos y
   decisiones abiertas resueltas o asignadas.
 
-### R2.5 — Experimento de competencia `COMP-A..E`
+### R2.5 — Experimento de competencia `COMP-*`
 
-- Entregable: sandbox con verdad causal conocida y las fases de primitivas,
-  composición, abstracción entre dominios y aprender a aprender.
-- Criterio: `COMP-E` reduce errores persistentes, mejora calibración y abandona
-  antes creencias refutadas frente a `COMP-B/C/D`; si no, se reduce el alcance.
+- Entregable: sandbox con verdad causal conocida y las cuatro fases `COMP-P1..P4`
+  (primitivas, composición, abstracción entre dominios, aprender a aprender).
+- Criterio: `COMP-T3` (abstracciones aprendidas) supera a `COMP-T0/T1/T2` en
+  errores persistentes, calibración y abandono de creencias refutadas; si no, se
+  reduce el alcance.
 - Registro de IDs: `docs/protocolos.md`.
 
 ### R3 — Harness de evaluación

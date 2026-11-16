@@ -31,6 +31,27 @@
     },
     {
       "n": 50,
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 50,
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.42
+    },
+    {
+      "n": 50,
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 50,
       "condition": "B-retrieval",
       "distribution": "D1",
       "accuracy": 0.5,
@@ -133,6 +154,27 @@
       "distribution": "D3",
       "accuracy": 0.0,
       "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 100,
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 100,
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.42
+    },
+    {
+      "n": 100,
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
     },
     {
       "n": 100,
@@ -241,6 +283,27 @@
     },
     {
       "n": 200,
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 200,
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.42
+    },
+    {
+      "n": 200,
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 200,
       "condition": "B-retrieval",
       "distribution": "D1",
       "accuracy": 0.52,
@@ -343,6 +406,27 @@
       "distribution": "D3",
       "accuracy": 0.0,
       "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 400,
+      "condition": "A0-current-solver",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 400,
+      "condition": "A0-current-solver",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.42
+    },
+    {
+      "n": 400,
+      "condition": "A0-current-solver",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
     },
     {
       "n": 400,

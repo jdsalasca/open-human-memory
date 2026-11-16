@@ -1,0 +1,105 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "rows": [
+    {
+      "condition": "ABLATED",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 73.0,
+      "mean_primitive_ops": 73.0,
+      "n": 3
+    },
+    {
+      "condition": "ABLATED",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 310.0,
+      "mean_primitive_ops": 500.0,
+      "n": 3
+    },
+    {
+      "condition": "ABLATED",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "mean_candidates": 600.0,
+      "mean_primitive_ops": 1080.0,
+      "n": 3
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 73.0,
+      "mean_primitive_ops": 73.0,
+      "n": 3
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 460.0,
+      "mean_primitive_ops": 860.0,
+      "n": 3
+    },
+    {
+      "condition": "LEARNED",
+      "distribution": "D3",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 740.0,
+      "mean_primitive_ops": 1680.0,
+      "n": 3
+    },
+    {
+      "condition": "NOLEARN",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 73.0,
+      "mean_primitive_ops": 73.0,
+      "n": 3
+    },
+    {
+      "condition": "NOLEARN",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 310.0,
+      "mean_primitive_ops": 500.0,
+      "n": 3
+    },
+    {
+      "condition": "NOLEARN",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "mean_candidates": 600.0,
+      "mean_primitive_ops": 1080.0,
+      "n": 3
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D1",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 73.0,
+      "mean_primitive_ops": 73.0,
+      "n": 3
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D2",
+      "mean_accuracy": 1.0,
+      "mean_candidates": 460.0,
+      "mean_primitive_ops": 860.0,
+      "n": 3
+    },
+    {
+      "condition": "RANDOM",
+      "distribution": "D3",
+      "mean_accuracy": 0.0,
+      "mean_candidates": 1680.0,
+      "mean_primitive_ops": 4500.0,
+      "n": 3
+    }
+  ]
+}

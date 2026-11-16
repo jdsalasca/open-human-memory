@@ -33,15 +33,32 @@ Documento: `resources/investigation/29-experimento-diagnostico.md` y
 
 | ID | Condición |
 |---|---|
-| MEM-A | Sin memoria |
+| MEM-A | Sin memoria (respuesta fija) |
+| **MEM-A0** | **Mismo solucionador composicional sin historial** |
 | MEM-B | Retrieval por similitud |
 | MEM-C | Oráculo (techo) |
 | MEM-D | Procedimiento de una primitiva |
 | MEM-E | Abstracción composicional |
 
 **Hipótesis que valida:** ninguna; es un diagnóstico para decidir qué capa
-importa.
+importa. `MEM-A0` demostró que `MEM-E` no usa historial: el 002 es un benchmark de
+solucionador.
 **Estado:** ejecutado (Prototipo 002, 3 semillas).
+
+### `LEARN-*` — aprendizaje de macros
+
+Documento: `prototipo-003-aprendizaje/`.
+
+| ID | Condición |
+|---|---|
+| LEARN-NONE | Sin macros; solucionador de profundidad 2 |
+| LEARN-RANDOM | Mismo tamaño de biblioteca, macros distractoras |
+| LEARN-MACROS | Macros aprendidas de la experiencia |
+| LEARN-ABLATED | Macros borradas tras entrenar |
+
+**Hipótesis que valida:** la experiencia produce una capacidad nueva y la
+ablación la elimina.
+**Estado:** ejecutado (Prototipo 003, 3 semillas).
 
 ### `CAUSAL-A..E` — experimento causal (histórico)
 
@@ -50,18 +67,27 @@ Documento: `resources/investigation/24-programa-de-investigacion-v2.md`
 incertidumbre. **Deprecado como identificador** para evitar confusión con
 `MEM-A..E`. La comparación causal se redefinirá como `COMP-C..E` o `MAIN-C8`.
 
-### `COMP-A..E` — competencia acumulativa (planificado)
+### `COMP-*` — competencia acumulativa (planificado)
 
-Cuatro fases: primitivas, composición, abstracción entre dominios, aprender a
-aprender.
+**Fases del programa** (no son tratamientos comparables):
 
 | ID | Fase |
 |---|---|
-| COMP-A | Primitivas |
-| COMP-B | Composición |
-| COMP-C | Abstracción entre dominios |
-| COMP-D | Aprender a aprender |
-| COMP-E | Aprendizaje paramétrico opcional |
+| COMP-P1 | Primitivas |
+| COMP-P2 | Composición |
+| COMP-P3 | Abstracción entre dominios |
+| COMP-P4 | Aprender a aprender |
+
+**Tratamientos del experimento** (misma tarea, mismo presupuesto):
+
+| ID | Tratamiento |
+|---|---|
+| COMP-T0 | Sin experiencias históricas |
+| COMP-T1 | Experiencias irrelevantes (control de tamaño) |
+| COMP-T2 | Retrieval real |
+| COMP-T3 | Abstracciones aprendidas durante tareas anteriores |
+
+La comparación válida es `COMP-T3` vs `COMP-T0/T1/T2`, no `COMP-P*` entre sí.
 
 **Estado:** diseño; no ejecutado.
 

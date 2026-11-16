@@ -51,6 +51,13 @@ def jaccard(a: tuple[str, ...], b: tuple[str, ...]) -> float:
     return len(sa & sb) / len(sa | sb) if sa or sb else 0.0
 
 
+class CurrentSolver:
+    name = "A0-current-solver"
+
+    def predict(self, obs: Observation) -> Prediction:
+        return Prediction(infer_composition(obs), 0, 20, 12)
+
+
 class NoMemory:
     name = "A-no-memory"
 

@@ -212,28 +212,26 @@ Protocol `08-hipotesis-y-experimentos.md` v2.0:
 **Kill criterion:** if CUMULUS does not beat the simple rival on the primary
 metric with a 95% CI excluding zero, the architecture adds nothing.
 
-### 7.1 Empirical note: prototype 002 (leakage-free)
+### 7.1 Empirical note: prototype 003 (macro learning)
 
-Prototype 001 was invalidated by target leakage: the rule name appeared in the
-surface. Prototype 002 separates observation and solution, infers the rule from
-three examples, and adds composition.
+Prototype 002 turned out to be a **solver benchmark**: `MEM-A0`, the same
+compositional solver with no history, matched `MEM-E` on D1/D2/D3. Prototype 003
+adds real learning: it encapsulates repeated two-step programs as macros and uses
+them at evaluation time.
 
-Mean of 3 seeds, 200 training tasks, 50 evaluation tasks:
+Mean of 3 seeds, 60 training tasks, 30 evaluation tasks:
 
-| Condition | D1 | D2 | D3 (composition) |
+| Condition | D1 | D2 | D3 (depth 3) |
 |---|---|---|---|
-| A no memory | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.553 | 0.513 | 0.027 |
-| C oracle | 1.000 | 1.000 | 1.000 |
-| D primitive | 1.000 | 1.000 | 0.000 |
-| E composition | 1.000 | 1.000 | 1.000 |
+| NOLEARN | 1.000 | 1.000 | 0.000 |
+| RANDOM (same size, distractor macros) | 1.000 | 1.000 | 0.000 |
+| LEARNED | 1.000 | 1.000 | 1.000 |
+| ABLATED (macros removed) | 1.000 | 1.000 | 0.000 |
 
-The instrument shows that retrieval is insufficient when the rule lives in the
-examples; an induced primitive solves simple rules; composition is the
-discriminator. Cost is not scalar: MEM-E spends 20 verifications per task versus
-4 for MEM-D, and \(G(n)\) saturates from \(n=50\). This is a result about the
-**synthetic instrument**, not about CUMULUS or an LLM. Details in
-`prototipo-002-diagnostico/`.
+**Remove the history and D3 is lost.** The gain is not free: LEARNED spends 740
+candidates on D3 versus 1,680 for RANDOM. This is a synthetic result, not about
+CUMULUS or an LLM; macros are compositions of known primitives, not new concepts.
+Details in `prototipo-003-aprendizaje/`.
 
 ## 8. Limits and safety
 

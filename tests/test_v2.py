@@ -74,7 +74,7 @@ class InferenceTests(unittest.TestCase):
 class ExperimentTests(unittest.TestCase):
     def test_shape(self):
         result = run(seed=0, n_train=40, n_eval=10)
-        self.assertEqual(len(result["rows"]), 15)
+        self.assertEqual(len(result["rows"]), 18)
         self.assertEqual(
             {r["distribution"] for r in result["rows"]}, {"D1", "D2", "D3"}
         )
@@ -100,6 +100,17 @@ class ExperimentTests(unittest.TestCase):
                 by_key[("B-retrieval", distribution)],
             )
 
+    def test_current_solver_matches_composition_without_history(self):
+        result = run(seed=0, n_train=80, n_eval=20)
+        by_key = {
+            (r["condition"], r["distribution"]): r["accuracy"] for r in result["rows"]
+        }
+        for distribution in ("D1", "D2", "D3"):
+            self.assertEqual(
+                by_key[("A0-current-solver", distribution)],
+                by_key[("E-compositional-abstraction", distribution)],
+            )
+
     def test_splits_no_id_overlap(self):
         splits = make_splits(seed=0, n_train=20, n_eval=10)
         train_ids = {t.observation.id for t in splits["train"]}
@@ -110,7 +121,7 @@ class ExperimentTests(unittest.TestCase):
         from ohmem.v2_longitudinal import run_curve
 
         result = run_curve(seed=0, n_values=(40, 80), n_eval=10)
-        self.assertEqual(len(result["rows"]), 30)
+        self.assertEqual(len(result["rows"]), 36)
         for row in result["rows"]:
             if row["condition"] == "A-no-memory":
                 self.assertEqual(row["gain_vs_no_memory"], 0.0)
