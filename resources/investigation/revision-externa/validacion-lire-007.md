@@ -53,7 +53,7 @@
 | **Comparaciones múltiples y decisiones adaptativas.** | La evidencia más llamativa puede seleccionarse tras observar varios regímenes. Separar exploración de confirmación y declarar la comparación primaria. |
 | **Semántica de las representaciones.** | La equivalencia de traducciones y DSL está asumida. Requiere revisión independiente y casos de fronteras antes de atribuir diferencias al formato. |
 
-**Discrepancia auditable:** el README de 007 reporta para «programa completo» un par discordante clon/placebo a favor del clon. El [resultado agregado](../../resources/investigation/prototipo-007-transferencia/results/summary.json) y las filas crudas indican lo contrario: **0 a favor del clon y 1 a favor del placebo**. No altera el empate cualitativo de muestras pequeñas, pero sí muestra que el análisis debe generarse y comprobarse automáticamente.
+**Discrepancia auditable:** el README de 007 reporta para «programa completo» un par discordante clon/placebo a favor del clon. El [resultado agregado](../../../resources/investigation/prototipo-007-transferencia/results/summary.json) y las filas crudas indican lo contrario: **0 a favor del clon y 1 a favor del placebo**. No altera el empate cualitativo de muestras pequeñas, pero sí muestra que el análisis debe generarse y comprobarse automáticamente.
 
 ## 3. Hipótesis nuevas y falsables
 
@@ -100,7 +100,7 @@ Diseño mínimo:
 
 ## 6. Afirmaciones del registro mal calibradas
 
-Las referencias son al [registro de afirmaciones](../../docs/registro-de-afirmaciones.md), salvo que se indique otra cosa.
+Las referencias son al [registro de afirmaciones](../../../docs/registro-de-afirmaciones.md), salvo que se indique otra cosa.
 
 | ID | Problema | Reformulación propuesta |
 |---|---|---|
@@ -112,9 +112,9 @@ Las referencias son al [registro de afirmaciones](../../docs/registro-de-afirmac
 | **L3** | «Refutada» combina ahorro no medido con un fallo aislado. | «No se demostró conjuntamente ahorro incremental y conservación de fidelidad para este DSL; la hipótesis queda abierta hasta medir ambos con precisión y márgenes fijados.» |
 | **L4** | La comparación de tokens completos no muestra que el texto chino use más tokens que el español. | «En estos textos el chino tiene menos caracteres; el experimento no aisló los tokens de las reglas y no puede establecer la relación entre sus costes incrementales.» La proposición universal «menos caracteres siempre implican menos tokens» exige un contraejemplo medido directamente. |
 | **T3** | «Empatan» no es un falsador estadístico operativo: una igualdad puntual o ausencia de significación no prueba equivalencia. | «Para un margen y presupuesto fijados, un intervalo de equivalencia suficientemente preciso descarta una ventaja del procedimiento superior al mínimo relevante.» |
-| **T4** | Dice «solo con estructura compartida», más fuerte que P3 en [teoría](../../docs/teoria.md), que predice una ventaja **mayor** con estructura compartida. | Alinear ambas: «La ventaja de adquisición es mayor con estructura compartida que con solo vocabulario compartido», especificando contraste de interacción y margen. |
+| **T4** | Dice «solo con estructura compartida», más fuerte que P3 en [teoría](../../../docs/teoria.md), que predice una ventaja **mayor** con estructura compartida. | Alinear ambas: «La ventaja de adquisición es mayor con estructura compartida que con solo vocabulario compartido», especificando contraste de interacción y margen. |
 
-También debe corregirse en el [README de LIRE](../../resources/investigation/lire-001/README.md) que el piloto «valida el método» y que «los bytes tampoco» predicen tokens. El piloto demuestra que el arnés dificulta la medición; no valida la identificación del coste incremental ni establece una relación general entre bytes y tokens.
+También debe corregirse en el [README de LIRE](../../../resources/investigation/lire-001/README.md) que el piloto «valida el método» y que «los bytes tampoco» predicen tokens. El piloto demuestra que el arnés dificulta la medición; no valida la identificación del coste incremental ni establece una relación general entre bytes y tokens.
 
 ## 7. Tres experimentos priorizados
 
