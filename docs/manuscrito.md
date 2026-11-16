@@ -276,8 +276,13 @@ ejecutadas hasta el primer contraejemplo). El segundo es el usado en 005 y 006; 
 | Fecha | 16 de noviembre de 2026 |
 
 Detalle completo en `docs/registro-de-ejecuciones.md`. La revisión externa de este
-manuscrito usó `gpt-6-luna` con esfuerzo `max`; `gpt-6-terra` no está disponible para
-cuentas ChatGPT.
+manuscrito usó **`gpt-6.1-terra` con esfuerzo `medium`**; `gpt-6-terra` (sin punto)
+no está disponible para cuentas ChatGPT. OpenCode se usó con
+`deepseek-v4.1-flash-1017`.
+
+> **Limitación.** El baseline del agente se ejecutó con `gpt-6-luna` low. Debe
+> repetirse con `gpt-6.1-terra` medium antes de publicar; los resultados de este
+> manuscrito son de ese modelo y esa configuración.
 
 ---
 

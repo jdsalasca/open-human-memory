@@ -6,6 +6,22 @@ para los experimentos sintéticos. `codex-cli 0.169.0` para los agentes.
 **Coste monetario:** no registrado. Se reportan llamadas, tiempo y presupuesto de
 pasos; no tarifas.
 
+## Política de modelos
+
+| Contexto | Modelo | Esfuerzo |
+|---|---|---|
+| OpenCode (agente de investigación) | `deepseek-v4.1-flash-1017` | máximo |
+| Codex CLI (revisión externa) | `gpt-6.1-terra` | `medium` |
+| Experimento 006-B (histórico) | `gpt-6-luna` | `low` |
+
+`gpt-6-terra` (sin punto) **no existe** para cuentas ChatGPT: se verificó y
+responde «model is not supported». El identificador correcto es `gpt-6.1-terra`.
+
+El baseline del 006-B se ejecutó con `gpt-6-luna` low y se conserva como registro
+histórico. **Debe repetirse con `gpt-6.1-terra` medium antes de publicar**; se
+declara como limitación en el manuscrito.
+
+
 Este documento existe para que un revisor pueda repetir cada experimento sin
 adivinar modelo, versión, semilla ni comando.
 
@@ -99,17 +115,17 @@ python resources/investigation/prototipo-006-agente-llm/analyze.py
 
 | Campo | Valor |
 |---|---|
-| Modelo | `gpt-6-luna` |
-| `reasoning_effort` | `max` |
+| Modelo | `gpt-6.1-terra` |
+| `reasoning_effort` | `medium` |
 | CLI | `codex-cli 0.169.0` |
 | Sandbox | `read-only` |
 | Fecha | 16 de noviembre de 2026 |
 | Prompt | revisión científica del repositorio completo |
-| Salida | `resources/investigation/revision-externa/codex-gpt-6-luna-max.md` |
+| Salida | `resources/investigation/revision-externa/codex-gpt-6.1-terra-medium.md` |
 
-Se intentó primero `gpt-6-terra` (`medium`), como pidió el usuario. La cuenta
-ChatGPT lo rechaza: *«The 'gpt-6-terra' model is not supported when using Codex with
-a ChatGPT account»*. Se usó el modelo permitido por la regla global.
+Se intentó primero `gpt-6-terra` (sin punto) y la cuenta ChatGPT lo rechazó. El
+identificador correcto es `gpt-6.1-terra`. La salida de `gpt-6-luna` se descartó por
+decisión del autor y no se usa.
 
 ---
 
