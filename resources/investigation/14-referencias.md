@@ -443,6 +443,13 @@ fundacional, no como adorno.
 - Tishby, N., Pereira, F. C., & Bialek, W. (1999). The information bottleneck method. *Allerton 1999*.
 - MemDev-Bench. (2026). *Does memory help code agents? Benchmarking memory systems over real repository histories*. arXiv:2610.27524. **[pendiente de verificación primaria]**
 
+## Metarrazón, asignación de cómputo y calibración de memoria
+
+- Russell, S., & Wefald, E. (1991). Principles of metareasoning. *Artificial Intelligence*, 49(1–3), 361–395.
+- BEST-Route. (2025). *Adaptive model and compute allocation by difficulty and quality*. ICML 2025 (PMLR v267). **[pendiente de verificación primaria]**
+- AdaMEM. (2026). *Adaptive memory during task execution*. ICML 2026 (PMLR v306). **[pendiente de verificación primaria]**
+- MemCalib. (2026). *Over- and under-use of retrieved memories by LLMs*. arXiv:2609.24259. **[pendiente de verificación primaria]**
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

@@ -1,0 +1,431 @@
+{
+  "seeds": [
+    1,
+    2
+  ],
+  "policies": {
+    "policy-applicability": {
+      "sets": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "mean_probe_steps": 0.0,
+            "total_steps": 53.3
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 43.0
+          },
+          "search": {
+            "accuracy": 0.8125,
+            "mean_steps": 71.8,
+            "mean_probe_steps": 0.0,
+            "total_steps": 71.8
+          },
+          "uniform-random": {
+            "accuracy": 0.8958,
+            "mean_steps": 61.1,
+            "mean_probe_steps": 0.0,
+            "total_steps": 61.1
+          },
+          "shuffled-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 43.0
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 38.0,
+            "total_steps": 81.0
+          },
+          "probe-rule": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 38.0,
+            "total_steps": 81.0
+          },
+          "oracle": {
+            "accuracy": 1.0,
+            "mean_steps": 33.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 33.5
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.8125,
+            "mean_steps": 48.9,
+            "mean_probe_steps": 0.0,
+            "total_steps": 48.9
+          },
+          "memory_first": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 46.0
+          },
+          "search": {
+            "accuracy": 0.8542,
+            "mean_steps": 47.4,
+            "mean_probe_steps": 0.0,
+            "total_steps": 47.4
+          },
+          "uniform-random": {
+            "accuracy": 0.8334,
+            "mean_steps": 45.2,
+            "mean_probe_steps": 0.0,
+            "total_steps": 45.2
+          },
+          "shuffled-policy": {
+            "accuracy": 0.8125,
+            "mean_steps": 42.9,
+            "mean_probe_steps": 0.0,
+            "total_steps": 42.9
+          },
+          "learned-policy": {
+            "accuracy": 0.8541,
+            "mean_steps": 42.8,
+            "mean_probe_steps": 44.5,
+            "total_steps": 87.3
+          },
+          "probe-rule": {
+            "accuracy": 0.875,
+            "mean_steps": 41.5,
+            "mean_probe_steps": 44.5,
+            "total_steps": 86.0
+          },
+          "oracle": {
+            "accuracy": 0.875,
+            "mean_steps": 35.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 35.5
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8646,
+            "mean_steps": 51.1,
+            "mean_probe_steps": 0.0,
+            "total_steps": 51.1
+          },
+          "memory_first": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 44.5
+          },
+          "search": {
+            "accuracy": 0.8334,
+            "mean_steps": 59.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 59.5
+          },
+          "uniform-random": {
+            "accuracy": 0.8542,
+            "mean_steps": 56.9,
+            "mean_probe_steps": 0.0,
+            "total_steps": 56.9
+          },
+          "shuffled-policy": {
+            "accuracy": 0.875,
+            "mean_steps": 49.4,
+            "mean_probe_steps": 0.0,
+            "total_steps": 49.4
+          },
+          "learned-policy": {
+            "accuracy": 0.9271,
+            "mean_steps": 43.1,
+            "mean_probe_steps": 41.2,
+            "total_steps": 84.3
+          },
+          "probe-rule": {
+            "accuracy": 0.9375,
+            "mean_steps": 42.2,
+            "mean_probe_steps": 41.2,
+            "total_steps": 83.5
+          },
+          "oracle": {
+            "accuracy": 0.9375,
+            "mean_steps": 34.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 34.5
+          }
+        }
+      },
+      "weights": {
+        "memory_first": [
+          1.5352,
+          5.822,
+          1.3293
+        ],
+        "search": [
+          -1.0077,
+          1.1951,
+          -0.9997
+        ]
+      }
+    },
+    "policy-blind": {
+      "sets": {
+        "similar": {
+          "memory": {
+            "accuracy": 0.9167,
+            "mean_steps": 53.3,
+            "mean_probe_steps": 0.0,
+            "total_steps": 53.3
+          },
+          "memory_first": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 43.0
+          },
+          "search": {
+            "accuracy": 0.8125,
+            "mean_steps": 71.8,
+            "mean_probe_steps": 0.0,
+            "total_steps": 71.8
+          },
+          "uniform-random": {
+            "accuracy": 0.8958,
+            "mean_steps": 61.1,
+            "mean_probe_steps": 0.0,
+            "total_steps": 61.1
+          },
+          "shuffled-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 43.0
+          },
+          "learned-policy": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 38.0,
+            "total_steps": 81.0
+          },
+          "probe-rule": {
+            "accuracy": 1.0,
+            "mean_steps": 43.0,
+            "mean_probe_steps": 38.0,
+            "total_steps": 81.0
+          },
+          "oracle": {
+            "accuracy": 1.0,
+            "mean_steps": 33.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 33.5
+          }
+        },
+        "novel": {
+          "memory": {
+            "accuracy": 0.8125,
+            "mean_steps": 48.9,
+            "mean_probe_steps": 0.0,
+            "total_steps": 48.9
+          },
+          "memory_first": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 46.0
+          },
+          "search": {
+            "accuracy": 0.8542,
+            "mean_steps": 47.4,
+            "mean_probe_steps": 0.0,
+            "total_steps": 47.4
+          },
+          "uniform-random": {
+            "accuracy": 0.8334,
+            "mean_steps": 45.2,
+            "mean_probe_steps": 0.0,
+            "total_steps": 45.2
+          },
+          "shuffled-policy": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.0,
+            "mean_probe_steps": 0.0,
+            "total_steps": 46.0
+          },
+          "learned-policy": {
+            "accuracy": 0.8125,
+            "mean_steps": 46.0,
+            "mean_probe_steps": 44.5,
+            "total_steps": 90.4
+          },
+          "probe-rule": {
+            "accuracy": 0.875,
+            "mean_steps": 41.5,
+            "mean_probe_steps": 44.5,
+            "total_steps": 86.0
+          },
+          "oracle": {
+            "accuracy": 0.875,
+            "mean_steps": 35.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 35.5
+          }
+        },
+        "mixed": {
+          "memory": {
+            "accuracy": 0.8646,
+            "mean_steps": 51.1,
+            "mean_probe_steps": 0.0,
+            "total_steps": 51.1
+          },
+          "memory_first": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 44.5
+          },
+          "search": {
+            "accuracy": 0.8334,
+            "mean_steps": 59.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 59.5
+          },
+          "uniform-random": {
+            "accuracy": 0.8542,
+            "mean_steps": 56.9,
+            "mean_probe_steps": 0.0,
+            "total_steps": 56.9
+          },
+          "shuffled-policy": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 44.5
+          },
+          "learned-policy": {
+            "accuracy": 0.9062,
+            "mean_steps": 44.5,
+            "mean_probe_steps": 41.2,
+            "total_steps": 85.7
+          },
+          "probe-rule": {
+            "accuracy": 0.9375,
+            "mean_steps": 42.2,
+            "mean_probe_steps": 41.2,
+            "total_steps": 83.5
+          },
+          "oracle": {
+            "accuracy": 0.9375,
+            "mean_steps": 34.5,
+            "mean_probe_steps": 0.0,
+            "total_steps": 34.5
+          }
+        }
+      },
+      "weights": {
+        "memory_first": [
+          0.5459,
+          0.0,
+          0.4086
+        ],
+        "search": [
+          -0.0346,
+          0.0,
+          -0.1496
+        ]
+      }
+    }
+  },
+  "paired": {
+    "similar:policy_vs_memory_first": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 48
+    },
+    "similar:policy_vs_search": {
+      "diff": 0.1875,
+      "ci_low": 0.0833,
+      "ci_high": 0.2917,
+      "n": 48
+    },
+    "similar:policy_vs_probe-rule": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 48
+    },
+    "similar:policy_vs_shuffled-policy": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 48
+    },
+    "novel:policy_vs_memory_first": {
+      "diff": 0.0417,
+      "ci_low": 0.0,
+      "ci_high": 0.1042,
+      "n": 48
+    },
+    "novel:policy_vs_search": {
+      "diff": 0.0,
+      "ci_low": -0.0625,
+      "ci_high": 0.0625,
+      "n": 48
+    },
+    "novel:policy_vs_probe-rule": {
+      "diff": -0.0208,
+      "ci_low": -0.0625,
+      "ci_high": 0.0,
+      "n": 48
+    },
+    "novel:policy_vs_shuffled-policy": {
+      "diff": 0.0417,
+      "ci_low": -0.0417,
+      "ci_high": 0.125,
+      "n": 48
+    },
+    "mixed:policy_vs_memory_first": {
+      "diff": 0.0208,
+      "ci_low": 0.0,
+      "ci_high": 0.0521,
+      "n": 96
+    },
+    "mixed:policy_vs_search": {
+      "diff": 0.0938,
+      "ci_low": 0.0312,
+      "ci_high": 0.1562,
+      "n": 96
+    },
+    "mixed:policy_vs_probe-rule": {
+      "diff": -0.0104,
+      "ci_low": -0.0312,
+      "ci_high": 0.0,
+      "n": 96
+    },
+    "mixed:policy_vs_shuffled-policy": {
+      "diff": 0.0521,
+      "ci_low": 0.0104,
+      "ci_high": 0.0938,
+      "n": 96
+    }
+  },
+  "probe": {
+    "similar": {
+      "mean_probe_steps": 38.0,
+      "mean_search_steps": 43.0,
+      "mean_total_steps": 81.0
+    },
+    "novel": {
+      "mean_probe_steps": 44.5,
+      "mean_search_steps": 42.8,
+      "mean_total_steps": 87.3
+    },
+    "mixed": {
+      "mean_probe_steps": 41.2,
+      "mean_search_steps": 43.1,
+      "mean_total_steps": 84.3
+    }
+  }
+}

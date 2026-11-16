@@ -1,40 +1,17 @@
-"""Tests for Prototype 006.
+"""Tests for Prototype 006, corrected after the direction audit.
 
-`V6ReproductionTests` reproduces the frozen 006-A numbers on seed 1 (not used for
-development). They are a historical record: a future policy that beats these
-numbers should add a test, not break one. `ProbeAccountingTests` is the invariant
-that matters for any implementation: the decision signal has to be cheaper than
-the work it saves.
+These reproduce the corrected 006-A' numbers on seed 1. They encode the
+*negative* result: the learned policy must not beat the one-line rule, and its
+probe must cost more than it saves. A future mechanism that beats the rule should
+add a new test, not silently invert these.
 """
 
 import unittest
 
-from ohmem.v3_solver import solve
-from ohmem.v3_tasks import PRIMITIVES, apply_program
-from ohmem.v6_policy import (
-    build_library,
-    macro_any_fit,
-    novel_tasks,
-    run,
-    similar_tasks,
-)
+from ohmem.v6_policy import build_library, novel_tasks, probe, run, similar_tasks
 
 
-def probe_cost(obs, library) -> int:
-    steps = 0
-    for macro in library.macros:
-        for primitive in PRIMITIVES:
-            for body in (macro.body + (primitive,), (primitive,) + macro.body):
-                steps += len(body) * len(obs.support_inputs)
-                if all(
-                    apply_program(body, x) == y
-                    for x, y in zip(obs.support_inputs, obs.support_outputs)
-                ):
-                    return steps
-    return steps
-
-
-class V6ReproductionTests(unittest.TestCase):
+class V6CorrectedTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.result = run(seed=1)
@@ -51,40 +28,44 @@ class V6ReproductionTests(unittest.TestCase):
     def test_probe_separates_the_two_regimes(self):
         similar = similar_tasks(1)
         novel = novel_tasks(1, self.lib)
-        fit_similar = sum(macro_any_fit(t.observation, self.lib) for t in similar)
-        fit_novel = sum(macro_any_fit(t.observation, self.lib) for t in novel)
+        fit_similar = sum(probe(t.observation, self.lib)[0] for t in similar)
+        fit_novel = sum(probe(t.observation, self.lib)[0] for t in novel)
         self.assertGreater(fit_similar, fit_novel)
         self.assertGreaterEqual(fit_similar / len(similar), 0.9)
 
-    def test_policy_recovers_on_novel(self):
-        self.assertGreaterEqual(
-            self.app["novel"]["learned-policy"]["accuracy"],
-            self.app["novel"]["memory"]["accuracy"],
-        )
-
-    def test_blind_policy_cannot_recover(self):
+    def test_policy_does_not_beat_the_simple_rule(self):
         self.assertLessEqual(
-            self.blind["novel"]["learned-policy"]["accuracy"],
-            self.app["novel"]["learned-policy"]["accuracy"],
+            self.app["mixed"]["learned-policy"]["accuracy"],
+            self.app["mixed"]["probe-rule"]["accuracy"],
         )
 
-    def test_policy_beats_search_on_mixed(self):
+    def test_policy_beats_search_on_accuracy(self):
         self.assertGreater(
             self.app["mixed"]["learned-policy"]["accuracy"],
             self.app["mixed"]["search"]["accuracy"],
         )
 
-
-class ProbeAccountingTests(unittest.TestCase):
     def test_probe_costs_more_than_it_saves(self):
-        library = build_library(1)
-        tasks = similar_tasks(1)
-        probe = sum(probe_cost(t.observation, library) for t in tasks) / len(tasks)
-        with_memory = solve(tasks[0].observation, library, 2, budget_steps=120)
-        self.assertGreater(probe, 0)
-        self.assertGreater(with_memory.executed_steps, 0)
-        # The search saving on this set is ~29 steps/task; the probe is far larger.
-        self.assertGreater(probe, 60)
+        policy = self.app["mixed"]["learned-policy"]
+        search = self.app["mixed"]["search"]
+        saved = search["mean_steps"] - policy["mean_steps"]
+        self.assertGreater(policy["mean_probe_steps"], saved)
+        self.assertGreater(policy["total_steps"], search["mean_steps"])
+
+    def test_policy_total_cost_exceeds_not_deciding(self):
+        self.assertGreater(
+            self.app["mixed"]["learned-policy"]["total_steps"],
+            self.app["mixed"]["memory_first"]["mean_steps"],
+        )
+
+    def test_uniform_random_is_not_the_trained_policy(self):
+        uniform = self.app["mixed"]["uniform-random"]
+        learned = self.app["mixed"]["learned-policy"]
+        self.assertNotEqual(uniform["decisions"], learned["decisions"])
+
+    def test_counters_are_measured_not_bounded(self):
+        policy = self.app["mixed"]["learned-policy"]
+        self.assertLess(policy["mean_probe_steps"], 60)
 
 
 if __name__ == "__main__":

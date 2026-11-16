@@ -193,6 +193,9 @@ distinto; ninguna técnica resuelve todas.
 | Expansión de herramientas | Mem²Evolve | Tareas nuevas resueltas, no solo activos creados |
 | Memoria para programación | VibeMemBench, MemDev-Bench | Éxito real, transferencia negativa y trazas completas |
 | Compresión con utilidad | Information Bottleneck, utilidad condicionada | Desempeño por costo, no solo tamaño |
+| Metarrazón y coste de decidir | Russell y Wefald (1991), BEST-Route | Valor neto de la operación de control |
+| Memoria adaptativa en ejecución | AdaMEM | Cuándo actualizar durante la tarea |
+| Calibración de uso | MemCalib, MemUse | Memoria disponible ≠ usada ≠ útil |
 
 **MemDev-Bench** (2026) es el antecedente más incómodo para CUMULUS: con 555 tareas
 principales y 4.869 históricas sobre repositorios reales, encuentra que la memoria

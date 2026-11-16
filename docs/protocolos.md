@@ -120,9 +120,12 @@ protocolo, código y datos; semillas 1 y 2).
 
 **Hipótesis:** una señal barata de aplicabilidad permite aprender a elegir entre
 memoria y búsqueda.
-**Estado:** ejecutado (semillas 1–2, 48 tareas). Las cuatro predicciones congeladas
-se cumplen; **la economía no**: el probe cuesta 96–122 pasos y la política ahorra
-29. Ver `protocolo-addendum.md`.
+**Estado:** ejecutado y **retirado**. La versión congelada tenía cinco fallos de
+implementación (control pseudoaleatorio, contaminación de estado, regla manual sin
+`macro_first`, mixto concatenado, coste del probe como cota). Corregido y pareado
+(semillas 1–2): la política **no supera la regla de una línea** (−1,0 pp, IC −3,1 a
+0) y **cuesta 1,9× más** que no decidir. El único efecto que sobrevive es +5,2 pp
+sobre el control barajado. Ver `results/corrected/`.
 
 ### `LLM-CEILING` — test de techo con agente real (Prototipo 006-B)
 

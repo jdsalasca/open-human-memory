@@ -1,11 +1,9 @@
-"""Post-hoc accounting of the applicability probe's cost.
+"""Upper bound on the applicability probe's cost (SUPERSEDED).
 
-The frozen protocol counted only search steps. The probe runs before every
-decision and costs primitive applications too. This script measures that cost on
-exactly the frozen task sets, without touching the frozen code.
-
-It reports an upper bound: `_fits` short-circuits on the first counterexample, so
-the real cost is lower.
+The corrected `v6_policy.probe` counts executed primitive applications with
+short-circuit; that is the measurement of record (`results/corrected/`). This
+script is kept only because the frozen addendum cites it, and it reports the
+bound, not the measurement.
 """
 
 from __future__ import annotations

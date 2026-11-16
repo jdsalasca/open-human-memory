@@ -71,8 +71,11 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 - Resultado: **acierto sí, economía no.** +3,1 pp sobre la mejor acción fija y
   +10,4 pp sobre buscar, pero el probe cuesta 96–122 pasos frente a 29 ahorrados.
   El agente real acierta **30/64 (46,9 %)**, por debajo de BFS profundidad 2.
+- **Corrección posterior (006-A′):** cinco fallos de implementación encontrados
+  por la auditoría. Corregidos y pareados, la política **no supera a la regla
+  simple** (−1,0 pp) y **cuesta 1,9× más**. El resultado positivo queda retirado.
 - Siguiente: procedimiento recuperado en el agente real y probe barato (caché por
-  firma o índice), con protocolo congelado.
+  firma o índice), con protocolo congelado. Ver `docs/revision-de-rumbo.md`.
 
 ### R2.8 — Experimento de competencia `COMP-*`
 

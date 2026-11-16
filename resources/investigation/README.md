@@ -66,6 +66,7 @@ empeora nada medible, no entra).
 | [prototipo-005-presupuesto/](prototipo-005-presupuesto/) | Continuidad, orden de búsqueda y acumulación en línea |
 | [prototipo-006-politica/](prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
+| [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
 | [papers/](papers/) | CUMULUS final (EN/ES) y JANUS final (ES) |
 

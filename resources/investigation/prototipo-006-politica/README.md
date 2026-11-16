@@ -1,107 +1,94 @@
-# Prototipo 006-A — Política de activación: aprende a cambiar, pero no paga su instrumento
+# Prototipo 006-A — Política de activación (retirada y corregida)
 
 **Fecha:** 16 de noviembre de 2026
-**Estado:** **confirmatorio parcial**. Protocolo, código y datos congelados con
-SHA-256 antes de ejecutar las semillas 1 y 2 (`results/frozen.sha256`). La semilla
-0 se usó para desarrollar el diseño y no se reporta.
-**Código:** `src/ohmem/v6_policy.py` sobre `v3_solver.py`.
-**Tests:** `tests/test_v6.py`.
-**Resultados:** `results/seed-{1,2}.json`, `results/summary.json`,
-`results/probe-cost.json`.
+**Estado:** la versión congelada **queda retirada**. La auditoría de dirección
+encontró cinco fallos de implementación; corregidos, el resultado es **negativo**.
+Este documento es el vigente.
+**Código:** `src/ohmem/v6_policy.py`.
+**Resultados corregidos:** `results/corrected/seed-{1,2}.json`,
+`results/corrected/summary.json`.
+**Resultado congelado (histórico):** `results/` — se conserva como archivo, y
+`reproduce.py` se niega a reejecutarlo con el código nuevo, a propósito.
 
-## 1. La pregunta
+## 1. Los cinco fallos que la auditoría encontró
 
-El 005-A dejó abierto lo único que importaba: si se guarda un artefacto acotado,
-**¿quién decide cuándo confiar en él?** Mi heurística de desalojo falló. Este
-prototipo prueba una política aprendida.
-
-Decisión binaria por tarea: **usar la biblioteca** (profundidad 2, macros primero)
-o **buscar desde cero** (profundidad 3, sin biblioteca). Presupuesto: 120 pasos
-primitivos ejecutados.
-
-## 2. El instrumento
-
-La biblioteca se aprende una vez de la familia A y **se congela** (3 macros).
-
-La política solo ve tres números antes de decidir:
-
-1. sesgo;
-2. **probe de aplicabilidad**: ¿alguna macro, combinada con una primitiva antes o
-   después, reproduce los tres ejemplos? Centrado a −1/+1;
-3. éxito reciente de la memoria.
-
-Aprendizaje: puntuador lineal, ε-greedy (ε=1,0 la primera época, luego decae), 20
-épocas. Control: `policy-blind`, idéntica con el probe forzado a cero.
-
-## 3. Resultados (semillas 1–2, 48 tareas)
-
-| Condición | Similar | Novel | **Mixto** | Pasos (mixto) |
-|---|---|---|---|---|
-| Sin memoria, profundidad 3 | 81,3 % | 85,4 % | 83,3 % | 59,6 |
-| Memoria, primitivas primero | 91,7 % | 81,3 % | 86,5 % | 51,1 |
-| Memoria, macros primero | 100 % | 81,3 % | 90,6 % | 44,5 |
-| Acción aleatoria | 100 % | 83,3 % | 89,6 % | 45,1 |
-| **Política aprendida (probe)** | **100 %** | **87,5 %** | **93,8 %** | **42,3** |
-| Regla del probe escrita a mano | 91,7 % | 87,5 % | 89,6 % | 49,5 |
-| **Política ciega (control)** | 100 % | **81,3 %** | 90,6 % | 44,5 |
-| Oráculo por tarea | 100 % | 87,5 % | 93,8 % | 34,8 |
-
-Las cuatro predicciones congeladas se cumplieron:
-
-| ID | Predicción | Resultado |
+| # | Fallo | Efecto |
 |---|---|---|
-| P1 | Política ≥ mejor acción fija en mixto | **+3,1 pp** sobre macros-primero, **+10,4 pp** sobre buscar |
-| P2 | En novel, ≥ memoria + 5 pp | **+6,25 pp** (87,5 vs 81,3) |
-| P3 | La ciega rinde menos | **+3,1 pp** (una tarea y media) |
-| P4 | Menos pasos que buscar en similar | **43,0 vs 71,9** |
+| 1 | `random-action` usaba `explore=True`, que explora con ε≈0,03 | No era aleatoria: usaba la política entrenada el 97 % del tiempo |
+| 2 | El estado de éxitos recientes se limpiaba antes de una condición pero no de la siguiente | Contaminación entre condiciones |
+| 3 | `probe-rule` elegía `memory_first` pero resolvía sin `macro_first` | La regla manual competía en desventaja |
+| 4 | El conjunto mixto concatenaba similar y luego novel | No probaba intercalado impredecible |
+| 5 | `probe_cost.py` calculaba una cota superior | Se presentó como medición |
 
-La política **iguala al oráculo** en el conjunto mixto. Aprende a usar la
-biblioteca cuando el probe dice que aplica y a buscar cuando no.
+Además, el coste del probe no se contabilizaba en el presupuesto de la política.
 
-## 4. El problema: el probe cuesta más de lo que ahorra
+## 2. Correcciones
 
-El protocolo congelado contó solo pasos de búsqueda. El probe también ejecuta
-primitivas. Medido aparte, sin tocar el código congelado
-(`probe_cost.py`, cota superior con cortocircuito):
+- `probe` devuelve el valor **y** las aplicaciones primitivas ejecutadas de verdad,
+  con cortocircuito dentro de cada comprobación.
+- `uniform-random` (uniforme sobre las dos acciones) y `shuffled-policy` (mismas
+  frecuencias que la política, asignadas ignorando la tarea) sustituyen al falso
+  aleatorio.
+- Cada condición reinicia el estado de evaluación.
+- `probe-rule` aplica `macro_first` cuando elige memoria.
+- El conjunto mixto intercala similar y novel.
+- Todas las condiciones devuelven resultados por tarea; las comparaciones son
+  pareadas con bootstrap sobre tareas.
 
-| Conjunto | Coste medio del probe |
-|---|---|
-| Similar | **96,0 pasos/tarea** |
-| Novel | **122,4 pasos/tarea** |
+## 3. Resultado corregido (semillas 1–2, 48 tareas por conjunto)
 
-Comparación honesta por tarea en `similar`:
+| Condición | Mixto | Búsqueda | Probe | **Total** |
+|---|---|---|---|---|
+| Buscar sin memoria | 83,3 % | 59,5 | — | **59,5** |
+| Memoria, primitivas primero | 86,5 % | 51,1 | — | **51,1** |
+| Memoria, macros primero | 90,6 % | 44,5 | — | **44,5** |
+| Aleatoria uniforme | 85,4 % | 56,9 | — | **56,9** |
+| Barajada (mismas frecuencias) | 87,5 % | 49,4 | — | **49,4** |
+| **Regla del probe (una línea)** | **93,8 %** | 42,2 | 41,2 | **83,5** |
+| **Política aprendida** | 92,7 % | 43,1 | 41,2 | **84,3** |
+| Política ciega (paga el probe y lo ignora) | 90,6 % | 44,5 | 41,2 | **85,7** |
+| Oráculo por tarea | 93,8 % | 34,5 | — | **34,5** |
 
-- buscar sin memoria: 71,9 pasos;
-- política: 43,0 pasos de búsqueda **+ 96 de probe = 139,0**;
-- ahorro aparente: 28,9; **coste neto: +67,1 pasos**.
+Diferencias pareadas (bootstrap sobre 96 tareas, IC 95 %):
 
-En el conjunto mixto el coste neto ronda **+92 pasos por tarea**. La política es
-la mejor en el contador de búsqueda y la peor en cómputo total.
+| Comparación | Diferencia | IC |
+|---|---|---|
+| Política vs macros primero | +2,1 pp | 0,0 a +5,2 |
+| Política vs buscar | **+9,4 pp** | +3,1 a +15,6 |
+| Política vs regla del probe | **−1,0 pp** | −3,1 a 0,0 |
+| Política vs barajada | +5,2 pp | +1,0 a +9,4 |
 
-**Conclusión:** el mecanismo funciona y la economía no. Una política que decide
-con un probe caro pierde contra no decidir. Para que pague, el probe tiene que ser
-barato: cacheado por firma, calculado una vez por familia o sustituido por un
-índice. Eso es un requisito de ingeniería concreto, no una nota al pie.
+## 4. Lectura
 
-## 5. Qué prueba y qué no
+1. **La política no supera a una regla de una línea.** Pierde 1,0 pp, y el
+   intervalo no cruza el cero a su favor. El aprendiz no aporta sobre el criterio
+   que ya conocemos.
+2. **La señal de aplicabilidad sí contiene información**: +5,2 pp sobre el control
+   barajado, que conserva las mismas frecuencias de acción pero ignora la tarea.
+   Es el único efecto que sobrevive a los controles.
+3. **La economía es negativa.** El probe cuesta 41,2 pasos por tarea y el ahorro
+   frente a buscar es de 29. Con el probe contabilizado, la política total cuesta
+   **1,9× más** que no decidir.
+4. **La versión congelada estaba inflada por sus propios controles defectuosos.**
+   El 93,8 % frente a 90,6 % de la corrida congelada no resiste la corrección.
 
-**Prueba** que una política lineal sobre una señal de aplicabilidad aprende a
-cambiar de estrategia y domina a cada acción fija en acierto, con predicciones
-fijadas antes de las semillas de evaluación.
+Conclusión: **no hay evidencia de que una política aprendida de activación aporte
+ventaja.** Se retira la afirmación.
 
-**No prueba** que la política sea económica (§4), ni que la señal se pueda
-descubrir sola (el probe es diseño humano), ni que escale: 48 tareas, una familia,
-dos semillas. La ventaja sobre la mejor acción fija es de **una tarea y media**;
-tratar eso como un triunfo sería el error que la auditoría viene señalando.
+## 5. Qué sobrevive
+
+- El probe de aplicabilidad es una señal real (efecto +5,2 pp sobre el control
+  barajado), pero demasiado cara tal como está implementada.
+- La comparación pareada con IC es el estándar desde ahora.
+- El diseño de acciones (memoria vs búsqueda) es correcto; lo que falla es el
+  aprendiz y la economía.
 
 ## 6. Reproducir
 
 ```bash
-python resources/investigation/prototipo-006-politica/reproduce.py
-python resources/investigation/prototipo-006-politica/probe_cost.py
-PYTHONPATH=src python -m unittest discover -s tests -v
-```
+# Resultado vigente (corregido)
+python resources/investigation/prototipo-006-politica/reproduce_corrected.py
 
-`reproduce.py` verifica los hashes de protocolo, código y datos y aborta si algo
-cambió. Para re-congelar (no hacerlo tras ver resultados):
-`reproduce.py --freeze`.
+# Resultado congelado (histórico): el script verifica hashes y aborta con el código nuevo
+python resources/investigation/prototipo-006-politica/reproduce.py
+```

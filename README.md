@@ -64,29 +64,41 @@ En un flujo de 96 tareas con deriva:
 | Aprender siempre | 67,0 % | 5.621 | 12 |
 | Tope con desalojo por uso | 64,6 % | 5.562 | 9 |
 
-Traducido al problema del contexto: **96 episodios no caben en una ventana; 8
-macros sí, y hacen el mismo trabajo con 26 % menos cómputo** — mientras la
-distribución se mantenga. Acumular sin criterio empeora. El controlador que debía
-decidir *cuándo* confiar en lo guardado falló y lo publico como fallo.
+Traducido: **8 macros sustituyen a 96 episodios con el mismo acierto y 26 % menos
+trabajo** en este simulador. No medimos tokens ni contexto real, así que la frase
+«96 episodios no caben en una ventana» **se retira**: no la medimos. Y es una
+comparación de dos diseños bajo el mismo presupuesto de pasos (profundidad 3 sin
+memoria frente a profundidad 2 con macros), **no una ablación limpia de memoria**.
 
-## La política aprende a cambiar; su instrumento la arruina (006)
+Acumular sin criterio empeora (−8,7 pp). El controlador que debía decidir *cuándo*
+confiar en lo guardado falló y lo publiqué como fallo. Después intenté una política
+aprendida; la auditoría encontró cinco fallos de implementación y, corregidos, el
+resultado también es negativo.
 
-Prototipo 006-A, protocolo congelado en `frozen.sha256` (protocolo + código +
-datos), evaluado en semillas no usadas para diseñar. Decisión binaria por tarea:
-usar la biblioteca (profundidad 2, macros primero) o buscar (profundidad 3).
+## La política no supera a una regla de una línea (006-A′)
 
-| Condición | Similar | Novel | Mixto | Pasos (mixto) |
-|---|---|---|---|---|
-| Buscar sin memoria | 81,3 % | 85,4 % | 83,3 % | 59,6 |
-| Macros primero | 100 % | 81,3 % | 90,6 % | 44,5 |
-| **Política aprendida** | **100 %** | **87,5 %** | **93,8 %** | **42,3** |
-| Política ciega (control) | 100 % | 81,3 % | 90,6 % | 44,5 |
+Cinco correcciones: el control «aleatorio» usaba la política entrenada el 97 % del
+tiempo; el estado se contaminaba entre condiciones; la regla manual no aplicaba el
+orden que decía aplicar; el conjunto mixto estaba concatenado; y el coste del probe
+era una cota superior, no una medición. Corregido todo, semillas 1–2, comparación
+pareada por tarea:
 
-Las cuatro predicciones congeladas se cumplieron: la política iguala al oráculo en
-el conjunto mixto y recupera **+6,25 pp** en tareas nuevas. Pero el probe de
-aplicabilidad cuesta **96–122 pasos** por tarea y la decisión solo ahorra **29**:
-**la política no paga su propio instrumento.** Para el 007, el probe tiene que ser
-barato —cacheado por firma o índice— o no hay política.
+| Condición | Mixto | Búsqueda + probe (pasos) |
+|---|---|---|
+| Buscar sin memoria | 83,3 % | 59,5 |
+| Macros primero | 90,6 % | 44,5 |
+| Regla del probe (una línea) | **93,8 %** | 42,2 + 41,2 = 83,5 |
+| Política aprendida | 92,7 % | 43,1 + 41,2 = 84,3 |
+| Aleatoria uniforme | 85,4 % | 56,9 |
+| Barajada (mismas frecuencias) | 87,5 % | 49,4 |
+
+- **La política pierde contra la regla simple**: −1,0 pp (IC pareado −3,1 a 0).
+- Supera a buscar en acierto (+9,4 pp, IC 3,1–15,6) y a su control barajado
+  (+5,2 pp, IC 1,0–9,4). La señal aporta algo, pero poco y caro.
+- **Cuesta 1,9× más** que no decidir: el probe son 41 pasos y el ahorro 29.
+
+Se retira la afirmación de que una política aprendida aporta. El 006 corregido es
+un resultado negativo, y así queda en el repositorio.
 
 ## Un agente real acierta 46,9 % (006-B)
 
@@ -148,6 +160,7 @@ que el 004 retiró.
 | [prototipo-005-presupuesto/](resources/investigation/prototipo-005-presupuesto/) | Memoria bajo presupuesto: continuidad, orden y acumulación |
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Test de techo: `gpt-6-luna` acierta 46,9 % |
+| [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |
