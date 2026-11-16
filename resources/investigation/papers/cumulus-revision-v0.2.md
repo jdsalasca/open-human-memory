@@ -139,6 +139,36 @@ La evaluación vigente es `08-hipotesis-y-experimentos.md` v2.0:
 primaria con intervalo de confianza que excluya cero, la arquitectura no aporta y
 se reduce a ese rival.
 
+## 7.1 Anti-persistencia y tres dimensiones (segunda auditoría)
+
+La segunda revisión añade dos objeciones que cambian el diseño:
+
+**a) Persistir abstracciones puede empeorar al agente.** More Memory, Worse Agents
+(Wang, Panaganti y Zhou, 2026) documenta *error reproduction*: una abstracción
+errónea guía ejecuciones, contamina las trazas y se re-deriva como nueva
+abstracción. Su diseño Anti-Persistence guarda trayectorias y resultados, pero
+reconstruye la guía bajo demanda y la descarta. En nueve configuraciones reporta
+59,9% de éxito frente a 53,5% de memoria de trayectorias y 49,0% de abstracciones
+persistentes.
+
+**Consecuencia:** el Canon permanente de CUMULUS es una hipótesis, no una
+necesidad. La v0.2 debe comparar persistencia contra reconstrucción y permitir
+que el Canon se degrade a archivo cuando la distribución cambia.
+
+**b) La causalidad no puede ser la única puerta.** Fiabilidad, causalidad y
+portabilidad son dimensiones distintas. Un procedimiento puede funcionar sin que
+se conozca su causa. La política de uso debe depender de las tres, más el riesgo
+y el costo:
+
+| Riesgo | Evidencia mínima |
+|---|---|
+| Bajo y reversible | Fiabilidad |
+| Medio | Fiabilidad + portabilidad |
+| Alto e irreversible | Causalidad identificada + portabilidad + revisión |
+
+Esto evita dos errores: bloquear procedimientos útiles por falta de explicación
+causal, y permitir acciones irreversibles con una correlación afortunada.
+
 ## 8. Lo que sigue siendo novedoso (con humildad)
 
 1. **Contrato ejecutable agnóstico al modelo** con precondiciones,

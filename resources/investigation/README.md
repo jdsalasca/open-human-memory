@@ -53,19 +53,23 @@ empeora nada medible, no entra).
 | [21-revision-critica-fuentes.md](21-revision-critica-fuentes.md) | Qué sostiene el diseño y qué es metáfora |
 | [22-respuesta-a-revision.md](22-respuesta-a-revision.md) | Respuesta punto por punto a la revisión mayor |
 | [23-marco-de-validez.md](23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |
+| [24-programa-de-investigacion-v2.md](24-programa-de-investigacion-v2.md) | Horizontes, hipótesis y experimento diferencial A–E |
+| [25-protocolo-fuentes-primarias.md](25-protocolo-fuentes-primarias.md) | Búsqueda reproducible y evaluación en dos ejes |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
-| [papers/](papers/) | Papers CUMULUS (EN/ES), revisión v0.2 y JANUS (ES) |
+| [papers/](papers/) | CUMULUS (EN/ES), revisión v0.2, JANUS v0.2 |
 
 ## Estado
 
-`v0.6` — revisión mayor incorporada. Los documentos 01–06 son la evidencia base;
-07 es la síntesis con niveles de traducción; 08 es el protocolo experimental
-v2.0; 09–12 amplían con Weber, psicología, biología comparada y humano–máquina;
-13 es el paper sobre el riesgo del olvido; 14 es la bibliografía; 15 responde la
-pregunta central; 16–20 desarrollan momento cero, contexto, filosofía,
-compactación y sueño; 21 audita la evidencia; 22 responde a la revisión; 23 fija
-el marco de validez; `precedentes/` cataloga lo ya intentado, incluidos los
-competidores 2026; `papers/` contiene CUMULUS (EN/ES), la revisión v0.2 y JANUS.
+`v0.7` — segunda revisión mayor incorporada. Los documentos 01–06 son la
+evidencia base; 07 es la síntesis con niveles de traducción; 08 es el protocolo
+experimental v2.0; 09–12 amplían con Weber, psicología, biología comparada y
+humano–máquina; 13 es el paper sobre el riesgo del olvido; 14 es la bibliografía;
+15 responde la pregunta central; 16–20 desarrollan momento cero, contexto,
+filosofía, compactación y sueño; 21 audita la evidencia en dos ejes; 22 responde a
+la primera revisión; 23 fija el marco de validez; 24 es el programa de
+investigación v2; 25 es el protocolo de fuentes primarias; `precedentes/` cataloga
+lo ya intentado, incluidos los competidores 2026; `papers/` contiene CUMULUS
+(EN/ES), la revisión v0.2 y JANUS v0.2.
 
 ## La tesis en una frase
 

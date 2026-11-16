@@ -7,6 +7,11 @@
 
 *Documento de trabajo · v0.1 · noviembre de 2026 · no arbitrado*
 
+> **Revisión mayor (v0.2).** Esta v0.1 afirmaba que la memoria contrafactual era
+> casi inexplorada. Es falso: COUNTERMEM, ConMem, MemCon y otros trabajos de 2026
+> ya la estudian. Ver [`janus-v0.2.md`](janus-v0.2.md) para la novedad estrechada,
+> la identificabilidad declarada y el experimento diferencial A–E.
+
 ---
 
 ## Resumen

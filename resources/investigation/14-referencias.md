@@ -343,6 +343,18 @@ incluyen volumen y páginas cuando se verificaron.
 - Sumers, T. R., Yao, S., Narasimhan, K., & Griffiths, T. L. (2024). Cognitive architectures for language agents. *Transactions on Machine Learning Research*. arXiv:2309.02427.
 - Tang, B., Zhang, Y., Zhuang, G., Wei, W., Zheng, G., Xie, L., Tan, Y., Xiong, F., Yang, Q., Chung, E., & Li, Z. (2026). From memory to skills: Evidence-grounded governance for long-horizon LLM agents. *Findings of EMNLP 2026*, 34826–34847. arXiv:2607.16621.
 
+## Memoria contrafactual, control y corrección (2026)
+
+- Baklanov, M., Barkan, O., & Koenigstein, N. (2026). CounterMem: Counterfactual evaluation of non-parametric memory use in retrieval-augmented generation. *Findings of EMNLP 2026*, 22332–22348.
+- Jiang, E. H., Zhang, Z., Wu, Y., Li, L., Liu, D., Liang, X., Sun, R., Li, Y., Sun, E., Luo, H., Kang, Z., Caliskan, A., Chang, K.-W., & Wu, Y. N. (2026). *Memory as a controlled process: Learned adaptive memory management for LLM agents*. arXiv:2607.13591.
+- Pakhomov, E., & Nijkamp, E. (2026). *Attributing agent failures to their history needs an executed counterfactual: Toward a reporting standard*. arXiv:2611.05650.
+- Pu, H., Tang, R., & Zhang, Y. (2026). *COUNTERMEM: World-model verified counter-factual memory for language agents*. arXiv:2609.31874.
+- Wang, R., Panaganti, K., & Zhou, D. (2026). *More memory, worse agents: Error reproduction and anti-persistence in LLM agents*. arXiv:2610.27406.
+- Xiao, S., Wang, S., Chen, X., Chao, K., Cui, M., Qian, F., Meng, F., Mei, C., Jiang, C., Ouyang, Q., & Yin, J. (2026). *When errors become memories: Causal pathway tracing in multi-turn memory-augmented LLMs*. arXiv:2608.30198.
+- Yang, C.-H., Chowdhury, A. A., Yan, F., & Thakur, R. (2026). *What is this memory useful for? Measuring task-conditioned utility in long-term agent memory*. arXiv:2611.03930.
+- Yang, L., Xu, S., Li, Z., Yang, T., & Huang, L. (2026). *When personal memory has no single answer: Evaluating LLM agents under irreducible conflict*. arXiv:2608.13921.
+- Zhang, S., Ji, T., Chen, J., Xu, E., Chu, B., & Yi, X. (2026). *ConMem: Counterfactual multi-scenario probing for resolving LLM memory misalignment*. arXiv:2610.33432.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

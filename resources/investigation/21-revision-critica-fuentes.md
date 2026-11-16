@@ -1,162 +1,173 @@
-# 21 — Revisión crítica de fuentes: qué sostiene el diseño y qué es metáfora
+# 21 — Revisión crítica de fuentes v2: dos ejes, no una escala
 
-## 1. Método
+**Estado:** reescrito tras la segunda auditoría. Sustituye la escala única A/B/C/D
+por **dos evaluaciones separadas**: evidencia de origen y evidencia de
+transferencia.
 
-Leí las fuentes primarias y revisiones citadas en los documentos 01–20 y las
-clasifiqué por **tipo de evidencia** y **grado de confianza**. No basta con que
-un paper sea famoso: importa si mide lo que afirma, en qué escala y con qué
-límites.
+## 1. El error de la versión anterior
 
-Escala:
+La v1 asignaba una letra a un mecanismo (por ejemplo, `[A]` a la consolidación)
+y esa letra se leía como si validara también el componente artificial. No es
+válido: un fenómeno puede estar probado y su traducción computacional no.
 
-- **A — Consenso o evidencia convergente:** replicado, meta-análisis o múltiples
-  líneas independientes.
-- **B — Sólido con límites:** evidencia experimental o longitudinal, pero con
-  debate, muestra pequeña o condiciones específicas.
-- **C — Teoría o hipótesis:** plausible, con apoyo parcial, sin validación
-  convergente.
-- **D — Metáfora o evidencia débil:** atractivo narrativo, no base para diseño.
+Ahora cada mecanismo tiene dos notas:
+
+- **Origen (O):** qué tan sólido es el fenómeno en su disciplina.
+  - **A:** consenso, meta-análisis, replicación.
+  - **B:** evidencia sólida con límites.
+  - **C:** teoría o hipótesis.
+  - **D:** metáfora o evidencia débil.
+- **Transferencia (T):** qué demuestra que el mecanismo artificial inspirado en
+  ese fenómeno mejora el sistema.
+  - **3:** experimento comparativo con líneas base fuertes y réplica.
+  - **2:** experimento comparativo sin réplica o con líneas base débiles.
+  - **1:** prototipo o estudio de caso.
+  - **0:** solo analogía, sin implementación.
+
+Una fuente puede ser **A/0**. De hecho, la mayoría de los mecanismos de este
+proyecto lo son.
 
 ## 2. Neurociencia
 
-| Fuente / idea | Evidencia | Confianza | Uso |
+| Mecanismo | Origen | Transferencia | Comentario |
 |---|---|---|---|
-| Sistemas complementarios hipocampo–corteza (McClelland et al., 1995; Kumaran et al., 2016) | Teoría con apoyo experimental amplio | A/B | Arquitectura de dos velocidades |
-| Replay durante el sueño (Wilson y McNaughton, 1994; Rasch y Born, 2013) | Registros neuronales + estudios de comportamiento | A | Consolidación offline |
-| Triaje de memoria (Stickgold y Walker, 2013) | Revisión integradora | B | Selección, no copia |
-| Homeostasis sináptica (Tononi y Cirelli, 2014) | Teoría con apoyo parcial | B | Poda global |
-| Reconsolidación (Nader et al., 2000) | Experimental, con condiciones límite | B | Recuperar modifica |
-| Olvido adaptativo (Richards y Frankland, 2017; Ryan y Frankland, 2022) | Revisión + experimentos | A/B | Olvido como función |
-| Engramas (Josselyn et al., 2015) | Experimental en roedores | B | Recuerdo como ensamble |
-| Neuromoduladores (Schultz et al., 1997; Hasselmo, 1999; Aston-Jones y Cohen, 2005) | Experimental sólido, pero mapeo funcional | B | Canales de saliencia |
-| Mapas cognitivos para conocimiento (Behrens et al., 2018) | Teoría con evidencia neural | B | Grafo relacional |
-| Memoria constructiva y futuro (Schacter y Addis, 2007) | Revisión | B | Memoria para simular |
+| Sistemas complementarios hipocampo–corteza | A/B | 0 | Teoría sólida; no prueba dos almacenes artificiales |
+| Replay durante el sueño | A | 0 | Fuerte en biología; no prueba que un job de replay mejore un LLM |
+| Triaje de memoria | B | 0 | Revisión integradora; sin implementación comparable |
+| Homeostasis sináptica | B | 0 | Teoría con apoyo; sin análogo artificial validado |
+| Reconsolidación | B | 0 | Condiciones límite; no equivale a "recuperar actualiza peso" |
+| Olvido adaptativo | A/B | 1 | MemoryBank implementa decaimiento; no auditoría |
+| Engramas | B | 0 | Roedores; no traduce a nodos de memoria |
+| Neuromoduladores | B | 0 | Canales de saliencia plausibles; sin validación |
+| Mapas cognitivos para conocimiento | B | 0 | Inspira grafos; no prueba que un grafo mejore |
+| Memoria constructiva y futuro | B | 0 | Marco; no mecanismo |
 
-**Lectura.** La neurociencia sostiene con fuerza la **necesidad de un ciclo de
-vida** (dos velocidades, consolidación, olvido), no un algoritmo específico. La
-analogía con el sueño es buena para diseñar una fase offline; no para afirmar
-que un resumen es sueño.
+**Lectura:** la neurociencia sostiene la **necesidad** de un ciclo de vida, no un
+algoritmo. Casi todo es A/0 o B/0.
 
 ## 3. Biología social y comparada
 
-| Fuente / idea | Evidencia | Confianza | Uso |
+| Mecanismo | Origen | Transferencia | Comentario |
 |---|---|---|---|
-| Dialectos y matrilinas de orcas (Ford, 1991; Deecke et al., 2000) | Observación longitudinal | B | Dialecto y transmisión |
-| Menopausia y liderazgo (Brent et al., 2015) | Correlacional, muestra limitada | B | Custodios |
-| Enseñanza de orcas (Guinet y Bouvier, 1995) | Observación detallada | B | `teach()` |
-| Quórum en hormigas (Pratt et al., 2002) | Experimental | A | Promoción por quórum |
-| Estigmergia (Grassé, 1959; Goss et al., 1989) | Experimental/modelado | A | Trazas que decaen |
-| Memoria episódica-like en córvidos (Clayton y Dickinson, 1998) | Experimental | B | Qué/dónde/cuándo |
-| Memoria inmune (Ahmed y Gray, 1996) | Consenso biomédico | A | Selección y amplificación |
-| Moho sin neuronas (Nakagaki et al., 2000; Reid et al., 2012) | Experimental, pocos estudios | B | Memoria externalizada |
-| Redes micorrícicas (Simard et al., 1997; Karst et al., 2023) | Evidencia débil y sobreinterpretada | D | No usar como base |
-| Aprendizaje en plantas (Gagliano et al., 2014) | Controversial | C | Solo como primado |
+| Dialectos y matrilinas de orcas | B | 0 | Observacional; inspira dialecto, no lo valida |
+| Menopausia y liderazgo | B | 0 | Correlacional; inspira custodios |
+| Enseñanza de orcas | B | 0 | Observacional; inspira `teach()` |
+| Quórum en hormigas | A | 1 | Protocolo implementable; no prueba verdad |
+| Estigmergia | A | 1 | Trazas con evaporación; usado en ACO, no en memoria de agentes |
+| Memoria episódica-like en córvidos | B | 0 | Inspira qué/dónde/cuándo |
+| Memoria inmune | A | 0 | Inspira selección; no se implementó |
+| Moho sin neuronas | B | 0 | Memoria externalizada; caso aislado |
+| Redes micorrícicas | D | 0 | Evidencia débil; no usar |
+| Aprendizaje en plantas | C | 0 | Controversial; solo primado |
 
-**Lectura.** Lo más sólido es la coordinación distribuida (quórum, estigmergia) y
-la memoria por selección (inmune). Lo más frágil es la interpretación romántica
-de la naturaleza ("wood wide web"). La biología social da **protocolos**, no
-pruebas de que un agente deba tener conciencia.
+**Lectura:** los protocolos de coordinación (quórum, estigmergia) son los únicos
+con traducción parcial. El resto es inspiración.
 
 ## 4. Sociología
 
-| Fuente / idea | Evidencia | Confianza | Uso |
+| Mecanismo | Origen | Transferencia | Comentario |
 |---|---|---|---|
-| Memoria transactiva (Wegner, 1987; Ren y Argote, 2011) | Meta-análisis de equipos | A | Directorio de expertise |
-| Comunidades de práctica (Lave y Wenger, 1991) | Etnografía y teoría | B | Onboarding periférico |
-| Cultura acumulativa (Tomasello, 1999; Henrich, 2015) | Evidencia comparada | A/B | Fidelidad de transmisión |
-| Gobernanza de comunes (Ostrom, 1990) | Estudios de caso comparados | B | Reglas de memoria |
-| Burocracia y legitimidad (Weber, 1922) | Teoría interpretativa | C | Procedencia y regímenes |
-| Sesgo colectivo en LLM (Ashery et al., 2025) | Experimental | B | Riesgo de la capa social |
-| Vínculos débiles (Granovetter, 1973) | Sociología empírica | B | Puentes entre pods |
+| Memoria transactiva | A | 1 | Meta-análisis; directorio implementable, sin validación en agentes |
+| Comunidades de práctica | B | 0 | Onboarding; no medido |
+| Cultura acumulativa | A/B | 0 | Fidelidad de transmisión; no medida entre modelos |
+| Gobernanza de comunes | B | 0 | Marco de diseño; sin experimento |
+| Burocracia y legitimidad | C | 0 | Interpretativa; solo se conserva trazabilidad |
+| Sesgo colectivo en LLM | B | 2 | Ashery et al. muestra el fenómeno; no una solución |
+| Vínculos débiles | B | 0 | Inspira enlaces entre pods |
 
-**Lectura.** La memoria transactiva es la pieza sociológica con mejor evidencia y
-la más directamente implementable. Weber es valioso como marco de gobernanza,
-pero no es evidencia empírica. Ostrom es una guía de diseño, no una ley.
+**Lectura:** la memoria transactiva es la pieza más implementable; su
+transferencia a agentes sigue sin probarse.
 
 ## 5. Psicología y aprendizaje humano
 
-| Fuente / idea | Evidencia | Confianza | Uso |
+| Mecanismo | Origen | Transferencia | Comentario |
 |---|---|---|---|
-| Memoria reconstructiva (Bartlett, 1932) | Experimental clásico | A | Fuente vs. interpretación |
-| Desinformación (Loftus y Palmer, 1974) | Experimental replicado | A | No reescribir originales |
-| Falsos recuerdos (Roediger y McDermott, 1995) | Experimental replicado | A | Verificación |
-| Olvido inducido por recuperación (Anderson et al., 1994) | Experimental | B | Diversidad en recall |
-| Inhibición colaborativa (Weldon y Bellinger, 1997) | Experimental | B | Buffers individuales |
-| Contagio social (Roediger et al., 2001) | Experimental | B | Procedencia y auditoría |
-| Sesgo de confirmación (Nickerson, 1998) | Revisión | A | Contraevidencia |
-| Metacognición (Flavell, 1979; Nelson y Narens, 1990) | Teoría con apoyo | B | Gate de confianza |
-| Espaciado (Cepeda et al., 2006) | Meta-análisis | A | Repasos |
-| Práctica de recuperación (Roediger y Karpicke, 2006) | Experimental replicado | A | Preguntar antes de mostrar |
-| Intercalado (Rohrer y Taylor, 2007) | Experimental | B | Replay mezclado |
-| Dificultades deseables (Bjork y Bjork, 2011) | Revisión | B | No compactar de más |
-| Práctica deliberada (Ericsson et al., 1993; Macnamara et al., 2014) | Meta-análisis con crítica | B | Feedback, no solo repetición |
-| Chunking (Miller, 1956; Chase y Simon, 1973) | Experimental clásico | A | Unidades de compresión |
-| Gist vs. verbo (Reyna y Brainerd, 1995) | Teoría con apoyo | B | Preservar significado |
-| Esquemas (Ghosh y Gilboa, 2014; Gilboa y Marlatte, 2017) | Revisión | B | Consolidación |
+| Memoria reconstructiva | A | 0 | Inspira fuente vs. interpretación |
+| Desinformación | A | 0 | Inspira procedencia |
+| Falsos recuerdos | A | 0 | Inspira verificación |
+| Olvido inducido por recuperación | B | 0 | Inspira diversidad; no contador |
+| Inhibición colaborativa | B | 0 | Inspira buffers individuales |
+| Contagio social | B | 0 | Inspira auditoría ciega |
+| Sesgo de confirmación | A | 0 | Inspira contraevidencia |
+| Metacognición | B | 1 | Inspira calibración; sin implementación validada |
+| Espaciado | A | 0 | Inspira repasos; no probado en agentes |
+| Práctica de recuperación | A | 0 | **No** justifica refuerzo artificial |
+| Intercalado | B | 0 | Inspira replay mezclado; no probado |
+| Dificultades deseables | B | 0 | Inspira no compactar de más |
+| Chunking | A | 1 | Inspira unidades; SIR es una forma |
+| Gist vs. verbo | B | 0 | Inspira preservar significado |
+| Esquemas | B | 0 | Inspira consolidación |
 
-**Lectura.** La psicología es la fuente más directly aplicable: dice qué preservar
-y qué errores evitar. La memoria reconstructiva y el contagio social justifican
-procedencia y auditoría ciega.
+**Lectura:** la psicología es la fuente más aplicable para **qué preservar y qué
+errores evitar**, pero casi nada tiene transferencia medida.
 
-## 6. Humano vs. máquina y contexto
+## 6. Aprendizaje humano vs. máquina y contexto
 
-| Fuente / idea | Evidencia | Confianza | Uso |
+| Mecanismo | Origen | Transferencia | Comentario |
 |---|---|---|---|
-| Eficiencia de muestra humana (Kühl, 2022; Lake et al., 2015) | Experimental | B | Priors y estructura |
-| Interferencia catastrófica (McCloskey y Cohen, 1989; French, 1999) | Consenso en redes | A | Aislamiento por dominio |
-| EWC / replay (Kirkpatrick et al., 2017; Rolnick et al., 2019) | Experimental | A | Estabilidad |
-| Trade-off transferencia/interferencia (Holton et al., 2026) | Estudio nuevo, amplio | B | Medir ambos |
-| Lost in the Middle (Liu et al., 2023) | Experimental robusto | A/B | Orden y posición |
-| RULER (Hsieh et al., 2024) | Benchmark | B | Longitud efectiva |
-| LongICLBench (Li et al., 2024) | Benchmark | B | Rendimientos decrecientes |
-| ICL bayesiano (Xie et al., 2022) | Teoría con experimentos | B | Contexto como inferencia |
-| Induction heads (Olsson et al., 2022) | Mecanicista | B | Copia de patrones |
-| ICL como gradiente (von Oswald et al., 2023) | Teoría restringida | C | No generalizar |
+| Eficiencia de muestra humana | B | 0 | Inspira priors; no se iguala con retrieval |
+| Interferencia catastrófica | A | 3 | EWC/replay son evidencia comparativa en redes |
+| Trade-off transferencia/interferencia | B | 2 | Holton et al. lo miden en humanos y redes |
+| Lost in the Middle | A/B | 3 | Fenómeno robusto en LLM |
+| RULER | B | 3 | Benchmark; longitud efectiva |
+| LongICLBench | B | 2 | Benchmark; rendimientos decrecientes |
+| ICL bayesiano | B | 1 | Teoría con experimentos |
+| Induction heads | B | 1 | Mecanicista |
+| ICL como gradiente | C | 1 | Régimen restringido |
 
-**Lectura.** La evidencia sobre contexto es fuerte en el fenómeno (más no es
-mejor, la posición importa) y más débil en la explicación (varias teorías
-compiten). La comparación humano–máquina es prometedora pero joven.
+**Lectura:** el contexto es el área con más evidencia de transferencia directa
+(porque se mide en LLM). La comparación humano–máquina es prometedora pero joven.
 
-## 7. Filosofía
+## 7. Memoria de agentes 2026
 
-La filosofía del contexto (Gadamer, Wittgenstein, Stalnaker, Sperber y Wilson,
-Clark y Chalmers) no es evidencia empírica. Es un **marco interpretativo** que
-ayuda a formular preguntas: qué es el terreno común, qué es una affordance, qué
-hace que un recuerdo sea "mío". No se puede citar como prueba de que un agente
-necesite tal o cual arquitectura.
+| Sistema | Origen | Transferencia | Comentario |
+|---|---|---|---|
+| Zep Agent Skills | A/B | 2 | Producción; benchmarks de replay, no tareas nuevas |
+| MSCE | B | 2 | Evidencia multi-benchmark; ganancia heurística, no causal |
+| AFTER | B | 2 | Benchmark de transferencia entre roles y backbones |
+| Trace2Skill | B | 2 | Transferencia entre escalas y familias |
+| COUNTERMEM | B | 2 | 12 benchmarks; requiere estados restaurables |
+| ConMem | B | 1 | Benchmark de admisión; no acumulación |
+| MemCon | B | 2 | Control adaptativo; consolidación/olvido no probados |
+| More Memory, Worse Agents | B | 2 | Anti-persistencia; evidencia asociacional de error reproduction |
+| What Is This Memory Useful For? | B | 1 | Utilidad factual; sin efecto en coding |
+| TANGLE | B | 1 | Benchmark de conflicto; no arquitectura |
+| Attributing Agent Failures... | B | 0 | Estándar metodológico; sin resultado conductual |
 
-**Lectura.** Útil para diseño y para evitar reduccionismos; peligrosa si se usa
-como justificación científica.
+**Lectura:** aquí sí hay transferencia 2, pero con límites: replay de tareas,
+benchmarks simulados, ganancias heurísticas, dependencia de verificadores.
 
-## 8. Los huecos de evidencia más importantes
+## 8. Los huecos reales después de la segunda ola
 
-1. **Transferencia procedural entre modelos:** hay estudios recientes (AFTER,
-   Trace2Skill, Zep Agent Skills) que miden transferencia en benchmarks; no miden
-   meses de deriva ni transferencia a tareas nuevas fuera de distribución.
-2. **Memoria de agentes a meses:** los benchmarks miden conversaciones, tareas o
-   ciclos; no meses de trabajo real con cambios de API, modelo y requisitos.
-3. **Memoria contrafactual:** no existe, hasta donde sabemos, un sistema que trate
-   los contrafactuales como objetos de primera clase. MSCE usa contraevidencia,
-   no resultados potenciales.
-4. **Gobernanza de memoria:** poca evidencia empírica sobre qué reglas funcionan
-   en sociedades de agentes; los sistemas de 2026 usan gates, no gobernanza
-   medida.
-5. **Olvido con auditoría:** MemoryBank prueba decaimiento, no auditoría ni
-   eliminación selectiva.
+1. **Identificación causal bajo estado parcialmente oculto.** COUNTERMEM
+   verifica alternativas cuando el estado se puede copiar; no resuelve
+   confusores no observados.
+2. **Acumulación longitudinal con deriva real.** Los benchmarks miden ciclos,
+   no meses de cambios de API/modelo/requisitos.
+3. **Transferencia procedural entre modelos con tareas nuevas.** AFTER y
+   Trace2Skill miden transferencia, pero no en tareas fuera de distribución
+   durante meses.
+4. **Incertidumbre e ignorancia como contenido.** TANGLE mide conflicto; no hay
+   un ledger de ignorancia con agenda experimental.
+5. **Anti-persistencia selectiva.** More Memory, Worse Agents compara diseños;
+   no hay una política que decida cuándo persistir y cuándo reconstruir.
+6. **Utilidad en tareas procedimentales.** Yang et al. no encuentran efecto en
+   coding; falta medir utilidad condicionada a tarea en procedimientos.
 
 ## 9. Veredicto
 
 - La evidencia **sostiene el problema**: la memoria como almacén no produce
   competencia acumulativa.
-- La evidencia **sostiene los principios**: dos velocidades, consolidación,
-  olvido selectivo, saliencia, procedencia, transmisión verificada.
-- La evidencia **no sostiene** una arquitectura única ni una simulación neuronal
-  literal.
-- La mayor oportunidad de innovación está donde la evidencia es fina pero la
-  teoría es fuerte: **memoria causal/contrafactual**.
+- La evidencia **sostiene principios de diseño**: dos velocidades, consolidación,
+  olvido selectivo, procedencia, verificación, transmisión.
+- La evidencia **no sostiene** una arquitectura única, una simulación neuronal
+  literal, ni la superioridad de CUMULUS/JANUS.
+- La mayoría de los mecanismos biológicos son **A/0**: inspiran, no validan.
+- La innovación debe buscarse donde hay menos evidencia pero mejor teoría:
+  **incertidumbre, identificación causal y corrección**.
 
-La biología no prueba que un agente deba tener un hipocampo digital. Prueba que
-cualquier sistema que aprenda durante meses necesita decidir qué conservar, qué
-transformar y qué soltar. La novedad no está en copiar la biología; está en
-construir la institución que la biología sugiere y que aún no se ha construido
-para agentes.
+## 10. Cómo se actualiza
+
+Este documento se acompaña de `25-protocolo-fuentes-primarias.md`. Cada
+afirmación de ausencia debe tener búsqueda registrada, fecha y criterios. Sin
+eso, se escribe "no lo hemos encontrado", no "no existe".

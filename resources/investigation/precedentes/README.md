@@ -53,6 +53,8 @@ Un sistema entra si cumple al menos una condición:
    dirección novedosa.
 6. [06-competidores-directos-2026.md](06-competidores-directos-2026.md) —
    Zep Agent Skills, MSCE, AFTER, Trace2Skill y el estado real de la novedad.
+7. [07-antecedentes-2026-ii.md](07-antecedentes-2026-ii.md) — COUNTERMEM,
+   ConMem, MemCon, anti-persistencia, utilidad y conflicto irreducible.
 
 ## Lo que se repite
 

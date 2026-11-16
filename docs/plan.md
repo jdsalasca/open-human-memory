@@ -7,30 +7,30 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R1 — Investigación (completada)
 
-- Entregable: `resources/investigation/` con 23 documentos, paper de trabajo,
-  papers CUMULUS (EN/ES), revisión v0.2, JANUS y bibliografía con fuentes
-  primarias.
+- Entregable: `resources/investigation/` con 25 documentos, papers CUMULUS
+  (EN/ES), revisión v0.2, JANUS v0.1/v0.2 y bibliografía con fuentes primarias.
 - Criterio: cada mecanismo propuesto tiene fuente, traducción computacional y
   riesgo declarado; las preguntas de momento cero, contexto, filosofía del
   contexto, compactación humana y sueño tienen respuesta documentada.
-- Revisión mayor incorporada: `22-respuesta-a-revision.md` y
-  `23-marco-de-validez.md`; competidores 2026 en `precedentes/06`.
+- Revisión mayor incorporada: `22-respuesta-a-revision.md`,
+  `23-marco-de-validez.md`, `24-programa-de-investigacion-v2.md` y
+  `25-protocolo-fuentes-primarias.md`; competidores 2026 en `precedentes/06` y
+  `precedentes/07`.
 
 ### R2 — Documento de diseño
 
-- Entregable: especificación técnica de CUMULUS y JANUS (esquema SIR, ledger de
-  decisiones, contrafactuales, algoritmos de Forja y Puente, protocolo del Pod)
-  derivada de `papers/cumulus-es.md`, `papers/cumulus-en.md` y
-  `papers/janus-es.md`.
+- Entregable: especificación técnica de los objetos epistémicos de CUMULUS y
+  JANUS (SIR, ledger de decisiones, identificabilidad, ledger de incertidumbre,
+  agenda experimental) derivada de `24` y `papers/janus-v0.2.md`.
 - Criterio: enfoque elegido, alcance del MVP, no-objetivos, modelo de datos y
   decisiones abiertas resueltas o asignadas.
 
-### R2.5 — Validación causal (JANUS)
+### R2.5 — Experimento diferencial A–E
 
-- Entregable: prototipo del ledger de decisiones + jerarquía de evidencia
-  contrafactual + puerta de promoción causal.
-- Criterio: reduce habilidades espurias ≥30% frente a CUMULUS sin causalidad en
-  un entorno con verdad causal conocida.
+- Entregable: sandbox con verdad causal conocida y las cinco condiciones del
+  programa v2.
+- Criterio: E reduce errores persistentes, mejora calibración y abandona antes
+  creencias refutadas frente a C y D; si no, se reduce el alcance.
 
 ### R3 — Harness de evaluación
 
