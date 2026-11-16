@@ -130,15 +130,19 @@ como justificación científica.
 
 ## 8. Los huecos de evidencia más importantes
 
-1. **Transferencia procedural entre modelos:** no hay estudios directos. Holton
-   et al. estudian transferencia de tareas, no de procedimientos entre modelos.
-2. **Memoria de agentes a meses:** los benchmarks miden conversaciones o tareas,
-   no meses de trabajo real.
-3. **Memoria contrafactual:** no existe un sistema de memoria de agentes que
-   trate los contrafactuales como objetos de primera clase.
+1. **Transferencia procedural entre modelos:** hay estudios recientes (AFTER,
+   Trace2Skill, Zep Agent Skills) que miden transferencia en benchmarks; no miden
+   meses de deriva ni transferencia a tareas nuevas fuera de distribución.
+2. **Memoria de agentes a meses:** los benchmarks miden conversaciones, tareas o
+   ciclos; no meses de trabajo real con cambios de API, modelo y requisitos.
+3. **Memoria contrafactual:** no existe, hasta donde sabemos, un sistema que trate
+   los contrafactuales como objetos de primera clase. MSCE usa contraevidencia,
+   no resultados potenciales.
 4. **Gobernanza de memoria:** poca evidencia empírica sobre qué reglas funcionan
-   en sociedades de agentes.
-5. **Olvido con auditoría:** MemoryBank prueba decaimiento, no auditoría.
+   en sociedades de agentes; los sistemas de 2026 usan gates, no gobernanza
+   medida.
+5. **Olvido con auditoría:** MemoryBank prueba decaimiento, no auditoría ni
+   eliminación selectiva.
 
 ## 9. Veredicto
 
@@ -154,5 +158,5 @@ como justificación científica.
 La biología no prueba que un agente deba tener un hipocampo digital. Prueba que
 cualquier sistema que aprenda durante meses necesita decidir qué conservar, qué
 transformar y qué soltar. La novedad no está en copiar la biología; está en
-construir la institución que la biología sugiere y que nadie ha construido para
-agentes.
+construir la institución que la biología sugiere y que aún no se ha construido
+para agentes.

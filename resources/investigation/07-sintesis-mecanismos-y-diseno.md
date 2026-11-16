@@ -4,7 +4,8 @@
 
 Un mecanismo entra al diseño solo si cumple las tres condiciones:
 
-1. **Tiene evidencia** (etiqueta `[A]`, `[B]` o `[C]` según el README).
+1. **Tiene evidencia del fenómeno** (etiqueta `[A]`, `[B]` o `[C]` según el
+   README).
 2. **Tiene una traducción computacional honesta** (no requiere simular biología).
 3. **Puede ser ablacionado**: si quitarlo no empeora una métrica, se elimina.
 
@@ -12,11 +13,38 @@ La biología no es el objetivo. Es un catálogo de soluciones probadas a problem
 de información: qué guardar, cuánto, dónde, por cuánto tiempo y con quién
 compartirlo.
 
+**Advertencia de validez (revisión mayor):** la columna "Evidencia del fenómeno"
+califica **solo el nivel L1** (¿el fenómeno existe?). No califica la traducción
+computacional (L2) ni la ventaja comparativa (L3). Un `[A]` en la tabla significa
+"el fenómeno está bien establecido", no "el componente funciona". El marco
+completo está en `23-marco-de-validez.md`.
+
 ## 2. Tabla maestra de mecanismos
+
+### 0. Estado de traducción
+
+| Mecanismo | L1 fenómeno | L2 traducción | L3 ventaja | Qué falta |
+|---|---|---|---|---|
+| Dos velocidades (CLS) | Fuerte | Almacén rápido + lento | No probada | Comparar contra un solo almacén con buen retrieval |
+| Consolidación offline | Fuerte | Job de consolidación | No probada | Aislar repetición, selección y abstracción |
+| Olvido selectivo | Fuerte | Decaimiento + archivo | Parcial | Demostrar precisión sin perder crítico |
+| Saliencia | Buena | Vector de pesos | No probada | Calibrar sin juez humano |
+| Esquemas | Buena | Extracción de estructura | No probada | Medir generalización vs. resumen |
+| Memoria transactiva | Fuerte | Directorio de expertise | No probada | Comparar con enrutamiento aleatorio |
+| Quórum | Fuerte en hormigas | Promoción por corroboración | No probada | Modelar errores correlacionados |
+| Estigmergia | Fuerte | Trazas con evaporación | No probada | Evitar amplificación de errores |
+| Enseñanza | Buena en orcas/primates | `teach()` con verificación | No probada | Medir fidelidad de ejecución |
+| Práctica de recuperación | Fuerte en humanos | Refuerzo por uso | **Débil** | Riesgo de monopolio; tratar como hipótesis |
+| Legitimidad weberiana | Interpretativa | Regímenes de validez | **Débil** | Separar legitimidad de verdad |
+| Sueño como compactación | Parcial | Fase offline | **Débil** | Distinguir mecanismos; no es identidad |
+
+**Lectura:** casi ningún mecanismo tiene evidencia L3 en agentes LLM. Eso no los
+invalida; obliga a probarlos, no a asumirlos.
+
 
 ### A. Codificación (hipocampo digital)
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Codificación one-shot con contexto | [A] | Guardar el evento completo la primera vez | `encode()` con contexto y procedencia | % de eventos recuperables | Ruido si todo se guarda |
 | Separación de patrones | [B] | Distinguir lo parecido antes de asociar | Detección de duplicados + novedad | Tasa de duplicados; precisión de distinción | Sobre-separar y perder generalización |
@@ -26,7 +54,7 @@ compartirlo.
 
 ### B. Consolidación (corteza digital)
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Replay offline | [A] | Repasar mezclado extrae estructura | Job de consolidación | Esquemas útiles por ciclo | Costo de cómputo |
 | Extracción de esquemas | [B] | Regularidad, no anécdota | `induce()` sobre clústeres | Reutilización del esquema | Resumen que pierde el porqué |
@@ -37,7 +65,7 @@ compartirlo.
 
 ### C. Olvido y estabilidad
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Decaimiento por desuso | [B] | Lo no usado pierde fuerza | Peso con función de decaimiento | Retención de lo importante | Perder lo raro pero crítico |
 | Protección por saliencia | [B] | Lo importante no decae | Piso de peso por saliencia | % de críticos retenidos | Inflación de saliencia |
@@ -47,7 +75,7 @@ compartirlo.
 
 ### D. Procedimiento (ganglios basales digitales)
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Playbooks con estadísticas | [B] | La habilidad se mide por resultados | Procedimiento + éxito/fallo | Tasa de éxito por tarea | Sobreajuste a un contexto |
 | Chunking | [B] | Comprimir secuencias en unidades | Compilación de rutinas | Tokens por tarea resuelta | Perder pasos necesarios |
@@ -56,7 +84,7 @@ compartirlo.
 
 ### E. Sociedad (orcas, hormigas, sociología)
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Directorio de expertise | [A] | "Quién sabe qué" | Registro agente–dominio–éxito | Aciertos de enrutamiento | Popularidad ≠ competencia |
 | Pods y dialectos | [B] | Vocabulario compartido comprime y une | Glosario por pod | Tokens; recall del novato | Aislamiento entre pods |
@@ -69,7 +97,7 @@ compartirlo.
 
 ### F. Instituciones, psicología y biología comparada
 
-| Mecanismo | Evidencia | Principio | Componente | Métrica | Riesgo |
+| Mecanismo | Evidencia del fenómeno | Principio | Componente | Métrica | Riesgo |
 |---|---|---|---|---|---|
 | Expediente y procedencia (Weber) | [C] | Un recuerdo vale por su respaldo | Autor, fecha, norma, estado | Trazabilidad | Burocracia |
 | Tres legitimidades | [C] | Cada conocimiento se valida distinto | Canon / prestigio / evidencia | Consistencia de validación | Rigidez |

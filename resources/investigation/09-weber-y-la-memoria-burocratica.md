@@ -158,6 +158,22 @@ obligar a responder: ¿quién tiene autoridad para escribir?, ¿qué se archiva?
 | Verstehen | Campo obligatorio de motivo y contexto |
 | Tipo ideal | Política de dominio versionada, no ontología |
 
+### Límite: legitimidad no es verdad (revisión mayor)
+
+Weber describe las **bases de la creencia** en la legitimidad de una dominación,
+no criterios de verdad. Que un conocimiento se acepte por tradición o por
+prestigio no lo hace correcto; de hecho, puede impedir su actualización.
+
+Por eso se conserva solo lo que tiene traducción técnica defendible:
+
+- el **expediente**: autor, fecha, norma, estado, procedencia;
+- la **jurisdicción**: quién puede escribir qué;
+- la **regla**: criterios explícitos de validez.
+
+Se retira la idea de que los regímenes tradicional/carismático/racional-legal
+sean criterios epistemológicos. Son categorías de gobernanza; la validez se
+prueba con evidencia, no con legitimidad.
+
 ## 10. Preguntas abiertas
 
 - ¿Quién es el "funcionario" que firma un recuerdo en un sistema multi-agente?

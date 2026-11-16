@@ -182,7 +182,11 @@ basta para que emerja una norma.
 El hueco: **ningún benchmark mide si un agente deja de repetir errores tras un
 millón de tokens.** Miden recuperación puntual, no acumulación.
 
-## 8. El hueco real
+## 8. El hueco tal como se veía antes de 2026
+
+> **Nota de revisión:** esta sección describe el estado previo a los sistemas de
+> 2026. Varios puntos ya están cubiertos por Zep Agent Skills, MSCE y
+> Trace2Skill; ver 8.1.
 
 1. **La memoria se trata como almacén, no como ciclo de vida.** Casi todos
    optimizan retrieval; pocos optimizan codificación, consolidación y olvido.
@@ -193,16 +197,51 @@ millón de tokens.** Miden recuperación puntual, no acumulación.
    es enseñar.
 5. **No hay gobernanza de la memoria compartida.** Procedencia, confianza y
    contradicciones quedan fuera.
-6. **Los benchmarks son transversales, no longitudinales.** Nadie mide el
-   "después de 1M de tokens".
+6. **Los benchmarks son transversales, no longitudinales.** Miden recuperación
+   puntual, no meses de deriva.
+
+## 8.1 Competidores directos (2026): el hueco se estrechó
+
+La revisión de noviembre de 2026 obliga a actualizar este documento. Cuatro
+trabajos cubren buena parte de lo que antes era hueco:
+
+- **Zep Agent Skills** (Chalef et al., 2026): trazas verificadas → skills
+  versionadas con citas por evento, admisión, transferencia teacher–executor
+  entre modelos y entrega MCP.
+- **MSCE** (Tang et al., 2026): trazas L1 → políticas L2 → skills con evidencia,
+  límites de aplicabilidad, verificación y confiabilidad; transferencia
+  cross-domain.
+- **AFTER** (Belikova et al., 2026): benchmark de transferencia de skills entre
+  tareas, roles y modelos.
+- **Trace2Skill** (Ni et al., 2026): destilación de trayectorias en skills que
+  transfieren entre escalas y familias de modelos.
+- **Demystifying Agent Skills** (Jiang et al., 2026): cuándo ayudan, por qué
+  fallan y cómo se degrada la recuperación al crecer la biblioteca.
+
+El detalle está en `precedentes/06-competidores-directos-2026.md`.
+
+**Lo que sigue abierto:**
+
+1. **Validación causal:** ninguno identifica el efecto causal de una habilidad;
+   MSCE lo admite explícitamente.
+2. **Memoria contrafactual:** nadie guarda alternativas y resultados potenciales.
+3. **Deriva longitudinal real:** los benchmarks prueban transferencia, no meses
+   de cambios de modelo, API y requisitos.
+4. **Selección bajo bibliotecas grandes:** la recuperación se degrada y no hay
+   política calibrada.
+5. **Gobernanza con errores correlacionados:** el quórum de agentes que comparten
+   modelo y sesgos no es independencia.
 
 ## 9. Conclusión
 
-Las piezas existen por separado: indexado hipocámpico (HippoRAG), olvido
-(MemoryBank), grafo temporal (Zep), consolidación offline (sleep-time), reflexión
-(Generative Agents), activación cognitiva (ACT-R). **Nadie las ha unido en un
-ciclo de vida con capa social y métricas de progreso.** Ese es el espacio de
-`open-human-memory`.
+Las piezas existen: indexado hipocámpico (HippoRAG), olvido (MemoryBank), grafo
+temporal (Zep), consolidación offline (sleep-time), reflexión (Generative
+Agents), activación cognitiva (ACT-R). En 2026, Zep Agent Skills, MSCE y
+Trace2Skill integraron trazas, compilación y transferencia. Lo que sigue abierto
+es más estrecho y más difícil: **validación causal, memoria contrafactual,
+deriva longitudinal real, selección bajo bibliotecas grandes y gobernanza con
+errores correlacionados.** Ese es el espacio de `open-human-memory` y, sobre
+todo, de JANUS.
 
 ## 10. Preguntas abiertas
 

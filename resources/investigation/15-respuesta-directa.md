@@ -8,97 +8,100 @@
 
 ## La respuesta corta
 
-**Sí, en principio — pero no con los sistemas actuales.** La evidencia no
-permite afirmar que ya ocurra; permite afirmar que es viable si se cumplen tres
-condiciones que hoy no se cumplen:
+**Sí, y en 2026 ya hay evidencia parcial — pero no de la duración ni de la
+validez causal que la pregunta exige.**
 
-1. **Representación portable.** El procedimiento debe ser un artefacto
-   ejecutable agnóstico al modelo, no un prompt, un resumen o una transcripción.
-2. **Compilación verificada.** Debe construirse desde trazas por ablación causal
-   y con postcondiciones ejecutables, no por resumen.
-3. **Gobernanza social.** Debe promoverse con verificación ciega entre modelos,
-   quórum, procedencia, decaimiento y revisión.
+- **Zep Agent Skills** (Chalef et al., 2026) compila trazas verificadas en skills
+  versionadas y mejora a modelos más débiles con las skills de uno más fuerte.
+- **MSCE** (Tang et al., 2026) convierte experiencia en políticas y skills con
+  evidencia, límites y verificación; reporta transferencia cross-domain.
+- **Trace2Skill** (Ni et al., 2026) destila trayectorias en skills que transfieren
+  entre escalas y familias de modelos.
+- **AFTER** (Belikova et al., 2026) mide transferencia de skills entre tareas,
+  roles y backbones.
 
-## Por qué la respuesta no es un "no"
+Lo que **no** está demostrado:
 
-- El aprendizaje continuo sin actualizar pesos ya existe en formas parciales:
-  memoria de casos (Memento), playbooks evolutivos (ACE), bibliotecas de
-  habilidades (Voyager, SkillWeaver, AWM), reflexión verbal (Reflexion).
-- La neurología muestra que la consolidación y el olvido son procesos
-  seleccionables, no un simple almacenamiento (CLS, replay, olvido adaptativo).
-- La biología social muestra que la transmisión de alta fidelidad es lo que hace
+1. que la mejora dure **meses** con deriva real de modelos, APIs y requisitos;
+2. que las habilidades promovidas sean **causales** y no correlaciones afortunadas;
+3. que la selección funcione cuando la biblioteca crece (Jiang et al., 2026);
+4. que la gobernanza social supere a un verificador único con igual presupuesto.
+
+## Lo que la evidencia sostiene
+
+- El aprendizaje sin actualizar pesos existe en formas parciales: memoria de
+  casos (Memento), playbooks (ACE), bibliotecas de habilidades (Voyager,
+  SkillWeaver, AWM, Zep Agent Skills, MSCE), reflexión (Reflexion).
+- La neurología sostiene que consolidación y olvido son procesos selectivos
+  (CLS, replay, olvido adaptativo), no simple almacenamiento.
+- La biología social sostiene que la transmisión de alta fidelidad hace
   acumulativa la cultura (orcas, primates, córvidos).
-- La sociología muestra que la memoria necesita instituciones: expediente,
-  jurisdicción, legitimidad y gobernanza (Weber; memoria transactiva; Ostrom).
-- La comparación humano–máquina muestra que el trade-off
-  transferencia/interferencia es compartido (Holton et al., 2026), así que la
-  meta no es eliminarlo sino gestionarlo.
+- La sociología aporta el expediente y la gobernanza (Weber, memoria transactiva,
+  Ostrom), pero **legitimidad no es verdad**.
+- La comparación humano–máquina muestra un trade-off compartido entre
+  transferencia e interferencia (Holton et al., 2026).
 
-## Por qué la respuesta no es un "sí" trivial
+## La hipótesis revisada
 
-- Sin actualizar pesos, el techo es la competencia latente del modelo. La memoria
-  organiza y amplifica; no crea capacidad inexistente.
-- La transferencia entre modelos no es automática: sintaxis, política y
-  competencia cambian. Hay que medirla, no suponerla.
-- Los benchmarks actuales miden recall, no acumulación procedural longitudinal.
-- Sin verificación, el sistema acumula errores con la misma eficiencia con que
-  acumula aciertos.
+**H1 (portabilidad acumulativa):** con pesos congelados, una capa de artefactos
+procedimentales agnósticos al modelo, compilados desde trazas verificadas y
+validados por ejecución ciega entre modelos, produce mejora acumulativa en
+familias de tareas recurrentes y transferencia positiva a modelos no vistos,
+**frente a un repositorio simple de Markdown + tests + recuperador y frente a los
+sistemas de 2026, con presupuesto igualado**.
 
-## La hipótesis
+Subhipótesis: acumulación, transferencia, retención tras reinicio/cambio,
+atribución artefactual, compilación vs. resumen, auditoría ciega vs.
+auto-revisión, artefactos tipados vs. chat libre.
 
-**Hipótesis de portabilidad acumulativa (H1):** con pesos congelados, una capa
-de artefactos procedimentales agnósticos al modelo, compilados desde trazas
-verificadas y validados por ejecución ciega entre modelos, produce mejora
-acumulativa positiva en familias de tareas recurrentes y verificables, y
-transferencia positiva a modelos no vistos.
+**H2 (JANUS):** sin contrafactuales, los sistemas confunden éxito con causalidad;
+una memoria que registra alternativas y aplica una puerta causal reduce las
+skills espurias.
 
-Subhipótesis medibles: acumulación (H1a), transferencia (H1b), retención tras
-reinicio/cambio (H1c), atribución artefactual (H1d), superioridad de la
-compilación sobre el resumen (H1e), reducción de contaminación por auditoría
-ciega (H1f) y superioridad de los artefactos tipados sobre el chat libre (H1g).
+## La arquitectura, corregida
 
-## La arquitectura en una página
+**CUMULUS v0.2** (Traza → Forja → Canon → Pod → Puente):
 
-**CUMULUS** (Trace → Forge → Canon → Pod → Bridge):
+1. **Traza**: log inmutable con procedencia y saliencia.
+2. **Forja**: cribado causal —segmenta, abstrae, prueba necesidad local, detecta
+   redundancias e interacciones— y **se abstiene** si la cobertura es baja.
+3. **Canon**: biblioteca versionada con matriz de portabilidad, dueño, caducidad
+   y contradicciones.
+4. **Pod**: roles con artefactos tipados, auditoría ciega y disenso; el quórum es
+   coordinación, no verdad.
+5. **Puente**: renderizadores por modelo, adaptadores, conformidad y deriva.
 
-1. **Traza**: log inmutable de episodios con procedencia y saliencia.
-2. **Forja**: compila trazas en habilidades SIR mediante segmentación,
-   abstracción, ablación causal, inferencia de precondiciones/postcondiciones y
-   pruebas.
-3. **Canon**: biblioteca versionada de habilidades validadas, con matriz de
-   portabilidad, dueño, caducidad y contradicciones preservadas.
-4. **Pod**: roles (explorador, herrero, auditor, curador, historiador, crítico)
-   que intercambian artefactos tipados; auditoría ciega, quórum y registro de
-   disenso.
-5. **Puente**: renderizadores por modelo, adaptadores de capacidades, suite de
-   conformidad, score de portabilidad y detección de deriva.
-
-La clave: **lo que la habilidad significa** (SIR) se separa de **cómo un modelo
-lo dice** (renderizador). Así el procedimiento sobrevive al cambio de modelo.
+**JANUS** añade el ledger de decisiones, los contrafactuales y la puerta de
+promoción causal.
 
 ## Cómo se falsa
 
-El benchmark longitudinal CUMULUS-Bench (5 dominios, 10 familias por dominio, 3
-familias de modelos, 6 ciclos, verificadores ejecutables, holdouts ocultos)
-compara CUMULUS contra zero-shot, RAG, Reflexion, Voyager, ACE y Memento.
+Protocolo `08-hipotesis-y-experimentos.md` v2.0:
 
-Criterio de muerte: si tras 6 ciclos CUMULUS no supera a la mejor línea base en
-≥10% relativo en al menos 2 de 4 métricas primarias (éxito, retención,
-transferencia, costo), o no alcanza un coeficiente de transferencia ≥0,5 para la
-mitad de las canónicas, la hipótesis falla para este diseño.
+- métrica primaria: éxito en instancias reservadas de familias recurrentes;
+- presupuesto igualado; rival simple C3;
+- competidores: Zep Agent Skills, MSCE, Trace2Skill;
+- 8 ciclos con deriva programada; holdouts ocultos;
+- potencia calculada con piloto; multiplicidad controlada; jueces
+  independientes.
+
+**Criterio de muerte:** si CUMULUS no supera al rival simple en la métrica
+primaria con IC 95% que excluya cero, la arquitectura no aporta.
 
 ## Lo que no promete
 
 - Conciencia, emoción o inteligencia general.
 - Crear competencia que el modelo no tiene.
-- Transferencia universal: algunas habilidades serán específicas del modelo y
-  deben reportarse como tales.
+- Transferencia universal: algunas habilidades serán específicas del modelo.
 - Eliminar la interferencia: solo gestionarla por dominio.
+- Que la capa social mejore por sí sola: es una hipótesis con confusor de
+  cómputo.
 
 ## Documentos
 
-- Paper en inglés: [`papers/cumulus-en.md`](papers/cumulus-en.md)
-- Paper en español: [`papers/cumulus-es.md`](papers/cumulus-es.md)
-- Síntesis de evidencia: [`07-sintesis-mecanismos-y-diseno.md`](07-sintesis-mecanismos-y-diseno.md)
-- Hipótesis y experimentos: [`08-hipotesis-y-experimentos.md`](08-hipotesis-y-experimentos.md)
-- Comparación humano–máquina: [`12-aprendizaje-humano-vs-maquinas.md`](12-aprendizaje-humano-vs-maquinas.md)
+- Revisión y alcance corregido: [`papers/cumulus-revision-v0.2.md`](papers/cumulus-revision-v0.2.md)
+- Respuesta a la revisión: [`22-respuesta-a-revision.md`](22-respuesta-a-revision.md)
+- Marco de validez: [`23-marco-de-validez.md`](23-marco-de-validez.md)
+- Competidores 2026: [`precedentes/06-competidores-directos-2026.md`](precedentes/06-competidores-directos-2026.md)
+- Protocolo experimental: [`08-hipotesis-y-experimentos.md`](08-hipotesis-y-experimentos.md)
+- JANUS: [`papers/janus-es.md`](papers/janus-es.md)

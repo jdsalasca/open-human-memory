@@ -120,6 +120,22 @@ ocurre la consolidación.
 | Andamiaje | Cuánto se apoya | Nivel de ayuda por agente/dominio, con retiro |
 | Chunking | Cómo se comprime | Playbooks y esquemas, no resúmenes |
 
+### Límite: los efectos humanos no se extrapolan solos (revisión mayor)
+
+Que espaciar y recuperar mejore la memoria humana no demuestra que un contador de
+recuperaciones mejore a un LLM. Los mecanismos no son equivalentes:
+
+- un LLM con pesos congelados no fortalece representaciones al recuperar;
+- incrementar el peso de lo recuperado puede crear un ciclo rico-se-hace-más-rico;
+- intercalar dominios puede producir abstracciones superficiales o combinar
+  procedimientos incompatibles;
+- el "sueño" humano incluye replay, homeostasis y verificación; un resumen no.
+
+Cada extrapolación debe formularse como **hipótesis mecanismo-específica** y
+medirse por separado: ¿la mejora viene de la repetición, del muestreo, de la
+selección de ejemplos o de la simulación contrafactual? Sin esa separación,
+"consolidación semejante al sueño" es una etiqueta, no una explicación.
+
 ## 12. Qué NO copiar
 
 - **"Aprender estilos" (visual/auditivo).** No hay evidencia sólida de que

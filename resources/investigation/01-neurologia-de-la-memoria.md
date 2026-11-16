@@ -301,6 +301,21 @@ retrieval y la probabilidad de aceptar un esquema nuevo.
 16. **Lo social es memoria de primer orden.** Personas, roles y confianza no son
     metadatos: son contenido.
 
+### Límite de la analogía (revisión mayor)
+
+La teoría CLS es evidencia de que el cerebro usa dos velocidades; **no** es
+evidencia de que un almacén episódico externo + un job de consolidación mejoren a
+un LLM. En el cerebro, consolidar cambia circuitos y representaciones; en un
+agente con pesos congelados, cambia artefactos. Son fenómenos distintos.
+
+Además, la consolidación no es solo lenta: la congruencia con esquemas previos
+permite una vía rápida (Tse et al., 2007; van Kesteren et al., 2012). La analogía
+de "dos velocidades" es una hipótesis de diseño, no una ley.
+
+Para afirmar que la traducción funciona haría falta un experimento L3: comparar
+la arquitectura contra un almacén único con buen retrieval, con presupuesto
+igualado. Eso no se ha hecho.
+
 ## 5. Qué NO copiar
 
 - **Simulación de spiking como sustrato de memoria.** El cerebro usa spikes; un

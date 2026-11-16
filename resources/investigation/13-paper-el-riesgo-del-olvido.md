@@ -255,9 +255,12 @@ Los sistemas actuales resuelven piezas:
 - **Aprendizaje continuo**: EWC (Kirkpatrick et al., 2017), replay (Rolnick et
   al., 2019), y la comparación humano–máquina de Holton et al. (2026).
 
-El hueco: **nadie integra codificación, consolidación, olvido, procedimiento y
-transmisión en un ciclo de vida con gobernanza y métricas longitudinales.** Los
-benchmarks (LoCoMo, LongMemEval) miden recall puntual, no progreso acumulado.
+El hueco se estrechó en 2026: Zep Agent Skills y MSCE ya integran trazas,
+compilación de habilidades y gobernanza; Trace2Skill mide transferencia entre
+modelos; AFTER evalúa transferencia entre tareas, roles y backbones. Lo que
+ninguno añade es **validación causal y memoria contrafactual**. Los benchmarks
+(LoCoMo, LongMemEval) miden recall puntual; los nuevos miden transferencia, pero
+no meses de deriva real.
 
 ## 8. Arquitectura propuesta
 

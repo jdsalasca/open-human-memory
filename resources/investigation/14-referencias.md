@@ -332,6 +332,17 @@ incluyen volumen y páginas cuando se verificaron.
 - Rubin, D. B. (1974). Estimating causal effects of treatments in randomized and nonrandomized studies. *Journal of Educational Psychology, 66*(5), 688–701.
 - Stalnaker, R. C. (1968). A theory of conditionals. En N. Rescher (Ed.), *Studies in logical theory* (pp. 98–112). Blackwell.
 
+## Competidores directos 2026
+
+- Belikova, J., Parchiev, R., Egorov, E., Davydenko, G., Gusev, G., et al. (2026). *Managing procedural memory in LLM agents: Control, adaptation, and evaluation*. arXiv:2606.23127.
+- Chalef, D., Evans, P., Paliychuk, P., Patel, M., Rasmussen, P., & Ryan, J. (2026). *Learning by doing: Autonomously compiling and curating agent skills from verified traces*. arXiv:2611.01386.
+- Jiang, Z., Huang, F., Xing, H., Wu, X., Gao, Y., Cao, R., Wang, M., Liu, S., & Li, Y. (2026). *Demystifying agent skills: Why they work—until they don't*. arXiv:2608.14036.
+- Kang, Y. R., Mikolajczyk, C., Methani, C., Mak, H., Bhatnagar, S., Suresh, S., & Gutierrez Munoz, A. (2026). *Mining agent skills from production traces*. arXiv:2610.05777.
+- Lin, Y., Chen, J., Hu, Y., Wang, P., Wang, H., Wen, Z., Ren, X., & Wu, W. (2026). *Verify by doing: Co-evolving agent execution and evaluation without external feedback*. arXiv:2611.15276.
+- Ni, J., et al. (2026). Trace2Skill: Distill trajectory-local lessons into transferable agent skills. *Findings of EMNLP 2026*, 17556–17577. arXiv:2603.25158.
+- Sumers, T. R., Yao, S., Narasimhan, K., & Griffiths, T. L. (2024). Cognitive architectures for language agents. *Transactions on Machine Learning Research*. arXiv:2309.02427.
+- Tang, B., Zhang, Y., Zhuang, G., Wei, W., Zheng, G., Xie, L., Tan, Y., Xiong, F., Yang, Q., Chung, E., & Li, Z. (2026). From memory to skills: Evidence-grounded governance for long-horizon LLM agents. *Findings of EMNLP 2026*, 34826–34847. arXiv:2607.16621.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

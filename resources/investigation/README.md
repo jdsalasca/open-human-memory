@@ -51,19 +51,21 @@ empeora nada medible, no entra).
 | [19-compactacion-aprendizaje-humano.md](19-compactacion-aprendizaje-humano.md) | ¿Existe la compactación en el aprendizaje humano? |
 | [20-compactacion-y-sueno.md](20-compactacion-y-sueno.md) | ¿Es la compactación como el sueño? |
 | [21-revision-critica-fuentes.md](21-revision-critica-fuentes.md) | Qué sostiene el diseño y qué es metáfora |
-| [precedentes/](precedentes/) | Catálogo de lo ya intentado en memoria agéntica |
-| [papers/](papers/) | Papers CUMULUS (EN/ES) y JANUS (ES) |
+| [22-respuesta-a-revision.md](22-respuesta-a-revision.md) | Respuesta punto por punto a la revisión mayor |
+| [23-marco-de-validez.md](23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |
+| [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
+| [papers/](papers/) | Papers CUMULUS (EN/ES), revisión v0.2 y JANUS (ES) |
 
 ## Estado
 
-`v0.5` — base ampliada, auditoría de fuentes, precedentes y segunda propuesta.
-Los documentos 01–06 son la evidencia base; 07 es la síntesis; 08 define el
-benchmark; 09–12 amplían con Weber, psicología, biología comparada y
-humano–máquina; 13 es el paper sobre el riesgo del olvido; 14 es la bibliografía;
-15 responde la pregunta central; 16–20 desarrollan momento cero, contexto,
-filosofía del contexto, compactación humana y sueño; 21 audita la evidencia;
-`precedentes/` cataloga lo ya intentado; `papers/` contiene CUMULUS (EN/ES) y
-JANUS (ES).
+`v0.6` — revisión mayor incorporada. Los documentos 01–06 son la evidencia base;
+07 es la síntesis con niveles de traducción; 08 es el protocolo experimental
+v2.0; 09–12 amplían con Weber, psicología, biología comparada y humano–máquina;
+13 es el paper sobre el riesgo del olvido; 14 es la bibliografía; 15 responde la
+pregunta central; 16–20 desarrollan momento cero, contexto, filosofía,
+compactación y sueño; 21 audita la evidencia; 22 responde a la revisión; 23 fija
+el marco de validez; `precedentes/` cataloga lo ya intentado, incluidos los
+competidores 2026; `papers/` contiene CUMULUS (EN/ES), la revisión v0.2 y JANUS.
 
 ## La tesis en una frase
 

@@ -33,6 +33,10 @@ Un sistema entra si cumple al menos una condición:
 | Memento | Caso | Case-based reasoning | Parcial | No | DeepResearcher | Casos, no procedimientos |
 | SkillWeaver | Skill web | APIs | Parcial | Transferencia | Web | Dominio específico |
 | DGM | Código del agente | Evolución | No | Archivo | Benchmarks | Auto-modificación de código |
+| Zep Agent Skills | Traza + skill versionada | Compilación + admisión + uso | Sí | Namespace | τ³, AppWorld, EnterpriseOps-Gym | Sin validación causal |
+| MSCE | Traza + política + skill | Cristalización + gobernanza | Parcial | No | EvoAgentBench, LoCoMo | Ganancia heurística, no causal |
+| AFTER | Benchmark | Transferencia | Sí (backbones) | Roles | 382 tareas | No arquitectura |
+| Trace2Skill | Trayectoria + skill | Destilación | Sí (escalas/familias) | No | Benchmarks | Sin causalidad |
 | CUMULUS (propuesta) | Skill SIR | Compilación + canon + olvido | Sí | Pod | Pendiente | Sin validación causal |
 
 ## Documentos
@@ -47,6 +51,8 @@ Un sistema entra si cumple al menos una condición:
    compartida, roles y coordinación.
 5. [05-huecos-y-oportunidades.md](05-huecos-y-oportunidades.md) — síntesis y
    dirección novedosa.
+6. [06-competidores-directos-2026.md](06-competidores-directos-2026.md) —
+   Zep Agent Skills, MSCE, AFTER, Trace2Skill y el estado real de la novedad.
 
 ## Lo que se repite
 

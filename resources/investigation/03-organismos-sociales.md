@@ -102,6 +102,22 @@ esquema global predefinido. Útil para no diseñar una ontología rígida.
 Ninguna propiedad global está representada en un individuo. **La memoria del
 sistema no está en un nodo: está en el protocolo.**
 
+### Límite: el quórum no es verdad (revisión mayor)
+
+El quórum de las hormigas selecciona un nido, no una proposición verdadera. En
+agentes, cinco evaluadores con el mismo modelo, prompt, datos y verificador no
+son cinco fuentes independientes: son una fuente con cinco etiquetas.
+
+Antes de usar quórum como validación hay que:
+
+- modelar la correlación entre evaluadores;
+- exigir diversidad de modelo, herramienta o evidencia;
+- separar consenso de exactitud;
+- preferir verificación ejecutable cuando exista.
+
+El quórum se mantiene como **hipótesis de coordinación**, no como criterio
+epistémico.
+
 ## 9. Qué NO copiar
 
 - **Feromona infinita.** Sin evaporación, el sistema se congela en la primera

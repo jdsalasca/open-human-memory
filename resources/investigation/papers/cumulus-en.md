@@ -7,6 +7,13 @@
 
 *Working paper · v0.1 · November 2026 · not peer-reviewed*
 
+> **Major revision (v0.2).** The claims of novelty in this v0.1 are superseded.
+> Zep Agent Skills (Chalef et al., 2026), MSCE (Tang et al., 2026), Trace2Skill
+> (Ni et al., 2026), and AFTER (Belikova et al., 2026) already compile verified
+> traces into transferable, governed skills. See
+> [`cumulus-revision-v0.2.md`](cumulus-revision-v0.2.md) for the corrected scope
+> and the evaluation protocol.
+
 ---
 
 ## Abstract
