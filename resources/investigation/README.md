@@ -44,13 +44,17 @@ empeora nada medible, no entra).
 | [12-aprendizaje-humano-vs-maquinas.md](12-aprendizaje-humano-vs-maquinas.md) | ¿En qué se diferencian y qué se puede importar? |
 | [13-paper-el-riesgo-del-olvido.md](13-paper-el-riesgo-del-olvido.md) | Documento de trabajo: la tesis completa |
 | [14-referencias.md](14-referencias.md) | Bibliografía completa |
+| [15-respuesta-directa.md](15-respuesta-directa.md) | Respuesta a la pregunta central + CUMULUS |
+| [papers/](papers/) | Paper CUMULUS en inglés y español |
 
 ## Estado
 
-`v0.2` — revisión ampliada. Los documentos 01–06 son la evidencia base; 07 es la
-síntesis que alimenta el diseño; 08 define el benchmark longitudinal; 09–12
-amplían con Weber, psicología, biología comparada y la comparación humano–máquina;
-13 es el documento de trabajo que integra la tesis; 14 es la bibliografía.
+`v0.3` — revisión ampliada y propuesta formal. Los documentos 01–06 son la
+evidencia base; 07 es la síntesis que alimenta el diseño; 08 define el benchmark
+longitudinal; 09–12 amplían con Weber, psicología, biología comparada y la
+comparación humano–máquina; 13 es el documento de trabajo sobre el riesgo del
+olvido; 14 es la bibliografía; 15 responde la pregunta central; `papers/`
+contiene la propuesta CUMULUS en inglés y español.
 
 ## La tesis en una frase
 

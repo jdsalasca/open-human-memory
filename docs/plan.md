@@ -14,7 +14,9 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R2 — Documento de diseño
 
-- Entregable: `docs/superpowers/specs/YYYY-MM-DD-open-human-memory-design.md`.
+- Entregable: especificación técnica de CUMULUS (esquema SIR, algoritmos de
+  Forja y Puente, protocolo del Pod) derivada de `papers/cumulus-es.md` y
+  `papers/cumulus-en.md`.
 - Criterio: enfoque elegido, alcance del MVP, no-objetivos, modelo de datos y
   decisiones abiertas resueltas o asignadas.
 

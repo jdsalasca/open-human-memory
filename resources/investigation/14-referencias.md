@@ -213,6 +213,14 @@ incluyen volumen y páginas cuando se verificaron.
 - Wu, D., Wang, H., Yu, W., Zhang, Y., Chang, K.-W., & Yu, D. (2025). LongMemEval: Benchmarking chat assistants on long-term interactive memory. *International Conference on Learning Representations*.
 - Xu, W., Liang, Z., Mei, K., Gao, H., Tan, J., & Zhang, Y. (2025). *A-MEM: Agentic memory for LLM agents*. arXiv:2502.12110.
 - Zhong, W., Guo, L., Gao, Q., Ye, H., & Wang, Y. (2024). MemoryBank: Enhancing large language models with long-term memory. *Proceedings of the AAAI Conference on Artificial Intelligence, 38*(17).
+- Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K., & Yao, S. (2023). Reflexion: Language agents with verbal reinforcement learning. *Advances in Neural Information Processing Systems, 36*.
+- Wang, G., Xie, Y., Jiang, Y., Mandlekar, A., Xiao, C., Zhu, Y., Fan, L., & Anandkumar, A. (2023). *Voyager: An open-ended embodied agent with large language models*. arXiv:2305.16291.
+- Wang, Z. Z., Mao, J., Fried, D., & Neubig, G. (2024). *Agent Workflow Memory*. arXiv:2409.07429.
+- Zhao, A., Huang, D., Xu, Q., Lin, M., Liu, Y.-J., & Huang, G. (2024). ExpeL: LLM agents are experiential learners. *Proceedings of the AAAI Conference on Artificial Intelligence, 38*(17).
+- Zhang, Q., et al. (2025). *Agentic Context Engineering: Evolving contexts for self-improving language models*. arXiv:2510.04618.
+- Zhou, H., et al. (2025). *Memento: Fine-tuning LLM agents without fine-tuning LLMs*. arXiv:2508.16153.
+- Zheng, B., et al. (2025). *SkillWeaver: Web agents can self-improve by discovering and honing skills*. arXiv:2504.07079.
+- Zhang, J., Hu, S., Lu, C., Lange, R., & Clune, J. (2025). *Darwin Gödel Machine: Open-ended evolution of self-improving agents*. arXiv:2505.22954.
 
 ## Nota sobre fuentes
 
