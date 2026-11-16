@@ -1,12 +1,18 @@
-# Prototipo 006-B — Test de techo con un agente real
+# Prototipo 006-B — Línea base con un agente real
 
 **Fecha:** 16 de noviembre de 2026
-**Estado:** diagnóstico exploratorio, una sola corrida.
+**Estado:** **diagnóstico exploratorio con errata**. Tres inferencias publicadas
+fueron invalidadas: `retrieved` era memoria seleccionada por oráculo, la muestra de
+24 tareas estaba sesgada y la condición de herramienta estaba contaminada por
+errores de entorno. Ver `docs/errata-006b.md` antes de citar cualquier cifra.
 **Agente:** `gpt-6-luna`, razonamiento `low`, `codex-cli 0.169.0`, modo
 `--ephemeral`, sandbox `read-only`, sin herramientas, sin historial.
 **Tareas:** las 64 de `DEPTH3_GRID`, semilla 0.
 **Resultado crudo:** `results/gpt-6-luna-low-seed0.json` (incluye respuesta y
 stderr de cada llamada).
+
+> **No es un techo.** Es una línea base de un modelo barato, sin herramientas, con
+> una sola tentativa. Un techo experimental exigiría el mejor esfuerzo disponible.
 
 ## 1. La pregunta
 
@@ -79,52 +85,47 @@ Mismas 24 tareas, comparación pareada, `gpt-6-luna` low, una llamada por tarea:
 | `base` (3 ejemplos) | 14/24 | 58,3 % | — | — |
 | `more_examples` (6 ejemplos) | 16/24 | 66,7 % | +8,3 pp | −20,8 a +33,3 |
 | `vocabulary` (se nombran las 4 operaciones) | 15/24 | 62,5 % | +4,2 pp | −12,5 a +25,0 |
-| `retrieved` (una tarea resuelta de la misma transformación) | 16/24 | 66,7 % | +8,3 pp | −12,5 a +33,3 |
+| **`ORACLE-MEMORY`** (memoria fabricada con la solución) | 16/24 | 66,7 % | +8,3 pp | −12,5 a +33,3 |
 | `tool` (intérprete disponible, sin exigir uso) | 10/24 | 41,7 % | no usado | ver nota |
-| `tool-forced` (uso exigido y verificado por transcript) | 14/24 | 58,3 % | 0,0 pp | −29,2 a +29,2 |
+| `tool-forced` (intérprete exigido, ejecución **no verificada**) | 14/24 | 58,3 % | inválida | ver nota |
 
 Pares discordantes frente a `base`: `more_examples` 7 mejora / 5 empeora;
-`vocabulary` 3 / 2; `retrieved` 5 / 3; `tool-forced` **6 / 6**.
+`vocabulary` 3 / 2; `ORACLE-MEMORY` 5 / 3; `tool-forced` 6 / 6.
 
-### Nota sobre `tool`: disponibilidad no es uso, y archivos no son ejecución
+### Errata: esta sección tenía tres fallos
 
-La primera versión de la condición con intérprete dio **10/24 (41,7 %)**, *peor* que
-`base`, con tiempos idénticos (7,2 s vs 8,8 s) y **13 de 24 respuestas
-byte-idénticas**. El agente **no usó la herramienta**. Se retira como evidencia
-sobre herramientas; solo muestra que «tener un intérprete» no implica «ejecutar».
+**`ORACLE-MEMORY` no es recuperación.** La condición construía la memoria con
+`task.solution.program`, es decir, con la solución verdadera de la tarea evaluada.
+Mide un **techo de información**, no memoria. El archivo histórico se llama
+`retrieved-24.json`, pero su contenido es oráculo.
 
-La segunda versión exigió escribir y ejecutar un script. El transcript de Codex
-confirma `python .\solution.py` con código 0 y salida correcta, y la latencia subió
-a **29,4 s** (3,3×). Sin embargo, el chequeo de archivos dio 0/24: el sandbox es
-efímero y no persiste lo escrito. Por tanto, **la verificación válida es el
-transcript, no los archivos**.
+**La muestra está sesgada.** `make_depth3_grid()[:24]` toma 16 tareas que empiezan
+por `sort_asc` y 8 por `sort_desc`; ninguna por `add_one` o `double`.
 
-Resultado: **14/24 (58,3 %), idéntico a `base`**, con 6 tareas que mejoran y 6 que
-empeoran, y 5 respuestas vacías (el script no llegó a reproducir los ejemplos y el
-agente se rindió).
+**La condición de herramienta es inválida.** En 16 de 24 trazas hay errores de
+permisos o archivos (intentos de escribir en `C:\Program Files\PowerShell\7`,
+scripts no creados). El exit 0 de Codex no es el exit del script interno. No se
+verificaron las cinco etapas: disponibilidad, intento, ejecución, validación y uso.
 
-### Lectura
+Detalle completo en `docs/errata-006b.md`.
 
-1. **Ninguna intervención se distingue de cero.** Con 24 tareas, el IC es de ±20 pp.
-   Para detectar +8 pp con confianza harían falta ~150 tareas pareadas.
-2. **La memoria recuperada y más ejemplos dan el mismo +8,3 pp.** Eso es
-   exactamente el confundidor que la auditoría señaló: una experiencia resuelta
-   *es* información adicional. Con este diseño no se puede atribuir la mejora a
-   memoria en vez de a información.
-3. **Nombrar el lenguaje de operaciones casi no ayuda** (+4,2 pp): el fallo no es
-   de representación.
-4. **El intérprete, usado de verdad, no mejora nada** (0,0 pp) y cuesta 3,3× más
-   tiempo. El fallo tampoco es de cálculo exacto.
-5. **El agente sigue fallando 8/24 con una tarea resuelta delante y 10/24 con un
-   script ejecutado.** El patrón es de **identificación del programa**: con tres
-   ejemplos hay muchas transformaciones compatibles, y el agente elige una que
-   falla en la consulta.
+### Lectura corregida
 
-Conclusión del diagnóstico: el cuello de botella del agente en este banco es
-**inducir la transformación correcta**, no recordar, ni representar, ni ejecutar.
-La consecuencia para el 007 es que la memoria solo puede ayudar si entrega un
-**procedimiento verificado** —no más ejemplos ni un intérprete—, y que su valor
-debe medirse contra el clon sin historial, no contra el agente sin ayuda.
+1. **Ninguna intervención se distingue de cero.** Con 24 tareas el IC es de ±20 pp;
+   el piloto es compatible con mejoras y perjuicios grandes.
+2. **`ORACLE-MEMORY` y más ejemplos dan el mismo +8,3 pp**, pero el primero conoce
+   la respuesta: no se puede atribuir a memoria.
+3. **Nombrar el lenguaje de operaciones casi no ayuda** (+4,2 pp), dentro del ruido.
+4. **La condición de intérprete no permite concluir nada**: estaba contaminada por
+   fallos de entorno y 5 respuestas quedaron vacías.
+5. **La conclusión anterior («el cuello es identificar el programa») se retira.**
+   Infería una capacidad cognitiva desde un piloto con intervalos que cruzan cero y
+   dos condiciones inválidas.
+
+Lo que queda: una línea base de **46,9 % (30/64)** sin ayuda, y la lista de cinco
+fallos metodológicos que hay que evitar antes de medir memoria. El cuello de
+botella sigue **abierto**; para localizarlo hace falta el 007A
+(`docs/problema-central.md`).
 
 
 

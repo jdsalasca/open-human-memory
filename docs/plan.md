@@ -77,7 +77,17 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 - Siguiente: procedimiento recuperado en el agente real y probe barato (caché por
   firma o índice), con protocolo congelado. Ver `docs/revision-de-rumbo.md`.
 
-### R2.8 — Experimento de competencia `COMP-*`
+### R2.8 — Descomposición de capacidades `DECOMP-*` (siguiente, no iniciado)
+
+- Entregable: `docs/problema-central.md` ejecutado como experimento — muestra
+  estratificada por clase conductual, siete capacidades separadas, sin memoria.
+- Criterio: identificar al menos una capacidad con efecto distinguishable; si
+  ninguna, revisar el instrumento antes de seguir.
+- **Puerta:** el 007 no se ejecuta hasta completar esta etapa.
+- Requisitos: las cinco etapas de herramienta verificadas; `ORACLE-*` etiquetado;
+  métricas `E`, `K` y `P` separadas.
+
+### R2.9 — Experimento de competencia `COMP-*`
 
 - Entregable: sandbox con verdad causal conocida, tareas adversariales (ruido,
   ambigüedad, equivalencias, deriva, macros perjudiciales) y actualización online

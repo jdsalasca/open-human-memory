@@ -34,17 +34,29 @@ preguntas y decide qué se abandona.
 **La reducción del coste de adquirir una competencia nueva, atribuible al
 historial.**
 
-Formalmente: sea `C(A, F)` el número de experiencias y pasos ejecutados que
-necesita el agente `A` para alcanzar un umbral de éxito `θ` en una familia
-reservada `F`. La cantidad de interés es
+El documento anterior definía `C(A, F)` como «experiencias **y** pasos ejecutados»
+y luego comparaba un único número. Eso mezcla dos recursos con precios distintos.
+Se corrige: **tres métricas separadas**, nunca una sola.
 
-`Δ(F) = C(clon sin historial, F) − C(agente con historial, F)`
+| Métrica | Qué mide | Unidad |
+|---|---|---|
+| `E(A, F)` | Eficiencia muestral | Experiencias hasta el umbral `θ` |
+| `K(A, F)` | Coste de cómputo y contexto | Pasos, tokens, llamadas, dinero |
+| `P(A, F)` | Desempeño en tareas reservadas tras `N` experiencias | Acierto o calidad |
 
-con el mismo modelo, las mismas herramientas iniciales y el mismo presupuesto.
-Si `Δ(F) ≤ 0`, no hay competencia adquirida, haya o no haya biblioteca.
+La comparación es contra un **clon** `A₀` sin historial, mismo modelo, mismas
+herramientas iniciales, mismo presupuesto:
 
-Esto sustituye a las métricas anteriores (aciertos, candidatos, tamaño de
-biblioteca), que medían ejecución, no adquisición.
+`E(A,F) < E(A₀,F)` y/o `P(A,F) > P(A₀,F)` **a igual `K`**.
+
+**No se agregan en un escalar** hasta que un escenario concreto fije los precios.
+Un agente que necesita menos experiencias y mucho más cómputo no es «mejor» en
+abstracto: es distinto, y hay que decirlo.
+
+El test de clon responde a una afirmación concreta —«esta diferencia se debe al
+historial»—, no a una definición metafísica de inteligencia. Un empate en un
+benchmark no prueba que no se aprendió nada; prueba que **ese** benchmark no
+detecta la diferencia.
 
 ### B. ¿Qué mecanismo produce esa adquisición y qué antecedentes ya la explican?
 
@@ -129,20 +141,38 @@ Cuatro niveles, de menor a mayor exigencia. Cada uno tiene su prueba.
 
 | Nivel | Qué cambia | Prueba operacional |
 |---|---|---|
-| **Memoria** | Información disponible | El agente recupera el episodio y su respuesta mejora |
+| **Memoria** | Información disponible | El agente recupera el episodio **sin conocer la solución** y su respuesta mejora |
 | **Procedimiento** | Operaciones reutilizables | El artefacto reduce pasos con igual éxito |
-| **Concepto** | Representación del problema | Transfiere a una estructura con distinto vocabulario |
+| **Concepto** | Representación del problema | Identifica una relación, predice casos nuevos, reconoce contraejemplos y transfiere sin traducción humana |
 | **Metaprendizaje** | Capacidad de adquirir | Menos experiencias para dominar una familia nueva |
+
+El criterio de **concepto** se refuerza: cambiar nombres de variables o de
+herramientas no es conceptualizar. Se exigen las cuatro condiciones:
+
+1. **Relación**, no etiqueta: el agente identifica qué conecta los casos.
+2. **Predicción**: acierta casos que no estaban en la experiencia.
+3. **Contraejemplo**: reconoce uno y revisa la relación.
+4. **Transferencia**: funciona con otra manifestación superficial y **sin** que un
+   humano traduzca la estructura.
 
 Regla de oro, obligatoria en cada protocolo nuevo:
 
 > **Test de clon.** Después de `N` experiencias, comparar contra un clon idéntico
-> iniciado desde cero, con el mismo presupuesto. Si el clon empata, el nivel no se
-> alcanzó.
+> iniciado desde cero, con el mismo presupuesto. Si el clon empata **en la métrica
+> declarada**, la afirmación sobre esa métrica no se sostiene.
 
-Estado actual: **nivel 1 no demostrado en un agente real; nivel 2 demostrado solo
-en un solucionador sintético y con un confusor de profundidad; niveles 3 y 4 sin
-evidencia.**
+El test no dice «no aprendió nada»; dice «esta diferencia no es atribuible al
+historial en esta distribución».
+
+Estado actual: **nivel 1 no demostrado en un agente real** (el 006-B usó selección
+por oráculo); nivel 2 refutado para macros de dos pasos en un universo finito;
+niveles 3 y 4 sin evidencia.
+
+> **Nota sobre las «14 funciones».** La cifra del 005 sale de comparar los
+> programas sobre 40 entradas de prueba. Es una **aproximación de equivalencia
+> conductual sobre ese conjunto**, no una demostración de equivalencia para toda
+> entrada posible. Se usa para decir «la rejilla tiene muchas menos clases
+> aparentes que filas», no como teorema.
 
 ---
 
@@ -182,8 +212,8 @@ evidencia.**
 
 | # | Respuesta breve |
 |---|---|
-| 16 | En el agente real, el cuello es **identificar la transformación**: ni más ejemplos, ni vocabulario, ni un intérprete forzado lo arreglan de forma distinguible. |
-| 17 | Diagnóstico 006-B: el fallo persiste con script ejecutado. No es falta de cómputo ni de memoria. |
+| 16 | **No lo sabemos.** El piloto 006-B no separa las siete capacidades y sus intervalos cruzan cero. |
+| 17 | Tampoco: la condición de herramienta estaba contaminada por errores de entorno y la de memoria usaba la respuesta. Ver `errata-006b.md`. |
 | 18 | Una política de dos acciones sí; con cuatro (recuperar, razonar, experimentar, crear) no hay evidencia. |
 | 19 | El 006-A' lo midió: decidir cuesta 41 pasos y ahorra 29. **La decisión no paga.** |
 | 20 | Sí, en parte: el 005 midió la curva de continuidad. Predecir el cambio, no. |
@@ -250,54 +280,66 @@ ejecución, con verificador, con procedimiento recuperado, con biblioteca.
 Métrica: acierto pareado y coste total. Es el experimento del 006-B ampliado.
 
 **Horizonte fundamental — ¿la experiencia cambia cómo se aprende?**
-Currículos interdependientes, familias reservadas, test de clon. Métrica: `Δ(F)`
-en experiencias hasta competencia. Es el 007.
+Currículos interdependientes, familias reservadas, test de clon. Métricas: `E(F)`,
+`K(F)` y `P(F)` por separado. Es el 007.
 
 **Regla:** no se mezclan en una sola puntuación. Un resultado del horizonte
 inmediato no se presenta como evidencia del fundamental.
 
-## 4.6 Lo que ya respondió el diagnóstico del agente
+## 4.6 Lo que el diagnóstico del agente **no** respondió
 
-Cinco condiciones, 24 tareas pareadas, mismo modelo:
+Cinco condiciones, 24 tareas pareadas, mismo modelo. Pero leídas con la errata
+(`docs/errata-006b.md`):
 
-| Intervención | Δ acierto | IC 95 % | Coste |
+| Intervención | Δ acierto | IC 95 % | Veredicto |
 |---|---|---|---|
-| Más ejemplos | +8,3 pp | −20,8 a +33,3 | 6,2 s |
-| Vocabulario de operaciones | +4,2 pp | −12,5 a +25,0 | 6,8 s |
-| Experiencia resuelta (memoria) | +8,3 pp | −12,5 a +33,3 | 6,6 s |
-| Intérprete Python exigido y ejecutado | **0,0 pp** | −29,2 a +29,2 | **29,4 s (3,3×)** |
+| Más ejemplos | +8,3 pp | −20,8 a +33,3 | Inconcluso |
+| Vocabulario de operaciones | +4,2 pp | −12,5 a +25,0 | Inconcluso |
+| **`ORACLE-MEMORY`** (seleccionada con la solución) | +8,3 pp | −12,5 a +33,3 | **No es memoria** |
+| Intérprete exigido | 0,0 pp | −29,2 a +29,2 | **Condición inválida** (16/24 con errores de entorno) |
 
-Ninguna se distingue de cero. La memoria y más ejemplos producen el mismo efecto:
-son la misma intervención disfrazada. Y el intérprete, verificado por transcript,
-no mejora nada.
+Tres correcciones que impiden la conclusión anterior:
 
-**El cuello es identificar el programa correcto.** Eso obliga a que el 007 entregue
-un procedimiento verificado —no más contexto, no más ejemplos, no herramientas— y
-a que lo compare con un clon sin historial. Cualquier otra cosa mide otra cosa.
+1. La «memoria» se fabricaba con `task.solution.program`: conocía la respuesta.
+2. La muestra `[:24]` son 16 tareas que empiezan por `sort_asc` y 8 por
+   `sort_desc`; **ninguna** por `add_one` o `double`.
+3. La condición de herramienta no verificó ejecución, validación ni uso del
+   resultado; el exit 0 de Codex no es el exit del script.
+
+**Conclusión correcta:** el piloto **no permite decidir** dónde está el cuello.
+Identificó cinco fallos metodológicos, que es valioso, y nada más.
 
 ## 5. El 007: experimento mínimo
 
-**Pregunta:** ¿una experiencia histórica recuperada reduce el coste de resolver
-una tarea nueva en un agente real, frente a un clon sin historial?
+**Pregunta:** ¿una experiencia histórica **recuperada sin conocer la respuesta**
+reduce el coste de resolver una tarea nueva en un agente real, frente a un clon sin
+historial?
 
 **Diseño**
 
-- Agente: modelo congelado con herramientas (ejecutor y verificador).
-- Tareas: familias reservadas de un currículo, no 64 programas del mismo lenguaje.
+- Agente: modelo congelado, herramientas **verificadas por tarea** en cinco etapas
+  (disponible, intentada, ejecutada con exit real, validada contra los ejemplos,
+  usada en la respuesta).
+- Tareas: estratificadas por **clase conductual**, con instancias numéricas nuevas y
+  familias reservadas.
 - Condiciones pareadas, mismo modelo y presupuesto:
   1. clon sin historial;
-  2. historial completo recuperado;
-  3. procedimiento recuperado (una experiencia resuelta);
-  4. herramienta compilada y verificada.
-- Métrica primaria: `Δ(F)` en experiencias y pasos hasta el 80 % de éxito.
-- Métricas secundarias: tokens de contexto, coste de recuperación, daño.
-- Refutación: si el clon empata en 1 y 2, la memoria no aporta. Si 3 o 4 empatan
-  con 2, la abstracción no aporta.
+  2. `ACTUAL-RETRIEVAL`: recuperador que **solo ve la observación actual**;
+  3. `ORACLE-MEMORY`: techo de información, etiquetado como oráculo;
+  4. procedimiento verificado;
+  5. herramienta compilada y verificada.
+- Métricas **separadas**: `E(F)` experiencias hasta el 80 %, `K(F)` cómputo y
+  tokens, `P(F)` desempeño reservado. Sin escalar único.
+- Refutación: si el clon empata en `E` y `P` a igual `K`, la memoria no aporta. Si
+  `ACTUAL-RETRIEVAL` empata con el clon pero `ORACLE-MEMORY` gana, el fallo es del
+  recuperador, no del mecanismo.
+- **Puerta previa:** no se ejecuta el 007 hasta completar la descomposición del
+  007A (siete capacidades) con muestra equilibrada.
 
 **Lo que no hará:** añadir acciones al controlador, ni macros nuevas, ni otro
 solucionador sintético.
 
-**Si sale negativo:** se publica, se cierra la línea de expansión y CUMULUS/JANUS
+**Si sale negativo:** se publica y se cierra la línea de expansión; CUMULUS y JANUS
 quedan como marcos sin validación empírica.
 
 ---
@@ -310,3 +352,5 @@ quedan como marcos sin validación empírica.
 - El 006-A' corrige cinco fallos, pero sigue siendo un universo de una familia.
 - La respuesta a «¿qué entiende el agente después de mil experiencias?» es hoy:
   **no lo sabemos, y no tenemos el instrumento para medirlo.**
+- El 007B no puede ejecutarse hasta completar el 007A: sin separar las siete
+  capacidades, cualquier resultado de recuperación es ambiguo.

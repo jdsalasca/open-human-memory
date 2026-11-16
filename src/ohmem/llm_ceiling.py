@@ -84,7 +84,7 @@ def prompt_for(task: Task, condition: str, memory: Task | None = None) -> str:
     extra = ""
     if condition == "vocabulary":
         extra = "\n" + VOCABULARY + "\n"
-    elif condition == "retrieved" and memory is not None:
+    elif condition in ("retrieved", "oracle_memory") and memory is not None:
         mem_pairs = "\n".join(
             f"{list(x)} -> {list(y)}"
             for x, y in zip(
@@ -165,7 +165,15 @@ def main() -> None:
     parser.add_argument(
         "--condition",
         default="base",
-        choices=("base", "more_examples", "vocabulary", "retrieved", "tool"),
+        choices=(
+            "base",
+            "more_examples",
+            "vocabulary",
+            "retrieved",  # ORACLE-MEMORY: see warning below
+            "oracle_memory",
+            "tool",
+            "tool_forced",
+        ),
     )
     parser.add_argument("--model", default="gpt-6-luna")
     parser.add_argument("--effort", default="low")
@@ -179,9 +187,14 @@ def main() -> None:
     correct = 0
     for index, task in enumerate(tasks):
         memory = None
-        if args.condition == "retrieved":
+        # WARNING: this is ORACLE-MEMORY, not retrieval. The memory task is built
+        # with task.solution.program, so it knows the correct answer. It measures
+        # an information ceiling. Autonomous retrieval must build the memory from
+        # a historical corpus and see only the current observation.
+        # See docs/errata-006b.md.
+        if args.condition in ("retrieved", "oracle_memory"):
             memory = make_task(900, "delta", 7000 + index, task.solution.program, "mem")
-        if args.condition == "tool":
+        if args.condition in ("tool", "tool_forced"):
             prompt = prompt_for_tool(task)
             sandbox = "workspace-write"
             taskdir = workdir / f"task-{index}"

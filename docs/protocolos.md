@@ -138,9 +138,21 @@ Documento: `prototipo-006-agente-llm/`.
 | Tareas | 64 de `DEPTH3_GRID`, semilla 0 |
 | Resultado | **30/64 (46,9 %)** |
 
-**Qué decide:** el banco no está saturado por un agente general, pero los fallos
-son de resolución, no de memoria. Habilita el experimento de dar al agente un
-procedimiento recuperado y medir si sube del 47 % al techo.
+**Qué decide:** el banco no está saturado por un agente general. **Nada más.** Tres
+inferencias publicadas fueron invalidadas (`docs/errata-006b.md`): `retrieved` era
+`ORACLE-MEMORY` (usaba la solución), la muestra de 24 tareas estaba sesgada y la
+condición de herramienta estaba contaminada por errores de entorno.
+
+**Condiciones que faltan (no ejecutadas):**
+
+| ID | Condición |
+|---|---|
+| `LLM-ORACLE-MEMORY` | Recuerdo fabricado con la solución. Techo de información, no memoria. |
+| `LLM-RETRIEVAL` | Recuperador que solo ve la observación actual y elige de un histórico. |
+| `LLM-TOOL-VERIFIED` | Herramienta con las cinco etapas verificadas por tarea. |
+| `LLM-DECOMP` | Descomposición de las siete capacidades con muestra equilibrada por clase. |
+
+**Estado:** piloto exploratorio; no decide sobre memoria ni sobre herramientas.
 
 ### `CAUSAL-A..E` — experimento causal (histórico)
 

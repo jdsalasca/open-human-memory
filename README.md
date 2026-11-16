@@ -4,9 +4,19 @@ Investigación abierta sobre memoria para agentes: qué puede aprender un sistem
 de su experiencia, qué puede justificar y cómo evitar que sus errores se
 conviertan en certezas permanentes.
 
+> **La pregunta del proyecto.**
+> Si mañana este agente reinicia su contexto, cambia de tarea y encuentra un
+> problema que nunca ha visto, ¿qué aprendizaje adquirido en sus experiencias
+> anteriores modifica realmente su manera de comprenderlo y resolverlo?
+>
+> Hoy **no podemos responderla con un experimento**. Este repositorio documenta
+> por qué, qué hemos medido en su lugar y qué haría falta para responderla.
+> Ver [`docs/problema-central.md`](docs/problema-central.md).
+
 **Estado:** programa de investigación con un **diagnóstico ejecutable**. No hay
 producto todavía; hay un harness mínimo para decidir qué capa importa antes de
-construir otra arquitectura.
+construir otra arquitectura. Cinco prototipos han producido, sobre todo,
+resultados negativos y correcciones metodológicas.
 
 ## Inicio rápido
 
@@ -35,11 +45,16 @@ Licencia: MIT (`LICENSE`).
 > transferirlo entre modelos y mejorar sin reentrenar el LLM, sin convertir
 > errores del pasado en conocimiento canónico?
 
-La respuesta corta, después del 005-A: **la experiencia no amplía lo que el agente
-puede expresar; abarata encontrarlo, y solo mientras el futuro se parezca al
-pasado.** Con continuidad total, una biblioteca aprendida iguala la cobertura y usa
-41,8 % menos cómputo. Con continuidad cero, el mismo cómputo rinde 22,1 pp menos.
-No hay todavía evidencia de expansión de competencia ni de validación causal.
+La respuesta corta, después de cinco prototipos: **el mecanismo de macros que
+probamos no amplía lo que el agente puede expresar; abarata encontrarlo, y solo
+mientras el futuro se parezca al pasado.** Con continuidad total, una biblioteca
+aprendida iguala la cobertura y usa 41,8 % menos cómputo. Con continuidad cero, el
+mismo cómputo rinde 22,1 pp menos.
+
+Eso vale **para ese mecanismo en ese universo**, no como ley sobre aprendizaje. La
+experiencia podría permitir descubrir una herramienta o una representación que el
+agente no poseía; no lo hemos probado. No hay todavía evidencia de expansión de
+competencia ni de validación causal.
 
 ## Lo que sí sabemos: el valor de la memoria es condicional
 
@@ -110,21 +125,22 @@ Dos consecuencias:
 
 - **El banco no está saturado** por un agente general. La frase «el espacio es
   diminuto y enumerable» vale para el solucionador exhaustivo, no para un LLM.
-- **Los fallos del agente son de resolución, no de memoria.** Abren el experimento
-  que de verdad importa: darle un procedimiento recuperado y medir si sube del
-  47 % al techo.
+- **Los fallos del agente no son de memoria**, pero tampoco sabemos de qué son:
+  el piloto que intentó separarlo tenía tres fallos.
 
-Diagnóstico pareado en 24 de esas tareas: más ejemplos **+8,3 pp**, una
-experiencia resuelta de la misma transformación **+8,3 pp**, nombrar el lenguaje
-de operaciones **+4,2 pp**, intérprete Python exigido y ejecutado **0,0 pp** con
-3,3× más tiempo. Ningún intervalo excluye cero, y memoria y más información dan el
-mismo efecto: con este diseño **no se pueden distinguir**.
+El diagnóstico pareado de 24 tareas **fue invalidado** por la auditoría:
 
-El cuello del agente es **identificar la transformación**, no recordar, ni
-representar, ni ejecutar. Eso redefine el 007: la memoria solo puede ayudar si
-entrega un **procedimiento verificado**, y su valor se mide contra un clon sin
-historial. Detalle en
-[`prototipo-006-agente-llm/`](resources/investigation/prototipo-006-agente-llm/).
+- la condición llamada «memoria» fabricaba el recuerdo con `task.solution.program`,
+  es decir, conocía la respuesta; se reetiqueta `ORACLE-MEMORY`;
+- la muestra `[:24]` son 16 tareas que empiezan por `sort_asc` y 8 por
+  `sort_desc`; ninguna por `add_one` o `double`;
+- la condición con intérprete tenía errores de entorno en 16 de 24 trazas y no
+  verificó ejecución, validación ni uso del resultado.
+
+**La conclusión «el cuello es identificar la transformación» se retira.** Lo que
+queda es una línea base de 46,9 % y una lista de cinco fallos metodológicos.
+Detalle en [`docs/errata-006b.md`](docs/errata-006b.md) y el plan en
+[`docs/problema-central.md`](docs/problema-central.md).
 
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
@@ -173,6 +189,8 @@ que el 004 retiró.
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Test de techo: `gpt-6-luna` acierta 46,9 % |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
+| [problema-central.md](docs/problema-central.md) | Análisis previo: las siete capacidades, los cinco confundidores y la escalera |
+| [errata-006b.md](docs/errata-006b.md) | Las tres inferencias invalidadas del diagnóstico con LLM |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |
