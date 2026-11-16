@@ -1,0 +1,271 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "budget_steps": 120,
+  "coverage": {
+    "syntactic": 64,
+    "behavioral": 14,
+    "learned_d2_on_representatives": 0.6429,
+    "no_memory_d3_on_representatives": 1.0
+  },
+  "continuity": [
+    {
+      "level": 0.0,
+      "condition": "learned-d2-budget",
+      "accuracy": 0.7792,
+      "mean_executed_steps": 51.5667
+    },
+    {
+      "level": 0.0,
+      "condition": "learned-d2-macrofirst-budget",
+      "accuracy": 0.7792,
+      "mean_executed_steps": 50.2333
+    },
+    {
+      "level": 0.0,
+      "condition": "learned-d2-uncapped",
+      "accuracy": 0.7792,
+      "mean_executed_steps": 57.8
+    },
+    {
+      "level": 0.0,
+      "condition": "no-memory-d3-budget",
+      "accuracy": 0.8625,
+      "mean_executed_steps": 51.6333
+    },
+    {
+      "level": 0.0,
+      "condition": "no-memory-d3-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 57.9667
+    },
+    {
+      "level": 0.25,
+      "condition": "learned-d2-budget",
+      "accuracy": 0.8583,
+      "mean_executed_steps": 47.5333
+    },
+    {
+      "level": 0.25,
+      "condition": "learned-d2-macrofirst-budget",
+      "accuracy": 0.8625,
+      "mean_executed_steps": 45.0
+    },
+    {
+      "level": 0.25,
+      "condition": "learned-d2-uncapped",
+      "accuracy": 0.8792,
+      "mean_executed_steps": 51.4667
+    },
+    {
+      "level": 0.25,
+      "condition": "no-memory-d3-budget",
+      "accuracy": 0.8208,
+      "mean_executed_steps": 56.5333
+    },
+    {
+      "level": 0.25,
+      "condition": "no-memory-d3-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 66.5333
+    },
+    {
+      "level": 0.5,
+      "condition": "learned-d2-budget",
+      "accuracy": 0.7958,
+      "mean_executed_steps": 57.4333
+    },
+    {
+      "level": 0.5,
+      "condition": "learned-d2-macrofirst-budget",
+      "accuracy": 0.7542,
+      "mean_executed_steps": 54.7
+    },
+    {
+      "level": 0.5,
+      "condition": "learned-d2-uncapped",
+      "accuracy": 0.8042,
+      "mean_executed_steps": 63.1333
+    },
+    {
+      "level": 0.5,
+      "condition": "no-memory-d3-budget",
+      "accuracy": 0.7458,
+      "mean_executed_steps": 68.3667
+    },
+    {
+      "level": 0.5,
+      "condition": "no-memory-d3-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 81.1
+    },
+    {
+      "level": 0.75,
+      "condition": "learned-d2-budget",
+      "accuracy": 0.8792,
+      "mean_executed_steps": 53.8333
+    },
+    {
+      "level": 0.75,
+      "condition": "learned-d2-macrofirst-budget",
+      "accuracy": 0.8458,
+      "mean_executed_steps": 49.4667
+    },
+    {
+      "level": 0.75,
+      "condition": "learned-d2-uncapped",
+      "accuracy": 0.9292,
+      "mean_executed_steps": 56.9333
+    },
+    {
+      "level": 0.75,
+      "condition": "no-memory-d3-budget",
+      "accuracy": 0.725,
+      "mean_executed_steps": 72.7667
+    },
+    {
+      "level": 0.75,
+      "condition": "no-memory-d3-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 88.4
+    },
+    {
+      "level": 1.0,
+      "condition": "learned-d2-budget",
+      "accuracy": 0.9375,
+      "mean_executed_steps": 51.5333
+    },
+    {
+      "level": 1.0,
+      "condition": "learned-d2-macrofirst-budget",
+      "accuracy": 0.8917,
+      "mean_executed_steps": 44.7333
+    },
+    {
+      "level": 1.0,
+      "condition": "learned-d2-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 52.9333
+    },
+    {
+      "level": 1.0,
+      "condition": "no-memory-d3-budget",
+      "accuracy": 0.7292,
+      "mean_executed_steps": 74.0333
+    },
+    {
+      "level": 1.0,
+      "condition": "no-memory-d3-uncapped",
+      "accuracy": 1.0,
+      "mean_executed_steps": 90.9667
+    }
+  ],
+  "continuity_derived": {
+    "zero_continuity_accuracy_gap": 0.2208,
+    "full_continuity_work_saving": 0.4181,
+    "budgeted_macrofirst_at_full_continuity": 0.8917,
+    "budgeted_primitives_first_at_full_continuity": 0.9375
+  },
+  "oracle": {
+    "n_libraries": 560.0,
+    "best_dev_accuracy": 1.0,
+    "test_mean_of_top5": 0.7375,
+    "test_learned": 0.8125,
+    "test_random_same_lang": 0.5438
+  },
+  "stream": {
+    "phases": [
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "policies": [
+      {
+        "policy": "NOLEARN",
+        "per_phase_accuracy": [
+          0.7917,
+          0.8333,
+          0.7361,
+          0.6667
+        ],
+        "per_phase_steps": [
+          85.2,
+          45.5,
+          78.7,
+          77.1333
+        ],
+        "overall_accuracy": 0.7569,
+        "total_executed_steps": 6876.8,
+        "tasks_to_competence": 15.0,
+        "final_library_size": 4.0
+      },
+      {
+        "policy": "FROZEN",
+        "per_phase_accuracy": [
+          0.625,
+          0.9167,
+          0.9583,
+          0.5417
+        ],
+        "per_phase_steps": [
+          42.4,
+          41.0667,
+          58.7667,
+          69.2
+        ],
+        "overall_accuracy": 0.7604,
+        "total_executed_steps": 5074.4,
+        "tasks_to_competence": 20.0,
+        "final_library_size": 8.0
+      },
+      {
+        "policy": "ONLINE",
+        "per_phase_accuracy": [
+          0.625,
+          0.9028,
+          0.625,
+          0.5417
+        ],
+        "per_phase_steps": [
+          42.4,
+          43.9333,
+          74.3667,
+          73.5
+        ],
+        "overall_accuracy": 0.6736,
+        "total_executed_steps": 5620.8,
+        "tasks_to_competence": 20.0,
+        "final_library_size": 12.0
+      },
+      {
+        "policy": "GATED",
+        "per_phase_accuracy": [
+          0.4583,
+          0.7361,
+          0.8333,
+          0.5833
+        ],
+        "per_phase_steps": [
+          46.0667,
+          62.3,
+          59.7333,
+          63.6667
+        ],
+        "overall_accuracy": 0.6527,
+        "total_executed_steps": 5562.4,
+        "tasks_to_competence": 28.0,
+        "final_library_size": 9.0
+      }
+    ]
+  },
+  "stream_derived": {
+    "frozen_work_saving_vs_nolearn": 0.2621,
+    "frozen_accuracy_gap_vs_nolearn": 0.0035,
+    "online_accuracy_gap_vs_frozen": -0.0868,
+    "gated_accuracy_gap_vs_frozen": -0.1077
+  }
+}
