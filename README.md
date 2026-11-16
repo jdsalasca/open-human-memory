@@ -18,6 +18,25 @@ producto todavía; hay un harness mínimo para decidir qué capa importa antes d
 construir otra arquitectura. Cinco prototipos han producido, sobre todo,
 resultados negativos y correcciones metodológicas.
 
+## Cómo leer este repositorio
+
+El orden importa. Primero la teoría, después el registro, después los experimentos.
+
+1. **[`docs/teoria.md`](docs/teoria.md)** — qué se afirma, por qué, qué canales
+   existen y qué predicciones se derivan. Incluye la proposición que explica por
+   qué todos nuestros resultados negativos estaban cantados: en un espacio
+   enumerable, la memoria no puede ampliar cobertura.
+2. **[`docs/registro-de-afirmaciones.md`](docs/registro-de-afirmaciones.md)** — cada
+   afirmación con estado, nivel de evidencia y falsador. Si no está aquí, no existe.
+3. **[`precedentes/10-matriz-de-antecedentes.md`](resources/investigation/precedentes/10-matriz-de-antecedentes.md)**
+   — qué demuestra cada línea rival, bajo qué condiciones y qué nos falta para
+   compararnos.
+4. **[`docs/plan.md`](docs/plan.md)** — rondas con puertas. Ninguna empieza con
+   código.
+
+Los documentos 01–29, los prototipos y los papers son **registro histórico**. Si
+contradicen la teoría o el registro de afirmaciones, se corrigen ellos.
+
 ## Inicio rápido
 
 ```bash
@@ -189,8 +208,12 @@ que el 004 retiró.
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Test de techo: `gpt-6-luna` acierta 46,9 % |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
+| [teoria.md](docs/teoria.md) | **Documento central:** canales, rivales y predicciones |
+| [registro-de-afirmaciones.md](docs/registro-de-afirmaciones.md) | Qué sostenemos, qué refutamos y qué está abierto |
+| [plan.md](docs/plan.md) | Rondas F0–F5 con puertas |
 | [problema-central.md](docs/problema-central.md) | Análisis previo: las siete capacidades, los cinco confundidores y la escalera |
 | [errata-006b.md](docs/errata-006b.md) | Las tres inferencias invalidadas del diagnóstico con LLM |
+| [precedentes/10-matriz-de-antecedentes.md](resources/investigation/precedentes/10-matriz-de-antecedentes.md) | Diálogo con las líneas rivales y qué falta para compararnos |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

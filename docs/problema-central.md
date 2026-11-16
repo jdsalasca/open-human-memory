@@ -4,6 +4,9 @@
 **Estado:** análisis previo. No implementa nada. Existe para decidir qué se
 construye y, sobre todo, qué no.
 
+> **Marco vigente:** [`teoria.md`](teoria.md). Este documento desarrolla el
+> diagnóstico; la teoría fija las predicciones y los falsadores.
+
 ---
 
 ## 0. La pregunta

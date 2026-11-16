@@ -1,0 +1,104 @@
+# Registro de afirmaciones
+
+**Fecha:** 16 de noviembre de 2026
+**Para qué:** evitar que el proyecto gire en círculos. Cada afirmación tiene estado,
+nivel de evidencia y falsador. Si una afirmación no está aquí, no existe.
+
+**Niveles** (definidos en `precedentes/09`, sección 9.5): E0 idea, E1 mecanismo
+implementado, E2 comparación controlada local, E3 varias distribuciones, E4
+reproducción independiente con tareas reales, E5 longitudinal y transferencia.
+
+**Estados:** sostenida, refutada, abierta, inválida (no interpretable).
+
+---
+
+## A. Afirmaciones metodológicas
+
+| ID | Afirmación | Estado | Evidencia |
+|---|---|---|---|
+| M1 | El 001 filtraba la regla en la superficie (target leakage) | Refutada como evidencia | `prototipo-001` |
+| M2 | El 002 no usaba el historial: `MEM-A0` empata con `MEM-E` | Sostenida | `prototipo-002`, 3 semillas |
+| M3 | El «100 % en D3» del 003 era artefacto del límite de profundidad 2 | Sostenida | 004-A: 64/64 sin memoria |
+| M4 | El control `RANDOM` del 003 estaba ama­ñado (usaba `reverse`/`negate`) | Sostenida | 004-A: 250/560 perfectas del mismo lenguaje |
+| M5 | La muestra `[:24]` del 006-B está sesgada (16 `sort_asc`, 8 `sort_desc`) | Sostenida | `errata-006b.md` |
+| M6 | La condición `retrieved` del 006-B era oráculo, no recuperación | Sostenida | usaba `task.solution.program` |
+| M7 | La condición `tool-forced` del 006-B no es interpretable | Sostenida | 16/24 trazas con errores de entorno |
+| M8 | La ausencia de significación no es ausencia de efecto | Sostenida | IC ±20 pp |
+
+## B. Afirmaciones sobre el mecanismo (macros)
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| H1 | Una biblioteca de macros reduce candidatos | Sostenida | E2 | — |
+| H2 | Esa reducción es del 17,8 % en la rejilla completa | Sostenida | E2 | — |
+| H3 | La reducción viene con 15,6 pp menos de cobertura | Sostenida | E2 | — |
+| H4 | Con profundidad 3 permitida, la biblioteca encarece la búsqueda (+27,6 %) | Sostenida | E2 | — |
+| H5 | La cobertura conductual de la biblioteca es 9/14 | Sostenida | E2 | — |
+| H6 | La adquisición satura en 6 experiencias | Sostenida | E2 | — |
+| H7 | El ahorro por acierto es 2,6 % | Sostenida | E2 | — |
+| H8 | Las macros amplían la capacidad del agente | **Refutada** | — | 004-A |
+
+## C. Afirmaciones sobre el valor de la memoria
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| V1 | Con continuidad 1,0, igual cobertura con 41,8 % menos pasos | Sostenida | E2 | — |
+| V2 | Con continuidad 0,0, el mismo trabajo rinde 22,1 pp menos | Sostenida | E2 | — |
+| V3 | Congelar lo aprendido ahorra 26,2 % de trabajo con igual precisión | Sostenida | E2 | — |
+| V4 | Seguir acumulando empeora (−8,7 pp) | Sostenida | E2 | Política distinta que no empeore |
+| V5 | El desalojo por uso arregla la acumulación | **Refutada** | — | −10,8 pp |
+| V6 | La memoria recuperada ayuda a un LLM | **Inválida** | — | `ORACLE-MEMORY` |
+| V7 | Un intérprete fiable ayuda a un LLM | **Abierta** | — | Condición inválida |
+
+## D. Afirmaciones sobre la política
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| P1 | Una política lineal aprende a cambiar entre memoria y búsqueda | Sostenida | E2 | — |
+| P2 | Esa política supera a una regla de una línea | **Refutada** | — | −1,0 pp, IC −3,1 a 0 |
+| P3 | El probe de aplicabilidad aporta información | Sostenida | E2 | +5,2 pp sobre barajada, IC 1,0–9,4 |
+| P4 | El probe paga su coste | **Refutada** | — | 41 pasos vs 29 ahorrados |
+| P5 | Un controlador con más acciones ayudaría | **Abierta** | — | Sin evidencia |
+
+## E. Afirmaciones teóricas
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| T1 | En un espacio enumerable, la memoria no amplía cobertura | **Sostenida** | E0 + 004/006 | Un contraejemplo |
+| T2 | Fuera del espacio enumerable, una herramienta compilada amplía cobertura | **Abierta** (P1) | — | Cobertura igual sin historial |
+| T3 | A igual información, un procedimiento bate a un episodio | **Abierta** (P2) | — | Empatan |
+| T4 | `E(F)` baja solo con estructura compartida | **Abierta** (P3) | — | Baja con vocabulario compartido |
+| T5 | El efecto sobrevive a cambiar de modelo | **Abierta** (P5) | — | Desaparece |
+
+## F. Afirmaciones sobre las fuentes
+
+| ID | Afirmación | Estado |
+|---|---|---|
+| F1 | DreamCoder, Stitch y LILO cubren aprendizaje de bibliotecas | Sostenida (lectura) |
+| F2 | CEGIS y Angluin cubren aprendizaje activo y contraejemplos | Sostenida (lectura) |
+| F3 | MemDev-Bench muestra que la memoria puede romper tareas antes resolubles | Sostenida (lectura) |
+| F4 | La neurociencia y la sociología han aportado hipótesis comprobables | **Refutada**: solo analogías |
+| F5 | Se ha ejecutado una revisión sistemática | **Refutada**: no ejecutada |
+| F6 | Se ha reproducido un competidor | **Refutada**: ninguno |
+
+---
+
+## Lo que este registro dice del proyecto
+
+- **14 afirmaciones sostenidas**, casi todas E2 y locales.
+- **6 refutadas**, incluidas nuestras dos hipótesis principales.
+- **5 abiertas**, y son justo las que responderían la pregunta del proyecto.
+- **0 en E3, E4 o E5.**
+- **0 competidores reproducidos.**
+
+El patrón es claro: somos buenos refutando nuestros propios mecanismos y malos
+construyendo evidencia acumulativa. La causa está en `docs/teoria.md`: seis
+prototipos en el mismo régimen enumerable, donde la teoría predice que no puede
+haber expansión.
+
+## Regla de mantenimiento
+
+1. Toda afirmación nueva entra aquí **antes** del experimento, con su falsador.
+2. Un resultado negativo cambia el estado; no se borra la fila.
+3. Un cambio de estado exige enlace al resultado crudo.
+4. Las filas `inválida` se conservan: son lecciones metodológicas.

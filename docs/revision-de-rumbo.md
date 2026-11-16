@@ -6,6 +6,11 @@
 cinco preguntas exigidas, fija una definición operacional, responde las 35
 preguntas y decide qué se abandona.
 
+> **Documento histórico de decisión.** La formulación vigente del marco está en
+> [`teoria.md`](teoria.md) y el estado de cada afirmación en
+> [`registro-de-afirmaciones.md`](registro-de-afirmaciones.md). Si hay conflicto,
+> mandan esos dos.
+
 ---
 
 ## 0. Resumen ejecutivo

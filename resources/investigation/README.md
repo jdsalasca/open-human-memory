@@ -13,6 +13,16 @@ No es un ensayo de divulgación. Es la base de evidencia para diseñar
 hasta un hallazgo de este directorio y sobrevivir a una ablación (si quitarlo no
 empeora nada medible, no entra).
 
+> **Aviso de estructura (2026-11-16).** Estos documentos son ahora **material de
+> apoyo**, no la columna del proyecto. La columna es
+> [`docs/teoria.md`](../../docs/teoria.md),
+> [`docs/registro-de-afirmaciones.md`](../../docs/registro-de-afirmaciones.md) y
+> [`precedentes/10-matriz-de-antecedentes.md`](precedentes/10-matriz-de-antecedentes.md).
+> Si un documento de este directorio contradice el registro de afirmaciones, se
+> corrige el documento. La razón está en
+> [`docs/plan.md`](../../docs/plan.md): seis prototipos produjeron correcciones,
+> no una teoría acumulativa.
+
 ## Método
 
 1. **Fuentes primarias y reviews**, no blogs. Cuando un dato viene de una sola
