@@ -1,0 +1,64 @@
+{
+  "conditions": {
+    "base": {
+      "accuracy": 0.5833,
+      "correct": 14,
+      "parsed": 24,
+      "mean_seconds": 8.78,
+      "n": 24
+    },
+    "more_examples": {
+      "accuracy": 0.6667,
+      "correct": 16,
+      "parsed": 24,
+      "mean_seconds": 6.23,
+      "n": 24
+    },
+    "vocabulary": {
+      "accuracy": 0.625,
+      "correct": 15,
+      "parsed": 24,
+      "mean_seconds": 6.75,
+      "n": 24
+    },
+    "retrieved": {
+      "accuracy": 0.6667,
+      "correct": 16,
+      "parsed": 24,
+      "mean_seconds": 6.62,
+      "n": 24
+    }
+  },
+  "paired_vs_base": {
+    "more_examples": {
+      "diff": 0.0833,
+      "ci_low": -0.2083,
+      "ci_high": 0.3333,
+      "both_correct": 9,
+      "a_only": 7,
+      "b_only": 5,
+      "neither": 3,
+      "n": 24
+    },
+    "vocabulary": {
+      "diff": 0.0417,
+      "ci_low": -0.125,
+      "ci_high": 0.25,
+      "both_correct": 12,
+      "a_only": 3,
+      "b_only": 2,
+      "neither": 7,
+      "n": 24
+    },
+    "retrieved": {
+      "diff": 0.0833,
+      "ci_low": -0.125,
+      "ci_high": 0.3333,
+      "both_correct": 11,
+      "a_only": 5,
+      "b_only": 3,
+      "neither": 5,
+      "n": 24
+    }
+  }
+}

@@ -50,6 +50,18 @@ Entrada a transformar: {query}
 
 Responde solo con la lista de enteros resultante."""
 
+PROMPT_TOOL = """Resuelve esta tarea de síntesis por ejemplos.
+
+Tienes pares entrada -> salida. Infiere la transformación y aplícala a la entrada
+final. Puedes escribir y ejecutar código Python en el directorio de trabajo para
+comprobar tu hipótesis. No modifiques nada fuera de él.
+
+{examples}
+{extra}
+Entrada a transformar: {query}
+
+Responde solo con la lista de enteros resultante."""
+
 
 def extra_examples(task: Task, k: int) -> list[tuple[tuple[int, ...], tuple[int, ...]]]:
     rng = random.Random(f"extra:{task.observation.id}")
@@ -88,8 +100,22 @@ def prompt_for(task: Task, condition: str, memory: Task | None = None) -> str:
     return PROMPT.format(examples=examples, extra=extra, query=list(obs.query))
 
 
+def prompt_for_tool(task: Task) -> str:
+    obs = task.observation
+    examples = "\n".join(
+        f"{list(x)} -> {list(y)}"
+        for x, y in zip(obs.support_inputs, obs.support_outputs)
+    )
+    return PROMPT_TOOL.format(examples=examples, extra="", query=list(obs.query))
+
+
 def run_codex(
-    prompt: str, workdir: Path, model: str, effort: str, timeout: int
+    prompt: str,
+    workdir: Path,
+    model: str,
+    effort: str,
+    timeout: int,
+    sandbox: str = "read-only",
 ) -> dict:
     schema_path = workdir / "schema.json"
     schema_path.write_text(json.dumps(SCHEMA), encoding="utf-8")
@@ -97,7 +123,7 @@ def run_codex(
     if out_path.exists():
         out_path.unlink()
     command = (
-        "codex exec --ephemeral --skip-git-repo-check -s read-only "
+        f"codex exec --ephemeral --skip-git-repo-check -s {sandbox} "
         f'-m {model} -c model_reasoning_effort="{effort}" '
         f'--output-schema "{schema_path}" -o "{out_path}" -'
     )
@@ -136,7 +162,7 @@ def main() -> None:
     parser.add_argument(
         "--condition",
         default="base",
-        choices=("base", "more_examples", "vocabulary", "retrieved"),
+        choices=("base", "more_examples", "vocabulary", "retrieved", "tool"),
     )
     parser.add_argument("--model", default="gpt-6-luna")
     parser.add_argument("--effort", default="low")
@@ -152,12 +178,19 @@ def main() -> None:
         memory = None
         if args.condition == "retrieved":
             memory = make_task(900, "delta", 7000 + index, task.solution.program, "mem")
+        if args.condition == "tool":
+            prompt = prompt_for_tool(task)
+            sandbox = "workspace-write"
+        else:
+            prompt = prompt_for(task, args.condition, memory)
+            sandbox = "read-only"
         result = run_codex(
-            prompt_for(task, args.condition, memory),
+            prompt,
             workdir,
             args.model,
             args.effort,
             args.timeout,
+            sandbox=sandbox,
         )
         expected = list(apply_program(task.solution.program, task.observation.query))
         ok = result["answer"] == expected

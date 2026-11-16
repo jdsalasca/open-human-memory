@@ -1,0 +1,803 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "condition": "retrieved",
+  "n": 24,
+  "correct": 16,
+  "parsed": 24,
+  "accuracy": 0.6667,
+  "rows": [
+    {
+      "index": 0,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_asc",
+        "sort_asc"
+      ],
+      "query": [
+        3,
+        8,
+        9,
+        5
+      ],
+      "expected": [
+        3,
+        5,
+        8,
+        9
+      ],
+      "answer": [
+        3,
+        5,
+        8,
+        9
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.45,
+      "returncode": 0,
+      "raw": "{\"query_output\":[3,5,8,9]}",
+      "stderr_tail": "9].\n\nEntrada a transformar: [3, 8, 9, 5]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:11.068683Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[3,5,8,9]}\n2026-11-16T06:12:13.373067Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 1,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "query": [
+        1,
+        7,
+        3,
+        3
+      ],
+      "expected": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "answer": [
+        7,
+        3,
+        3,
+        1
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.34,
+      "returncode": 0,
+      "raw": "{\"query_output\":[7,3,3,1]}",
+      "stderr_tail": "1].\n\nEntrada a transformar: [1, 7, 3, 3]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:16.570497Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[7,3,3,1]}\n2026-11-16T06:12:18.864859Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 2,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_asc",
+        "add_one"
+      ],
+      "query": [
+        5,
+        9,
+        2,
+        9
+      ],
+      "expected": [
+        3,
+        6,
+        10,
+        10
+      ],
+      "answer": [
+        3,
+        6,
+        10,
+        10
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 8.45,
+      "returncode": 0,
+      "raw": "{\"query_output\":[3,6,10,10]}",
+      "stderr_tail": "quest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:12:24.167358Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[3,6,10,10]}\n2026-11-16T06:12:27.221368Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2198\n"
+    },
+    {
+      "index": 3,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_asc",
+        "double"
+      ],
+      "query": [
+        6,
+        9,
+        5,
+        8
+      ],
+      "expected": [
+        10,
+        12,
+        16,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        16,
+        18
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 6.07,
+      "returncode": 0,
+      "raw": "{\"query_output\":[10,12,16,18]}",
+      "stderr_tail": "\nEntrada a transformar: [6, 9, 5, 8]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:30.831788Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[10,12,16,18]}\n2026-11-16T06:12:33.141932Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2028\n"
+    },
+    {
+      "index": 4,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "query": [
+        5,
+        6,
+        3,
+        9
+      ],
+      "expected": [
+        3,
+        5,
+        6,
+        9
+      ],
+      "answer": [
+        3,
+        5,
+        6,
+        9
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.75,
+      "returncode": 0,
+      "raw": "{\"query_output\":[3,5,6,9]}",
+      "stderr_tail": "9].\n\nEntrada a transformar: [5, 6, 3, 9]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:36.576917Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[3,5,6,9]}\n2026-11-16T06:12:38.885313Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 5,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_desc",
+        "sort_desc"
+      ],
+      "query": [
+        6,
+        3,
+        6,
+        8
+      ],
+      "expected": [
+        8,
+        6,
+        6,
+        3
+      ],
+      "answer": [
+        8,
+        6,
+        6,
+        3
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.32,
+      "returncode": 0,
+      "raw": "{\"query_output\":[8,6,6,3]}",
+      "stderr_tail": "5].\n\nEntrada a transformar: [6, 3, 6, 8]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:42.342021Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[8,6,6,3]}\ntokens used\n2048\n2026-11-16T06:12:44.644642Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n"
+    },
+    {
+      "index": 6,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_desc",
+        "add_one"
+      ],
+      "query": [
+        1,
+        2,
+        8,
+        7
+      ],
+      "expected": [
+        9,
+        8,
+        3,
+        2
+      ],
+      "answer": [
+        6,
+        4,
+        4,
+        3
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 5.7,
+      "returncode": 0,
+      "raw": "{\"query_output\":[6,4,4,3]}",
+      "stderr_tail": "3].\n\nEntrada a transformar: [1, 2, 8, 7]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:47.621372Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[6,4,4,3]}\n2026-11-16T06:12:49.927595Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 7,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "sort_desc",
+        "double"
+      ],
+      "query": [
+        9,
+        6,
+        5,
+        7
+      ],
+      "expected": [
+        18,
+        14,
+        12,
+        10
+      ],
+      "answer": [
+        18,
+        14,
+        12,
+        10
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 6.63,
+      "returncode": 0,
+      "raw": "{\"query_output\":[18,14,12,10]}",
+      "stderr_tail": "\nEntrada a transformar: [9, 6, 5, 7]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:12:53.668719Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[18,14,12,10]}\n2026-11-16T06:12:56.017680Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 8,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "add_one",
+        "sort_asc"
+      ],
+      "query": [
+        2,
+        1,
+        8,
+        4
+      ],
+      "expected": [
+        2,
+        3,
+        5,
+        9
+      ],
+      "answer": [
+        2,
+        3,
+        5,
+        9
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 11.49,
+      "returncode": 0,
+      "raw": "{\"query_output\":[2,3,5,9]}",
+      "stderr_tail": "Request(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:13:02.226951Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:13:05.257917Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[2,3,5,9]}\ntokens used\n2355\n"
+    },
+    {
+      "index": 9,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "add_one",
+        "sort_desc"
+      ],
+      "query": [
+        6,
+        6,
+        3,
+        6
+      ],
+      "expected": [
+        7,
+        7,
+        7,
+        4
+      ],
+      "answer": [
+        7,
+        7,
+        4,
+        3
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 5.92,
+      "returncode": 0,
+      "raw": "{\"query_output\":[7,7,4,3]}",
+      "stderr_tail": "2].\n\nEntrada a transformar: [6, 6, 3, 6]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:11.523904Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[7,7,4,3]}\n2026-11-16T06:13:13.799546Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2053\n"
+    },
+    {
+      "index": 10,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "add_one",
+        "add_one"
+      ],
+      "query": [
+        7,
+        5,
+        3,
+        3
+      ],
+      "expected": [
+        5,
+        5,
+        7,
+        9
+      ],
+      "answer": [
+        5,
+        5,
+        7,
+        9
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 8.57,
+      "returncode": 0,
+      "raw": "{\"query_output\":[5,5,7,9]}",
+      "stderr_tail": "quest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:13:19.707185Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[5,5,7,9]}\n2026-11-16T06:13:22.732615Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n11.284\n"
+    },
+    {
+      "index": 11,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "add_one",
+        "double"
+      ],
+      "query": [
+        5,
+        4,
+        4,
+        3
+      ],
+      "expected": [
+        8,
+        10,
+        10,
+        12
+      ],
+      "answer": [
+        6,
+        8,
+        12,
+        16
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 5.73,
+      "returncode": 0,
+      "raw": "{\"query_output\":[6,8,12,16]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [5, 4, 4, 3]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:25.890609Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[6,8,12,16]}\n2026-11-16T06:13:28.174221Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 12,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc"
+      ],
+      "query": [
+        1,
+        5,
+        8,
+        9
+      ],
+      "expected": [
+        2,
+        10,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        10,
+        16,
+        18
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.04,
+      "returncode": 0,
+      "raw": "{\"query_output\":[2,10,16,18]}",
+      "stderr_tail": "\n\nEntrada a transformar: [1, 5, 8, 9]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:31.456865Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[2,10,16,18]}\ntokens used\n2048\n2026-11-16T06:13:33.756472Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n"
+    },
+    {
+      "index": 13,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc"
+      ],
+      "query": [
+        1,
+        1,
+        8,
+        9
+      ],
+      "expected": [
+        18,
+        16,
+        2,
+        2
+      ],
+      "answer": [
+        18,
+        16,
+        2,
+        2
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.8,
+      "returncode": 0,
+      "raw": "{\"query_output\":[18,16,2,2]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [1, 1, 8, 9]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:36.557934Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[18,16,2,2]}\n2026-11-16T06:13:38.833261Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 14,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one"
+      ],
+      "query": [
+        5,
+        3,
+        6,
+        3
+      ],
+      "expected": [
+        7,
+        7,
+        11,
+        13
+      ],
+      "answer": [
+        3,
+        11,
+        13,
+        13
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 5.75,
+      "returncode": 0,
+      "raw": "{\"query_output\":[3,11,13,13]}",
+      "stderr_tail": "Entrada a transformar: [5, 3, 6, 3]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:42.388955Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[3,11,13,13]}\n2026-11-16T06:13:44.669502Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n12.028\n"
+    },
+    {
+      "index": 15,
+      "condition": "retrieved",
+      "program": [
+        "sort_asc",
+        "double",
+        "double"
+      ],
+      "query": [
+        3,
+        9,
+        8,
+        3
+      ],
+      "expected": [
+        12,
+        12,
+        32,
+        36
+      ],
+      "answer": [
+        12,
+        16,
+        32,
+        36
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 5.62,
+      "returncode": 0,
+      "raw": "{\"query_output\":[12,16,32,36]}",
+      "stderr_tail": "\nEntrada a transformar: [3, 9, 8, 3]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:48.062869Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[12,16,32,36]}\n2026-11-16T06:13:50.373538Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2048\n"
+    },
+    {
+      "index": 16,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_asc",
+        "sort_asc"
+      ],
+      "query": [
+        1,
+        8,
+        9,
+        4
+      ],
+      "expected": [
+        1,
+        4,
+        8,
+        9
+      ],
+      "answer": [
+        1,
+        4,
+        8,
+        9
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 5.17,
+      "returncode": 0,
+      "raw": "{\"query_output\":[1,4,8,9]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [1, 8, 9, 4]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:53.785506Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[1,4,8,9]}\ntokens used\n11.116\n2026-11-16T06:13:56.064599Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n"
+    },
+    {
+      "index": 17,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "query": [
+        4,
+        8,
+        5,
+        1
+      ],
+      "expected": [
+        8,
+        5,
+        4,
+        1
+      ],
+      "answer": [
+        8,
+        5,
+        4,
+        1
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 6.54,
+      "returncode": 0,
+      "raw": "{\"query_output\":[8,5,4,1]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [4, 8, 5, 1]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:13:58.965446Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:14:01.257162Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[8,5,4,1]}\ntokens used\n11.163\n"
+    },
+    {
+      "index": 18,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_asc",
+        "add_one"
+      ],
+      "query": [
+        4,
+        6,
+        7,
+        8
+      ],
+      "expected": [
+        5,
+        7,
+        8,
+        9
+      ],
+      "answer": [
+        4,
+        7,
+        8,
+        10
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 7.09,
+      "returncode": 0,
+      "raw": "{\"query_output\":[4,7,8,10]}",
+      "stderr_tail": "].\n\nEntrada a transformar: [4, 6, 7, 8]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:06.078462Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[4,7,8,10]}\n2026-11-16T06:14:08.365463Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2053\n"
+    },
+    {
+      "index": 19,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "query": [
+        1,
+        8,
+        9,
+        3
+      ],
+      "expected": [
+        2,
+        6,
+        16,
+        18
+      ],
+      "answer": [
+        4,
+        6,
+        12,
+        16
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 9.25,
+      "returncode": 0,
+      "raw": "{\"query_output\":[4,6,12,16]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [1, 8, 9, 3]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:14.057443Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:14:16.332564Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[4,6,12,16]}\ntokens used\n2044\n"
+    },
+    {
+      "index": 20,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "query": [
+        7,
+        1,
+        8,
+        8
+      ],
+      "expected": [
+        1,
+        7,
+        8,
+        8
+      ],
+      "answer": [
+        1,
+        7,
+        8,
+        8
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 7.31,
+      "returncode": 0,
+      "raw": "{\"query_output\":[1,7,8,8]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [7, 1, 8, 8]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:22.839991Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[1,7,8,8]}\n2026-11-16T06:14:25.116355Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n12.028\n"
+    },
+    {
+      "index": 21,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_desc",
+        "sort_desc"
+      ],
+      "query": [
+        1,
+        5,
+        6,
+        1
+      ],
+      "expected": [
+        6,
+        5,
+        1,
+        1
+      ],
+      "answer": [
+        6,
+        5,
+        1,
+        1
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 6.75,
+      "returncode": 0,
+      "raw": "{\"query_output\":[6,5,1,1]}",
+      "stderr_tail": ".\n\nEntrada a transformar: [1, 5, 6, 1]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:29.524161Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[6,5,1,1]}\n2026-11-16T06:14:31.823362Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n11.116\n"
+    },
+    {
+      "index": 22,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_desc",
+        "add_one"
+      ],
+      "query": [
+        9,
+        5,
+        1,
+        8
+      ],
+      "expected": [
+        10,
+        9,
+        6,
+        2
+      ],
+      "answer": [
+        9,
+        7,
+        5,
+        5
+      ],
+      "parsed": true,
+      "correct": false,
+      "seconds": 6.58,
+      "returncode": 0,
+      "raw": "{\"query_output\":[9,7,5,5]}",
+      "stderr_tail": "5].\n\nEntrada a transformar: [9, 5, 1, 8]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:35.909083Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\n2026-11-16T06:14:38.199056Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[9,7,5,5]}\ntokens used\n2048\n"
+    },
+    {
+      "index": 23,
+      "condition": "retrieved",
+      "program": [
+        "sort_desc",
+        "sort_desc",
+        "double"
+      ],
+      "query": [
+        9,
+        6,
+        6,
+        9
+      ],
+      "expected": [
+        18,
+        18,
+        12,
+        12
+      ],
+      "answer": [
+        18,
+        18,
+        12,
+        12
+      ],
+      "parsed": true,
+      "correct": true,
+      "seconds": 7.54,
+      "returncode": 0,
+      "raw": "{\"query_output\":[18,18,12,12]}",
+      "stderr_tail": "\nEntrada a transformar: [9, 6, 6, 9]\n\nResponde solo con la lista de enteros resultante.\n2026-11-16T06:14:43.713447Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ncodex\n{\"query_output\":[18,18,12,12]}\n2026-11-16T06:14:46.007982Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest(\"http/request failed: error sending request for url (http://127.0.0.1:8000/mcp)\")))\ntokens used\n2053\n"
+    }
+  ]
+}

@@ -66,20 +66,38 @@ Comparación con nuestros solucionadores en la misma rejilla:
 - Las 64 tareas no son 64 comportamientos: son 14 clases funcionales. La
   exactitud por clase no se reporta aquí.
 
-## 7. Diagnóstico en curso (006-B ampliado)
+## 7. Diagnóstico: información, representación, memoria
 
-La auditoría pidió distinguir cuatro mecanismos de fallo. Se están ejecutando, en
-las mismas 24 tareas y pareadas contra `base`:
+Mismas 24 tareas, comparación pareada, `gpt-6-luna` low, una llamada por tarea:
 
-| Condición | Qué distingue |
-|---|---|
-| `base` | Desempeño sin ayuda |
-| `more_examples` | Falta de información (6 ejemplos en vez de 3) |
-| `vocabulary` | Falta de representación (se nombran las cuatro operaciones) |
-| `retrieved` | Memoria: una tarea resuelta de la misma transformación, otros números |
+| Condición | Aciertos | Puntos | Δ vs base | IC 95 % pareado |
+|---|---|---|---|---|
+| `base` (3 ejemplos) | 14/24 | 58,3 % | — | — |
+| `more_examples` (6 ejemplos) | 16/24 | 66,7 % | +8,3 pp | −20,8 a +33,3 |
+| `vocabulary` (se nombran las 4 operaciones) | 15/24 | 62,5 % | +4,2 pp | −12,5 a +25,0 |
+| `retrieved` (una tarea resuelta de la misma transformación) | 16/24 | 66,7 % | +8,3 pp | −12,5 a +33,3 |
+| `tool` (intérprete Python) | en ejecución | — | — | — |
 
-Cuando cierre, cada diferencia se reporta con IC bootstrap pareado, no como un
-porcentaje suelto. El resultado se añadirá a este documento.
+Pares discordantes frente a `base`: `more_examples` 7 mejora / 5 empeora;
+`vocabulary` 3 / 2; `retrieved` 5 / 3.
+
+### Lectura
+
+1. **Ninguna intervención se distingue de cero.** Con 24 tareas, el IC es de ±20 pp.
+   Para detectar +8 pp con confianza harían falta ~150 tareas pareadas.
+2. **La memoria recuperada y más ejemplos dan el mismo +8,3 pp.** Eso es
+   exactamente el confundidor que la auditoría señaló: una experiencia resuelta
+   *es* información adicional. Con este diseño no se puede atribuir la mejora a
+   memoria en vez de a información.
+3. **Nombrar el lenguaje de operaciones casi no ayuda** (+4,2 pp): el fallo no es
+   de representación.
+4. **El agente sigue fallando 8/24 con una tarea resuelta delante.** El patrón de
+   errores es de ejecución: ordena mal, aplica una operación de más o pierde un
+   elemento. Eso apunta a que el cuello no es la memoria.
+
+Por eso la condición decisiva es `tool`: si un intérprete sube el acierto, el
+problema era ejecución exacta y la memoria no era la intervención correcta.
+
 
 ## 8. Reproducir
 
