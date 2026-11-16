@@ -78,6 +78,9 @@ empeora nada medible, no entra).
 | [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
+| [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |
+| [registro-de-ejecuciones.md](../../docs/registro-de-ejecuciones.md) | Modelo, esfuerzo, semillas y comandos por experimento |
+| [para-revisores.md](../../docs/para-revisores.md) | Mapa y preguntas para el revisor |
 | [../../docs/problema-central.md](../../docs/problema-central.md) | Análisis previo: capacidades, confundidores y escalera |
 | [../../docs/errata-006b.md](../../docs/errata-006b.md) | Errata del diagnóstico con LLM |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |

@@ -20,12 +20,18 @@ negativos y correcciones metodológicas.
 
 ## Cómo leer este repositorio
 
-El orden importa. Primero la teoría, después el registro, después los experimentos.
+El orden importa. Para revisión por pares, empieza por el manuscrito.
 
+0. **[`docs/manuscrito.md`](docs/manuscrito.md)** — el trabajo completo en formato de
+   artículo: hipótesis, método, resultados, discusión, límites y referencias.
+   **[`docs/registro-de-ejecuciones.md`](docs/registro-de-ejecuciones.md)** — modelo,
+   esfuerzo, semillas, comandos y protocolos de cada experimento.
+   **[`docs/para-revisores.md`](docs/para-revisores.md)** — mapa, afirmaciones y
+   preguntas para un revisor externo.
 1. **[`docs/teoria.md`](docs/teoria.md)** — qué se afirma, por qué, qué canales
    existen y qué predicciones se derivan. Incluye la proposición que explica por
    qué todos nuestros resultados negativos estaban cantados: en un espacio
-   enumerable, la memoria no puede ampliar cobertura.
+   explorable, identificable y presupuestado, la memoria no puede ampliar cobertura.
 2. **[`docs/registro-de-afirmaciones.md`](docs/registro-de-afirmaciones.md)** — cada
    afirmación con estado, nivel de evidencia y falsador. Si no está aquí, no existe.
 3. **[`precedentes/10-matriz-de-antecedentes.md`](resources/investigation/precedentes/10-matriz-de-antecedentes.md)**
