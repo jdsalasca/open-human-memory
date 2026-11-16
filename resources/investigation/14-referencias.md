@@ -222,6 +222,102 @@ incluyen volumen y páginas cuando se verificaron.
 - Zheng, B., et al. (2025). *SkillWeaver: Web agents can self-improve by discovering and honing skills*. arXiv:2504.07079.
 - Zhang, J., Hu, S., Lu, C., Lange, R., & Clune, J. (2025). *Darwin Gödel Machine: Open-ended evolution of self-improving agents*. arXiv:2505.22954.
 
+## Fuentes primarias ampliadas (v0.4)
+
+### Neurociencia del sueño, la consolidación y la memoria
+
+- Aristotle. *De somno et vigilia* (Sobre el sueño y la vigilia).
+- Buzsáki, G. (2015). Hippocampal sharp wave-ripple: A cognitive biomarker for episodic memory and planning. *Hippocampus, 25*(10), 1073–1188.
+- Diekelmann, S., & Born, J. (2010). The memory function of sleep. *Nature Reviews Neuroscience, 11*(2), 114–126.
+- Rasch, B., & Born, J. (2013). About sleep's role in memory. *Physiological Reviews, 93*(2), 681–766.
+- Rothschild, G., Eban, E., & Frank, L. M. (2017). A cortical–hippocampal–cortical loop of information processing during memory consolidation. *Nature Neuroscience, 20*(2), 251–259.
+- Stickgold, R., & Walker, M. P. (2013). Sleep-dependent memory triage. *Nature Neuroscience, 16*(2), 139–145.
+- Tononi, G., & Cirelli, C. (2006). Sleep function and synaptic homeostasis. *Sleep Medicine Reviews, 10*(1), 49–62.
+- Tononi, G., & Cirelli, C. (2014). Sleep and the price of plasticity: From synaptic and cellular homeostasis to memory consolidation and integration. *Neuron, 81*(1), 12–34.
+- Wagner, U., Gais, S., Haider, H., Verleger, R., & Born, J. (2004). Sleep inspires insight. *Nature, 427*, 352–355.
+- Walker, M. P., & van der Helm, E. (2009). Overnight therapy? The role of sleep in emotional brain processing. *Psychological Bulletin, 135*(5), 731–748.
+- Xie, L., Kang, H., Xu, Q., Chen, M. J., Liao, Y., Thiyagarajan, M., ... & Nedergaard, M. (2013). Sleep drives metabolite clearance from the adult brain. *Science, 342*(6156), 373–377.
+
+### Psicología de la memoria, la compresión y la metacognición
+
+- Chase, W. G., & Simon, H. A. (1973). Perception in chess. *Cognitive Psychology, 4*(1), 55–81.
+- Desimone, R., & Duncan, J. (1995). Neural mechanisms of selective visual attention. *Annual Review of Neuroscience, 18*, 193–222.
+- Flavell, J. H. (1979). Metacognition and cognitive monitoring: A new area of cognitive-developmental inquiry. *American Psychologist, 34*(10), 906–911.
+- Ghosh, V. E., & Gilboa, A. (2014). What is a memory schema? A historical perspective on current neuroscience literature. *Neuropsychologia, 53*, 104–114.
+- Gilboa, A., & Marlatte, H. (2017). Neurobiology of schemas and schema-mediated memory. *Trends in Cognitive Sciences, 21*(8), 618–631.
+- Kidd, C., & Hayden, B. Y. (2015). The psychology and neuroscience of curiosity. *Neuron, 88*(3), 449–460.
+- Miller, G. A. (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. *Psychological Review, 63*(2), 81–97.
+- Nelson, T. O., & Narens, L. (1990). Metamemory: A theoretical framework and new findings. *The Psychology of Learning and Motivation, 26*, 125–173.
+- Oudeyer, P.-Y., & Kaplan, F. (2007). What is intrinsic motivation? A typology of computational approaches. *Frontiers in Neurorobotics, 1*, 6.
+- Posner, M. I., & Keele, S. W. (1968). On the genesis of abstract ideas. *Journal of Experimental Psychology, 77*(5), 353–363.
+- Reyna, V. F., & Brainerd, C. J. (1995). Fuzzy-trace theory: An interim synthesis. *Learning and Individual Differences, 7*(1), 1–75.
+- Risko, E. F., & Gilbert, S. J. (2016). Cognitive offloading. *Trends in Cognitive Sciences, 20*(9), 676–688.
+- Tulving, E. (1972). Episodic and semantic memory. En E. Tulving & W. Donaldson (Eds.), *Organization of memory* (pp. 381–403). Academic Press.
+- Tulving, E. (2002). Episodic memory: From mind to brain. *Annual Review of Psychology, 53*, 1–25.
+
+### Aprendizaje humano, causalidad y analogía
+
+- Carey, S. (2009). *The origin of concepts*. Oxford University Press.
+- Fodor, J. A., & Pylyshyn, Z. W. (1988). Connectionism and cognitive architecture: A critical analysis. *Cognition, 28*(1–2), 3–71.
+- Gentner, D. (1983). Structure-mapping: A theoretical framework for analogy. *Cognitive Science, 7*(2), 155–170.
+- Gopnik, A., Glymour, C., Sobel, D. M., Schulz, L. E., Kushnir, T., & Danks, D. (2004). A theory of causal learning in children: Causal maps and Bayes nets. *Psychological Review, 111*(1), 3–32.
+- Gopnik, A., & Meltzoff, A. N. (1997). *Words, thoughts, and theories*. MIT Press.
+- Lake, B. M., & Baroni, M. (2018). Generalization without systematicity: On the compositional skills of sequence-to-sequence recurrent networks. *ICML 2018*.
+- Pearl, J. (2009). *Causality: Models, reasoning, and inference* (2nd ed.). Cambridge University Press.
+- Tenenbaum, J. B., Kemp, C., Griffiths, T. L., & Goodman, N. D. (2011). How to grow a mind: Statistics, structure, and abstraction. *Science, 331*(6022), 1279–1285.
+
+### Aprendizaje en contexto y contexto largo
+
+- Brown, T. B., et al. (2020). Language models are few-shot learners. *NeurIPS, 33*.
+- Hsieh, C.-P., Sun, S., Kriman, S., Acharya, S., Rekesh, D., Jia, F., & Ginsburg, B. (2024). *RULER: What's the real context size of your long-context language models?* arXiv:2404.06654.
+- Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. (2022). Large language models are zero-shot reasoners. *NeurIPS, 35*.
+- Li, T., Zhang, G., Do, Q. D., Yue, X., & Chen, W. (2024). *Long-context LLMs struggle with long in-context learning*. arXiv:2404.02060.
+- Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). *Lost in the middle: How language models use long contexts*. arXiv:2307.03172.
+- Olsson, C., et al. (2022). *In-context learning and induction heads*. arXiv:2209.11895.
+- von Oswald, J., Niklasson, E., Randazzo, E., Sacramento, J., Mordvintsev, A., Zhmoginov, A., & Vladymyrov, M. (2023). Transformers learn in-context by gradient descent. *ICML 2023*.
+- Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E., Narang, S., Chowdhery, A., & Zhou, D. (2023). Self-consistency improves chain of thought reasoning in language models. *ICLR 2023*.
+- Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou, D. (2022). Chain-of-thought prompting elicits reasoning in large language models. *NeurIPS, 35*.
+- Xie, S. M., Raghunathan, A., Liang, P., & Ma, T. (2022). An explanation of in-context learning as implicit Bayesian inference. *ICLR 2022*.
+- Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. *ICLR 2023*.
+- Yasunaga, M., Chen, X., Li, Y., Pasupat, P., Leskovec, J., Liang, P., Chi, E. H., & Zhou, D. (2024). Large language models as analogical reasoners. *ICLR 2024*.
+
+### Información, compresión y tasa–distorsión
+
+- Bates, C. J., & Jacobs, R. A. (2020). Efficient data compression in perception and perceptual memory. *Psychological Review, 127*(5), 891–917.
+- Chater, N., & Vitányi, P. (2003). Simplicity: A unifying principle in cognitive science? *Trends in Cognitive Sciences, 7*(1), 19–22.
+- Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal, 27*, 379–423 y 623–656.
+- Shannon, C. E. (1959). Coding theorems for a discrete source with a fidelity criterion. *IRE National Convention Record, 7*, 142–163.
+- Sims, C. R. (2016). Rate–distortion theory and human perception. *Cognition, 152*, 181–198.
+
+### Filosofía del contexto, la memoria y la identidad
+
+- Bateson, G. (1972). *Steps to an ecology of mind*. Chandler.
+- Bergson, H. (1896). *Matière et mémoire*.
+- Bourdieu, P. (1980). *Le sens pratique*. Minuit.
+- Clark, A., & Chalmers, D. (1998). The extended mind. *Analysis, 58*(1), 7–19.
+- Fillmore, C. J. (1982). Frame semantics. En *Linguistics in the Morning Calm* (pp. 111–137). Hanshin.
+- Foucault, M. (1969). *L'archéologie du savoir*. Gallimard.
+- Freud, S. (1900). *Die Traumdeutung*.
+- Gadamer, H.-G. (1960). *Wahrheit und Methode*.
+- Gibson, J. J. (1979). *The ecological approach to visual perception*. Houghton Mifflin.
+- Goffman, E. (1974). *Frame analysis: An essay on the organization of experience*. Harvard University Press.
+- Heidegger, M. (1927). *Sein und Zeit*.
+- Hume, D. (1739). *A treatise of human nature*.
+- Husserl, E. (1966). *Zur Phänomenologie des inneren Zeitbewusstseins (1893–1917)*. Martinus Nijhoff.
+- Hutchins, E. (1995). *Cognition in the wild*. MIT Press.
+- Kant, I. (1781). *Kritik der reinen Vernunft*.
+- Kaplan, D. (1989). Demonstratives. En J. Almog, J. Perry & H. Wettstein (Eds.), *Themes from Kaplan* (pp. 481–563). Oxford University Press.
+- Lewis, D. (1979). Scorekeeping in a language game. *Journal of Philosophical Logic, 8*(3), 339–359.
+- Locke, J. (1690). *An essay concerning human understanding*.
+- Noë, A. (2004). *Action in perception*. MIT Press.
+- Parfit, D. (1984). *Reasons and persons*. Oxford University Press.
+- Searle, J. R. (1995). *The construction of social reality*. Free Press.
+- Sperber, D., & Wilson, D. (1986). *Relevance: Communication and cognition*. Blackwell.
+- Stalnaker, R. (1978). Assertion. En P. Cole (Ed.), *Syntax and semantics 9: Pragmatics* (pp. 315–332). Academic Press.
+- van Dijk, T. A., & Kintsch, W. (1983). *Strategies of discourse comprehension*. Academic Press.
+- Varela, F. J., Thompson, E., & Rosch, E. (1991). *The embodied mind: Cognitive science and human experience*. MIT Press.
+- Wittgenstein, L. (1953). *Philosophische Untersuchungen*.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios
