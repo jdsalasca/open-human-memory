@@ -5,6 +5,11 @@ auditoría: `A–E` se usaba para dos experimentos distintos y `C0–C8` no coin
 con los criterios del plan. **Las letras son locales a cada protocolo; el ID
 canónico incluye el prefijo.**
 
+> **Documentos que mandan:** `teoria.md` (qué se afirma), `registro-de-afirmaciones.md`
+> (estado de cada afirmación), `plan.md` (rondas y puertas) y
+> `../resources/investigation/revision-sistematica/` (antecedentes verificados).
+> Este registro solo asigna IDs.
+
 ## Protocolos vigentes
 
 ### `MAIN-C0..C8` — protocolo principal
@@ -187,7 +192,9 @@ La comparación válida es `COMP-T3` vs `COMP-T0/T1/T2`, no `COMP-P*` entre sí.
 `COMP-T0` con el **mismo presupuesto de búsqueda**, la comparación no identifica
 nada.
 
-**Estado:** diseño; no ejecutado. Congelar antes de la corrida principal.
+**Estado:** diseño; no ejecutado. Antecedentes que ya lo cubren parcialmente:
+EvoAgentBench (transferencia de procedimientos), SelfImprove-Bench (capacidad vs
+ajuste) y AgentCL (dependencias cross-task). Congelar antes de la corrida principal.
 
 ## Reglas
 

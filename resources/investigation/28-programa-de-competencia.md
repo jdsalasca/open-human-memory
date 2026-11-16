@@ -1,4 +1,9 @@
-# 28 — Programa de competencia v3: de la memoria a la expansión de capacidad
+# 28 - Programa de competencia v3: de la memoria a la expansión de capacidad
+
+> **Actualizado 2026-11-16.** Este programa fue el origen de `docs/teoria.md` y
+> `docs/plan.md`. Su formulación de «competencia acumulativa» se conserva; sus
+> afirmaciones empíricas están en `docs/registro-de-afirmaciones.md` y varias
+> fueron refutadas (004–006).
 
 **Estado:** reemplaza la formulación centrada en memoria (CUMULUS/JANUS) como
 objetivo final. La memoria pasa a ser un medio; el objeto de estudio es la

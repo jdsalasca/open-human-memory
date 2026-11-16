@@ -68,6 +68,14 @@ debe distinguir esos niveles y, cuando no puede, **abstenerse**.
 **Conclusión:** la novedad no es "recordar alternativas". Es **declarar qué se
 puede afirmar** y **usar esa declaración para decidir**.
 
+**Antecedente decisivo (revisión de 2026):** *Proof-Gated Skill Compilation*
+(NeurIPS 2026 workshop) implementa la parte operativa de esta propuesta: solo
+persisten programas que el harness ejecutó contra ground truth. De **538**
+aserciones de verificación hechas por modelos teacher, la ejecución confirmó **52**
+y rechazó **486 fabricaciones**. Eso no refuta a JANUS; le quita la novedad y le
+fija el estándar: cualquier propuesta de confianza debe medirse contra ejecución
+independiente, no contra la palabra del modelo.
+
 ## 3. Los cinco niveles
 
 | Nivel | Qué sabemos |
@@ -322,9 +330,26 @@ experiencias originales. La ventaja depende de conservar los artefactos, no
 necesariamente el historial bruto. Eso convierte la consolidación en una pregunta
 experimental sobre qué se puede borrar sin perder competencia, y no está medida.
 
-JANUS sigue sin probarse: el prototipo muestra que compilar abstracciones puede
-servir como prior bajo presupuesto acotado, no que la hipótesis causal se sostenga.
-Detalles en `prototipo-004-validez/`.
+### 11.2 Lo que la revisión de antecedentes cambia
+
+La revisión estructurada de 31 trabajos (noviembre de 2026,
+`../revision-sistematica/`) obliga a tres correcciones:
+
+- **La parte operativa de JANUS ya está implementada y medida.** Proof-Gated
+  (NeurIPS 2026 workshop): 538 aserciones de verificación, **52 confirmadas por
+  ejecución, 486 rechazadas**. JANUS no puede presentarse como propuesta novedosa;
+  su aportación posible es declarar **qué** se puede afirmar, no el gate.
+- **La memoria puede hacer daño y el campo ya lo mide.** MemDev-Bench rompe tareas
+  antes resolubles; *skill shadowing* cuesta hasta **−21 %** con 202 skills; MemUse
+  queda a **±0,4 pp** del baseline sin memoria, con **23,2 %** de usos beneficiosos
+  que igual fallan.
+- **El coste del contexto está medido.** STRATUM: **~4 GB de texto frente a ~298 TB
+  de estado KV** por 1e9 tokens en un 70B. JANUS debe citar esa cifra, no una
+  intuición.
+
+JANUS sigue sin probarse y ahora tiene un competidor directo que le exige
+compararse contra ejecución independiente. Detalles en
+`prototipo-004-validez/`.
 
 El 005-A ataca justo el problema de JANUS y lo deja abierto. En un flujo de 96
 tareas con deriva, **acumular sin criterio baja el acierto 8,7 pp** frente a
@@ -408,3 +433,4 @@ LLM agents under irreducible conflict*. arXiv:2608.13921.
 
 Zhang, S., et al. (2026). *ConMem: Counterfactual multi-scenario probing for
 resolving LLM memory misalignment*. arXiv:2610.33432.
+

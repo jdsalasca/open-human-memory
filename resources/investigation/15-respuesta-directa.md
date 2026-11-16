@@ -99,9 +99,10 @@ primaria con IC 95% que excluya cero, la arquitectura no aporta.
 
 ## Documentos
 
-- Revisión y alcance corregido: [`papers/cumulus-revision-v0.2.md`](papers/cumulus-revision-v0.2.md)
+- Revisión y alcance corregido: [`papers/cumulus-final-es.md`](papers/cumulus-final-es.md)
 - Respuesta a la revisión: [`22-respuesta-a-revision.md`](22-respuesta-a-revision.md)
 - Marco de validez: [`23-marco-de-validez.md`](23-marco-de-validez.md)
 - Competidores 2026: [`precedentes/06-competidores-directos-2026.md`](precedentes/06-competidores-directos-2026.md)
 - Protocolo experimental: [`08-hipotesis-y-experimentos.md`](08-hipotesis-y-experimentos.md)
-- JANUS: [`papers/janus-es.md`](papers/janus-es.md)
+- JANUS: [`papers/janus-final-es.md`](papers/janus-final-es.md)
+

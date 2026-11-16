@@ -15,8 +15,8 @@ conviertan en certezas permanentes.
 
 **Estado:** programa de investigación con un **diagnóstico ejecutable**. No hay
 producto todavía; hay un harness mínimo para decidir qué capa importa antes de
-construir otra arquitectura. Cinco prototipos han producido, sobre todo,
-resultados negativos y correcciones metodológicas.
+construir otra arquitectura. Seis prototipos han producido, sobre todo, resultados
+negativos y correcciones metodológicas.
 
 ## Cómo leer este repositorio
 
@@ -222,7 +222,7 @@ que el 004 retiró.
 | [25-protocolo-fuentes-primarias.md](resources/investigation/25-protocolo-fuentes-primarias.md) | Cómo se buscan y evalúan las fuentes |
 | [27-plan-de-implementacion.md](resources/investigation/27-plan-de-implementacion.md) | Qué se implementa y qué no (JANUS-C) |
 | [precedentes/](resources/investigation/precedentes/) | Qué se ha intentado, incluidos los competidores 2026 |
-| [papers/](resources/investigation/papers/) | CUMULUS (EN/ES), revisión v0.2 y JANUS v0.2 |
+| [papers/](resources/investigation/papers/) | CUMULUS (EN/ES) y JANUS (ES) v1.1; históricas en `archive/` |
 
 ## Las tres líneas
 

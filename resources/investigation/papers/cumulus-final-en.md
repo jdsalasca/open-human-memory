@@ -257,6 +257,27 @@ learned saves 26.2% of the work at equal accuracy**, while keeping on accumulati
 drops accuracy by 8.7 pp. For CUMULUS that is a hypothesis about bounded
 artefacts —useful while the distribution holds—, not a validation of portability.
 
+### 7.2 What the antecedent review changes
+
+The structured review of 31 works (November 2026, `../revision-sistematica/`) forces
+three corrections:
+
+1. **Skills already have the shape CUMULUS describes**, with applicability
+   conditions, execution policies and termination criteria (SoK, 2026), and are
+   generated from trajectories (Trace2Skill, SkillGen). CUMULUS cannot claim the
+   format.
+2. **Execution-based verification already exists and is essential.** Proof-Gated:
+   **52 of 538** asserted verifications confirmed by execution. CUMULUS would have
+   to show that its representation survives a model change, not that the gate
+   works.
+3. **The cost is measured.** STRATUM: **~4 GB of text versus ~298 TB of KV state**
+   per 1e9 tokens. Portability must report tokens and maintenance, not only
+   artefact size.
+
+Conclusion: CUMULUS stands as a **representation and portability hypothesis without
+evidence of its own**. Its question —does a structured representation preserve
+utility across models and domains?— remains open and is the only one it can claim.
+
 ## 8. Limits and safety
 
 - Transfer may be partial; report it.
@@ -329,3 +350,4 @@ trainable sparse attention. *ACL 2025*, 23078–23097.
 
 Zheng, B., et al. (2025). *SkillWeaver: Web agents can self-improve by
 discovering and honing skills*. arXiv:2504.07079.
+

@@ -281,6 +281,28 @@ precisión**, mientras seguir acumulando baja el acierto 8,7 pp. Para CUMULUS es
 una hipótesis sobre artefactos acotados —útiles mientras la distribución se
 mantiene—, no una validación de portabilidad.
 
+### 7.2 Lo que la revisión de antecedentes cambia
+
+La revisión estructurada de 31 trabajos (noviembre de 2026,
+`../revision-sistematica/`) obliga a tres precisiones:
+
+1. **Las skills ya tienen la forma que CUMULUS describe**, con condiciones de
+   aplicabilidad, políticas de ejecución y criterios de terminación (SoK, 2026), y
+   se generan desde trayectorias (Trace2Skill, SkillGen). La contribución de
+   CUMULUS no puede ser el formato.
+2. **La verificación por ejecución ya existe y es imprescindible.** Proof-Gated:
+   **52 de 538** aserciones de verificación confirmadas por ejecución. CUMULUS
+   tendría que demostrar que su representación sobrevive al cambio de modelo, no
+   que el gate funciona.
+3. **El coste está medido.** STRATUM: **~4 GB de texto frente a ~298 TB de estado
+   KV** por 1e9 tokens. La portabilidad debe reportar tokens y mantenimiento, no
+   solo tamaño de artefacto.
+
+Conclusión: CUMULUS queda como **hipótesis de representación y portabilidad, sin
+evidencia propia**. Su pregunta —¿una representación estructurada conserva la
+utilidad al cambiar de modelo y de dominio?— sigue abierta y es la única que puede
+reclamar como suya.
+
 ## 8. Límites y seguridad
 
 - La transferencia puede ser parcial; hay que reportarla.
@@ -353,3 +375,4 @@ trainable sparse attention. *ACL 2025*, 23078–23097.
 
 Zheng, B., et al. (2025). *SkillWeaver: Web agents can self-improve by
 discovering and honing skills*. arXiv:2504.07079.
+

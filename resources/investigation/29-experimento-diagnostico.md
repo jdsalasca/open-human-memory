@@ -1,4 +1,9 @@
-# 29 — Experimento diagnóstico: memoria, selección, procedimiento o abstracción
+# 29 - Experimento diagnóstico: memoria, selección, procedimiento o abstracción
+
+> **Actualizado 2026-11-16.** Los resultados de este diagnóstico están corregidos
+> por `docs/errata-006b.md` y `prototipo-004-validez/`. Lectura vigente: el 002 es
+> un benchmark de solucionador; el 003 quedó retirado; el cuello de botella del
+> agente real sigue abierto.
 
 **Objetivo:** antes de construir otra arquitectura, identificar qué transformación
 de la experiencia produce la mejora. No comparar cinco sistemas completos;

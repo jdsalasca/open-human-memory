@@ -81,25 +81,27 @@ empeora nada medible, no entra).
 | [../../docs/problema-central.md](../../docs/problema-central.md) | Análisis previo: capacidades, confundidores y escalera |
 | [../../docs/errata-006b.md](../../docs/errata-006b.md) | Errata del diagnóstico con LLM |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
-| [papers/](papers/) | CUMULUS final (EN/ES) y JANUS final (ES) |
+| [papers/](papers/) | CUMULUS (EN/ES) y JANUS (ES) v1.1; históricas en `archive/` |
 
 ## Estado
 
-`v1.7` — política de activación y techo del agente. Los documentos 01–06 son la
-evidencia base; 07 es la síntesis; 08 es el protocolo v2.0; 09–12 amplían con
-Weber, psicología, biología comparada y humano–máquina; 13 es el paper sobre el
-riesgo del olvido; 14 es la bibliografía; 15 responde la pregunta central; 16–20
-desarrollan momento cero, contexto, filosofía, compactación y sueño; 21 audita la
-evidencia; 22 responde a la primera revisión; 23 fija el marco de validez; 24 es
-el programa v2 (histórico); 25 es el protocolo de fuentes; 26 integra DeepSeek y
-atención; 27 es el plan JANUS-C; 28 es el programa de competencia v3; 29 es el
-experimento diagnóstico; `prototipo-001` es smoke test invalidado; `prototipo-002`
-es benchmark de solucionador; `prototipo-003` es el registro exploratorio cuya
-conclusión fue retirada; `prototipo-004` es la validación con protocolo congelado;
-`prototipo-005` mide cuándo la memoria paga su costo; `prototipo-006-politica`
-prueba la política de activación; `prototipo-006-agente-llm` mide el techo de un
-agente real; `src/ohmem/` implementa los seis; `precedentes/` cataloga lo
-intentado; `papers/` contiene CUMULUS (EN/ES) y JANUS (ES).
+`v1.13` — corpus unificado. La columna del proyecto está fuera de este directorio:
+`docs/teoria.md` (marco y predicciones), `docs/registro-de-afirmaciones.md`
+(estado de cada afirmación) y `docs/plan.md` (rondas F0–F5). Aquí vive el material
+de apoyo: 01–06 evidencia base; 07 síntesis; 08 protocolo v2.0; 09–12 amplían con
+Weber, psicología, biología comparada y humano–máquina; 13 paper sobre el riesgo del
+olvido; 14 bibliografía; 15 respuesta central; 16–20 momento cero, contexto,
+filosofía, compactación y sueño; 21 auditoría de evidencia; 22 respuesta a la
+primera revisión; 23 marco de validez; 24 programa v2 (histórico); 25 protocolo de
+fuentes; 26 DeepSeek y atención; 27 plan JANUS-C; 28 programa de competencia v3; 29
+experimento diagnóstico; `revision-sistematica/` es la revisión ejecutada (31
+trabajos); `prototipo-001` smoke test invalidado; `prototipo-002` benchmark de
+solucionador; `prototipo-003` registro exploratorio retirado; `prototipo-004`
+validación con protocolo congelado; `prototipo-005` cuándo paga la memoria;
+`prototipo-006-politica` política de activación; `prototipo-006-agente-llm` línea
+base del agente; `src/ohmem/` implementa los seis; `precedentes/` cataloga lo
+intentado; `papers/` contiene CUMULUS (EN/ES) y JANUS (ES) v1.1, con históricas en
+`archive/`.
 
 ## La tesis en una frase
 

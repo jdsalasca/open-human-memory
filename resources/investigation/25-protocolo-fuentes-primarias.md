@@ -1,4 +1,9 @@
-# 25 — Protocolo de recolección y evaluación de fuentes primarias
+# 25 - Protocolo de recolección y evaluación de fuentes primarias
+
+> **Actualizado 2026-11-16.** El protocolo se ejecutó parcialmente: 8 cadenas,
+> 7.100 registros identificados, 177 cribados, 31 incluidos; una base (OpenAlex) y
+> un revisor. La revisión declara sus límites en `revision-sistematica/`. **No es
+> exhaustiva.**
 
 ## 1. Propósito
 

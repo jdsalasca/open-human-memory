@@ -1,67 +1,98 @@
 # Plan de investigación
 
 **Fecha:** 16 de noviembre de 2026
-**Cambio de régimen:** este plan sustituye la secuencia anterior de rondas
-(R1–R6), que producía un prototipo por auditoría. El patrón era circular: cada
-auditoría encontraba un fallo, se construía otro prototipo para responderla, y la
-siguiente auditoría encontraba otro fallo. Seis prototipos no produjeron una teoría;
-produjeron correcciones.
+**Cambio de régimen:** este plan sustituye la secuencia R1–R6, que producía un
+prototipo por auditoría. El patrón era circular: auditoría → fallo → prototipo →
+auditoría. Seis prototipos produjeron correcciones, no una teoría.
 
 **Regla nueva:** ninguna ronda empieza con código. Empieza con una deuda de base
-cerrada: teoría, registro de afirmaciones, antecedente o reproducción.
+cerrada: teoría, registro, antecedente o reproducción.
+
+---
+
+## La pregunta
+
+> Si mañana este agente reinicia su contexto, cambia de tarea y encuentra un
+> problema que nunca ha visto, ¿qué aprendizaje adquirido en sus experiencias
+> anteriores modifica realmente su manera de comprenderlo y resolverlo?
+
+Todo lo que no acerque una respuesta verificable a esta pregunta es instrumento,
+no objetivo.
+
+---
+
+## Las cinco preguntas que cada ronda debe responder
+
+**A. ¿Qué competencia adquirida medimos?**
+La reducción de `E(A,F)` —experiencias hasta el umbral— o el aumento de `P(A,F)` a
+igual `K(A,F)`, contra un clon sin historial. Tres métricas separadas; no se
+agregan hasta que un escenario fije precios.
+
+**B. ¿Qué mecanismo la produce y qué antecedente ya la explica?**
+Compilar experiencias en artefactos verificados y conservar solo los que reducen el
+coste futuro. DreamCoder, Stitch, LILO, CEGIS, LPA*, MAML y Proof-Gated ya cubren
+partes. Ninguna pieza es nueva; la contribución posible es la medición.
+
+**C. ¿Qué comparación podría demostrar que no hay ventaja?**
+Clon sin historial, historial completo con recuperador convencional y una regla
+simple. Las tres deben estar implementadas antes de declarar nada. Dos ya
+refutaron dos de nuestras hipótesis.
+
+**D. ¿Qué relación tiene con miles de tareas y con el contexto?**
+Hoy, ninguna demostrada. No medimos tokens. La hipótesis es que un artefacto
+acotado conserva competencia con menos contexto que el historial bruto; exige medir
+tokens, almacenamiento y mantenimiento reales.
+
+**E. ¿Qué abandonamos si sale negativo?**
+La afirmación de expansión por macros. CUMULUS queda como hipótesis de
+representación y JANUS como diseño de confianza, ambos sin validación. No se
+sustituyen por otra arquitectura: se publica y se reduce el alcance.
 
 ---
 
 ## Principios
 
-1. **Una afirmación entra en `docs/registro-de-afirmaciones.md` antes del
-   experimento**, con su falsador.
-2. **Ningún prototipo nuevo sin una predicción derivada de `docs/teoria.md`.**
-3. **Ninguna comparación sin clon** (mismo modelo, herramientas y presupuesto).
-4. **Ninguna condición con información privilegiada sin etiqueta `ORACLE-*`.**
-5. **Ninguna muestra sin estratificar por clase conductual.**
-6. **Ningún resultado sin coste total** (`E`, `K`, `P` separados).
-7. **Ningún competidor citado como si lo hubiéramos reproducido.**
+1. Toda afirmación entra en `registro-de-afirmaciones.md` **antes** del experimento.
+2. Ningún prototipo sin una predicción derivada de `teoria.md`.
+3. Ninguna comparación sin clon (mismo modelo, herramientas y presupuesto).
+4. Ninguna condición con información privilegiada sin etiqueta `ORACLE-*`.
+5. Ninguna muestra sin estratificar por clase conductual.
+6. Ningún resultado sin coste total (`E`, `K`, `P` separados).
+7. Ningún competidor citado como si lo hubiéramos reproducido.
+8. Una sola base de evidencia por afirmación; el resto son registros históricos.
 
 ---
 
 ## F0 — Bases (en curso, bloqueante)
 
-**Objetivo:** que el proyecto tenga una teoría, un registro y un mapa de
-antecedentes antes de medir otra cosa.
-
 | Entregable | Estado |
 |---|---|
-| `docs/teoria.md` con canales, rivales, predicciones P1–P5 | Hecho |
-| `docs/registro-de-afirmaciones.md` con estados y niveles | Hecho |
-| `precedentes/10-matriz-de-antecedentes.md` | Hecho |
-| `docs/problema-central.md` con las siete capacidades | Hecho |
-| Revisión estructurada: 7.100 identificados, 177 cribados, 31 incluidos | **Hecho**, con límites declarados (`revision-sistematica/`) |
-| Una línea base reproducida (SkillGen, Proof-Gated, CEGIS o retrieval) | **Pendiente** |
+| `teoria.md` con canales, rivales y P1–P5 | Hecho |
+| `registro-de-afirmaciones.md` | Hecho |
+| Revisión estructurada: 7.100 identificados, 177 cribados, 31 incluidos | Hecho, con límites declarados |
+| Una línea base reproducida | **Pendiente** |
 
-**Puerta F0:** falta la reproducción. Sin ella no se pasa a F1. Si no se puede
-reproducir ninguna línea base, se documenta por qué y se reduce el alcance.
+**Puerta F0:** falta la reproducción. Sin ella no se pasa a F1.
 
-**Candidatos de reproducción, por coste:** CEGIS mínimo (bajo), SkillGen (medio),
-Proof-Gated (medio), EvoAgentBench (alto), DreamCoder (alto).
+**Candidatos, por coste:** CEGIS mínimo (bajo), SkillGen (medio), Proof-Gated
+(medio), EvoAgentBench (alto), DreamCoder (alto). Criterio: mismo orden de magnitud
+en la métrica principal, no el mismo número. Si falla, se documenta.
 
 ---
 
 ## F1 — Descomposición de capacidades (`DECOMP-*`)
 
-**Pregunta:** ¿de qué capacidad viene el fallo del agente?
+**Pregunta:** ¿de qué capacidad viene el fallo?
 
-- Siete capacidades separadas (inferencia, desambiguación, experimentación,
-  ejecución, verificación, memoria, generalización).
-- Muestra **estratificada por clase conductual**, no por fila.
-- Herramientas con las **cinco etapas verificadas** por tarea.
+- Siete capacidades separadas (teoría §4).
+- Muestra estratificada por clase conductual.
+- Herramientas con las cinco etapas verificadas por tarea.
 - Sin memoria todavía.
 
-**Criterio:** identificar al menos una capacidad con efecto distinguishable y un
-intervalo que excluya cero. Si ninguna lo hace, se revisa el instrumento.
+**Criterio:** al menos una capacidad con efecto distinguishable e IC que excluya
+cero. Si ninguna, se revisa el instrumento.
 
-**Puerta F1:** sin esta descomposición no se ejecuta F2. Cualquier resultado de
-memoria sería ambiguo.
+**Puerta:** sin F1 no se ejecuta F2.
 
 ---
 
@@ -77,8 +108,6 @@ memoria sería ambiguo.
 | `FULL-HISTORY` | Historial completo en contexto |
 | `PROCEDURE` | Procedimiento verificado |
 
-**Métricas:** `E`, `K`, `P` separadas. Comparación pareada por tarea.
-
 **Criterio:** `ACTUAL-RETRIEVAL` supera al clon con IC que excluye cero. Si el
 oráculo gana y la recuperación no, el fallo es del recuperador.
 
@@ -87,14 +116,14 @@ oráculo gana y la recuperación no, el fallo es del recuperador.
 ## F3 — Universo no enumerable (`EXPAND-*`)
 
 **Pregunta:** ¿una herramienta compilada amplía la cobertura cuando la solución no
-cabe en el presupuesto? Es la predicción **P1** de `docs/teoria.md`.
+cabe en el presupuesto? Predicción **P1**.
 
 - `|O| ≥ 6`, profundidad ≥ 6, presupuesto que enumere < 1 % del espacio.
 - Misma tarea, mismo presupuesto, con y sin herramientas compiladas.
-- Comparación contra búsqueda profunda y contra clon.
+- Contra búsqueda profunda y contra clon.
 
-**Criterio:** la cobertura sube con historial y no sube sin él. Si no, la línea de
-expansión se cierra.
+**Criterio:** la cobertura sube con historial y no sin él. Si no, se cierra la línea
+de expansión.
 
 ---
 
@@ -102,27 +131,25 @@ expansión se cierra.
 
 **Pregunta:** ¿baja `E(F)` en familias reservadas? Predicción **P3**.
 
-- Familias con estructura compartida y superficie distinta (listas → cadenas →
-  registros con clave).
-- Dependencia real: una tarea posterior exige un artefacto obtenido antes.
+- Estructura compartida, superficie distinta (listas → cadenas → registros).
+- Dependencia real: una tarea posterior exige un artefacto anterior.
 - Familias reservadas que no intervienen en el diseño.
 
-**Criterio:** `E(F)` del agente < `E(F)` del clon, con IC que excluya cero. Si no,
-no hay metaprendizaje y el programa se reduce a herramientas.
+**Criterio:** `E(F)` del agente < `E(F)` del clon, con IC que excluya cero.
 
 ---
 
 ## F5 — Deriva y portabilidad (`DRIFT-*`)
 
-**Pregunta:** ¿sobrevive el conocimiento a un cambio de reglas y a un cambio de
-modelo? Predicción **P5**.
+**Pregunta:** ¿sobrevive el conocimiento a un cambio de reglas y de modelo?
+Predicción **P5**.
 
 - Cambio de semántica a mitad de currículo.
 - Cambio de modelo subyacente.
 - Retirada de artefactos obsoletos sin perder los válidos.
 
-**Criterio:** el agente detecta la obsolescencia y no arrastra el error. Si el
-efecto desaparece al cambiar de modelo, CUMULUS no tiene objeto.
+**Criterio:** detecta la obsolescencia y no arrastra el error. Si el efecto
+desaparece al cambiar de modelo, CUMULUS no tiene objeto.
 
 ---
 
@@ -132,6 +159,18 @@ efecto desaparece al cambiar de modelo, CUMULUS no tiene objeto.
 - No se construyen SIR, Canon ni JANUS-C.
 - No se escribe otra capa social.
 - No se ejecuta el 007 antes de F1.
+- No se cita un competidor sin haberlo reproducido o declarado la deuda.
+
+---
+
+## Lo que se abandona
+
+- «Más macros = más inteligencia».
+- «La memoria amplía lo que el agente puede expresar» como afirmación general.
+- Optimizar el probe o el desalojo como prioridad científica.
+- Presentar cotas superiores como mediciones.
+- Presentar diferencias de una tarea como superioridad.
+- «96 episodios no caben en una ventana»: no medimos tokens.
 
 ---
 

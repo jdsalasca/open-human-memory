@@ -1,4 +1,9 @@
-# 21 — Revisión crítica de fuentes v2: dos ejes, no una escala
+# 21 - Revisión crítica de fuentes v2: dos ejes, no una escala
+
+> **Actualizado 2026-11-16.** La revisión de fuentes ya se ejecutó de forma
+> estructurada (`revision-sistematica/`, 31 trabajos). Los dos ejes siguen
+> vigentes; la matriz de antecedentes que este documento inspiraba está
+> sustituida. Estado de cada afirmación: `docs/registro-de-afirmaciones.md`.
 
 **Estado:** reescrito tras la segunda auditoría. Sustituye la escala única A/B/C/D
 por **dos evaluaciones separadas**: evidencia de origen y evidencia de

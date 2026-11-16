@@ -30,13 +30,13 @@ la comparación con trabajos de 2026 exige reducir el alcance.
 | Novedad sobreafirmada | Matriz de competidores 2026 y retiro de la afirmación de novedad amplia | `precedentes/06-competidores-directos-2026.md` |
 | Traducciones injustificadas | Correcciones explícitas en retrieval practice, quórum y Weber | docs 03, 05, 07, 09 |
 | Información vs. evidencia vs. conocimiento | Ontología de objetos y teoría del error | `23-marco-de-validez.md` |
-| Forja sin base causal | La ablación se degrada a "cribado"; la identificación pasa a JANUS | `23`, `papers/cumulus-revision-v0.2.md` |
+| Forja sin base causal | La ablación se degrada a "cribado"; la identificación pasa a JANUS | `23`, `papers/cumulus-final-es.md` |
 | Diseño experimental débil | Protocolo único, métrica primaria, potencia, multiplicidad, deriva, evaluadores independientes | `08-hipotesis-y-experimentos.md` (reescrito) |
 | "Aprendizaje" ambiguo | Tres niveles y definición operacional | `23` y `08` |
 | Generalizaciones humanas | Hipótesis mecanismo-específicas, no extrapolaciones | docs 05 y 07 |
 | Capa social confundida con cómputo | Comparación con presupuesto igualado y errores correlacionados | `08` y `22` |
 | Seguridad incompleta | Modelo de amenazas y clases de retención | `22`, sección 10 |
-| Afiliación y autoría | Declaración explícita y pendiente de verificación | `papers/cumulus-revision-v0.2.md` |
+| Afiliación y autoría | Declaración explícita y pendiente de verificación | `papers/cumulus-final-es.md` |
 
 ## 3. Respuesta punto por punto
 
@@ -293,3 +293,4 @@ La revisión tenía razón en lo esencial. CUMULUS no estaba demostrado y su nov
 estaba sobreafirmada. La respuesta no es defenderlo: es reducir la arquitectura
 hasta que cada componente pague su costo, y mover la apuesta científica al lugar
 donde ningún competidor ha llegado: **la memoria de lo que no pasó**.
+

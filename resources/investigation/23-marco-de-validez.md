@@ -1,4 +1,8 @@
-# 23 — Marco de validez: fenómeno, traducción y ventaja comparativa
+# 23 - Marco de validez: fenómeno, traducción y ventaja comparativa
+
+> **Actualizado 2026-11-16.** El marco se mantiene. Los cinco confundidores y las
+> siete capacidades están en `docs/teoria.md` §4–§5; las cinco etapas de
+> verificación de herramientas, en `docs/plan.md` F1.
 
 ## 1. Por qué hace falta
 
