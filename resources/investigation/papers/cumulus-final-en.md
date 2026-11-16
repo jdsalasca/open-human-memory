@@ -188,24 +188,26 @@ Protocol `08-hipotesis-y-experimentos.md` v2.0:
 **Kill criterion:** if CUMULUS does not beat the simple rival on the primary
 metric with a 95% CI excluding zero, the architecture adds nothing.
 
-### 7.1 Empirical note: prototype 001 (synthetic)
+### 7.1 Empirical note: prototype 002 (leakage-free)
 
-A synthetic diagnostic was run with 200 training tasks, 50 evaluation tasks, and
-three seeds (0, 1, 2). Mean accuracy:
+Prototype 001 was invalidated by target leakage: the rule name appeared in the
+surface. Prototype 002 separates observation and solution, infers the rule from
+three examples, and adds composition.
 
-| Condition | D1 | D2 | D3 |
+Mean of 3 seeds, 200 training tasks, 50 evaluation tasks:
+
+| Condition | D1 | D2 | D3 (composition) |
 |---|---|---|---|
 | A no memory | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.980 | 0.993 | 0.027 |
-| C oracle | 1.000 | 1.000 | 0.000 |
-| D procedure | 0.920 | 1.000 | 0.007 |
-| E abstraction | 0.487 | 0.000 | 0.000 |
+| B retrieval | 0.553 | 0.513 | 0.027 |
+| C oracle | 1.000 | 1.000 | 1.000 |
+| D primitive | 1.000 | 1.000 | 0.000 |
+| E composition | 1.000 | 1.000 | 1.000 |
 
-The instrument separates the conditions and confirms the oracle ceiling. In this
-toy, retrieval and procedure approach the ceiling on known families; the
-implemented family-level abstraction does not transfer to a new family. This is a
-result about the **instrument**, not about CUMULUS or an LLM. Details and
-reproduction in `prototipo-001-diagnostico/`.
+The instrument shows that retrieval is insufficient when the rule lives in the
+examples; an induced primitive solves simple rules; composition is the
+discriminator. This is a result about the **synthetic instrument**, not about
+CUMULUS or an LLM. Details in `prototipo-002-diagnostico/`.
 
 ## 8. Limits and safety
 

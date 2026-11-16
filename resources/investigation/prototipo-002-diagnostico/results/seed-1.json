@@ -1,0 +1,97 @@
+{
+  "seed": 1,
+  "n_train": 200,
+  "n_eval": 50,
+  "rows": [
+    {
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.2,
+      "memory_reads": 0
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.4,
+      "memory_reads": 0
+    },
+    {
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.52,
+      "memory_reads": 50
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.56,
+      "memory_reads": 50
+    },
+    {
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.04,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "memory_reads": 50
+    },
+    {
+      "condition": "D-primitive-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "D-primitive-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "D-primitive-procedure",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-compositional-abstraction",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-compositional-abstraction",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    },
+    {
+      "condition": "E-compositional-abstraction",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "memory_reads": 0
+    }
+  ]
+}

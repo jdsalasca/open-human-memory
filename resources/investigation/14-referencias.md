@@ -406,6 +406,16 @@ incluyen volumen y páginas cuando se verificaron.
 - Sutton, R. S. (1990). Integrated architectures for learning, planning, and reacting based on approximating dynamic programming. *ICML 1990*.
 - Zhang, J., Hu, S., Lu, C., Lange, R., & Clune, J. (2025). *Darwin Gödel Machine: Open-ended evolution of self-improving agents*. arXiv:2505.22954.
 
+## Expansión de capacidad y uso real (2026)
+
+- Cheng, Z., Liu, Z., Shan, Y., Wang, X., Zhu, X., Ma, Y., Wang, H., Guo, Y., Lin, W., & Wang, Y. (2026). Mem²Evolve: Towards self-evolving agents via co-evolutionary capability expansion and experience distillation. *ACL 2026*, 20784–20831. arXiv:2604.10923.
+- Fan, L., Shi, Y., Li, Y., Sun, C., Chen, X., Xu, X., Wei, H., Ni, S., Yang, M., & Ye, J. (2026). *VibeMemBench: Evaluating memory systems for coding agents on real repository coding tasks*. arXiv:2609.23570.
+- Jin, D., Yang, J., Han, K., Li, B., Hu, Z., He, Y., Zhong, W., Tong, Y., Zhu, M., Li, L., Niu, Y., & Kuang, K. (2026). *MDSKILL: Learning to internalize skill memory through multi-view distillation*. arXiv:2611.05313.
+- Liu, Y., Ji, J., An, L., Jaakkola, T., Zhang, Y., & Chang, S. (2026). *How well do agentic skills work in the wild: Benchmarking LLM skill usage in realistic settings*. arXiv:2604.04323.
+- PaMER. (2026). *Memory control signals emerge before action in long horizon agents*. arXiv:2609.27286.
+- SkillsBench. (2026). *Benchmarking how well agent skills work across diverse tasks*. arXiv:2602.12670.
+- Zhang, et al. (2026). *MemSkill: Learning and evolving memory skills for self-evolving agents*. arXiv:2602.02474.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

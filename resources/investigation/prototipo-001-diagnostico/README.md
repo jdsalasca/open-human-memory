@@ -1,5 +1,13 @@
 # Prototipo 001 — Diagnóstico memoria vs selección vs procedimiento vs abstracción
 
+> **ADVERTENCIA (15 nov 2026): este prototipo está invalidado como evidencia
+> científica por target leakage.** El nombre de la regla (`sort_asc`, `double`,
+> etc.) aparecía en `surface`, la entrada del predictor; `Task` exponía `rule` y
+> `expected`; el oráculo usaba `query.rule`. Se conserva como *smoke test* de
+> infraestructura y reproducibilidad. Los resultados **no** deben citarse a favor
+> o en contra de ninguna hipótesis. La versión corregida es
+> [`../prototipo-002-diagnostico/`](../prototipo-002-diagnostico/).
+
 **Fecha:** 15 de noviembre de 2026  
 **Estado:** prototipo sintético, reproducible, no es un benchmark de LLM.  
 **Código:** `src/ohmem/`  

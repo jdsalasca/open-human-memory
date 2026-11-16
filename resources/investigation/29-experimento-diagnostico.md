@@ -79,6 +79,27 @@ Se reporta éxito por unidad de costo, no tokens por respuesta.
 - Contaminación: D2/D3 no comparten vocabulario ni identificadores con D1.
 - Costo del oráculo reportado aparte; no se compara como si fuera gratis.
 
+## 6.1 Resultados del Prototipo 002 (sin filtración)
+
+El Prototipo 001 se conserva como *smoke test*: tenía target leakage (el nombre de
+la regla aparecía en la superficie). El 002 separa observación y solución, infiere
+la regla desde tres ejemplos y añade composición.
+
+Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
+
+| Condición | D1 | D2 | D3 (composición) |
+|---|---|---|---|
+| MEM-A sin memoria | 0.240 | 0.507 | 0.000 |
+| MEM-B retrieval | 0.553 | 0.513 | 0.027 |
+| MEM-C oráculo | 1.000 | 1.000 | 1.000 |
+| MEM-D primitiva | 1.000 | 1.000 | 0.000 |
+| MEM-E composición | 1.000 | 1.000 | 1.000 |
+
+Lectura: retrieval no basta cuando la regla está en los ejemplos y no en la
+superficie; una primitiva inducida resuelve reglas simples; **la composición es
+el discriminador**: MEM-D falla D3 porque su espacio de hipótesis no incluye
+composiciones, MEM-E acierta porque las busca. Sigue siendo sintético: no prueba
+un LLM ni descubrimiento abierto.
 ## 6. Implementación mínima
 
 El repositorio incluye un **diagnóstico sintético** en `src/ohmem/`:

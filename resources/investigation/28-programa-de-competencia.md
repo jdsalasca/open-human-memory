@@ -107,6 +107,33 @@ entrenamiento, mantenimiento y evaluación de las otras.
 **Qué implican:** hay que medir **dependencia acumulativa**, no mil tareas
 independientes.
 
+### 2.7 La cuarta ola (2026): expansión, meta-memoria y uso real
+
+- **Mem²Evolve** (Cheng et al., ACL 2026): Experience Memory + Asset Memory;
+  crea herramientas y agentes expertos a partir de la experiencia. +18,53% sobre
+  LLM, +11,80% sobre experiencia sola, +6,46% sobre activos solos. Es el
+  competidor más directo en expansión de capacidad.
+- **MemSkill** (Zhang et al., 2026): aprende y evoluciona las **operaciones de
+  memoria** con controller–executor–designer; el metaprendizaje del gestor ya
+  existe.
+- **VibeMemBench** (Fan et al., 2026): 111 tareas de 90 repos; la experiencia
+  verificada ayuda, pero 11 de 12 sistemas de memoria no superan la línea base
+  sin memoria.
+- **MemUse** (Xu et al., 2026): entrega ≠ uso; muchas memorias recuperadas no
+  cambian la acción.
+- **PaMER** (2026): el estado oculto previo a la acción predice compresión y
+  recall; el contexto reciente conserva la mayor parte de la señal.
+- **MDSKILL** (Jin et al., 2026): internaliza skills en la política con
+  multi-view distillation; +7,1% ALFWorld, +8,1% WebShop.
+- **SkillsBench** (2026): skills curadas +16,6 pp; autogeneradas −8,1 a −11,5 pp.
+- **How Well Do Agentic Skills Work in the Wild** (Liu et al., 2026): con 34.198
+  skills, el beneficio cae al exigir selección y adaptación.
+
+**Lectura:** el campo ya se mueve de "recordar" a "expandir capacidades,
+gestionar la memoria, internalizar y medir uso". Open Human Memory no puede
+reclamar esas ideas; su espacio es el **diagnóstico controlado de transferencia
+composicional** y la **curva longitudinal**.
+
 ## 3. Por qué CUMULUS/JANUS no bastan
 
 La secuencia de CUMULUS es:

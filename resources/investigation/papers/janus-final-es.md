@@ -262,24 +262,26 @@ contradicciones, transferencia negativa, abstención correcta.
 **Criterio de muerte:** si E no supera a C o D en las primarias, la complejidad
 adicional no se justifica.
 
-### 11.1 Nota empírica: prototipo 001 (sintético)
+### 11.1 Nota empírica: prototipo 002 (sin filtración)
 
-El diagnóstico A–E se ejecutó con 200 tareas de entrenamiento, 50 de evaluación y
-tres semillas. Media de accuracy:
+El Prototipo 001 quedó invalidado por target leakage. El 002 separa observación y
+solución, infiere la regla desde tres ejemplos y añade composición.
 
-| Condición | D1 | D2 | D3 |
+Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
+
+| Condición | D1 | D2 | D3 (composición) |
 |---|---|---|---|
 | A sin memoria | 0.240 | 0.507 | 0.000 |
-| B retrieval | 0.980 | 0.993 | 0.027 |
-| C oráculo | 1.000 | 1.000 | 0.000 |
-| D procedimiento | 0.920 | 1.000 | 0.007 |
-| E abstracción | 0.487 | 0.000 | 0.000 |
+| B retrieval | 0.553 | 0.513 | 0.027 |
+| C oráculo | 1.000 | 1.000 | 1.000 |
+| D primitiva | 1.000 | 1.000 | 0.000 |
+| E composición | 1.000 | 1.000 | 1.000 |
 
-El instrumento separa las condiciones; en este juguete, retrieval y procedimiento
-se acercan al techo en familias conocidas, mientras la abstracción placeholder
-falla en familias nuevas. **JANUS no se probó todavía**: el prototipo valida el
-instrumento, no la hipótesis causal. El siguiente paso es conectar A–E a tareas
-reales y a un adaptador de política LLM.
+El instrumento muestra que retrieval no basta cuando la regla está en los
+ejemplos; una primitiva inducida resuelve reglas simples; la composición es el
+discriminador. **JANUS no se probó todavía**: el prototipo valida el instrumento,
+no la hipótesis causal. El siguiente paso es conectar `COMP-*` a tareas reales y a
+un adaptador de política LLM.
 
 ## 12. Límites, seguridad y gobernanza
 
