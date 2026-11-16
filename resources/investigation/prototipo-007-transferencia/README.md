@@ -4,7 +4,7 @@
 **Estado:** **ejecutado, resultado negativo**. Primera prueba del proyecto con
 retención real, reinicio de contexto y control placebo.
 **Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, `codex-cli 0.169.0`
-(corrida principal). Réplica con `gpt-6-luna` low en curso.
+— **exploratoria, no evidencia**. La evidencia válida es `gpt-6-luna` low, en curso.
 **Código:** `src/ohmem/v7_transfer.py`.
 **Resultados:** `results/terra-medium-*.json` y `results/summary.json`.
 
@@ -73,6 +73,17 @@ difieren entre sí en 1 tarea a favor de cada uno.
 4. **No hay evidencia de transferencia.** La respuesta a la pregunta del §1 es:
    **no en esta familia**. Un procedimiento verificado retenido no mejora el
    desempeño futuro más que un placebo.
+
+### 4.1 Corrida con `luna` low (modelo de experimentos)
+
+La sesión 1 devolvió `double → reverse → sort_desc`, que **no reproduce el motivo**
+en las 60 sondas. La verificación falló y el experimento **abortó antes de la
+sesión 2**, como está diseñado: no se entrega un artefacto no verificado.
+
+Por tanto, **con el modelo de experimentos no hay datos de transferencia**: el cuello
+es la **adquisición** del artefacto, no su uso. Siguiente intento: más ejemplos, un
+motivo más simple, o pedir explícitamente el número de operaciones. No se relaja la
+verificación para que pase.
 
 ## 5. Qué falló y qué haría falta
 

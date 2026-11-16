@@ -92,13 +92,17 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## G. Retención y transferencia (Prototipo 007)
 
+> **Exploratorio.** Las cifras de esta sección son de `gpt-6.1-terra` medium y no
+> cuentan como evidencia. La evidencia válida es la de `gpt-6-luna` low.
+
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| G1 | En estas muestras, el clon acertó 12/12 con 3 ejemplos y 9/12 o 10/12 en dos corridas con 1 ejemplo, para programas nominales de 5 pasos; el smoke 7–9 fue 4/4 por condición | Sostenida (local) | E2 local | Repetición con más semillas y clases conductuales |
-| G2 | Con el artefacto presentado como programa completo, memoria 2/12 y clon 10/12; 8 pares a favor del clon y 0 en contra. El mecanismo (anclaje) no está identificado | Sostenida (local) | E2 local | Comparación controlada de encuadres |
-| G3 | Con encuadre de subrutina, memoria y placebo 11/12 cada uno; cada uno acertó una tarea que el otro falló. La muestra no establece equivalencia | Abierta | E2 local | Intervalo de equivalencia con margen fijado |
+| G1 | Con `luna` low, la sesión 1 no produjo un artefacto verificado (devolvió 3 operaciones que no reproducen el motivo); el 007 abortó antes de la sesión 2 | Sostenida (local) | E2 local | Un prompt o motivo que sí verifique |
+| G2 | La transferencia del procedimiento retenido no está medida con el modelo de experimentos | Abierta | — | Ejecutar 007 con un artefacto verificado |
 
 ## H. Representación (LIRE-001)
+
+> **Exploratorio.** Cifras de `gpt-6.1-terra` medium; no cuentan como evidencia.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
@@ -109,22 +113,25 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## I. Representación con skill larga (LIRE-001b)
 
+> **Exploratorio.** Cifras de `gpt-6.1-terra` medium; no cuentan como evidencia.
+
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| B1 | Con skill larga, la representación cambia los tokens de entrada | Sostenida (local) | E2 local | Diferencia ≤ 500 tokens entre la más larga y la más corta |
-| B2 | El chino usa menos tokens que el español | Sostenida (local) | E2 local | Chino ≥ español |
-| B3 | El español conciso usa menos tokens que el español | Sostenida (local) | E2 local | Conciso ≥ español |
-| B4 | El DSL conserva el acierto con la skill larga | Sostenida (local) | E2 local | El DSL falla algún caso |
-| B5 | Las prosas conservan el acierto | Sostenida (local) | E2 local | Alguna prosa falla |
-| B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,2 % con seis casos y mínimo |
+| B1 | Con skill larga, la representación cambia los tokens de entrada (0,4–6,0 %) | Sostenida (local) | E2 local | Diferencia ≤ 500 tokens entre la más larga y la más corta |
+| B2 | El chino usa menos tokens que el español (−362) y conserva el acierto (6/6) | Sostenida (local) | E2 local | Chino ≥ español o falla algún caso |
+| B3 | El español conciso usa menos tokens que el español (−1.698) | Sostenida (local) | E2 local | Conciso ≥ español |
+| B4 | El DSL conserva el acierto con la skill larga | **Refutada** | E2 local | 4/6; falla los dos `NONE` por no comprobar el umbral |
+| B5 | Las prosas conservan el acierto | **Refutada parcialmente** | E2 local | Español 4/6; inglés y chino 6/6 |
+| B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,3 % con seis casos y mínimo |
+| B7 | Los fallos de las formas compactas son de condición (`NONE`), no de búsqueda | Sostenida (local) | E2 local | Fallos en casos que cumplen el umbral |
 
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **38 sostenidas**: 33 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **36 sostenidas**: 31 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **9 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
+- **11 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
 - **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
@@ -143,6 +150,7 @@ por ejecución, benchmarks de transferencia y resultados negativos a escala.
 2. Un resultado negativo cambia el estado; no se borra la fila.
 3. Un cambio de estado exige enlace al resultado crudo.
 4. Las filas `inválida` se conservan: son lecciones metodológicas.
+
 
 
 

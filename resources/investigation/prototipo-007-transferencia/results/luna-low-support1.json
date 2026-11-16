@@ -1,0 +1,20 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 0,
+  "n": 12,
+  "support": 1,
+  "suffix": 3,
+  "session1": {
+    "program": [
+      "double",
+      "reverse",
+      "sort_desc"
+    ],
+    "verified": false,
+    "seconds": 6.11
+  },
+  "error": "artifact not verified; experiment aborted before session 2",
+  "conditions": {},
+  "rows": []
+}

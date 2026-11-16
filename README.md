@@ -173,46 +173,52 @@ queda es una línea base de 46,9 % y una lista de cinco fallos metodológicos.
 Detalle en [`docs/errata-006b.md`](docs/errata-006b.md) y el plan en
 [`docs/problema-central.md`](docs/problema-central.md).
 
-## 007: retención real, reinicio y placebo (negativo)
+## 007: retención real, reinicio y placebo (bloqueado en adquisición)
 
 Primera prueba con retención genuina: el agente aprende un procedimiento, **nosotros
 lo verificamos** con 60 entradas, se reinicia el contexto y lo aplica a
 composiciones de cinco pasos.
 
-| Régimen | `clone` | `memory` | `placebo` |
-|---|---|---|---|
-| 3 ejemplos | **12/12** | 11/12 | **12/12** |
-| 1 ejemplo, artefacto como programa completo | 10/12 | **2/12** | 11/12 |
-| 1 ejemplo, artefacto como subrutina | 9/12 | **11/12** | **11/12** |
+**Con `gpt-6-luna` low (modelo de experimentos), la sesión 1 no produjo un artefacto
+verificable:** devolvió `double → reverse → sort_desc`, que no reproduce el motivo.
+El experimento **abortó antes de la sesión 2**, como está diseñado. No hay datos de
+transferencia con el modelo válido: el cuello es la **adquisición**, no el uso.
 
-La memoria **empata con un artefacto falso** (11/12 cada uno): la diferencia frente
-al clon es de contexto, no de conocimiento. Presentada como programa completo,
-**perjudica**. El clon resuelve profundidad 5–9 sin ayuda, así que la familia no
-tiene margen. Resultado negativo de calibración, no evidencia contra la
-transferencia. Detalle en
+La corrida con terra (exploratoria, no evidencia) mostró:
+
+| Régimen (terra) | `clone` | `memory` | `placebo` |
+|---|---|---|---|
+| 3 ejemplos | 12/12 | 11/12 | 12/12 |
+| 1 ejemplo, artefacto como programa completo | 10/12 | 2/12 | 11/12 |
+| 1 ejemplo, artefacto como subrutina | 9/12 | 11/12 | 11/12 |
+
+La memoria empató con un artefacto falso: la diferencia frente al clon era de
+contexto, no de conocimiento. Pero esas cifras **no cuentan como evidencia** porque
+el modelo era distinto. Detalle en
 [`prototipo-007-transferencia/`](resources/investigation/prototipo-007-transferencia/).
 
-## LIRE-001: el chino ahorra caracteres, no tokens (negativo)
+## LIRE-001b: el ahorro de tokens se paga en fidelidad
 
-Una regla de cuatro ramas en cinco representaciones, con **tokens reales** de
-`gpt-6.1-terra` medium:
+120 reglas, seis casos, **`gpt-6-luna` low** (modelo de experimentos):
 
-| Representación | Acierto | Caracteres | Bytes | Tokens (mediana) |
+| Representación | Acierto | Caracteres | Bytes | Tokens (mín.) |
 |---|---|---|---|---|
-| Español | **8/8** | 385 | 389 | 26.074 |
-| Inglés | **8/8** | 363 | 363 | 26.060 |
-| Chino | **8/8** | **139** | 381 | 26.076 |
-| Español conciso | **8/8** | 133 | **146** | 26.018 |
-| DSL simbólico | **7/8** | 200 | 200 | 26.041 |
+| Español | 4/6 | 9.267 | 9.388 | 28.230 |
+| Inglés | **6/6** | 9.034 | 9.034 | 28.107 |
+| Chino | **6/6** | **4.258** | 8.412 | 27.868 |
+| Español conciso | 4/6 | **3.052** | **3.295** | **26.532** |
+| DSL simbólico | 4/6 | 4.963 | 4.963 | 27.009 |
 
-- **El chino usa 64 % menos caracteres y +2 tokens.** Los caracteres no predicen los
-  tokens; los bytes tampoco (381 vs 389).
-- **El DSL compacto perdió un caso**: aplicó la rama equivocada. Compacto no es
-  fiel.
-- El arnés aporta ~26.000 tokens; las diferencias entre representaciones caben en el
-  ruido. **No se puede afirmar ahorro.**
+- **El ahorro es real pero pequeño:** 0,4–6,0 % de la llamada completa.
+- **Todos los fallos son de condición:** el modelo encuentra la regla correcta y no
+  comprueba el umbral; devuelve `S051` donde tocaba `NONE`. No es un fallo de
+  búsqueda.
+- **El chino es el mejor compromiso:** 6/6 y −1,3 % de tokens.
+- **El español conciso y el DSL ahorran más y fallan más:** 2/6 cada uno, siempre en
+  los casos `NONE`.
+- La corrida con terra (6/6 en todas) es **exploratoria y no se usa**.
 
-Detalle y límites en [`lire-001/`](resources/investigation/lire-001/).
+Detalle y límites en [`lire-001b/`](resources/investigation/lire-001b/).
 
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
@@ -261,7 +267,8 @@ que el 004 retiró.
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Línea base del agente: 46,9 % |
 | [prototipo-007-transferencia/](resources/investigation/prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
-| [lire-001/](resources/investigation/lire-001/) | Representación: chino ahorra caracteres, no tokens |
+| [lire-001/](resources/investigation/lire-001/) | Exploratorio (terra); sustituido por 001b |
+| [lire-001b/](resources/investigation/lire-001b/) | Con luna: ahorro 0,4–6,0 %, fallos de condición |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
 | [teoria.md](docs/teoria.md) | **Documento central:** canales, rivales y predicciones |
 | [registro-de-afirmaciones.md](docs/registro-de-afirmaciones.md) | Qué sostenemos, qué refutamos y qué está abierto |

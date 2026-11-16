@@ -2,7 +2,8 @@
 
 **Fecha:** 16 de noviembre de 2026
 **Estado:** **ejecutado, resultado negativo y con un hallazgo útil.**
-**Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, 40 llamadas.
+**Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, 40 llamadas —
+**exploratoria, no evidencia**. La evidencia válida es `gpt-6-luna` low, en curso.
 **Código:** `src/ohmem/lire_001.py`. **Protocolo:** `protocolo.md`.
 **Datos:** `results/terra-medium.json`.
 

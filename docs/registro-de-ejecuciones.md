@@ -12,18 +12,18 @@ pasos; no tarifas.
 |---|---|---|
 | OpenCode (agente de investigación) | `deepseek-v4.1-flash-1017` | máximo |
 | Codex CLI — análisis, revisión, feedback | `gpt-6.1-terra` | `medium` |
-| Codex CLI — ejecución de experimentos | `gpt-6-luna` | `low` |
+| Codex CLI — **todos los experimentos** | `gpt-6-luna` | `low` |
 
-Los experimentos se ejecutan con **luna low** para no gastar el presupuesto de
-terra. Terra se reserva para validar, criticar y proponer. Cuando un experimento
-tiene corridas con ambos modelos, se reportan por separado y no se mezclan.
+**Los experimentos se ejecutan solo con `luna` low.** No se comparan modelos: terra
+es más capaz por tecnología y cualquier diferencia estaría confundida. Las corridas
+con terra de 007 y LIRE son **exploratorias** (calibración y piloto) y **no se usan
+como evidencia** en el registro.
 
 `gpt-6-terra` (sin punto) **no existe** para cuentas ChatGPT: se verificó y
 responde «model is not supported». El identificador correcto es `gpt-6.1-terra`.
 
-El baseline del 006-B se ejecutó con `gpt-6-luna` low y es el mismo modelo que se
-usa ahora para experimentos; deja de ser una limitación de modelo, aunque sigue
-siendo un baseline pequeño.
+El baseline del 006-B, el 007 y las dos LIRE usan el mismo modelo de experimento:
+`gpt-6-luna` low. Eso hace comparables los resultados entre prototipos.
 
 
 Este documento existe para que un revisor pueda repetir cada experimento sin
@@ -137,32 +137,32 @@ decisión del autor y no se usa.
 
 | Campo | Valor |
 |---|---|
-| Modelo | `gpt-6.1-terra` |
-| `reasoning_effort` | `medium` |
+| Modelo | `gpt-6-luna` (evidencia) · `gpt-6.1-terra` (exploratorio) |
+| Esfuerzo | `low` (evidencia) · `medium` (exploratorio) |
 | CLI | `codex-cli 0.169.0` |
-| Llamadas principales | 111 (3 corridas × 37) |
-| Tareas | 12 por condición |
+| Llamadas principales | 37 con luna (abortó en sesión 1) · 111 con terra (exploratorio) |
+| Tareas | 12 por condición (terra) |
 | Condiciones | `clone`, `memory`, `placebo` |
-| Resultado | subrutina 9/11/11; programa completo 10/2/11; 3 ejemplos 12/11/12 |
+| Resultado | **luna: sesión 1 no verificó; abortado antes de la sesión 2** · terra: subrutina 9/11/11; programa completo 10/2/11; 3 ejemplos 12/11/12 |
 | Archivos | `prototipo-007-transferencia/results/terra-medium-*.json` |
 
 Los smokes de calibración (n=1, n=3, profundidades 7 y 9, n=4) usaron 53 llamadas
 adicionales y no se reportan como evidencia. El de n=3 se ejecutó con los probes de
 verificación defectuosos; corregidos antes de las corridas principales.
 
-## 5. LIRE-001 (representación)
+## 5. LIRE-001b (representación con skill larga)
 
 | Campo | Valor |
 |---|---|
-| Modelo | `gpt-6.1-terra` |
-| `reasoning_effort` | `medium` |
-| Llamadas | 40 (5 representaciones × 8 casos) |
-| Métrica | acierto exacto + `input_tokens`/`output_tokens` de `--json` |
-| Resultado | prosas 8/8; DSL 7/8; chino −64 % caracteres, +2 tokens |
-| Archivo | `lire-001/results/terra-medium.json` |
+| Modelo | `gpt-6-luna` (evidencia) · `gpt-6.1-terra` (exploratorio) |
+| Esfuerzo | `low` (evidencia) · `medium` (exploratorio) |
+| Llamadas | 30 con luna · 30 con terra (exploratorio) |
+| Métrica | acierto + `input_tokens` mínimo por representación |
+| Resultado | **luna: inglés y chino 6/6; español, conciso y DSL 4/6; ahorro 0,4–6,0 %** |
+| Archivo | `lire-001b/results/luna-low.json` (evidencia), `terra-medium.json` (exploratorio) |
 
-El `input_tokens` incluye ~26.000 tokens del arnés; la comparación válida es la
-diferencia entre representaciones (≤61 tokens de mediana).
+LIRE-001 (regla corta) se ejecutó solo con terra y queda como exploratorio: el arnés
+dominaba la medición. No se usa como evidencia.
 
 ## 6. Revisión de literatura
 
