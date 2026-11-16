@@ -107,13 +107,24 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | L3 | El DSL conserva el acierto con menos tokens | **Abierta** | E2 local | No se demostró conjuntamente ahorro y fidelidad |
 | L4 | Menos caracteres implican menos tokens | **Abierta** | E2 local | El experimento no aisló los tokens de la regla; el universal exige contraejemplo medido |
 
+## I. Representación con skill larga (LIRE-001b)
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| B1 | Con skill larga, la representación cambia los tokens de entrada | Sostenida (local) | E2 local | Diferencia ≤ 500 tokens entre la más larga y la más corta |
+| B2 | El chino usa menos tokens que el español | Sostenida (local) | E2 local | Chino ≥ español |
+| B3 | El español conciso usa menos tokens que el español | Sostenida (local) | E2 local | Conciso ≥ español |
+| B4 | El DSL conserva el acierto con la skill larga | Sostenida (local) | E2 local | El DSL falla algún caso |
+| B5 | Las prosas conservan el acierto | Sostenida (local) | E2 local | Alguna prosa falla |
+| B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,2 % con seis casos y mínimo |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **33 sostenidas**: 28 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **38 sostenidas**: 33 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **8 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
+- **9 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
 - **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
@@ -132,5 +143,6 @@ por ejecución, benchmarks de transferencia y resultados negativos a escala.
 2. Un resultado negativo cambia el estado; no se borra la fila.
 3. Un cambio de estado exige enlace al resultado crudo.
 4. Las filas `inválida` se conservan: son lecciones metodológicas.
+
 
 

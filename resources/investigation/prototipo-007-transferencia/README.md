@@ -3,7 +3,8 @@
 **Fecha:** 16 de noviembre de 2026
 **Estado:** **ejecutado, resultado negativo**. Primera prueba del proyecto con
 retención real, reinicio de contexto y control placebo.
-**Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, `codex-cli 0.169.0`.
+**Modelo:** `gpt-6.1-terra`, `reasoning_effort = medium`, `codex-cli 0.169.0`
+(corrida principal). Réplica con `gpt-6-luna` low en curso.
 **Código:** `src/ohmem/v7_transfer.py`.
 **Resultados:** `results/terra-medium-*.json` y `results/summary.json`.
 

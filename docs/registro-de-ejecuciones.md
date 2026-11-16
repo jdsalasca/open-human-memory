@@ -11,15 +11,19 @@ pasos; no tarifas.
 | Contexto | Modelo | Esfuerzo |
 |---|---|---|
 | OpenCode (agente de investigación) | `deepseek-v4.1-flash-1017` | máximo |
-| Codex CLI (revisión externa) | `gpt-6.1-terra` | `medium` |
-| Experimento 006-B (histórico) | `gpt-6-luna` | `low` |
+| Codex CLI — análisis, revisión, feedback | `gpt-6.1-terra` | `medium` |
+| Codex CLI — ejecución de experimentos | `gpt-6-luna` | `low` |
+
+Los experimentos se ejecutan con **luna low** para no gastar el presupuesto de
+terra. Terra se reserva para validar, criticar y proponer. Cuando un experimento
+tiene corridas con ambos modelos, se reportan por separado y no se mezclan.
 
 `gpt-6-terra` (sin punto) **no existe** para cuentas ChatGPT: se verificó y
 responde «model is not supported». El identificador correcto es `gpt-6.1-terra`.
 
-El baseline del 006-B se ejecutó con `gpt-6-luna` low y se conserva como registro
-histórico. **Debe repetirse con `gpt-6.1-terra` medium antes de publicar**; se
-declara como limitación en el manuscrito.
+El baseline del 006-B se ejecutó con `gpt-6-luna` low y es el mismo modelo que se
+usa ahora para experimentos; deja de ser una limitación de modelo, aunque sigue
+siendo un baseline pequeño.
 
 
 Este documento existe para que un revisor pueda repetir cada experimento sin
