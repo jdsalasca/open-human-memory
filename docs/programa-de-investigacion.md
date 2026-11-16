@@ -40,6 +40,12 @@ resultado del 007 —memoria 3/12, placebo 6/12— no se interpreta como falta d
 memoria: mide una tarea que el modelo no aplica de forma fiable. No se identifica el
 mecanismo (ejecución, interpretación de las operaciones, instrucciones o heurística).
 
+**Lo que añadió EXEC-001.** Con el programa completo: 2 operaciones 11/12 (86 % por
+longitud mínima), 3 operaciones 7/12 (44 %), 4 operaciones 8/12 (50 %), 5 operaciones
+4/12 (0–33 %). La profundidad nominal no es monótona; la **longitud mínima
+equivalente** separa mejor. El único régimen aplicable son **2 operaciones
+efectivas**; 3 ya es frágil. La familia de 5 pasos queda cerrada para memoria.
+
 **El orden correcto:**
 
 1. **EXEC-001:** mapa de aplicación por profundidad y **complejidad funcional mínima**

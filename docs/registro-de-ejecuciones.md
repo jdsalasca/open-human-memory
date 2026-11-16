@@ -202,6 +202,20 @@ dominaba la medición. No se usa como evidencia.
 | Lectura | la recuperación funciona; el fallo está en la condición; el chino no ahorra tokens ni acierta más |
 | Archivos | `lire-002/results/luna-low-12cases.json`, `...-pilot-instruction.json` |
 
+## 5c. EXEC-001 (mapa de aplicación)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6-luna` |
+| Esfuerzo | `low` |
+| Llamadas | 52: 4 profundidades × (1 adquisición + 12 oráculo) |
+| Tareas | 12 por profundidad (2–5 operaciones) |
+| Condición | `oracle`: programa completo simbólico |
+| Resultado | 2 ops 11/12; 3 ops 7/12; 4 ops 8/12; 5 ops 4/12 |
+| Longitud mínima | 2 ops 18/21; 3 ops 8/18; 4 ops 4/8; 5 ops 0/1 |
+| Lectura | el régimen aplicable son 2 operaciones efectivas; la nominal no es monótona |
+| Archivos | `exec-001/results/oracle-depth-{2,3,4,5}.json` |
+
 ## 6. Revisión de literatura
 
 | Campo | Valor |

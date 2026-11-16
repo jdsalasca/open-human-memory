@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 79 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 83 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -305,6 +305,7 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
 | 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
 | 007B | información, instrucción o ejecución | 12 tareas, `luna` low | clone, memory, placebo, history, oracle | llamadas | 1/3/6/4/2 | — | Negativo: el oráculo 2/12 |
+| EXEC-001 | aplicación con el programa dado | 12 tareas × 4 profundidades, `luna` low | oráculo simbólico | llamadas | 2 ops 11/12; 3 ops 7/12; 4 ops 8/12; 5 ops 4/12 | 1–5 tareas | La longitud efectiva manda |
 | LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Retractado: la tabla era una fórmula |
 | LIRE-002 | información independiente | 12 casos × 8 formas, `luna` low | 7 representaciones + sin tabla | tokens incrementales | sin tabla 0/7; en/DSL 12/12; tabla 8/12 | 1–2 casos | Mixto: condición, no idioma |
 
@@ -412,6 +413,13 @@ ejecución, interpretación de las operaciones, seguimiento de instrucciones o u
 heurística. El control demuestra que conocer el programa no basta. La memoria tampoco
 supera al historial (3/12 vs 4/12), así que el programa verificado no aporta sobre
 las experiencias crudas.
+
+**EXEC-001: mapa de aplicación.** Con el programa completo, `luna` acierta 11/12 con
+2 operaciones, 7/12 con 3, 8/12 con 4 y 4/12 con 5. La **longitud mínima
+equivalente** separa mejor que la nominal: 2 operaciones 18/21, 3 operaciones 8/18,
+4 operaciones 4/8, 5 operaciones 0/1. La profundidad nominal no es monótona (4 supera
+a 3). El único régimen aplicable es 2 operaciones; la memoria debe probarse ahí, no
+en cinco pasos.
 
 ### 5.8 LIRE-001b: representación con skill larga (retractado)
 
@@ -586,8 +594,8 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-79 afirmaciones en `docs/registro-de-afirmaciones.md`: 51 sostenidas (46 propias; 5 de
-terceros, no replicadas), 14 refutadas, 14 abiertas, inválidas o no demostradas.
+83 afirmaciones en `docs/registro-de-afirmaciones.md`: 53 sostenidas (48 propias; 5 de
+terceros, no replicadas), 15 refutadas, 15 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró

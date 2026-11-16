@@ -1,0 +1,361 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 0,
+  "n": 12,
+  "support": 2,
+  "suffix": 2,
+  "motif": [
+    "sort_asc",
+    "double"
+  ],
+  "placebo": [
+    "sort_desc",
+    "double"
+  ],
+  "session1": {
+    "program": [
+      "double",
+      "sort_asc"
+    ],
+    "verified": true,
+    "timed_out": false,
+    "seconds": 6.62
+  },
+  "conditions": {
+    "oracle": {
+      "correct": 8,
+      "n": 12,
+      "accuracy": 0.6667,
+      "mean_seconds": 6.3,
+      "mean_prompt_chars": 396,
+      "timeouts": 0
+    }
+  },
+  "rows": [
+    {
+      "condition": "oracle",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        12,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        12,
+        14,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 395,
+      "seconds": 5.66,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "negate"
+      ],
+      "expected": [
+        -12,
+        -20,
+        -32,
+        -36
+      ],
+      "answer": [
+        -18,
+        -30,
+        -48,
+        -54
+      ],
+      "correct": false,
+      "prompt_chars": 401,
+      "seconds": 6.14,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        2,
+        12,
+        16,
+        16
+      ],
+      "answer": [
+        -2,
+        -12,
+        -16,
+        -16
+      ],
+      "correct": false,
+      "prompt_chars": 390,
+      "seconds": 11.02,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double"
+      ],
+      "expected": [
+        14,
+        26,
+        30,
+        34
+      ],
+      "answer": [
+        14,
+        26,
+        30,
+        34
+      ],
+      "correct": true,
+      "prompt_chars": 395,
+      "seconds": 6.41,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "add_one"
+      ],
+      "expected": [
+        9,
+        9,
+        11,
+        17
+      ],
+      "answer": [
+        9,
+        9,
+        17,
+        17
+      ],
+      "correct": false,
+      "prompt_chars": 395,
+      "seconds": 5.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        20,
+        16,
+        12,
+        4
+      ],
+      "answer": [
+        20,
+        16,
+        12,
+        4
+      ],
+      "correct": true,
+      "prompt_chars": 396,
+      "seconds": 6.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double"
+      ],
+      "expected": [
+        -4,
+        -12,
+        -32,
+        -32
+      ],
+      "answer": [
+        -4,
+        -12,
+        -32,
+        -32
+      ],
+      "correct": true,
+      "prompt_chars": 400,
+      "seconds": 5.4,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "double"
+      ],
+      "expected": [
+        56,
+        56,
+        64,
+        72
+      ],
+      "answer": [
+        56,
+        56,
+        64,
+        72
+      ],
+      "correct": true,
+      "prompt_chars": 393,
+      "seconds": 5.97,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        16,
+        12,
+        10,
+        4
+      ],
+      "answer": [
+        16,
+        12,
+        10,
+        4
+      ],
+      "correct": true,
+      "prompt_chars": 395,
+      "seconds": 5.29,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc"
+      ],
+      "expected": [
+        -10,
+        -8,
+        -4,
+        -4
+      ],
+      "answer": [
+        -10,
+        -8,
+        -4,
+        -4
+      ],
+      "correct": true,
+      "prompt_chars": 402,
+      "seconds": 5.64,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        -14,
+        -14,
+        -12,
+        -10
+      ],
+      "answer": [
+        -14,
+        -14,
+        -12,
+        -10
+      ],
+      "correct": true,
+      "prompt_chars": 399,
+      "seconds": 6.78,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        -16,
+        -14,
+        -12,
+        -2
+      ],
+      "answer": [
+        -14,
+        -2,
+        -12,
+        -16
+      ],
+      "correct": false,
+      "prompt_chars": 397,
+      "seconds": 5.37,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ]
+}

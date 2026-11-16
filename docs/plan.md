@@ -101,9 +101,14 @@ de 2 operaciones y añadió `history` (los 12 pares de origen) y `oracle` (el pr
 completo) a las 12 tareas del soporte 2. Resultado: clon 1/12, memoria 3/12, placebo
 6/12, historial 4/12, **oráculo 2/12**. Con el programa completo el modelo apenas
 resuelve 2 de 12: **el cuello está en la aplicación del programa, no en la memoria**;
-el mecanismo exacto queda abierto. El siguiente paso es EXEC-001 (aplicación por
-profundidad y complejidad funcional); después, 007C con una tarea aplicable pero no
-identificable.
+el mecanismo exacto queda abierto.
+
+**EXEC-001 (ejecutado).** Con el programa completo: 2 operaciones 11/12, 3
+operaciones 7/12, 4 operaciones 8/12, 5 operaciones 4/12. Por longitud mínima
+equivalente: 2 ops 18/21, 3 ops 8/18, 4 ops 4/8, 5 ops 0/1. La profundidad nominal no
+es monótona. El siguiente paso es **MEM-002** con procedimientos de 2–3 operaciones
+efectivas, donde el clon aplica pero no identifica; la familia de 5 pasos queda
+cerrada para memoria.
 
 ---
 

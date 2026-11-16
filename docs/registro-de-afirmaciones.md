@@ -155,15 +155,27 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | L8 | La tabla TSV o el JSON no pierden más de un caso positivo frente al español | Sostenida (local) | E2 local | Pierden ≥ 2 casos en la misma corrida |
 | L9 | Las diferencias de acierto entre español, inglés y chino no se establecen con 12 casos | Sostenida (local) | E2 local | Un intervalo que excluya cero con el diseño actual |
 
+## K. Aplicación de programas (EXEC-001)
+
+> **Ejecutado con `gpt-6-luna` low, 12 tareas por profundidad, condición simbólica.**
+> `steps` y `nl` pendientes.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| E1 | Con el programa completo, `luna` acierta ≥ 10/12 en profundidad 2 | Sostenida (local) | E2 local | < 10/12 |
+| E2 | El acierto disminuye al aumentar la profundidad nominal | **Refutada** | E2 local | Profundidad 4 (8/12) supera a 3 (7/12) |
+| E3 | Pedir los estados intermedios mejora la aplicación en la profundidad de cruce | Abierta | E2 local | `steps` ≤ `symbolic` |
+| E4 | La longitud mínima equivalente separa el acierto mejor que la profundidad nominal | Sostenida (local, cualitativa) | E2 local | La nominal predice mejor en una muestra mayor |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **51 sostenidas**: 46 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **53 sostenidas**: 48 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **14 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y la
-  hipótesis de ejecución del 007B.
-- **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la
+- **15 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y la
+  monotonía de la profundidad nominal.
+- **15 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**

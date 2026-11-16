@@ -1,0 +1,337 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 0,
+  "n": 12,
+  "support": 2,
+  "suffix": 0,
+  "motif": [
+    "sort_asc",
+    "double"
+  ],
+  "placebo": [
+    "sort_desc",
+    "double"
+  ],
+  "session1": {
+    "program": [
+      "double",
+      "sort_asc"
+    ],
+    "verified": true,
+    "timed_out": false,
+    "seconds": 6.49
+  },
+  "conditions": {
+    "oracle": {
+      "correct": 11,
+      "n": 12,
+      "accuracy": 0.9167,
+      "mean_seconds": 6.4,
+      "mean_prompt_chars": 371,
+      "timeouts": 0
+    }
+  },
+  "rows": [
+    {
+      "condition": "oracle",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.37,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        2,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 371,
+      "seconds": 6.93,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 371,
+      "seconds": 9.4,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 5.77,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "answer": [
+        2,
+        10,
+        14,
+        14
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.6,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "answer": [
+        8,
+        14,
+        18,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.76,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "answer": [
+        4,
+        6,
+        6,
+        8
+      ],
+      "correct": true,
+      "prompt_chars": 372,
+      "seconds": 5.97,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        16
+      ],
+      "correct": true,
+      "prompt_chars": 373,
+      "seconds": 5.93,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "answer": [
+        8,
+        16,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 6.42,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "answer": [
+        4,
+        14,
+        14,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 369,
+      "seconds": 5.58,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        18
+      ],
+      "correct": true,
+      "prompt_chars": 370,
+      "seconds": 5.53,
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "condition": "oracle",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        2,
+        4,
+        18,
+        18
+      ],
+      "answer": [
+        2,
+        2,
+        18,
+        18
+      ],
+      "correct": false,
+      "prompt_chars": 373,
+      "seconds": 6.12,
+      "returncode": 0,
+      "timed_out": false
+    }
+  ]
+}
