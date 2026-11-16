@@ -234,26 +234,43 @@ Protocolo `08-hipotesis-y-experimentos.md` v2.0:
 **Criterio de muerte:** si CUMULUS no supera al rival simple en la métrica
 primaria con IC 95% que excluya cero, la arquitectura no aporta.
 
-### 7.1 Nota empírica: prototipo 003 (aprendizaje de macros)
+### 7.1 Nota empírica: prototipos 003 y 004-A (aprendizaje de macros)
 
 El Prototipo 002 resultó ser un **benchmark de solucionador**: `MEM-A0`, el mismo
-solucionador composicional sin historial, empató con `MEM-E` en D1/D2/D3. El 003
-introduce aprendizaje real: encapsula programas de dos pasos que se repiten como
-macros y las usa en evaluación.
+solucionador composicional sin historial, empató con `MEM-E` en D1/D2/D3.
 
-Media de 3 semillas, 60 de entrenamiento, 30 de evaluación:
+El 003 aprendió macros de programas repetidos y pareció obtener una capacidad
+nueva (100 % en profundidad 3). El 004-A reejecutó el diseño con protocolo
+congelado y los controles que faltaban: rejilla completa de 64 programas, control
+sin memoria a profundidad 3 y barrido de las 560 bibliotecas del mismo lenguaje.
+Media de 3 semillas:
 
-| Condición | D1 | D2 | D3 (profundidad 3) |
+| Condición | Aciertos /64 | Candidatos | Candidatos por acierto |
 |---|---|---|---|
-| NOLEARN | 1.000 | 1.000 | 0.000 |
-| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
-| LEARNED | 1.000 | 1.000 | 1.000 |
-| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
+| Sin memoria, profundidad 2 | 33 (51,6 %) | 876 | 26,6 |
+| **Sin memoria, profundidad 3** | **64 (100 %)** | 1.761 | 27,5 |
+| Azar, mismo lenguaje, profundidad 2 | 50,7 (79,3 %) | 1.543 | 30,5 |
+| Macros aprendidas, profundidad 2 | 54 (84,4 %) | 1.448 | 26,8 |
+| Macros aprendidas, profundidad 3 | 64 (100 %) | 2.247 | 35,1 |
 
-**Si se elimina el historial, se pierde D3.** La ganancia no es gratis: LEARNED
-gasta 740 candidatos en D3 frente a 1.680 de RANDOM. Es un resultado sintético,
-no de CUMULUS ni de un LLM; las macros son composiciones de primitivas conocidas,
-no conceptos nuevos. Detalles en `prototipo-003-aprendizaje/`.
+Resultados:
+
+- **No hay capacidad nueva.** Sin historial y con profundidad 3 se resuelve todo.
+  El límite de dos pasos lo impuso el experimento.
+- **La biblioteca es una compilación con pérdida:** gana 17,8 % de candidatos y
+  pierde 15,6 pp de cobertura; por acierto el ahorro es 2,6 %.
+- **Con profundidad 3 permitida, la biblioteca encarece la búsqueda un 27,6 %.**
+- **El control aleatorio del 003 estaba amañado:** 250/560 bibliotecas
+  arbitrarias del mismo lenguaje eran perfectas en su conjunto de evaluación, y
+  124/560 igualan o superan a la aprendida en la rejilla completa.
+- **La curva se satura en 6 experiencias.**
+- **Única ganancia defendible:** con presupuesto ≤ 40 candidatos por tarea la
+  biblioteca acierta más; desde 60, la búsqueda profunda la supera.
+
+Conclusión para este paper: el aprendizaje de macros, tal como está implementado,
+funciona como **prior barato bajo cómputo acotado**, no como ampliación de
+competencia. CUMULUS no puede citarlo como validación de portabilidad ni de
+expansión. Es un resultado sintético, no de un LLM.
 
 ## 8. Límites y seguridad
 

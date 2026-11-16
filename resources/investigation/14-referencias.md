@@ -418,9 +418,15 @@ incluyen volumen y páginas cuando se verificaron.
 
 ## Programación por ejemplos y aprendizaje de bibliotecas
 
+- Bowers, M., Olausson, T. X., Wong, L., Grand, G., Tenenbaum, J. B., Ellis, K., & Solar-Lezama, A. (2023). Top-down synthesis for library learning. *POPL 2023*. DOI: 10.1145/3571234.
 - Ellis, K., Wong, C., Nye, M., Sablé-Meyer, M., Morales, L., Hewitt, L., Cary, L., Solar-Lezama, A., & Tenenbaum, J. B. (2021). DreamCoder: Bootstrapping inductive program synthesis with wake-sleep library learning. *PLDI 2021*.
 - EvoMemBench. (2026). *A benchmark for memory systems*. arXiv:2605.18421.
+- Grand, G., Wong, L., Bowers, M., Olausson, T. X., Liu, M., Tenenbaum, J. B., & Andreas, J. (2024). LILO: Learning interpretable libraries by compressing and documenting code. *ICLR 2024*.
 - Gulwani, S. (2011). Automating string processing in spreadsheets using input-output examples. *POPL 2011*.
+- Sutton, R. S., Precup, D., & Singh, S. (1999). Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning. *Artificial Intelligence*, 112(1–2), 181–211.
+- ContinualSkillBench. (2026). *Can LLM agents truly evolve their capabilities?* arXiv:2608.03874. **[pendiente de verificación primaria]**
+- SkillLearnBench. (2026). *Benchmarking continual learning methods for agent skill generation on real-world tasks*. arXiv:2604.20087. **[pendiente de verificación primaria]**
+- SWE-Skills-Bench. (2026). arXiv:2603.15401. **[pendiente de verificación primaria]**
 
 ## Nota sobre fuentes
 

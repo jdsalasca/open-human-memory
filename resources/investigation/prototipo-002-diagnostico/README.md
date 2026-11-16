@@ -96,8 +96,9 @@ distinta. Resultados en `results/longitudinal-seed-*.json`.
 
 Conclusión honesta: el 002 es un **benchmark de solucionador**, útil para
 verificar que el instrumento separa recuperación, primitiva y composición. **No
-es evidencia de aprendizaje acumulativo.** Esa prueba es el Prototipo 003, donde
-las macros se aprenden de la experiencia y la ablación las elimina.
+es evidencia de aprendizaje acumulativo.** El Prototipo 003 intentó serlo y el
+004-A mostró que tampoco: su ventaja desaparece con búsqueda profunda sin
+historial (`../prototipo-004-validez/`).
 
 ## 5. Qué NO prueba
 

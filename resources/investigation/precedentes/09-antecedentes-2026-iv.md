@@ -104,19 +104,24 @@ aprendizaje paramétrico: la línea híbrida que el programa v3 pide.
 
 ## 7. SkillsBench — skills curadas vs autogeneradas (2026)
 
-**Qué hace.** 87 tareas, 8 dominios, 18 configuraciones modelo–harness; skills
-curadas por expertos vs autogeneradas por el agente, con verificadores
-deterministas.
+**Qué hace.** Evalúa skills curadas por expertos frente a skills autogeneradas por
+el agente, con verificadores deterministas.
 
-**Resultados.** Skills curadas: 33,9% → 50,5% (+16,6 pp). Skills autogeneradas:
-−8,1 a −11,5 pp en tres configuraciones. 1–3 skills funcionan mejor que 4+;
-skills compactas mejor que documentación exhaustiva.
+**Resultados (versión arXiv:2602.12670v2, 86 tareas, 11 dominios).** Skills
+curadas: +16,2 pp de media. Skills autogeneradas: **sin beneficio medio** en la
+evaluación considerada. 1–3 skills funcionan mejor que 4+; skills compactas mejor
+que documentación exhaustiva.
+
+> **Corrección de versión.** Una versión anterior de este repositorio citaba 87
+> tareas, 8 dominios, +16,6 pp y −8,1/−11,5 pp. Esas cifras corresponden a otra
+> versión del manuscrito. Toda cifra de este documento debe citarse con la versión
+> exacta; el protocolo `25-protocolo-fuentes.md` ya lo exige y aquí no se cumplía.
 
 **Por qué importa.** Es la objeción más directa a CUMULUS: si el agente genera sus
 propios procedimientos desde experiencias imperfectas, ¿por qué serán comparables
 a los curados? Los tests no bastan; hay que demostrar calidad de inducción.
 
-**Referencia:** arXiv:2602.12670; skillsbench.ai.
+**Referencia:** arXiv:2602.12670 (v2); skillsbench.ai.
 
 ## 8. How Well Do Agentic Skills Work in the Wild (Liu et al., 2026)
 
@@ -138,16 +143,40 @@ configuraciones; Terminal-Bench 57,7% → 65,5%.
   ejemplos input→output; la ambigüedad y el tamaño del espacio son el problema
   central.
 - **DreamCoder** (Ellis et al., 2021): resuelve tareas, descubre subestructuras
-  reutilizables y amplía su biblioteca de conceptos con wake-sleep; es el
-  antecedente más cercano a "adquirir operaciones nuevas desde la experiencia".
+  reutilizables y **aprende también la política de búsqueda** con wake-sleep. No
+  es solo una biblioteca: es biblioteca + búsqueda adaptativa.
+- **Stitch** (Bowers et al., 2023): descubrimiento de abstracciones por
+  compresión *top-down*; reporta mejoras de varios órdenes de magnitud en tiempo
+  frente a algoritmos previos de library learning. Es la referencia obligada para
+  saber si compilar abstracciones es económicamente viable.
+- **LILO** (Grand et al., 2024): síntesis guiada por LLM + compresión simbólica +
+  **documentación** de las abstracciones. El antecedente directo de «artefacto
+  ejecutable con explicación natural».
+- **Options** (Sutton, Precup y Singh, 1999): una habilidad temporalmente
+  extendida tiene condición de iniciación, política interna y condición de
+  terminación. Una macro determinista no es una option: le falta la política de
+  activación.
 - **EvoMemBench** (2026): compara sistemas de memoria y muestra que los
   baselines de contexto largo siguen siendo competitivos.
+- **ContinualSkillBench** (2026): aprendizaje continuo de habilidades en cinco
+  dominios; conservar contexto y feedback resulta comparable a mantener una
+  biblioteca explícita en algunas configuraciones.
+- **SkillLearnBench** (2026): las mejoras de habilidades autogeneradas no son
+  uniformes entre tareas, modelos y métodos; hay deriva al depender del propio
+  feedback.
+- **SWE-Skills-Bench** (2026): las habilidades no benefician uniformemente a los
+  agentes.
 
 **Implicación:** el `MEM-E` del 002 es PBE exhaustivo sobre cuatro primitivas y
 profundidad dos; no es una innovación algorítmica. El 003 es un paso mínimo tipo
-DreamCoder: aprende macros de programas repetidos. La contribución debe estar en
-demostrar que esas abstracciones mejoran el aprendizaje futuro, no en enumerar
-composiciones.
+DreamCoder: cuenta pares frecuentes. **El 004-A midió ese paso y no supera a la
+búsqueda profunda**, así que la contribución no puede estar en «aprender macros»:
+está en demostrar que las abstracciones mejoran el aprendizaje futuro a igual
+costo, cosa que Stitch, LILO y DreamCoder ya persiguen con más maquinaria.
+
+> **Nota de verificación.** ContinualSkillBench, SkillLearnBench y
+> SWE-Skills-Bench provienen de la auditoría y están pendientes de lectura directa
+> de la versión primaria. No se citan cifras suyas en papers hasta verificarlas.
 
 ## 10. Lectura de conjunto
 
@@ -162,7 +191,7 @@ composiciones.
 | Calidad de skills autogeneradas | SkillsBench | Inducción verificable, no solo tests |
 | Retrieval realista | Skill-Usage | Adaptación a familias nuevas |
 
-## 10. Consecuencia para Open Human Memory
+## 11. Consecuencia para Open Human Memory
 
 Ninguna de las piezas es nueva. La contribución posible se reduce a:
 

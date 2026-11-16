@@ -33,13 +33,32 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 - Criterio: enfoque elegido, alcance del MVP, no-objetivos, modelo de datos y
   decisiones abiertas resueltas o asignadas.
 
-### R2.5 — Experimento de competencia `COMP-*`
+### R2.5 — Validación del aprendizaje de macros `VALID-*` (completada)
 
-- Entregable: sandbox con verdad causal conocida y las cuatro fases `COMP-P1..P4`
-  (primitivas, composición, abstracción entre dominios, aprender a aprender).
+- Entregable: `prototipo-004-validez/` con protocolo congelado antes de medir,
+  rejilla completa de 64 programas, control sin memoria a profundidad 3, barrido de
+  las 560 bibliotecas del mismo lenguaje, curva de adquisición, costo
+  compartido/incremental y registro de uso de macros.
+- Criterio: si `VALID-A1` (sin historial, profundidad 3) iguala o supera a
+  `VALID-A3` (macros aprendidas), se retira la afirmación de «capacidad nueva».
+- Resultado: **criterio cumplido**. 64/64 frente a 54/64. La biblioteca ahorra
+  17,8 % de candidatos y pierde 15,6 pp de cobertura; por acierto el ahorro es
+  2,6 %. Solo gana con presupuesto ≤ 40 candidatos por tarea. Saturación en 6
+  experiencias. El control `RANDOM` del 003 queda invalidado (250/560 bibliotecas
+  arbitrarias del mismo lenguaje eran perfectas en su D3).
+- Registro de IDs: `docs/protocolos.md` (`VALID-*`).
+
+### R2.6 — Experimento de competencia `COMP-*`
+
+- Entregable: sandbox con verdad causal conocida, tareas adversariales (ruido,
+  ambigüedad, equivalencias, deriva, macros perjudiciales) y actualización online
+  durante la secuencia.
 - Criterio: `COMP-T3` (abstracciones aprendidas) supera a `COMP-T0/T1/T2` en
-  errores persistentes, calibración y abandono de creencias refutadas; si no, se
-  reduce el alcance.
+  errores persistentes, calibración y abandono de creencias refutadas **a igual
+  presupuesto de cómputo**; si no, se reduce el alcance.
+- Requisito institucional: protocolo congelado, tareas reservadas y criterios
+  definidos antes de la corrida principal. Las mejoras exploratorias van a otro
+  documento y no sustituyen la evaluación.
 - Registro de IDs: `docs/protocolos.md`.
 
 ### R3 — Harness de evaluación

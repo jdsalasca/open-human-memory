@@ -35,31 +35,43 @@ Licencia: MIT (`LICENSE`).
 > transferirlo entre modelos y mejorar sin reentrenar el LLM, sin convertir
 > errores del pasado en conocimiento canónico?
 
-La respuesta corta: **sí hay evidencia parcial de que se puede acumular y
-transferir; no hay evidencia de que se pueda hacer durante meses con deriva real
-ni de que la validación causal esté resuelta.** El programa estudia ambas cosas y,
-sobre todo, la corrección.
+La respuesta corta: **no hay todavía evidencia de que la experiencia amplíe la
+competencia.** El prototipo más honesto del programa midió su propio mecanismo
+contra un control sin memoria y perdió: las abstracciones aprendidas ahorran
+cómputo bajo presupuesto acotado, pero no resuelven nada que la búsqueda profunda
+no resuelva. La validación causal sigue abierta.
 
-## Primer resultado con aprendizaje (sintético)
+## Resultado de validez: las macros no amplían la capacidad (sintético)
 
-Prototipo 003: el agente aprende macros de programas de dos pasos que se repiten
-y las usa en tareas futuras. Media de 3 semillas:
+Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64
+programas de profundidad 3, media de 3 semillas:
 
-| Condición | D1 | D2 | D3 (profundidad 3) |
+| Condición | Aciertos /64 | Candidatos | Candidatos por acierto |
 |---|---|---|---|
-| NOLEARN | 1.000 | 1.000 | 0.000 |
-| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
-| LEARNED | 1.000 | 1.000 | 1.000 |
-| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
+| Sin memoria, profundidad 2 | 33 (51,6 %) | 876 | 26,6 |
+| **Sin memoria, profundidad 3** | **64 (100 %)** | 1.761 | 27,5 |
+| Azar, mismo lenguaje, profundidad 2 | 50,7 (79,3 %) | 1.543 | 30,5 |
+| Macros aprendidas, profundidad 2 | 54 (84,4 %) | 1.448 | 26,8 |
+| Macros aprendidas, profundidad 3 | 64 (100 %) | 2.247 | 35,1 |
 
-**Si se elimina el historial, se pierde D3.** La ganancia no es gratis: LEARNED
-gasta 740 candidatos en D3 frente a 1.680 de RANDOM. Es un instrumento sintético,
-no un benchmark de LLM. Detalles en
-[`prototipo-003-aprendizaje/`](resources/investigation/prototipo-003-aprendizaje/).
+- **Sin historial y con búsqueda de tres pasos se resuelve todo.** El límite de dos
+  pasos del 003 lo impusimos nosotros.
+- La biblioteca aprendida **ahorra 17,8 % de candidatos y pierde 15,6 pp de
+  cobertura**; por acierto el ahorro es 2,6 %. Con profundidad 3 permitida,
+  **encarece** la búsqueda un 27,6 %.
+- El control `RANDOM` del 003 estaba amañado: **250/560** bibliotecas arbitrarias
+  del mismo lenguaje eran perfectas en su conjunto de evaluación.
+- La curva se satura en **6 experiencias**.
+- Única ganancia defendible: con presupuesto ≤ 40 candidatos por tarea, la
+  biblioteca acierta más. Es un **prior barato**, no una capacidad nueva.
+
+Detalles, resultados crudos y protocolo en
+[`prototipo-004-validez/`](resources/investigation/prototipo-004-validez/).
 
 El Prototipo 002 fue un **benchmark de solucionador**: `MEM-A0` (mismo
 solucionador sin historial) empató con `MEM-E` en todo. El 001 quedó invalidado
-por target leakage.
+por target leakage. El 003 se conserva como registro exploratorio de la conclusión
+que el 004 retiró.
 
 ## Por dónde empezar
 
@@ -69,7 +81,8 @@ por target leakage.
 | [28-programa-de-competencia.md](resources/investigation/28-programa-de-competencia.md) | Programa v3: continuidad, competencia y expansión |
 | [29-experimento-diagnostico.md](resources/investigation/29-experimento-diagnostico.md) | El experimento que decide qué capa importa |
 | [prototipo-002-diagnostico/](resources/investigation/prototipo-002-diagnostico/) | Benchmark de solucionador; A0 == E sin historial |
-| [prototipo-003-aprendizaje/](resources/investigation/prototipo-003-aprendizaje/) | Primer test con macros aprendidas y ablación |
+| [prototipo-003-aprendizaje/](resources/investigation/prototipo-003-aprendizaje/) | Registro exploratorio; su conclusión fue retirada por el 004 |
+| [prototipo-004-validez/](resources/investigation/prototipo-004-validez/) | Validación con protocolo congelado: las macros no amplían capacidad |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

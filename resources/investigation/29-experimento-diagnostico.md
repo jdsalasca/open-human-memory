@@ -102,31 +102,61 @@ superficie; una primitiva inducida resuelve reglas simples; **la composición es
 el discriminador**: MEM-D falla D3 porque su espacio de hipótesis no incluye
 composiciones, MEM-E acierta porque las busca. Sigue siendo sintético: no prueba
 un LLM ni descubrimiento abierto.
-## 6.2 Prototipo 003: aprendizaje real desde la experiencia
+## 6.2 Prototipo 003: aprendizaje de macros (exploratorio, superado)
 
 El 002 incluye `MEM-A0` (mismo solucionador composicional sin historial) y
 `MEM-A0` empata con `MEM-E` en D1/D2/D3. Por tanto, **el 002 no demuestra
 aprendizaje desde la memoria**: es un benchmark de solucionador.
 
-El 003 sí aprende: encapsula programas de dos pasos repetidos como macros y las
-usa en evaluación. Media de 3 semillas:
+El 003 encapsula programas de dos pasos repetidos como macros y las usa en
+evaluación. Media de 3 semillas, con **tres programas D3 elegidos a mano**:
 
 | Condición | D1 | D2 | D3 (profundidad 3) |
 |---|---|---|---|
 | NOLEARN | 1.000 | 1.000 | 0.000 |
-| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
+| RANDOM (macros `reverse`/`negate`) | 1.000 | 1.000 | 0.000 |
 | LEARNED | 1.000 | 1.000 | 1.000 |
 | ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
 
-Coste D3: LEARNED 740 candidatos / 1.680 operaciones; RANDOM 1.680 / 4.500;
-NOLEARN 600 / 1.080. La ganancia no es gratis: en D2 la biblioteca aprendida
-gasta 460 candidatos frente a 310 de NOLEARN.
+Ese 0 % frente a 100 % **no sobrevive a los controles**. El apartado 6.3 lo
+documenta y lo retira.
 
-Esto responde a la pregunta de la auditoría: **si se elimina la experiencia, se
-pierde D3**. Sigue siendo sintético y las macros son composiciones de primitivas
-conocidas, no conceptos nuevos.
+## 6.3 Prototipo 004-A: los controles que faltaban
 
+Protocolo congelado antes de medir (`prototipo-004-validez/protocolo-congelado.md`,
+SHA-256 verificado por `reproduce.py`). Rejilla completa de **64 programas** de tres
+primitivas, 3 semillas.
 
+| Condición | Aciertos /64 | Candidatos | Candidatos por acierto |
+|---|---|---|---|
+| A0 sin memoria, prof. 2 | 33 (51,6 %) | 876 | 26,6 |
+| **A1 sin memoria, prof. 3** | **64 (100 %)** | 1.761 | 27,5 |
+| A2 azar, mismo lenguaje, prof. 2 | 50,7 (79,3 %) | 1.543 | 30,5 |
+| **A3 macros aprendidas, prof. 2** | **54 (84,4 %)** | 1.448 | 26,8 |
+| A4 macros aprendidas, prof. 3 | 64 (100 %) | 2.247 | 35,1 |
+
+Conclusiones que se siguen de la tabla:
+
+- **No hay capacidad nueva.** Sin historial y con profundidad 3 se resuelve el
+  100 %. El límite de dos pasos lo impusimos nosotros.
+- **La biblioteca es una compilación con pérdida:** 54/64. Gana 17,8 % de
+  candidatos y pierde 15,6 pp de cobertura; por acierto el ahorro es 2,6 %.
+- **Si se permite profundidad 3, la biblioteca encarece la búsqueda un 27,6 %.**
+- **El control `RANDOM` del 003 estaba amañado.** Barrido de las 560 bibliotecas
+  de 3 macros sobre los 16 pares del generador: 250/560 son perfectas en el D3 del
+  003 (reproduce el 70,5 % de la auditoría) y **124/560 igualan o superan** a la
+  aprendida en la rejilla.
+- **Saturación en 6 experiencias.** Las 54 restantes no aportan nada.
+- **Única ganancia defendible:** con presupuesto ≤ 40 candidatos por tarea, la
+  biblioteca acierta más (78,1 % vs 70,3 %); desde 60, la búsqueda profunda la
+  supera y termina en 100 %.
+
+Lectura de conjunto: el 003 midió **un prior barato**, no una ampliación de
+competencia. La hipótesis que sobrevive para el 005 es que las abstracciones
+compiladas sirven cuando el cómputo por decisión está acotado, no como sustituto
+del razonamiento.
+
+## 6.4 Implementación mínima
 
 El repositorio incluye un **diagnóstico sintético** en `src/ohmem/`:
 

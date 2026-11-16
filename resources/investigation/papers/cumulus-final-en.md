@@ -212,26 +212,42 @@ Protocol `08-hipotesis-y-experimentos.md` v2.0:
 **Kill criterion:** if CUMULUS does not beat the simple rival on the primary
 metric with a 95% CI excluding zero, the architecture adds nothing.
 
-### 7.1 Empirical note: prototype 003 (macro learning)
+### 7.1 Empirical note: prototypes 003 and 004-A (macro learning)
 
 Prototype 002 turned out to be a **solver benchmark**: `MEM-A0`, the same
-compositional solver with no history, matched `MEM-E` on D1/D2/D3. Prototype 003
-adds real learning: it encapsulates repeated two-step programs as macros and uses
-them at evaluation time.
+compositional solver with no history, matched `MEM-E` on D1/D2/D3.
 
-Mean of 3 seeds, 60 training tasks, 30 evaluation tasks:
+Prototype 003 learned macros from repeated programs and appeared to gain a new
+capability (100% at depth 3). Prototype 004-A re-ran the design with a frozen
+protocol and the missing controls: the full 64-program lattice, a no-memory
+depth-3 baseline, and a sweep over all 560 same-language libraries. Mean of 3
+seeds:
 
-| Condition | D1 | D2 | D3 (depth 3) |
+| Condition | Solved /64 | Candidates | Candidates per solve |
 |---|---|---|---|
-| NOLEARN | 1.000 | 1.000 | 0.000 |
-| RANDOM (same size, distractor macros) | 1.000 | 1.000 | 0.000 |
-| LEARNED | 1.000 | 1.000 | 1.000 |
-| ABLATED (macros removed) | 1.000 | 1.000 | 0.000 |
+| No memory, depth 2 | 33 (51.6%) | 876 | 26.6 |
+| **No memory, depth 3** | **64 (100%)** | 1,761 | 27.5 |
+| Random, same language, depth 2 | 50.7 (79.3%) | 1,543 | 30.5 |
+| Learned macros, depth 2 | 54 (84.4%) | 1,448 | 26.8 |
+| Learned macros, depth 3 | 64 (100%) | 2,247 | 35.1 |
 
-**Remove the history and D3 is lost.** The gain is not free: LEARNED spends 740
-candidates on D3 versus 1,680 for RANDOM. This is a synthetic result, not about
-CUMULUS or an LLM; macros are compositions of known primitives, not new concepts.
-Details in `prototipo-003-aprendizaje/`.
+Findings:
+
+- **No new capability.** Without history and with depth 3, everything is solved.
+  The depth-2 limit was imposed by the experiment.
+- **The library is a lossy compilation:** 17.8% fewer candidates and 15.6 pp less
+  coverage; per solve the saving is 2.6%.
+- **When depth 3 is allowed, the library makes search 27.6% more expensive.**
+- **The 003 random control was rigged:** 250/560 arbitrary same-language
+  libraries were perfect on its evaluation set, and 124/560 match or beat the
+  learned one on the full lattice.
+- **The curve saturates at 6 experiences.**
+- **The only defensible gain:** with a budget of ≤40 candidates per task the
+  library solves more; from 60 upward, deeper search overtakes it.
+
+Conclusion for this paper: macro learning as implemented is a **cheap prior under
+a tight compute budget**, not competence expansion. CUMULUS cannot cite it as
+evidence of portability or expansion. This is a synthetic result, not an LLM one.
 
 ## 8. Limits and safety
 

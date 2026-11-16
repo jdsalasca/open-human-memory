@@ -295,26 +295,36 @@ contradicciones, transferencia negativa, abstención correcta.
 **Criterio de muerte:** si E no supera a C o D en las primarias, la complejidad
 adicional no se justifica.
 
-### 11.1 Nota empírica: prototipo 003 (aprendizaje de macros)
+### 11.1 Nota empírica: prototipos 003 y 004-A (aprendizaje de macros)
 
 El Prototipo 002 resultó ser un benchmark de solucionador: `MEM-A0`, el mismo
-solucionador sin historial, empató con `MEM-E`. El 003 aprende macros de programas
-repetidos y las usa en evaluación.
+solucionador sin historial, empató con `MEM-E`. El 003 aprendió macros de programas
+repetidos y pareció obtener una capacidad nueva. El 004-A lo reejecutó con
+protocolo congelado, rejilla completa de 64 programas y control sin memoria a
+profundidad 3 (media de 3 semillas):
 
-Media de 3 semillas, 60 de entrenamiento, 30 de evaluación:
+| Condición | Aciertos /64 | Candidatos |
+|---|---|---|
+| Sin memoria, profundidad 2 | 33 (51,6 %) | 876 |
+| **Sin memoria, profundidad 3** | **64 (100 %)** | 1.761 |
+| Azar, mismo lenguaje, profundidad 2 | 50,7 (79,3 %) | 1.543 |
+| Macros aprendidas, profundidad 2 | 54 (84,4 %) | 1.448 |
+| Macros aprendidas, profundidad 3 | 64 (100 %) | 2.247 |
 
-| Condición | D1 | D2 | D3 (profundidad 3) |
-|---|---|---|---|
-| NOLEARN | 1.000 | 1.000 | 0.000 |
-| RANDOM (mismo tamaño, macros distractoras) | 1.000 | 1.000 | 0.000 |
-| LEARNED | 1.000 | 1.000 | 1.000 |
-| ABLATED (macros borradas) | 1.000 | 1.000 | 0.000 |
+**No hay capacidad nueva**: sin historial y con búsqueda de tres pasos se resuelve
+todo. La biblioteca ahorra 17,8 % de candidatos y pierde 15,6 pp de cobertura; por
+acierto el ahorro es 2,6 %, y si se permite profundidad 3 encarece la búsqueda un
+27,6 %. El control aleatorio del 003 estaba amañado: 250/560 bibliotecas
+arbitrarias del mismo lenguaje eran perfectas en su conjunto.
 
-**Si se elimina el historial, se pierde D3.** Es un resultado sintético, no de
-JANUS ni de un LLM; las macros son composiciones de primitivas conocidas. JANUS
-sigue sin probarse: el prototipo valida que el historial puede producir una
-capacidad nueva, no la hipótesis causal. Detalles en
-`prototipo-003-aprendizaje/`.
+**Precisión sobre la ablación:** el 003 borra las **macros compiladas**, no las
+experiencias originales. La ventaja depende de conservar los artefactos, no
+necesariamente el historial bruto. Eso convierte la consolidación en una pregunta
+experimental sobre qué se puede borrar sin perder competencia, y no está medida.
+
+JANUS sigue sin probarse: el prototipo muestra que compilar abstracciones puede
+servir como prior bajo presupuesto acotado, no que la hipótesis causal se sostenga.
+Detalles en `prototipo-004-validez/`.
 
 ## 12. Límites, seguridad y gobernanza
 

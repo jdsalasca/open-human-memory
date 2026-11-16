@@ -125,9 +125,11 @@ independientes.
   recall; el contexto reciente conserva la mayor parte de la señal.
 - **MDSKILL** (Jin et al., 2026): internaliza skills en la política con
   multi-view distillation; +7,1% ALFWorld, +8,1% WebShop.
-- **SkillsBench** (2026): skills curadas +16,6 pp; autogeneradas −8,1 a −11,5 pp.
-- **How Well Do Agentic Skills Work in the Wild** (Liu et al., 2026): con 34.198
-  skills, el beneficio cae al exigir selección y adaptación.
+- **SkillsBench** (2026, arXiv:2602.12670v2; 86 tareas, 11 dominios): skills curadas +16,2 pp; autogeneradas sin beneficio medio.
+- **How Well Do Agentic Skills Work in the Wild** (Liu et al., 2026): con 34.198 skills, el beneficio cae al exigir selección y adaptación.
+- **ContinualSkillBench** (2026): conservar contexto y feedback compite con mantener una biblioteca explícita de habilidades.
+- **SkillLearnBench** (2026): el beneficio de las habilidades autogeneradas no es uniforme y hay deriva al depender del propio feedback.
+- **DreamCoder / Stitch / LILO**: aprenden bibliotecas de funciones reutilizables con compresión y búsqueda adaptativa. Son la línea base real del aprendizaje de abstracciones; el 004-A mostró que contar pares frecuentes no basta.
 
 **Lectura:** el campo ya se mueve de "recordar" a "expandir capacidades,
 gestionar la memoria, internalizar y medir uso". Open Human Memory no puede

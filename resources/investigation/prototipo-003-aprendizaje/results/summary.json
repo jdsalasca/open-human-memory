@@ -10,7 +10,7 @@
       "distribution": "D1",
       "mean_accuracy": 1.0,
       "mean_candidates": 73.0,
-      "mean_primitive_ops": 73.0,
+      "mean_primitive_ops": 219.0,
       "n": 3
     },
     {
@@ -18,7 +18,7 @@
       "distribution": "D2",
       "mean_accuracy": 1.0,
       "mean_candidates": 310.0,
-      "mean_primitive_ops": 500.0,
+      "mean_primitive_ops": 1500.0,
       "n": 3
     },
     {
@@ -26,7 +26,7 @@
       "distribution": "D3",
       "mean_accuracy": 0.0,
       "mean_candidates": 600.0,
-      "mean_primitive_ops": 1080.0,
+      "mean_primitive_ops": 3240.0,
       "n": 3
     },
     {
@@ -34,7 +34,7 @@
       "distribution": "D1",
       "mean_accuracy": 1.0,
       "mean_candidates": 73.0,
-      "mean_primitive_ops": 73.0,
+      "mean_primitive_ops": 219.0,
       "n": 3
     },
     {
@@ -42,7 +42,7 @@
       "distribution": "D2",
       "mean_accuracy": 1.0,
       "mean_candidates": 460.0,
-      "mean_primitive_ops": 860.0,
+      "mean_primitive_ops": 2580.0,
       "n": 3
     },
     {
@@ -50,7 +50,7 @@
       "distribution": "D3",
       "mean_accuracy": 1.0,
       "mean_candidates": 740.0,
-      "mean_primitive_ops": 1680.0,
+      "mean_primitive_ops": 5040.0,
       "n": 3
     },
     {
@@ -58,7 +58,7 @@
       "distribution": "D1",
       "mean_accuracy": 1.0,
       "mean_candidates": 73.0,
-      "mean_primitive_ops": 73.0,
+      "mean_primitive_ops": 219.0,
       "n": 3
     },
     {
@@ -66,7 +66,7 @@
       "distribution": "D2",
       "mean_accuracy": 1.0,
       "mean_candidates": 310.0,
-      "mean_primitive_ops": 500.0,
+      "mean_primitive_ops": 1500.0,
       "n": 3
     },
     {
@@ -74,7 +74,7 @@
       "distribution": "D3",
       "mean_accuracy": 0.0,
       "mean_candidates": 600.0,
-      "mean_primitive_ops": 1080.0,
+      "mean_primitive_ops": 3240.0,
       "n": 3
     },
     {
@@ -82,7 +82,7 @@
       "distribution": "D1",
       "mean_accuracy": 1.0,
       "mean_candidates": 73.0,
-      "mean_primitive_ops": 73.0,
+      "mean_primitive_ops": 219.0,
       "n": 3
     },
     {
@@ -90,7 +90,7 @@
       "distribution": "D2",
       "mean_accuracy": 1.0,
       "mean_candidates": 460.0,
-      "mean_primitive_ops": 860.0,
+      "mean_primitive_ops": 2580.0,
       "n": 3
     },
     {
@@ -98,7 +98,7 @@
       "distribution": "D3",
       "mean_accuracy": 0.0,
       "mean_candidates": 1680.0,
-      "mean_primitive_ops": 4500.0,
+      "mean_primitive_ops": 13500.0,
       "n": 3
     }
   ]
