@@ -1,0 +1,234 @@
+{
+  "protocol_sha256": "4a4fad3b7eda2df653053b8d9d360f5ae40f811af281f6748f43e09876c90109",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "n_tasks": 64,
+  "learned_macros": [
+    [
+      "sort_asc",
+      "double"
+    ],
+    [
+      "sort_desc",
+      "add_one"
+    ],
+    [
+      "double",
+      "add_one"
+    ]
+  ],
+  "training": {
+    "n_train": 60,
+    "shared_candidates": 760.0,
+    "shared_primitive_ops": 3840.0
+  },
+  "conditions": [
+    {
+      "condition": "A0-nolearn-d2",
+      "max_steps": 2,
+      "library_size": 4,
+      "mean_accuracy": 0.5156,
+      "mean_correct": 33.0,
+      "mean_macro_tasks": 0.0,
+      "mean_harmful_macro_tasks": 0.0,
+      "mean_abstained": 31.0,
+      "mean_candidates": 876.0,
+      "mean_primitive_ops": 4548.0
+    },
+    {
+      "condition": "A1-nolearn-d3",
+      "max_steps": 3,
+      "library_size": 4,
+      "mean_accuracy": 1.0,
+      "mean_correct": 64.0,
+      "mean_macro_tasks": 0.0,
+      "mean_harmful_macro_tasks": 0.0,
+      "mean_abstained": 0.0,
+      "mean_candidates": 1761.0,
+      "mean_primitive_ops": 12513.0
+    },
+    {
+      "condition": "A2-random-same-lang-d2",
+      "max_steps": 2,
+      "library_size": 7,
+      "mean_accuracy": 0.7916,
+      "mean_correct": 50.6667,
+      "mean_macro_tasks": 25.6667,
+      "mean_harmful_macro_tasks": 0.0,
+      "mean_abstained": 13.3333,
+      "mean_candidates": 1543.0,
+      "mean_primitive_ops": 10848.0
+    },
+    {
+      "condition": "A3-learned-d2",
+      "max_steps": 2,
+      "library_size": 7,
+      "mean_accuracy": 0.8438,
+      "mean_correct": 54.0,
+      "mean_macro_tasks": 33.0,
+      "mean_harmful_macro_tasks": 0.0,
+      "mean_abstained": 10.0,
+      "mean_candidates": 1448.0,
+      "mean_primitive_ops": 10023.0
+    },
+    {
+      "condition": "A4-learned-d3",
+      "max_steps": 3,
+      "library_size": 7,
+      "mean_accuracy": 1.0,
+      "mean_correct": 64.0,
+      "mean_macro_tasks": 33.0,
+      "mean_harmful_macro_tasks": 0.0,
+      "mean_abstained": 0.0,
+      "mean_candidates": 2247.0,
+      "mean_primitive_ops": 18951.0
+    }
+  ],
+  "per_solved_task_candidates": {
+    "A0-nolearn-d2": 26.55,
+    "A1-nolearn-d3": 27.52,
+    "A2-random-same-lang-d2": 30.45,
+    "A3-learned-d2": 26.81,
+    "A4-learned-d3": 35.11
+  },
+  "sweep_grid": {
+    "n_libraries": 560,
+    "mean_accuracy": 0.7732,
+    "mean_median_accuracy": 0.7812,
+    "max_accuracy": 0.9375,
+    "min_accuracy": 0.5156,
+    "perfect": 0,
+    "at_or_above_learned": 124.0
+  },
+  "sweep_selected_d3": {
+    "mean_accuracy": 0.7054,
+    "mean_perfect": 250.0,
+    "n_libraries": 560
+  },
+  "acquisition": [
+    {
+      "n_train": 0,
+      "mean_macros": 0.0,
+      "mean_accuracy": 0.5156
+    },
+    {
+      "n_train": 1,
+      "mean_macros": 0.0,
+      "mean_accuracy": 0.5156
+    },
+    {
+      "n_train": 2,
+      "mean_macros": 0.0,
+      "mean_accuracy": 0.5156
+    },
+    {
+      "n_train": 3,
+      "mean_macros": 0.0,
+      "mean_accuracy": 0.5156
+    },
+    {
+      "n_train": 4,
+      "mean_macros": 1.0,
+      "mean_accuracy": 0.6562
+    },
+    {
+      "n_train": 5,
+      "mean_macros": 2.0,
+      "mean_accuracy": 0.7969
+    },
+    {
+      "n_train": 6,
+      "mean_macros": 3.0,
+      "mean_accuracy": 0.8438
+    },
+    {
+      "n_train": 8,
+      "mean_macros": 3.0,
+      "mean_accuracy": 0.8438
+    },
+    {
+      "n_train": 10,
+      "mean_macros": 3.0,
+      "mean_accuracy": 0.8438
+    },
+    {
+      "n_train": 20,
+      "mean_macros": 3.0,
+      "mean_accuracy": 0.8438
+    },
+    {
+      "n_train": 60,
+      "mean_macros": 3.0,
+      "mean_accuracy": 0.8438
+    }
+  ],
+  "budget": {
+    "A1-nolearn-d3": [
+      {
+        "budget": 20,
+        "accuracy": 0.5156,
+        "correct": 33
+      },
+      {
+        "budget": 40,
+        "accuracy": 0.7031,
+        "correct": 45
+      },
+      {
+        "budget": 60,
+        "accuracy": 0.8906,
+        "correct": 57
+      },
+      {
+        "budget": 80,
+        "accuracy": 0.9688,
+        "correct": 62
+      },
+      {
+        "budget": 84,
+        "accuracy": 1.0,
+        "correct": 64
+      }
+    ],
+    "A3-learned-d2": [
+      {
+        "budget": 20,
+        "accuracy": 0.5469,
+        "correct": 35
+      },
+      {
+        "budget": 40,
+        "accuracy": 0.7812,
+        "correct": 50
+      },
+      {
+        "budget": 60,
+        "accuracy": 0.8438,
+        "correct": 54
+      },
+      {
+        "budget": 80,
+        "accuracy": 0.8438,
+        "correct": 54
+      },
+      {
+        "budget": 84,
+        "accuracy": 0.8438,
+        "correct": 54
+      }
+    ]
+  },
+  "decisions": {
+    "D1_no_new_capability": true,
+    "D2_coverage_deficit": 0.1562,
+    "D3_candidate_saving": 0.1777,
+    "D4_random_control_invalid": true,
+    "D5_saturation_n": 6,
+    "D6_deeper_search_dominates_at_equal_budget": true,
+    "D7_lossy_compilation": true,
+    "D8_library_raises_search_cost_at_depth3": true
+  }
+}

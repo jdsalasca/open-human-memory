@@ -4,10 +4,13 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import dataclass
+from itertools import combinations, product
 import hashlib
 import random
 
 from .v3_tasks import DISTRACTORS, PRIMITIVES
+
+PAIRS = tuple(product(PRIMITIVES, repeat=2))
 
 
 @dataclass(frozen=True)
@@ -50,11 +53,19 @@ def learn_macros(programs: list[tuple[str, ...]], min_count: int = 2) -> Library
 def random_library(
     n_macros: int, seed: int = 0, exclude: set[tuple[str, ...]] | None = None
 ) -> Library:
-    rng = random.Random(seed)
     exclude = exclude or set()
-    bodies = set()
-    while len(bodies) < n_macros:
-        body = tuple(rng.choice(DISTRACTORS) for _ in range(2))
-        if body not in exclude:
-            bodies.add(body)
+    pool = [b for b in product(DISTRACTORS, repeat=2) if b not in exclude]
+    if n_macros > len(pool):
+        raise ValueError(
+            f"only {len(pool)} distinct bodies available, asked {n_macros}"
+        )
+    bodies = random.Random(seed).sample(pool, n_macros)
     return Library([Macro(_name(b), b) for b in sorted(bodies)])
+
+
+def same_language_libraries(n_macros: int = 3) -> list[Library]:
+    """Every library of n_macros bodies drawn from the generator's own 16 pairs."""
+    return [
+        Library([Macro(_name(b), b) for b in combo])
+        for combo in combinations(PAIRS, n_macros)
+    ]

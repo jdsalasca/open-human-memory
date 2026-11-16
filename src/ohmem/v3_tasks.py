@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import product
 import random
 
 PRIMITIVES = ("sort_asc", "sort_desc", "add_one", "double")
@@ -23,6 +24,8 @@ D3_PROGRAMS = (
     ("add_one", "sort_desc", "double"),
     ("double", "add_one", "sort_asc"),
 )
+# The audit's correction: evaluate all 64 depth-3 programs, not three chosen ones.
+DEPTH3_GRID = tuple(product(PRIMITIVES, repeat=3))
 
 FAMILIES = {
     "alpha": ("alpha", "orion", "blue"),
@@ -132,3 +135,11 @@ def make_splits(
         for i in range(n_eval)
     ]
     return {"train": train, "D1": d1, "D2": d2, "D3": d3}
+
+
+def make_depth3_grid(seed: int = 0) -> list[Task]:
+    """One task per depth-3 program: the full 64-program lattice."""
+    return [
+        make_task(seed, "delta", i, program, "grid")
+        for i, program in enumerate(DEPTH3_GRID)
+    ]
