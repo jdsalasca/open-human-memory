@@ -10,18 +10,29 @@ Registros identificados (8 cadenas, título, 2023–2026)      7.100
         ├─ muestreo por relevancia: top 25 por cadena
         ▼
 Registros únicos cribados por título                          177
-        │  excluidos: no agentes / no memoria-aprendizaje     −46
+        │  excluidos por filtro grueso (no agentes)           −46
         ▼
-Candidatos por título                                         131
-        │  cribados por resumen
+Candidatos plausibles por título                              131
+        │  NO EVALUADOS (muestreo por relevancia)             −88
         ▼
 Evaluados por resumen                                          43
-        │  excluidos                                            −12
+        │  excluidos con motivo                                −12
         ▼
-Incluidos en la síntesis                                       31
+Incluidos                                                      31
         │
-        └─ + 10 trabajos fundacionales (pre-2023, por citación)
+        └─ al menos 12 llegaron por bola de nieve, fuera de los 177
 ```
+
+**El hueco de 88 está declarado, no oculto.** No se evaluaron porque el cribado fue
+un muestreo por relevancia, no una lectura de los 131. Un lector no puede
+reconstruir por qué se eligieron esos 43 y no otros. Es la mayor debilidad de este
+registro y se corrige en la próxima iteración con doble cribado y criterios
+explícitos por fila.
+
+**La procedencia exacta por trabajo no se registró.** Al menos 12 de los 31 llegaron
+por bola de nieve (EvoAgentBench, SelfImprove-Bench, Skill Following, Frozen
+Weights, SkillEvoReg, RSE-Bench, Proof-Gated, SoK, Bemula, MemEvoBench, STRATUM,
+Trace2Skill). El resto, por las cadenas. La asignación individual queda pendiente.
 
 ## Exclusiones y motivos
 

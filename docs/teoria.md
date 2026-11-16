@@ -66,31 +66,42 @@ siguen sin probar.
 
 ---
 
-## 3. La proposición del espacio enumerable
+## 3. La proposición del espacio explorable
 
-Esta es la pieza que faltaba y la que explica los círculos.
+> Sea `O` finito, `L` una profundidad y `B` un presupuesto. Si el solucionador
+> enumera todos los programas de longitud `≤ L` dentro de `B` **y la tarea es
+> identificable** —todas las hipótesis compatibles con los ejemplos coinciden en la
+> consulta—, su cobertura es **1 por construcción**. En ese régimen la memoria no
+> puede aumentar la cobertura; solo reordenar la búsqueda y reducir coste.
 
-> Sea `O` un conjunto finito de operadores, `L` una profundidad máxima y `B` un
-> presupuesto. Si el solucionador enumera todos los programas de longitud `≤ L`
-> sobre `O` dentro de `B`, su cobertura sobre cualquier distribución generada por
-> programas de longitud `≤ L` es **1 por construcción**. En ese régimen ninguna
-> memoria puede aumentar la cobertura; solo reordenar la búsqueda y reducir coste.
+**La identificabilidad no es un detalle.** Enumerar candidatos no garantiza
+acertar la consulta: si dos programas compatibles divergen en ella, el solucionador
+devuelve el primero y puede fallar. Ejemplo mínimo: con entradas constantes,
+`sort_asc` y `sort_desc` son indistinguibles; la consulta las separa. Nuestro
+propio 006-A lo muestra: con presupuesto de 120 pasos, el conjunto mixto rinde
+**83,3 %**, no 100 %. El 64/64 del 004-A se obtuvo **sin** ese presupuesto.
 
-**Comprobación:** `|O| = 4`, `L = 3`, presupuesto 120 pasos. El espacio son
-`4 + 16 + 64 = 84` programas. Se enumeran todos. Por eso `A1-nolearn-d3` acierta
-**64/64** sin historial.
+**Segunda precisión: candidatos no es coste.** `4 + 16 + 64 = 84` programas no son
+84 pasos: cada candidato se comprueba contra tres ejemplos y puede costar hasta
+nueve aplicaciones. Bajo 120 pasos el espacio puede no recorrerse entero. La
+proposición vale para el espacio **explorado**, no para el espacio **enumerado**.
+
+**Tercera precisión: el término.** No es un «universo no enumerable». Es un espacio
+**no explorable exhaustivamente bajo el presupuesto**. Con `|O| = 6` y `L = 6` son
+55.986 programas: siguen siendo finitos; lo que cambia es que no caben en `B`.
 
 **Corolario 1.** El «100 % en D3» del 003 no era capacidad del agente: era el
-experimentador bajándole la profundidad a 2 por decreto.
+experimentador bajándole la profundidad a 2 por decreto, en tres programas
+identificables.
 
-**Corolario 2.** Los negativos de 004, 005 y 006 son **predicciones de la teoría**,
-no sorpresas. En espacio enumerable, la memoria solo puede optimizar coste. Y lo
-hizo: 41,8 % menos pasos con igual cobertura, solo bajo continuidad.
+**Corolario 2.** Los negativos de 004, 005 y 006 son predicciones de la teoría
+**solo en el régimen identificable y presupuestado**. Fuera de él, la teoría no
+dice nada; no se puede usar para cerrar la línea.
 
-**Corolario 3.** Para probar expansión hay que salir del régimen enumerable. Con
-`|O| = 6` y `L = 6` son 55.986 programas; con 500 pasos se enumera < 1 %. Ahí una
-herramienta compilada de longitud 3, usada como un paso, alcanza profundidad 6
-dentro del presupuesto. **Esa es la predicción que distingue memoria de búsqueda.**
+**Corolario 3.** Para probar expansión hacen falta dos cosas a la vez: un espacio
+que no quepa en `B` **y** tareas donde la búsqueda exhaustiva no baste por
+ambigüedad. Si las tareas son identificables y el espacio cabe, la memoria solo
+puede optimizar coste.
 
 ---
 
@@ -143,19 +154,57 @@ significación no es ausencia de efecto.
 
 ## 7. Nuestra hipótesis y sus predicciones
 
-**H.** La historia reduce `E(F)` a igual `K` mediante **herramientas verificadas** y
-**políticas de activación**, no mediante información adicional.
+**H.** La historia puede actuar por **cualquiera de los cinco canales**. El programa
+no declara un ganador de antemano: mide cuál reduce `E(F)` a igual `K` en cada
+familia, y en qué forma. Excluir la representación o los conceptos antes de medirlos
+sería convertir una hipótesis de implementación en un límite de la investigación.
 
 | ID | Predicción | Se refuta si |
 |---|---|---|
-| **P1** | Fuera del régimen enumerable, una herramienta compilada amplía la cobertura a igual presupuesto | La cobertura no sube, o sube también sin historial |
+| **P1** | En un espacio no explorable bajo `B`, una herramienta compilada amplía la cobertura a igual presupuesto | La cobertura no sube, o sube también sin historial |
 | **P2** | A igual información, un procedimiento verificado bate a un episodio recuperado | Empatan |
 | **P3** | `E(F)` baja tras `N` familias solo si comparten **estructura**, no vocabulario | Baja con vocabulario compartido y estructura distinta |
-| **P4** | El efecto desaparece cuando el clon recibe los mismos ejemplos | Persiste sin información adicional |
+| **P4** | **Discriminante:** si la ventaja es informacional, dar los mismos ejemplos al clon la elimina; si es de herramienta o política, **persiste** | Persiste con la misma información y no hay herramienta ni política distinta |
 | **P5** | El efecto sobrevive a un cambio de modelo | Desaparece al cambiar de LLM |
+| **P6** | Elegir la **forma** del conocimiento (episodio, procedimiento, herramienta, concepto) según utilidad futura bate a cualquier forma fija a igual coste | Una forma fija iguala o supera a la selección |
 
-**P1 es la prueba de fuego.** Si falla, se cierra la línea de expansión y queda solo
-la de eficiencia, ya medida y modesta.
+**P6 es la hipótesis nueva del programa** y se desarrolla en el §7.1.
+
+### 7.1 Las tres comparaciones que separan canales
+
+| Comparación | Qué identifica |
+|---|---|
+| Misma información, distinto historial de aprendizaje | Efecto de capacidades o políticas adquiridas |
+| Mismo solucionador, distinta información disponible | Efecto de evidencia adicional |
+| Misma información y herramientas, distinta política | Efecto de aprender a seleccionar acciones |
+
+Ninguna resuelve toda la identificación —aprender cambia cómo se interpreta la
+información—, pero evitan predicciones que contradicen el mecanismo declarado.
+
+### 7.2 La forma del conocimiento
+
+Un agente que conserva todo como episodio paga contexto; uno que conserva todo como
+procedimiento pierde los casos que el procedimiento no cubre; uno que conserva todo
+como herramienta paga verificación y mantenimiento. La pregunta no es «qué forma es
+mejor», sino **qué forma asignar a cada experiencia**.
+
+Eso es un problema de **selección de representación**, no de almacenamiento:
+
+- mismas experiencias, cuatro formas posibles;
+- misma información disponible para el clon;
+- mismo presupuesto de contexto y cómputo;
+- métrica: `E(F)`, `K(F)` y `P(F)` por separado;
+- cota superior: un oráculo que conoce la forma óptima por tarea.
+
+Si la selección aprendida se acerca al oráculo y supera a toda forma fija, hay una
+contribución. Si no, la forma no importa y solo importa el contenido.
+
+### 7.3 Regla de cierre
+
+Un resultado negativo cierra **la afirmación específica contrastada**, no el
+fenómeno general. Si P1 falla en un espacio de seis operadores, queda refutado ese
+mecanismo en esa familia con esos recursos. La línea de aprendizaje acumulativo
+sigue abierta hasta que fallen las seis predicciones en varias familias.
 
 ---
 
@@ -179,20 +228,32 @@ conceptualizar; cambiar listas por cadenas conservando la relación, sí.
 
 De la revisión estructurada de 31 trabajos (`../resources/investigation/revision-sistematica/`):
 
-1. **La verificación independiente es imprescindible.** Proof-Gated: **538**
-   aserciones de verificación de teachers, **52** confirmadas por ejecución, **486**
-   fabricaciones rechazadas. JANUS no es nuevo.
+1. **La verificación operacional es imprescindible y ya existe.** Proof-Gated:
+   **538** aserciones de verificación de teachers, **52** confirmadas por ejecución,
+   **486** fabricaciones rechazadas. Eso desafía el componente de **verificación**
+   de JANUS; **no** resuelve su pretensión de **identificación causal**, que es otro
+   problema.
 2. **Las bibliotecas de skills degradan al crecer.** *Skill shadowing*: hasta
    **−21 %** con 202 skills.
 3. **Entregar no es usar.** MemUse: 8.000 episodios, resolve **±0,4 pp** del
    baseline sin memoria; **23,2 %** de los usos beneficiosos igual fallaron.
-4. **El coste del contexto está medido.** STRATUM: **~4 GB de texto frente a ~298 TB
-   de estado KV** por 1e9 tokens en un 70B.
+4. **El coste del contexto está estimado, no medido en producción.** STRATUM
+   calcula el coste **hipotético** de representar mil millones de tokens como estado
+   KV (**~298 TB**) frente a texto (**~4 GB**). No demuestra que un sistema real
+   mantenga ese contexto activo. La afirmación válida: el conocimiento externo
+   puede ser mucho más barato en almacenamiento. Que preserve la capacidad de
+   decidir con menor coste total sigue sin demostrarse.
 5. **Existen benchmarks de transferencia de procedimientos.** EvoAgentBench (4
    dominios, ability graphs) y SelfImprove-Bench (capacidad vs ajuste).
+6. **Los estudios no son intercambiables.** SkillsBench mide skills curadas;
+   MemUse, memoria episódica en código; ContinualSkillBench, un flujo con
+   biblioteca. Sus resultados no se refutan entre sí: responden a condiciones
+   distintas. La pregunta correcta es condicional —qué conocimiento, qué agente,
+   qué presupuesto—, no un agregado.
 
 Nuestros negativos coinciden con los del campo. El hueco no es un mecanismo: es una
-medición longitudinal con clon, canales separados y coste total.
+medición longitudinal con clon, canales separados y coste total. Pero el hueco se
+estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 
 ---
 
@@ -214,8 +275,8 @@ Ninguna alcanza E3 (varias distribuciones) ni E4 (reproducción con tareas reale
 
 ## 11. Qué cambiaría de opinión
 
-- Si en universo no enumerable el historial no amplía cobertura (P1 falsa), la
-  expansión muere y queda la eficiencia.
+- Si P1 falla en varias familias y espacios, ese mecanismo queda refutado; la
+  pregunta general sigue abierta hasta que fallen P1–P6 en varias distribuciones.
 - Si `ACTUAL-RETRIEVAL` iguala al clon pero `ORACLE-MEMORY` gana, el problema es el
   recuperador.
 - Si `E(F)` no baja en familias reservadas (P3 falsa), no hay metaprendizaje.

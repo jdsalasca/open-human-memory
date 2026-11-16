@@ -64,11 +64,12 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| T1 | En un espacio enumerable, la memoria no amplía cobertura | **Sostenida** | E0 + 004/006 | Un contraejemplo |
-| T2 | Fuera del espacio enumerable, una herramienta compilada amplía cobertura | **Abierta** (P1) | — | Cobertura igual sin historial |
+| T1 | En espacio **explorable, identificable y dentro del presupuesto**, la memoria no amplía cobertura | Sostenida **con condiciones** | E0 + 004/006 | Un contraejemplo que cumpla las tres condiciones |
+| T2 | En espacio no explorable bajo el presupuesto, una herramienta compilada amplía cobertura | **Abierta** (P1) | — | Cobertura igual sin historial |
 | T3 | A igual información, un procedimiento bate a un episodio | **Abierta** (P2) | — | Empatan |
 | T4 | `E(F)` baja solo con estructura compartida | **Abierta** (P3) | — | Baja con vocabulario compartido |
 | T5 | El efecto sobrevive a cambiar de modelo | **Abierta** (P5) | — | Desaparece |
+| T6 | Elegir la **forma** del conocimiento según utilidad futura bate a una forma fija | **Abierta** (P6) | — | Una forma fija iguala o supera |
 
 ## F. Afirmaciones sobre las fuentes
 
@@ -81,10 +82,11 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | F5 | Se ha ejecutado una revisión sistemática exhaustiva | **Refutada**: estructurada, una base, un revisor |
 | F6 | Se ha reproducido un competidor | **Refutada**: ninguno |
 | F7 | Existe una revisión estructurada con búsquedas y cribado registrados | **Sostenida** (`revision-sistematica/`) |
-| F8 | La verificación independiente de skills ya está implementada y es imprescindible | **Sostenida (terceros)**: Proof-Gated, 52/538 aserciones confirmadas |
-| F9 | Las bibliotecas de skills degradan al crecer | **Sostenida (terceros)**: hasta −21 % con 202 skills |
-| F10 | El lift agregado de retrieval no implica uso efectivo | **Sostenida (terceros)**: RAE negativo en varios modelos |
-| F11 | La memoria episódica no mejora el resolve rate en código | **Sostenida (terceros)**: ±0,4 pp en 8.000 episodios |
+| F8 | La verificación independiente de skills ya está implementada y es imprescindible | **Declarada por terceros; no replicada** |
+| F9 | Las bibliotecas de skills degradan al crecer | **Declarada por terceros; no replicada** |
+| F10 | El lift agregado de retrieval no implica uso efectivo | **Declarada por terceros; no replicada** |
+| F11 | La memoria episódica no mejora el resolve rate en código | **Declarada por terceros; no replicada** |
+| F12 | Las cifras de la revisión están verificadas documentalmente, no replicadas | **Sostenida** (extraccion.md) |
 
 ---
 

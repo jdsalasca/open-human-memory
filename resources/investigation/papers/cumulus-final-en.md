@@ -270,13 +270,19 @@ three corrections:
    **52 of 538** asserted verifications confirmed by execution. CUMULUS would have
    to show that its representation survives a model change, not that the gate
    works.
-3. **The cost is measured.** STRATUM: **~4 GB of text versus ~298 TB of KV state**
-   per 1e9 tokens. Portability must report tokens and maintenance, not only
-   artefact size.
+3. **The cost is estimated, not measured in production.** STRATUM computes the
+   **hypothetical** cost of representing one billion tokens as KV state (**~298 TB**
+   versus **~4 GB** as text). It does not show a real system holding that context
+   active. Portability must report tokens and maintenance, not only artefact size.
 
 Conclusion: CUMULUS stands as a **representation and portability hypothesis without
 evidence of its own**. Its question —does a structured representation preserve
 utility across models and domains?— remains open and is the only one it can claim.
+
+This yields a concrete **form-selection** hypothesis: given an experience, decide
+whether to keep it as an **episode, procedure, tool or concept** according to its
+measured future utility. It is not a new architecture; it is a policy over
+representations, testable against an oracle that knows the optimal form per task.
 
 ## 8. Limits and safety
 

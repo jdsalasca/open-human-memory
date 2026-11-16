@@ -72,11 +72,18 @@ sustituyen por otra arquitectura: se publica y se reduce el alcance.
 | Revisión estructurada: 7.100 identificados, 177 cribados, 31 incluidos | Hecho, con límites declarados |
 | Una línea base reproducida | **Pendiente** |
 
-**Puerta F0:** falta la reproducción. Sin ella no se pasa a F1.
+**Puerta F0:** la falta de reproducción **no bloquea la instrumentación**, pero sí
+bloquea **declarar ventajas**. Se puede construir el diagnóstico en paralelo; no se
+publica una comparación hasta tener baseline.
+
+**Fidelidad exigida:** no basta «mismo orden de magnitud». Se comparan protocolo,
+configuración, métricas y variabilidad del estudio original. Un 30 % frente a un
+80 % no es una reproducción.
 
 **Candidatos, por coste:** CEGIS mínimo (bajo), SkillGen (medio), Proof-Gated
-(medio), EvoAgentBench (alto), DreamCoder (alto). Criterio: mismo orden de magnitud
-en la métrica principal, no el mismo número. Si falla, se documenta.
+(medio), EvoAgentBench (alto), DreamCoder (alto). El referente principal debería ser
+un sistema de **transferencia de habilidades** con código y datos, no el más fácil
+de reproducir.
 
 ---
 
@@ -113,7 +120,25 @@ oráculo gana y la recuperación no, el fallo es del recuperador.
 
 ---
 
-## F3 — Universo no enumerable (`EXPAND-*`)
+## F2.5 — Forma del conocimiento (`FORM-*`)
+
+**Pregunta:** ¿importa la **forma** en que se conserva una experiencia? Predicción
+P6. Es la hipótesis nueva del programa.
+
+- Cuatro formas de la misma experiencia: **episodio, procedimiento, herramienta,
+  concepto**.
+- Misma información disponible para el clon; mismo presupuesto de contexto y
+  cómputo.
+- Cota superior: oráculo que conoce la forma óptima por tarea.
+- Métricas `E`, `K` y `P` separadas; coste de construir cada forma incluido.
+
+**Criterio:** la selección aprendida se acerca al oráculo y supera a toda forma fija
+a igual coste. Si una forma fija iguala o supera, la forma no importa y solo importa
+el contenido.
+
+---
+
+## F3 — Universo no explorable (`EXPAND-*`)
 
 **Pregunta:** ¿una herramienta compilada amplía la cobertura cuando la solución no
 cabe en el presupuesto? Predicción **P1**.
@@ -134,6 +159,9 @@ de expansión.
 - Estructura compartida, superficie distinta (listas → cadenas → registros).
 - Dependencia real: una tarea posterior exige un artefacto anterior.
 - Familias reservadas que no intervienen en el diseño.
+- **Canales competidores:** herramienta, política y **representación**. No se
+  declara ganador antes de medir; la representación vuelve a ser una hipótesis, no
+  un descarte.
 
 **Criterio:** `E(F)` del agente < `E(F)` del clon, con IC que excluya cero.
 

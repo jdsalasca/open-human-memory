@@ -294,14 +294,22 @@ La revisión estructurada de 31 trabajos (noviembre de 2026,
    **52 de 538** aserciones de verificación confirmadas por ejecución. CUMULUS
    tendría que demostrar que su representación sobrevive al cambio de modelo, no
    que el gate funciona.
-3. **El coste está medido.** STRATUM: **~4 GB de texto frente a ~298 TB de estado
-   KV** por 1e9 tokens. La portabilidad debe reportar tokens y mantenimiento, no
-   solo tamaño de artefacto.
+3. **El coste está estimado, no medido en producción.** STRATUM calcula el coste
+   **hipotético** de representar mil millones de tokens como estado KV (**~298 TB**
+   frente a **~4 GB** en texto). No demuestra que un sistema real mantenga ese
+   contexto activo. La portabilidad debe reportar tokens y mantenimiento, no solo
+   tamaño de artefacto.
 
 Conclusión: CUMULUS queda como **hipótesis de representación y portabilidad, sin
 evidencia propia**. Su pregunta —¿una representación estructurada conserva la
 utilidad al cambiar de modelo y de dominio?— sigue abierta y es la única que puede
 reclamar como suya.
+
+De ahí se deriva una hipótesis concreta de **selección de forma**: dada una
+experiencia, decidir si se conserva como **episodio, procedimiento, herramienta o
+concepto** según su utilidad futura medida. No es una arquitectura nueva; es una
+política sobre representaciones, contrastable contra un oráculo que conozca la forma
+óptima por tarea.
 
 ## 8. Límites y seguridad
 

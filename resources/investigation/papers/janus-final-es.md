@@ -337,8 +337,9 @@ La revisión estructurada de 31 trabajos (noviembre de 2026,
 
 - **La parte operativa de JANUS ya está implementada y medida.** Proof-Gated
   (NeurIPS 2026 workshop): 538 aserciones de verificación, **52 confirmadas por
-  ejecución, 486 rechazadas**. JANUS no puede presentarse como propuesta novedosa;
-  su aportación posible es declarar **qué** se puede afirmar, no el gate.
+  ejecución, 486 rechazadas**. JANUS no puede presentar la **verificación** como
+  novedad; su aportación posible es la **identificación causal** y los niveles de
+  evidencia, que aún no se han comparado con la literatura de inferencia causal.
 - **La memoria puede hacer daño y el campo ya lo mide.** MemDev-Bench rompe tareas
   antes resolubles; *skill shadowing* cuesta hasta **−21 %** con 202 skills; MemUse
   queda a **±0,4 pp** del baseline sin memoria, con **23,2 %** de usos beneficiosos

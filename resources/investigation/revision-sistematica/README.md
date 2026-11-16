@@ -26,15 +26,18 @@ tuviera; lo redescubrió en un universo de cuatro operadores.
 
 ### H2. La verificación independiente no es una idea nuestra, y ya demostró que es imprescindible
 
-**Proof-Gated Skill Compilation** (NeurIPS 2026 workshop) hace exactamente lo que
-JANUS proponía: que solo persistan programas ejecutados por el harness contra
-ground truth. Su resultado es contundente: de **538 aserciones de verificación**
-hechas por modelos teacher, la ejecución independiente confirmó **52** y rechazó
-**486 fabricaciones**. En un benchmark de 90 tareas derivadas de ARC-AGI-2, la
-biblioteca verificada alcanza **98,9 %**.
+**Proof-Gated Skill Compilation** (NeurIPS 2026 workshop) implementa la parte
+**operacional** de lo que JANUS proponía: que solo persistan programas ejecutados
+por el harness contra ground truth. Su resultado es contundente: de **538 aserciones
+de verificación** hechas por modelos teacher, la ejecución independiente confirmó
+**52** y rechazó **486 fabricaciones**. En un benchmark de 90 tareas derivadas de
+ARC-AGI-2, la biblioteca verificada alcanza **98,9 %**.
 
-JANUS no es una contribución: es una instancia de algo ya implementado, con
-evidencia más fuerte de la que tenemos.
+Eso **no** significa que JANUS esté resuelto: verificar que una herramienta pasa
+pruebas es corrección operacional; identificar causalmente por qué una intervención
+produce un resultado es otro problema. Lo que queda refutado es la **novedad de la
+verificación**; la parte causal de JANUS sigue sin compararse con la literatura de
+identificación causal y evaluación contrafactual.
 
 ### H3. El valor de la memoria es condicional, y el campo tiene los mismos negativos
 
@@ -151,8 +154,9 @@ defendible, y es una contribución de medición, no de arquitectura.
   superado.
 - La política de activación como contribución: medida y negativa, y el campo tiene
   mejores mecanismos de recuperación.
-- JANUS como idea novedosa: Proof-Gated ya la implementó con mejor evidencia.
-- La frase «no cabe en la ventana»: sustituida por las cifras de STRATUM.
+- La **verificación operacional** como idea novedosa: Proof-Gated ya la implementó.
+  La pretensión **causal** de JANUS sigue abierta y sin comparación.
+- La frase «no cabe en la ventana»: sustituida por las estimaciones de STRATUM.
 
 ### Se conserva
 
@@ -177,11 +181,16 @@ defendible, y es una contribución de medición, no de arquitectura.
 
 - **Una base.** OpenAlex. Sin Scopus, WoS ni ACM DL.
 - **Un revisor.** Sin doble cribado ni cálculo de concordancia.
-- **Muestreo por relevancia.** 177 títulos, no 7.100.
-- **Resúmenes, no textos completos.** Las cifras son las del resumen indexado.
+- **Muestreo por relevancia.** 177 títulos, no 7.100. **88 de los 131 candidatos no
+  se evaluaron**; el hueco está declarado en `cribado.md`.
+- **Resúmenes, no textos completos.** Las cifras son las **declaradas por los
+  autores**, no verificadas documentalmente ni replicadas. Solo SkillsBench,
+  Mem²Evolve y Proof-Gated se contrastaron con su página primaria.
 - **Preprints.** La mayoría de 2026 no está revisada por pares.
-- **Sin meta-análisis.** No se agrupan efectos porque los diseños no son
-  comparables.
+- **Sin meta-análisis.** Los estudios miden unidades distintas (skills curadas,
+  memoria episódica, flujos con biblioteca) y no se comparan directamente. Un
+  resultado positivo en uno no refuta un negativo en otro.
+- **Sin replicación.** Ningún resultado se reprodujo ejecutando el protocolo ajeno.
 
 Sirve para saber qué existe, qué se ha demostrado y qué no; no para afirmar que
 algo no existe.

@@ -1,11 +1,22 @@
 # Extracción de evidencia
 
-**Fecha:** 16 de noviembre de 2026. Cifras tomadas del resumen indexado en OpenAlex
-salvo donde se indica. `[título]` = identificado pero no extraído.
+**Fecha:** 16 de noviembre de 2026. Las cifras son las que **declaran los autores**
+en el resumen indexado, salvo donde se indica. No son replicaciones.
+
+## Tres niveles de verificación
+
+| Nivel | Qué significa | Qué alcanza este documento |
+|---|---|---|
+| **Declarado por los autores** | Cifra publicada en el trabajo | **La mayoría de las filas** |
+| **Verificación documental** | Contrastada con la versión, tabla y metodología del texto completo | Solo SkillsBench, Mem²Evolve y Proof-Gated |
+| **Replicación independiente** | Obtenida ejecutando el protocolo | **Ninguna** |
+
+La columna se llama «Resultado declarado (abstract)» por eso. Decir «verificado»
+sin replicar era una imprecisión.
 
 ## A. Benchmarks y evaluaciones (9)
 
-| ID | Trabajo | Año | Qué mide | Resultado verificado | Límite |
+| ID | Trabajo | Año | Qué mide | Resultado declarado (abstract) | Límite |
 |---|---|---|---|---|---|
 | B1 | **SkillsBench** (arXiv:2602.12670) | 2026 | Skills curadas vs sin skills | **87 tareas, 8 dominios, 18 configuraciones; 33,9 % → 50,5 % (+16,6 pp)**; ≤3 módulos mejor que bundles grandes | La auditoría reporta 86 tareas/11 dominios/+16,2 pp para otra versión: **hay versiones** |
 | B2 | **MemDev-Bench** (arXiv:2610.27524) | 2026 | Memoria sobre historiales de repo con relevancia anotada | **555 tareas base + 4.869 históricas**; mejora localización/edición; **también causa fallos en tareas antes resolubles** | Preprint |
@@ -19,7 +30,7 @@ salvo donde se indica. `[título]` = identificado pero no extraído.
 
 ## B. Sistemas de memoria y auto-evolución (8)
 
-| ID | Trabajo | Año | Mecanismo | Resultado verificado | Límite |
+| ID | Trabajo | Año | Mecanismo | Resultado declarado (abstract) | Límite |
 |---|---|---|---|---|---|
 | S1 | **Mem²Evolve** (ACL 2026) | 2026 | Experience Memory + Asset Memory | **+18,53 % vs LLM, +11,80 % vs solo experiencia, +6,46 % vs solo activos**; 6 categorías, 8 benchmarks | Código en preparación según la auditoría; sin transferencia de modelo |
 | S2 | **MemEvolve** (arXiv:2512.18746) | 2025 | Meta-evolución de la arquitectura de memoria | La arquitectura de memoria también se adapta | Preprint |
@@ -32,7 +43,7 @@ salvo donde se indica. `[título]` = identificado pero no extraído.
 
 ## C. Aprendizaje continuo y transferencia (5)
 
-| ID | Trabajo | Año | Qué mide | Resultado verificado | Límite |
+| ID | Trabajo | Año | Qué mide | Resultado declarado (abstract) | Límite |
 |---|---|---|---|---|---|
 | C1 | **EvoAgentBench** (EMNLP Findings 2026) | 2026 | Transferencia de **procedimientos**, no información | 4 dominios; ability graphs; cada tarea de test respaldada por entrenamiento verificado | Muy reciente |
 | C2 | **SelfImprove-Bench** (arXiv:2611.02797) | 2026 | Ganancia de capacidad vs ajuste al escenario | Separa Explorar/Planificar/Razonar; escenarios no vistos | Preprint |
@@ -84,3 +95,4 @@ salvo donde se indica. `[título]` = identificado pero no extraído.
 - **AdaMem** se excluyó: controla qué **escribir**, no la adquisición de
   competencia. La descripción de la auditoría («memoria adaptativa durante la
   ejecución») no coincide con su resumen.
+
