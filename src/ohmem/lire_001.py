@@ -92,10 +92,17 @@ def prompt_for(rule: str, case: list[int]) -> str:
     return f"{rule}\n\nCase: {case}\n\n{INSTRUCTION}"
 
 
-def run_codex(prompt: str, model: str, effort: str, timeout: int) -> dict:
+def run_codex(
+    prompt: str,
+    model: str,
+    effort: str,
+    timeout: int,
+    schema: dict | None = None,
+    answer_key: str = "query_output",
+) -> dict:
     workdir = Path(tempfile.mkdtemp(prefix="lire-"))
     schema_path = workdir / "schema.json"
-    schema_path.write_text(json.dumps(SCHEMA), encoding="utf-8")
+    schema_path.write_text(json.dumps(schema or SCHEMA), encoding="utf-8")
     out_path = workdir / "last.json"
     command = (
         "codex exec --ephemeral --skip-git-repo-check -s read-only --color never "
@@ -127,11 +134,13 @@ def run_codex(prompt: str, model: str, effort: str, timeout: int) -> dict:
             usage = event.get("usage") or {}
     raw = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
     try:
-        answer = json.loads(raw).get("query_output")
+        payload = json.loads(raw)
     except (json.JSONDecodeError, AttributeError):
-        answer = None
+        payload = None
+    answer = payload.get(answer_key) if isinstance(payload, dict) else None
     return {
         "answer": answer,
+        "payload": payload,
         "parsed": answer is not None,
         "usage": usage,
         "seconds": seconds,

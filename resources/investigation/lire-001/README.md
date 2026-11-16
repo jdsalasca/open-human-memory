@@ -45,15 +45,19 @@ tokens**.
 
 ## 4. Lectura
 
-- La hipótesis «el chino ahorra tokens» **no se sostiene** en este piloto. Ahorra
-  caracteres; los tokens son casi idénticos.
-- La hipótesis «un DSL compacto conserva la competencia con menos coste» **tampoco**:
-  no ahorra tokens medibles y pierde un caso.
-- El experimento **sí valida el método**: tokens reales, condiciones pareadas,
-  cuatro ramas, control de fidelidad. Y muestra que la escala es el problema: para
-  medir representación hay que superar el ruido del arnés.
-- La conclusión útil es negativa y corrige una intuición: **más corto no es más
-  barato, y más compacto no es más fiel.**
+- **No se observó ahorro de tokens.** El diseño no aisló el coste incremental de la
+  regla: los tokens son de llamadas completas y el arnés varió. La comparación de
+  medianas no estima por sí sola el coste de la representación.
+- **El chino ahorra caracteres** (139 vs 385) y en este texto los bytes son casi
+  idénticos (381 vs 389). **No se concluye una relación general** entre bytes y
+  tokens.
+- **El DSL falló un caso.** Con un solo error no se distingue una desventaja
+  sistemática de la representación de una variación de ejecución; la causa exacta
+  no está identificada.
+- El experimento **muestra que el arnés domina la medición** a esta escala. Ese es
+  su resultado útil: para medir representación hay que aislar el coste incremental.
+- Las prosas conservaron el acierto en los ocho casos, pero 8/8 no demuestra
+  fidelidad perfecta ni equivalencia entre formas.
 
 ## 5. Qué haría falta para medir de verdad
 

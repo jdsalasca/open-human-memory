@@ -23,6 +23,13 @@ revisión por pares humana.
 La salida de `gpt-6-luna` se descartó por decisión del autor
 (`archive/luna-max-descartada.md`, vacío) y no se usa.
 
+## Informes
+
+| Informe | Qué cubre |
+|---|---|
+| [`codex-gpt-6.1-terra-medium.md`](codex-gpt-6.1-terra-medium.md) | Revisión completa del repositorio (dictamen: rechazar en su estado actual) |
+| [`validacion-lire-007.md`](validacion-lire-007.md) | Revisión adversarial de 007 y LIRE-001: explicaciones alternativas, hipótesis nuevas y tres experimentos priorizados |
+
 ## Qué se pidió
 
 Una revisión tipo venue (NeurIPS/ACL) sobre el repositorio completo: consistencia

@@ -52,7 +52,7 @@ de prompt:
 
 | Comparación | `clone` acierta / `placebo` falla | `placebo` acierta / `clone` falla |
 |---|---|---|
-| Programa completo | 1 | 0 |
+| Programa completo | 0 | **1** |
 | Subrutina | 0 | 2 |
 
 Con el encuadre de subrutina, `memory` y `placebo` aciertan **lo mismo** (11/12) y

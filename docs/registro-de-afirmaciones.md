@@ -67,8 +67,8 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 |---|---|---|---|---|
 | T1 | En espacio **explorable, identificable y dentro del presupuesto**, la memoria no amplía cobertura | Sostenida **con condiciones** | E0 + 004/006 | Un contraejemplo que cumpla las tres condiciones |
 | T2 | En espacio no explorable bajo el presupuesto, una herramienta compilada amplía cobertura | **Abierta** (P1) | — | Cobertura igual sin historial |
-| T3 | A igual información, un procedimiento bate a un episodio | **Abierta** (P2) | — | Empatan |
-| T4 | `E(F)` baja solo con estructura compartida | **Abierta** (P3) | — | Baja con vocabulario compartido |
+| T3 | A igual información, un procedimiento bate a un episodio | **Abierta** (P2) | — | Un intervalo de equivalencia con margen fijado descarta una ventaja superior al mínimo relevante |
+| T4 | La ventaja de adquisición es **mayor** con estructura compartida que con solo vocabulario compartido | **Abierta** (P3) | — | No hay interacción estructura × vocabulario |
 | T5 | El efecto sobrevive a cambiar de modelo | **Abierta** (P5) | — | Desaparece |
 | T6 | Elegir la **forma** del conocimiento según utilidad futura bate a una forma fija | **Abierta** (P6) | — | Una forma fija iguala o supera |
 
@@ -94,27 +94,27 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| G1 | `gpt-6.1-terra` medium resuelve profundidad 5–9 con 1–3 ejemplos en esta familia | Sostenida | E2 local | Un modelo o familia donde el clon falle de forma estable |
-| G2 | Un procedimiento verificado presentado como programa completo perjudica la composición (8/0) | Sostenida | E2 local | Repetir sin el anclaje del prompt |
-| G3 | Presentado como subrutina, no supera a un placebo (11/11) | Sostenida | E2 local | Un artefacto necesario, no solo útil |
+| G1 | En estas muestras, el clon acertó 12/12 con 3 ejemplos y 9/12 o 10/12 en dos corridas con 1 ejemplo, para programas nominales de 5 pasos; el smoke 7–9 fue 4/4 por condición | Sostenida (local) | E2 local | Repetición con más semillas y clases conductuales |
+| G2 | Con el artefacto presentado como programa completo, memoria 2/12 y clon 10/12; 8 pares a favor del clon y 0 en contra. El mecanismo (anclaje) no está identificado | Sostenida (local) | E2 local | Comparación controlada de encuadres |
+| G3 | Con encuadre de subrutina, memoria y placebo 11/12 cada uno; cada uno acertó una tarea que el otro falló. La muestra no establece equivalencia | Abierta | E2 local | Intervalo de equivalencia con margen fijado |
 
 ## H. Representación (LIRE-001)
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| L1 | La representación cambia los tokens reales de entrada | **No demostrada** | E2 local | Diferencia ≤ 61 tokens entre medianas, dentro del ruido del arnés |
-| L2 | La fidelidad se conserva en las cinco representaciones | **Refutada parcialmente** | E2 local | DSL 7/8; las prosas 8/8 |
-| L3 | El DSL conserva el acierto con menos tokens | **Refutada** | E2 local | Sin ahorro medible y un fallo de rama |
-| L4 | Menos caracteres implican menos tokens | **Refutada** | E2 local | Chino −64 % caracteres, +2 tokens de mediana |
+| L1 | La representación cambia los tokens reales de entrada | **No demostrada** | E2 local | No se aisló el coste incremental; el arnés varió entre llamadas |
+| L2 | La fidelidad se conserva en las cinco representaciones | **Abierta** | E2 local | Se observó 1 error DSL y 0 en prosas sobre 8 casos; no estima la diferencia |
+| L3 | El DSL conserva el acierto con menos tokens | **Abierta** | E2 local | No se demostró conjuntamente ahorro y fidelidad |
+| L4 | Menos caracteres implican menos tokens | **Abierta** | E2 local | El experimento no aisló los tokens de la regla; el universal exige contraejemplo medido |
 
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **34 sostenidas**: 29 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **33 sostenidas**: 28 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **11 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
-- **10 abiertas, inválidas o no demostradas**, y son justo las que responderían la
+- **8 refutadas**, incluidas nuestras dos hipótesis principales y tres de LIRE.
+- **14 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**
@@ -132,3 +132,5 @@ por ejecución, benchmarks de transferencia y resultados negativos a escala.
 2. Un resultado negativo cambia el estado; no se borra la fila.
 3. Un cambio de estado exige enlace al resultado crudo.
 4. Las filas `inválida` se conservan: son lecciones metodológicas.
+
+
