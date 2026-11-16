@@ -1,0 +1,432 @@
+{
+  "seed": 2,
+  "n_values": [
+    50,
+    100,
+    200,
+    400
+  ],
+  "n_eval": 50,
+  "rows": [
+    {
+      "n": 50,
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.26,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 50,
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.54,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 50,
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 50,
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.58,
+      "gain_vs_no_memory": 0.32
+    },
+    {
+      "n": 50,
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.42,
+      "gain_vs_no_memory": -0.12
+    },
+    {
+      "n": 50,
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.04,
+      "gain_vs_no_memory": 0.04
+    },
+    {
+      "n": 50,
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 50,
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 50,
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 50,
+      "condition": "D-primitive-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 50,
+      "condition": "D-primitive-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 50,
+      "condition": "D-primitive-procedure",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 50,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 50,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 50,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 100,
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.26,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 100,
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.54,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 100,
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 100,
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.6,
+      "gain_vs_no_memory": 0.34
+    },
+    {
+      "n": 100,
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.36,
+      "gain_vs_no_memory": -0.18
+    },
+    {
+      "n": 100,
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.02,
+      "gain_vs_no_memory": 0.02
+    },
+    {
+      "n": 100,
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 100,
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 100,
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 100,
+      "condition": "D-primitive-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 100,
+      "condition": "D-primitive-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 100,
+      "condition": "D-primitive-procedure",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 100,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 100,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 100,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 200,
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.26,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 200,
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.54,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 200,
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 200,
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.62,
+      "gain_vs_no_memory": 0.36
+    },
+    {
+      "n": 200,
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.48,
+      "gain_vs_no_memory": -0.06
+    },
+    {
+      "n": 200,
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.02,
+      "gain_vs_no_memory": 0.02
+    },
+    {
+      "n": 200,
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 200,
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 200,
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 200,
+      "condition": "D-primitive-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 200,
+      "condition": "D-primitive-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 200,
+      "condition": "D-primitive-procedure",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 200,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 200,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 200,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 400,
+      "condition": "A-no-memory",
+      "distribution": "D1",
+      "accuracy": 0.26,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 400,
+      "condition": "A-no-memory",
+      "distribution": "D2",
+      "accuracy": 0.54,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 400,
+      "condition": "A-no-memory",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 400,
+      "condition": "B-retrieval",
+      "distribution": "D1",
+      "accuracy": 0.62,
+      "gain_vs_no_memory": 0.36
+    },
+    {
+      "n": 400,
+      "condition": "B-retrieval",
+      "distribution": "D2",
+      "accuracy": 0.5,
+      "gain_vs_no_memory": -0.04
+    },
+    {
+      "n": 400,
+      "condition": "B-retrieval",
+      "distribution": "D3",
+      "accuracy": 0.02,
+      "gain_vs_no_memory": 0.02
+    },
+    {
+      "n": 400,
+      "condition": "C-oracle",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 400,
+      "condition": "C-oracle",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 400,
+      "condition": "C-oracle",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    },
+    {
+      "n": 400,
+      "condition": "D-primitive-procedure",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 400,
+      "condition": "D-primitive-procedure",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 400,
+      "condition": "D-primitive-procedure",
+      "distribution": "D3",
+      "accuracy": 0.0,
+      "gain_vs_no_memory": 0.0
+    },
+    {
+      "n": 400,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D1",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.74
+    },
+    {
+      "n": 400,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D2",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 0.46
+    },
+    {
+      "n": 400,
+      "condition": "E-compositional-abstraction",
+      "distribution": "D3",
+      "accuracy": 1.0,
+      "gain_vs_no_memory": 1.0
+    }
+  ]
+}

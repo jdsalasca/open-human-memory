@@ -19,12 +19,16 @@ def run(seed: int = 0, n_train: int = 200, n_eval: int = 50) -> dict:
             tasks = splits[distribution]
             correct = 0
             reads = 0
+            verifications = 0
+            context_values = 0
             for task in tasks:
                 if isinstance(condition, Oracle):
                     prediction = condition.predict(task.observation, task.solution)
                 else:
                     prediction = condition.predict(task.observation)
                 reads += prediction.memory_reads
+                verifications += prediction.verification_calls
+                context_values += prediction.context_values
                 produced = apply_rule(prediction.rule, task.observation.query)
                 expected = apply_rule(task.solution.rule, task.observation.query)
                 if produced == expected:
@@ -34,7 +38,11 @@ def run(seed: int = 0, n_train: int = 200, n_eval: int = 50) -> dict:
                     "condition": condition.name,
                     "distribution": distribution,
                     "accuracy": round(correct / len(tasks), 4),
-                    "memory_reads": reads,
+                    "cost": {
+                        "memory_reads": reads,
+                        "verification_calls": verifications,
+                        "context_values": context_values,
+                    },
                 }
             )
     return {"seed": seed, "n_train": n_train, "n_eval": n_eval, "rows": rows}
@@ -52,11 +60,13 @@ def main() -> None:
         print(json.dumps(result, indent=2))
         return
     print(f"seed={result['seed']} train={result['n_train']} eval={result['n_eval']}")
-    print(f"{'condition':<28} {'dist':<4} {'acc':>6} {'reads':>6}")
+    print(f"{'condition':<28} {'dist':<4} {'acc':>6} {'reads':>6} {'verify':>6}")
     for row in result["rows"]:
+        cost = row["cost"]
         print(
             f"{row['condition']:<28} {row['distribution']:<4} "
-            f"{row['accuracy']:>6.3f} {row['memory_reads']:>6}"
+            f"{row['accuracy']:>6.3f} {cost['memory_reads']:>6} "
+            f"{cost['verification_calls']:>6}"
         )
 
 

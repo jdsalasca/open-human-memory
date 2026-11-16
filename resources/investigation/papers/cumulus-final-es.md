@@ -154,6 +154,26 @@ skill:
   status: candidate | validated | canonical | deprecated
 ```
 
+### 5.3 Semántica operacional mínima
+
+Un campo sin verificador es documentación, no contrato. Cada campo de SIR debe
+tener un método de comprobación:
+
+| Campo | Verificador |
+|---|---|
+| `preconditions.files` | `stat` / glob |
+| `postconditions.tests_pass` | ejecutar el test |
+| `postconditions.api_unchanged` | diff de OpenAPI, test de compatibilidad o análisis de firmas |
+| `invariants.no_new_dependencies` | diff del lockfile |
+| `steps[].capability` | adaptador del runtime |
+
+Reglas de composición: las postcondiciones de un paso deben satisfacer las
+precondiciones del siguiente; los efectos secundarios se declaran; un fallo no
+silencioso es obligatorio.
+
+**Portabilidad** significa que SIR conserva las propiedades verificables al
+compilarse para otro runtime, no solo que el modelo complete la tarea.
+
 ### 5.4 Canon
 
 Biblioteca versionada con estado, evidencia, dueño, validez, contradicciones y
@@ -183,12 +203,17 @@ La línea DeepSeek cambia el cálculo de costo:
   a 64K.
 - **FlashAttention** muestra que el cuello es memoria/IO, no solo FLOPs.
 
-Por eso CUMULUS mide:
+Por eso CUMULUS reporta un **vector de coste observable**, no un escalar con
+pesos arbitrarios:
 
 \[
-\text{costo por éxito} = \frac{\text{tokens} + \lambda_1 \text{KV cache} +
-\lambda_2 \text{latencia} + \lambda_3 \text{verificación}}{\text{éxitos}}
+C = (\text{USD}, \text{latencia}, \text{tokens}, \text{KV cache},
+\text{cómputo}, \text{almacenamiento})
 \]
+
+Cuando haga falta una utilidad, se define un escenario operativo y se calibran
+los pesos; nunca se suman unidades físicas sin declararlo. Si el proveedor no
+expone el KV cache, se reporta como no observable.
 
 Si la atención nativa ya procesa 128K, la memoria externa debe demostrar que
 **elige mejor**, no solo que "cabe".
@@ -227,8 +252,10 @@ Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
 
 El instrumento muestra que retrieval no basta cuando la regla está en los
 ejemplos; una primitiva inducida resuelve reglas simples; la composición es el
-discriminador. Es un resultado del **instrumento sintético**, no de CUMULUS ni de
-un LLM. Detalles en `prototipo-002-diagnostico/`.
+discriminador. El coste no es escalar: MEM-E gasta 20 verificaciones por tarea
+frente a 4 de MEM-D, y la curva \(G(n)\) se satura desde \(n=50\). Es un resultado
+del **instrumento sintético**, no de CUMULUS ni de un LLM. Detalles en
+`prototipo-002-diagnostico/`.
 
 ## 8. Límites y seguridad
 

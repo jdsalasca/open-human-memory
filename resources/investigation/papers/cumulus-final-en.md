@@ -134,6 +134,25 @@ skill:
   status: candidate | validated | canonical | deprecated
 ```
 
+### 5.3 Minimal operational semantics
+
+A field without a verifier is documentation, not a contract. Every SIR field needs
+a check:
+
+| Field | Verifier |
+|---|---|
+| `preconditions.files` | `stat` / glob |
+| `postconditions.tests_pass` | run the test |
+| `postconditions.api_unchanged` | OpenAPI diff, compatibility test, or signature analysis |
+| `invariants.no_new_dependencies` | lockfile diff |
+| `steps[].capability` | runtime adapter |
+
+Composition rules: a step's postconditions must satisfy the next step's
+preconditions; side effects are declared; silent failure is forbidden.
+
+**Portability** means SIR preserves verifiable properties when compiled for
+another runtime, not merely that the model completes the task.
+
 ### 5.4 Canon
 
 Versioned library with status, evidence, owner, validity, contradictions, and
@@ -162,12 +181,17 @@ The DeepSeek line changes the cost calculus:
 - **NSA** selects blocks natively and speeds decoding up to 11.6× at 64K.
 - **FlashAttention** shows the bottleneck is memory/IO, not only FLOPs.
 
-CUMULUS therefore measures:
+CUMULUS therefore reports an **observable cost vector**, not a scalar with
+arbitrary weights:
 
 \[
-\text{cost per success} = \frac{\text{tokens} + \lambda_1 \text{KV cache} +
-\lambda_2 \text{latency} + \lambda_3 \text{verification}}{\text{successes}}
+C = (\text{USD}, \text{latency}, \text{tokens}, \text{KV cache},
+\text{compute}, \text{storage})
 \]
+
+When a utility is needed, an operating scenario is defined and weights are
+calibrated; physical units are never summed without saying so. If the provider
+does not expose KV cache, it is reported as unobservable.
 
 If native attention already handles 128K, external memory must prove it
 **selects better**, not merely that it fits.
@@ -206,8 +230,10 @@ Mean of 3 seeds, 200 training tasks, 50 evaluation tasks:
 
 The instrument shows that retrieval is insufficient when the rule lives in the
 examples; an induced primitive solves simple rules; composition is the
-discriminator. This is a result about the **synthetic instrument**, not about
-CUMULUS or an LLM. Details in `prototipo-002-diagnostico/`.
+discriminator. Cost is not scalar: MEM-E spends 20 verifications per task versus
+4 for MEM-D, and \(G(n)\) saturates from \(n=50\). This is a result about the
+**synthetic instrument**, not about CUMULUS or an LLM. Details in
+`prototipo-002-diagnostico/`.
 
 ## 8. Limits and safety
 

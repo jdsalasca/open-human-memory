@@ -252,6 +252,27 @@ mejoras reales de éxitos aparentes** es el límite.
 
 No se implementa todo. El MVP es el **diagnóstico** de qué capa importa.
 
+### 7.1 Mecanismos de inducción, composición y revisión
+
+Un motor conceptual no es un resumidor. Necesita:
+
+1. **Espacio de hipótesis:** programas, reglas o grafos candidatos; no texto.
+2. **Inducción:** elegir la hipótesis más simple que explica los ejemplos
+   (MDL/occam), con soporte y contraejemplos.
+3. **Composición:** combinar primitivas y verificar que la composición explica
+   los datos; el Prototipo 002 muestra que sin composición en el espacio de
+   hipótesis, D3 es imposible.
+4. **Analogía:** mapear estructura relacional entre dominios, no vocabulario.
+5. **Contraejemplos:** buscar activamente casos que refuten la abstracción.
+6. **Validación:** predictiva (nuevos casos), explicativa (por qué), y
+   transferencia (nuevas familias).
+7. **Revisión:** dividir una abstracción demasiado general o fusionar varias
+   demasiado específicas; registrar la versión y el motivo.
+
+Métricas: compresión (MDL), transferencia, tasa de contraejemplos, tiempo a
+revisión y daño de una abstracción incorrecta. Una abstracción que no mejora la
+predicción o la transferencia no entra al Canon.
+
 ## 8. El riesgo de aprender a equivocarse mejor
 
 Si el agente modifica procedimientos y estrategias, un error puede propagarse:

@@ -53,6 +53,18 @@ class InferenceTests(unittest.TestCase):
             ):
                 self.assertEqual(apply_rule(inferred, x), y)
 
+    def test_surface_renaming_does_not_change_inference(self):
+        from dataclasses import replace
+
+        task = make_task(0, "delta", 0)
+        renamed = replace(
+            task.observation,
+            surface=tuple(f"surface_{i}" for i in range(len(task.observation.surface))),
+        )
+        inferred = infer_composition(renamed)
+        for x, y in zip(renamed.support_inputs, renamed.support_outputs):
+            self.assertEqual(apply_rule(inferred, x), y)
+
     def test_oracle_is_ceiling(self):
         task = make_task(0, "delta", 0)
         prediction = Oracle().predict(task.observation, task.solution)
@@ -93,6 +105,22 @@ class ExperimentTests(unittest.TestCase):
         train_ids = {t.observation.id for t in splits["train"]}
         for name in ("D1", "D2", "D3"):
             self.assertFalse(train_ids & {t.observation.id for t in splits[name]})
+
+    def test_longitudinal_curve(self):
+        from ohmem.v2_longitudinal import run_curve
+
+        result = run_curve(seed=0, n_values=(40, 80), n_eval=10)
+        self.assertEqual(len(result["rows"]), 30)
+        for row in result["rows"]:
+            if row["condition"] == "A-no-memory":
+                self.assertEqual(row["gain_vs_no_memory"], 0.0)
+        e_d3 = [
+            row["gain_vs_no_memory"]
+            for row in result["rows"]
+            if row["condition"] == "E-compositional-abstraction"
+            and row["distribution"] == "D3"
+        ]
+        self.assertTrue(all(gain > 0 for gain in e_d3))
 
 
 if __name__ == "__main__":

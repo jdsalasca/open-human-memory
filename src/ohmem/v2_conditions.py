@@ -19,6 +19,8 @@ from .v2_tasks import (
 class Prediction:
     rule: tuple[str, ...]
     memory_reads: int
+    verification_calls: int = 0
+    context_values: int = 0
 
 
 def _matches(rule: tuple[str, ...], obs: Observation) -> bool:
@@ -53,7 +55,7 @@ class NoMemory:
     name = "A-no-memory"
 
     def predict(self, obs: Observation) -> Prediction:
-        return Prediction(("sort_asc",), 0)
+        return Prediction(("sort_asc",), 0, 0, 0)
 
 
 class Retrieval:
@@ -64,32 +66,32 @@ class Retrieval:
 
     def predict(self, obs: Observation) -> Prediction:
         if not self.items:
-            return Prediction(("sort_asc",), 0)
+            return Prediction(("sort_asc",), 0, 0, 0)
         _, rule = max(
             self.items, key=lambda item: jaccard(obs.surface, item[0].surface)
         )
-        return Prediction(rule, 1)
+        return Prediction(rule, 1, 0, 24)
 
 
 class Oracle:
     name = "C-oracle"
 
     def predict(self, obs: Observation, solution: Solution) -> Prediction:
-        return Prediction(solution.rule, 1)
+        return Prediction(solution.rule, 1, 1, 12)
 
 
 class Procedure:
     name = "D-primitive-procedure"
 
     def predict(self, obs: Observation) -> Prediction:
-        return Prediction(infer_primitive(obs), 0)
+        return Prediction(infer_primitive(obs), 0, 4, 12)
 
 
 class Abstraction:
     name = "E-compositional-abstraction"
 
     def predict(self, obs: Observation) -> Prediction:
-        return Prediction(infer_composition(obs), 0)
+        return Prediction(infer_composition(obs), 0, 20, 12)
 
 
 @dataclass

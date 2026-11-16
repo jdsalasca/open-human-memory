@@ -11,6 +11,7 @@ ROOT = HERE.parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from ohmem.v2_experiment import run  # noqa: E402
+from ohmem.v2_longitudinal import run_curve  # noqa: E402
 
 
 def main() -> None:
@@ -48,6 +49,13 @@ def main() -> None:
         json.dumps({"seeds": seeds, "rows": summary}, indent=2), encoding="utf-8"
     )
     print("wrote summary.json")
+
+    for seed in seeds:
+        curve = run_curve(seed=seed, n_values=(50, 100, 200, 400), n_eval=50)
+        (out_dir / f"longitudinal-seed-{seed}.json").write_text(
+            json.dumps(curve, indent=2), encoding="utf-8"
+        )
+        print(f"wrote longitudinal-seed-{seed}.json")
 
 
 if __name__ == "__main__":

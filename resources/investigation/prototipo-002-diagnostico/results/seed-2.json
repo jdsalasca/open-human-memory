@@ -7,91 +7,151 @@
       "condition": "A-no-memory",
       "distribution": "D1",
       "accuracy": 0.26,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 0,
+        "context_values": 0
+      }
     },
     {
       "condition": "A-no-memory",
       "distribution": "D2",
       "accuracy": 0.54,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 0,
+        "context_values": 0
+      }
     },
     {
       "condition": "A-no-memory",
       "distribution": "D3",
       "accuracy": 0.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 0,
+        "context_values": 0
+      }
     },
     {
       "condition": "B-retrieval",
       "distribution": "D1",
       "accuracy": 0.62,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 0,
+        "context_values": 1200
+      }
     },
     {
       "condition": "B-retrieval",
       "distribution": "D2",
       "accuracy": 0.48,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 0,
+        "context_values": 1200
+      }
     },
     {
       "condition": "B-retrieval",
       "distribution": "D3",
       "accuracy": 0.02,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 0,
+        "context_values": 1200
+      }
     },
     {
       "condition": "C-oracle",
       "distribution": "D1",
       "accuracy": 1.0,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 50,
+        "context_values": 600
+      }
     },
     {
       "condition": "C-oracle",
       "distribution": "D2",
       "accuracy": 1.0,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 50,
+        "context_values": 600
+      }
     },
     {
       "condition": "C-oracle",
       "distribution": "D3",
       "accuracy": 1.0,
-      "memory_reads": 50
+      "cost": {
+        "memory_reads": 50,
+        "verification_calls": 50,
+        "context_values": 600
+      }
     },
     {
       "condition": "D-primitive-procedure",
       "distribution": "D1",
       "accuracy": 1.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 200,
+        "context_values": 600
+      }
     },
     {
       "condition": "D-primitive-procedure",
       "distribution": "D2",
       "accuracy": 1.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 200,
+        "context_values": 600
+      }
     },
     {
       "condition": "D-primitive-procedure",
       "distribution": "D3",
       "accuracy": 0.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 200,
+        "context_values": 600
+      }
     },
     {
       "condition": "E-compositional-abstraction",
       "distribution": "D1",
       "accuracy": 1.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
     },
     {
       "condition": "E-compositional-abstraction",
       "distribution": "D2",
       "accuracy": 1.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
     },
     {
       "condition": "E-compositional-abstraction",
       "distribution": "D3",
       "accuracy": 1.0,
-      "memory_reads": 0
+      "cost": {
+        "memory_reads": 0,
+        "verification_calls": 1000,
+        "context_values": 600
+      }
     }
   ]
 }

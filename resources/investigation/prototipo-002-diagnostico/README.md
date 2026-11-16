@@ -56,6 +56,29 @@ Media de tres semillas (0, 1, 2); 200 tareas de entrenamiento, 50 de evaluación
 | MEM-D primitiva | 1.000 | 1.000 | 0.000 |
 | MEM-E composición | 1.000 | 1.000 | 1.000 |
 
+### Coste observado (por tarea)
+
+| Condición | memory reads | verificaciones | valores de contexto |
+|---|---|---|---|
+| MEM-A | 0 | 0 | 0 |
+| MEM-B | 1 | 0 | 24 |
+| MEM-C | 1 | 1 | 12 |
+| MEM-D | 0 | 4 | 12 |
+| MEM-E | 0 | 20 | 12 |
+
+Es un **vector de coste**, no un escalar: MEM-E acierta D3 pero gasta 20
+verificaciones por tarea; MEM-D gasta 4 y falla D3. El oráculo MEM-C gasta 1
+porque hace trampa.
+
+### Curva longitudinal \(G(n)\)
+
+Con \(n = 50, 100, 200, 400\) experiencias, la ganancia de MEM-E sobre MEM-A en
+D3 es 1.000 desde el primer corte; MEM-D se queda en 0.000. La curva **no
+crece** porque las tareas son i.i.d. y el espacio de hipótesis ya contiene la
+composición. Lo que sí aparece es **transferencia negativa**: MEM-B en D2 tiene
+\(G(50) = -0.180\), porque recupera una tarea de familia parecida con regla
+distinta. Resultados en `results/longitudinal-seed-*.json`.
+
 ## 4. Lectura
 
 - **Retrieval no basta.** MEM-B queda cerca del azar en D1/D2 (0.55/0.51)
@@ -77,7 +100,9 @@ importa: sin composición, no hay transferencia a una composición nueva.
 - No mide descubrimiento conceptual abierto: las primitivas y las composiciones
   están predefinidas en el espacio de búsqueda.
 - No mide costo real de consolidación, verificación o entrenamiento.
-- No mide aprendizaje longitudinal \(G(n)\) con 100–10,000 experiencias.
+- No mide aprendizaje longitudinal \(G(n)\) con crecimiento real: la curva se
+  satura desde \(n=50\) porque las tareas son i.i.d. y el espacio de hipótesis ya
+  contiene la composición. Mide transferencia composicional, no acumulación.
 - No prueba que MEM-E sea una arquitectura; es un **inductor composicional
   mínimo**.
 - El éxito de MEM-E está garantizado por construcción si los ejemplos
@@ -111,7 +136,10 @@ prototipo-002-diagnostico/
     ├── seed-0.json
     ├── seed-1.json
     ├── seed-2.json
-    └── summary.json
+    ├── summary.json
+    ├── longitudinal-seed-0.json
+    ├── longitudinal-seed-1.json
+    └── longitudinal-seed-2.json
 ```
 
 ## 8. Siguiente paso

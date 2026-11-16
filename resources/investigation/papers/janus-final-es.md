@@ -120,7 +120,40 @@ decision:
 Sin propensión no se pueden aplicar estimadores fuera de política (IPS, SNIPS,
 doubly robust).
 
-### 4.4 Certificado de replay
+### 4.4 Procedimiento de identificabilidad
+
+No basta con escribir `identifiability: identified`. El sistema ejecuta cinco
+chequeos y registra el resultado:
+
+1. **Consistencia:** la acción registrada coincide con la intervención.
+2. **Positividad:** ambas acciones tienen probabilidad positiva en el estado.
+3. **Ignorabilidad:** no hay confusores no medidos relevantes, o se controlan.
+4. **No interferencia:** el resultado no depende de acciones de otros agentes.
+5. **Restauración:** el certificado de replay pasa el umbral del estimando.
+
+| Resultado | Condición |
+|---|---|
+| `identified` | los cinco pasan |
+| `partially_identified` | falla ignorabilidad o transporte, pero hay bounds |
+| `not_identified` | falla consistencia, positividad, no interferencia o restauración |
+
+Si es `not_identified`, se guarda como hipótesis y pregunta abierta, no como
+claim causal.
+
+**Procedencia de la propensión.** No todas las probabilidades son iguales:
+
+- `measured`: frecuencia observada de la política real.
+- `controlled`: asignación experimental conocida.
+- `subjective`: estimación del modelo.
+
+Solo `measured` y `controlled` se usan para IPS/SNIPS/doubly robust. La subjetiva
+es un prior, no una probabilidad.
+
+**Límite:** un certificado de restauración no prueba que la conclusión causal sea
+verdadera; solo que la comparación se hizo sobre un estado reproducible. La
+transportabilidad se prueba aparte.
+
+### 4.5 Certificado de replay
 
 Pakhomov y Nijkamp (2026) muestran que snapshots con el mismo hash pueden diferir
 de la continuación viva si no se restaura el estado del proceso. Antes de afirmar
@@ -279,9 +312,10 @@ Media de 3 semillas, 200 de entrenamiento, 50 de evaluación:
 
 El instrumento muestra que retrieval no basta cuando la regla está en los
 ejemplos; una primitiva inducida resuelve reglas simples; la composición es el
-discriminador. **JANUS no se probó todavía**: el prototipo valida el instrumento,
-no la hipótesis causal. El siguiente paso es conectar `COMP-*` a tareas reales y a
-un adaptador de política LLM.
+discriminador. El coste no es escalar (MEM-E: 20 verificaciones; MEM-D: 4) y la
+curva \(G(n)\) se satura desde \(n=50\). **JANUS no se probó todavía**: el
+prototipo valida el instrumento, no la hipótesis causal. El siguiente paso es
+conectar `COMP-*` a tareas reales y a un adaptador de política LLM.
 
 ## 12. Límites, seguridad y gobernanza
 
