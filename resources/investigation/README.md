@@ -56,20 +56,21 @@ empeora nada medible, no entra).
 | [24-programa-de-investigacion-v2.md](24-programa-de-investigacion-v2.md) | Horizontes, hipótesis y experimento diferencial A–E |
 | [25-protocolo-fuentes-primarias.md](25-protocolo-fuentes-primarias.md) | Búsqueda reproducible y evaluación en dos ejes |
 | [26-deepseek-y-atencion.md](26-deepseek-y-atencion.md) | Línea DeepSeek/atención y su impacto en memoria |
+| [27-plan-de-implementacion.md](27-plan-de-implementacion.md) | Qué implementamos, qué no, y el MVP JANUS-C |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |
 | [papers/](papers/) | CUMULUS final (EN/ES) y JANUS final (ES) |
 
 ## Estado
 
-`v0.8` — papers reescritos. Los documentos 01–06 son la evidencia base; 07 es la
-síntesis; 08 es el protocolo v2.0; 09–12 amplían con Weber, psicología, biología
-comparada y humano–máquina; 13 es el paper sobre el riesgo del olvido; 14 es la
-bibliografía; 15 responde la pregunta central; 16–20 desarrollan momento cero,
-contexto, filosofía, compactación y sueño; 21 audita la evidencia en dos ejes; 22
-responde a la primera revisión; 23 fija el marco de validez; 24 es el programa v2;
-25 es el protocolo de fuentes; 26 integra DeepSeek y la línea de atención;
-`precedentes/` cataloga lo ya intentado; `papers/` contiene las versiones finales
-de CUMULUS (EN/ES) y JANUS (ES).
+`v0.9` — plan de implementación. Los documentos 01–06 son la evidencia base; 07
+es la síntesis; 08 es el protocolo v2.0; 09–12 amplían con Weber, psicología,
+biología comparada y humano–máquina; 13 es el paper sobre el riesgo del olvido;
+14 es la bibliografía; 15 responde la pregunta central; 16–20 desarrollan momento
+cero, contexto, filosofía, compactación y sueño; 21 audita la evidencia en dos
+ejes; 22 responde a la primera revisión; 23 fija el marco de validez; 24 es el
+programa v2; 25 es el protocolo de fuentes; 26 integra DeepSeek y atención; 27 es
+el plan de implementación de JANUS-C; `precedentes/` cataloga lo ya intentado;
+`papers/` contiene las versiones finales de CUMULUS (EN/ES) y JANUS (ES).
 
 ## La tesis en una frase
 

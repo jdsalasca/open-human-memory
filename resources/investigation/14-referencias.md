@@ -377,6 +377,21 @@ incluyen volumen y páginas cuando se verificaron.
 - Yuan, J., Gao, H., Dai, D., Luo, J., Zhao, L., Zhang, Z., Xie, Z., Wei, Y. X., Wang, L., Xiao, Z., Wang, Y., Ruan, C., Zhang, M., Liang, W., & Zeng, W. (2025). Native Sparse Attention: Hardware-aligned and natively trainable sparse attention. *ACL 2025*, 23078–23097. arXiv:2502.11089.
 - Zaheer, M., Guruganesh, G., Dubey, A., Ainslie, J., Alberti, C., Ontañón, S., Pham, P., Hawes, M., Wang, L., Yang, L., Levine, D., Tagliasacchi, A., Yang, Y., & Ahmed, A. (2020). BigBird: Transformers for longer sequences. *NeurIPS 33*.
 
+## Aplicabilidad, calibración y replay (2026)
+
+- GCJR. (2026). *Localizing emergent failures in agentic AI: Recovering minimal repair families via counterfactual replay*. arXiv:2608.29228.
+- Li, N., Liu, Y., Guo, D., Wu, Y., Yiu, S. M., & Wu, J. (2026). Per-step conformal calibration does not transfer to agent trajectories. *EMNLP 2026*, 41197–41215.
+- Lin, et al. (2026). When not to imitate: Boundary-aware skill memory for reliable tool-use LLM agents. *Findings of EMNLP 2026*.
+- MemCalib. (2026). *Benchmarking and optimizing memory use in LLM agents*. arXiv:2609.24259.
+- MemTrial. (2026). *Learning when to trust memory in LLM portfolio agents*. arXiv:2610.11732.
+- MERIT. (2026). *When does memory help? A cost-aware evaluation of long-term memory in tool-using LLM agents*. arXiv:2609.05441.
+- OAS. (2026). *Retain or consolidate? Budget-dependent operator selection for language agent memory*. arXiv:2607.17545.
+- Peimani, A. R. (2026). *State-complete replay: Validity conditions for counterfactual evaluation of interactive agents*.
+- SkillApt. (2026). *Towards strategy-level RSI for skill-augmented agents: Learning when to reuse skills from execution feedback*. arXiv:2609.26863.
+- Srivastava, S. S. (2026). *Causal intervention-based memory selection for long-horizon LLM agents*. arXiv:2605.17641.
+- CRR. (2026). *Counterfactual rollout replay: Forkable environments as free process rewards for software engineering agents*. arXiv:2609.33875.
+- Xu, C., Li, Z., & Xu, Q. (2026). *Delivered, not used: Evaluating agent memory at its point of use*. arXiv:2611.01718.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

@@ -7,16 +7,20 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R1 — Investigación (completada)
 
-- Entregable: `resources/investigation/` con 26 documentos, papers finales de
+- Entregable: `resources/investigation/` con 27 documentos, papers finales de
   CUMULUS (EN/ES) y JANUS (ES), y bibliografía con fuentes primarias.
 - Criterio: cada mecanismo propuesto tiene fuente, traducción computacional y
-  riesgo declarado; las preguntas de momento cero, contexto, filosofía del
-  contexto, compactación humana, sueño, atención y DeepSeek tienen respuesta
-  documentada.
-- Revisión mayor incorporada: `22-respuesta-a-revision.md`,
-  `23-marco-de-validez.md`, `24-programa-de-investigacion-v2.md`,
-  `25-protocolo-fuentes-primarias.md` y `26-deepseek-y-atencion.md`; competidores
-  2026 en `precedentes/06` y `precedentes/07`.
+  riesgo declarado; las preguntas de momento cero, contexto, filosofía,
+  compactación, sueño, atención y DeepSeek tienen respuesta documentada.
+- Revisión mayor incorporada: `22`–`27`; competidores 2026 en `precedentes/06` a
+  `08`.
+
+### R1.5 — Plan de implementación
+
+- Entregable: `27-plan-de-implementacion.md` con JANUS-C, sandbox, baselines,
+  métricas y fases.
+- Criterio: el MVP demuestra que los certificados y la calibración reducen el
+  efecto equivocado y la reutilización dañina frente a COUNTERMEM-style.
 
 ### R2 — Documento de diseño
 
