@@ -1,0 +1,143 @@
+{
+  "terra-medium-seed0.json": {
+    "n": 12,
+    "support": 3,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "verified": true,
+      "seconds": 5.63
+    },
+    "conditions": {
+      "clone": {
+        "correct": 12,
+        "n": 12,
+        "accuracy": 1.0,
+        "mean_seconds": 6.9
+      },
+      "memory": {
+        "correct": 11,
+        "n": 12,
+        "accuracy": 0.9167,
+        "mean_seconds": 7.7
+      },
+      "placebo": {
+        "correct": 12,
+        "n": 12,
+        "accuracy": 1.0,
+        "mean_seconds": 7.1
+      }
+    },
+    "paired_vs_clone": {
+      "memory": {
+        "both": 11,
+        "clone_only": 1,
+        "other_only": 0,
+        "neither": 0
+      },
+      "placebo": {
+        "both": 12,
+        "clone_only": 0,
+        "other_only": 0,
+        "neither": 0
+      }
+    }
+  },
+  "terra-medium-support1-seed0.json": {
+    "n": 12,
+    "support": 1,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "verified": true,
+      "seconds": 5.08
+    },
+    "conditions": {
+      "clone": {
+        "correct": 10,
+        "n": 12,
+        "accuracy": 0.8333,
+        "mean_seconds": 7.3
+      },
+      "memory": {
+        "correct": 2,
+        "n": 12,
+        "accuracy": 0.1667,
+        "mean_seconds": 7.7
+      },
+      "placebo": {
+        "correct": 11,
+        "n": 12,
+        "accuracy": 0.9167,
+        "mean_seconds": 7.8
+      }
+    },
+    "paired_vs_clone": {
+      "memory": {
+        "both": 2,
+        "clone_only": 8,
+        "other_only": 0,
+        "neither": 2
+      },
+      "placebo": {
+        "both": 10,
+        "clone_only": 0,
+        "other_only": 1,
+        "neither": 1
+      }
+    }
+  },
+  "terra-medium-support1-subroutine-seed0.json": {
+    "n": 12,
+    "support": 1,
+    "suffix": 3,
+    "session1": {
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "verified": true,
+      "seconds": 5.45
+    },
+    "conditions": {
+      "clone": {
+        "correct": 9,
+        "n": 12,
+        "accuracy": 0.75,
+        "mean_seconds": 6.6
+      },
+      "memory": {
+        "correct": 11,
+        "n": 12,
+        "accuracy": 0.9167,
+        "mean_seconds": 7.8
+      },
+      "placebo": {
+        "correct": 11,
+        "n": 12,
+        "accuracy": 0.9167,
+        "mean_seconds": 6.8
+      }
+    },
+    "paired_vs_clone": {
+      "memory": {
+        "both": 9,
+        "clone_only": 0,
+        "other_only": 2,
+        "neither": 1
+      },
+      "placebo": {
+        "both": 9,
+        "clone_only": 0,
+        "other_only": 2,
+        "neither": 1
+      }
+    }
+  }
+}

@@ -90,14 +90,22 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | F12 | Solo tres filas de la revisión están verificadas documentalmente; el resto son declaradas por los autores | **Sostenida** (extraccion.md) |
 | F13 | Ninguna cifra de la revisión está replicada | **Sostenida** |
 
+## G. Retención y transferencia (Prototipo 007)
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| G1 | `gpt-6.1-terra` medium resuelve profundidad 5–9 con 1–3 ejemplos en esta familia | Sostenida | E2 local | Un modelo o familia donde el clon falle de forma estable |
+| G2 | Un procedimiento verificado presentado como programa completo perjudica la composición (8/0) | Sostenida | E2 local | Repetir sin el anclaje del prompt |
+| G3 | Presentado como subrutina, no supera a un placebo (11/11) | Sostenida | E2 local | Un artefacto necesario, no solo útil |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **29 afirmaciones sostenidas**, casi todas E2 locales; **5 de ellas son de
-  terceros** y las acabamos de verificar.
+- **34 sostenidas**: 29 propias (casi todas E2 locales) y 5 declaradas por terceros,
+  no replicadas.
 - **8 refutadas**, incluidas nuestras dos hipótesis principales.
-- **7 abiertas o inválidas**, y son justo las que responderían la pregunta del
+- **9 abiertas o inválidas**, y son justo las que responderían la pregunta del
   proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**

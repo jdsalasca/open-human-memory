@@ -173,6 +173,25 @@ queda es una línea base de 46,9 % y una lista de cinco fallos metodológicos.
 Detalle en [`docs/errata-006b.md`](docs/errata-006b.md) y el plan en
 [`docs/problema-central.md`](docs/problema-central.md).
 
+## 007: retención real, reinicio y placebo (negativo)
+
+Primera prueba con retención genuina: el agente aprende un procedimiento, **nosotros
+lo verificamos** con 60 entradas, se reinicia el contexto y lo aplica a
+composiciones de cinco pasos.
+
+| Régimen | `clone` | `memory` | `placebo` |
+|---|---|---|---|
+| 3 ejemplos | **12/12** | 11/12 | **12/12** |
+| 1 ejemplo, artefacto como programa completo | 10/12 | **2/12** | 11/12 |
+| 1 ejemplo, artefacto como subrutina | 9/12 | **11/12** | **11/12** |
+
+La memoria **empata con un artefacto falso** (11/12 cada uno): la diferencia frente
+al clon es de contexto, no de conocimiento. Presentada como programa completo,
+**perjudica**. El clon resuelve profundidad 5–9 sin ayuda, así que la familia no
+tiene margen. Resultado negativo de calibración, no evidencia contra la
+transferencia. Detalle en
+[`prototipo-007-transferencia/`](resources/investigation/prototipo-007-transferencia/).
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64
@@ -218,7 +237,8 @@ que el 004 retiró.
 | [prototipo-004-validez/](resources/investigation/prototipo-004-validez/) | Validación con protocolo congelado: las macros no amplían capacidad |
 | [prototipo-005-presupuesto/](resources/investigation/prototipo-005-presupuesto/) | Memoria bajo presupuesto: continuidad, orden y acumulación |
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
-| [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Test de techo: `gpt-6-luna` acierta 46,9 % |
+| [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Línea base del agente: 46,9 % |
+| [prototipo-007-transferencia/](resources/investigation/prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
 | [teoria.md](docs/teoria.md) | **Documento central:** canales, rivales y predicciones |
 | [registro-de-afirmaciones.md](docs/registro-de-afirmaciones.md) | Qué sostenemos, qué refutamos y qué está abierto |
@@ -268,4 +288,5 @@ https://github.com/jdsalasca/open-human-memory
 Documentos de trabajo, no arbitrados. La afiliación MIT es la declarada por el
 autor humano y debe verificarse antes de un envío; la participación de IA debe
 declararse conforme a las normas del venue.
+
 

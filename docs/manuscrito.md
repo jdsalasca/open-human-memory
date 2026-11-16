@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 47 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 51 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -303,6 +303,7 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 005 | valor condicional | 96 tareas, 4 fases | NOLEARN, FROZEN, ONLINE, GATED | steps | FROZEN 76 % con −26,2 % trabajo | 3 semillas | Condicional |
 | 006-A′ | la política aprende | 48 tareas, semillas 1–2 | 7 condiciones | steps + probe | 92,7 % vs regla 93,8 %; 1,42× | bootstrap optimista | Negativo |
 | 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
+| 007 | retención + reinicio + transferencia | 12 tareas, `terra` medium | clone, memory, placebo | llamadas | 9/11/11 (subrutina); 10/2/11 (programa completo) | 0–2 pares | Negativo |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -368,6 +369,30 @@ los IC son optimistas. No se usan para afirmar equivalencia ni ausencia de efect
 +8,3 pp (IC −12,5 a +33,3), herramienta exigida 0,0 pp (IC −29,2 a +29,2, condición
 inválida). Ninguna intervención se distingue de cero.
 
+### 5.7 Prototipo 007: retención, reinicio y transferencia
+
+Primera prueba con retención real, reinicio de contexto y **placebo**. Sesión 1: el
+agente devuelve el programa de `sort_asc → double`; nosotros lo verificamos con 60
+entradas. Reinicio. Sesión 2: 12 tareas de cinco pasos (motivo + tres operaciones),
+en tres condiciones pareadas.
+
+| Régimen | `clone` | `memory` | `placebo` |
+|---|---|---|---|
+| 3 ejemplos | **12/12** | 11/12 | **12/12** |
+| 1 ejemplo, artefacto como programa completo | 10/12 | **2/12** | 11/12 |
+| 1 ejemplo, artefacto como subrutina | 9/12 | **11/12** | **11/12** |
+
+Con el encuadre de subrutina, `memory` y `placebo` aciertan lo mismo (11/12) y
+difieren entre sí en una tarea a favor de cada uno. **La memoria no supera a un
+artefacto falso**: la diferencia de +2 frente al clon es de contexto o formato, no
+de contenido. Presentado como programa completo, el artefacto **perjudica** (8
+tareas discordantes a favor del clon, 0 en contra).
+
+El clon resuelve profundidad 5 con uno o tres ejemplos; también 7 y 9 con tres
+(4/4). **La familia no tiene margen**: sin espacio para fallar, no hay nada que
+transferir. El resultado es negativo y de calibración, no evidencia contra la
+transferencia en general.
+
 ---
 
 ## 6. Revisión de antecedentes
@@ -405,9 +430,15 @@ no lo demuestra.
 posible es una medición: clon, canales, `E`/`K`/`P`, formas y verificación en cinco
 etapas. Si esa medición no distingue nada, tampoco habrá contribución.
 
-**El siguiente test.** P1 (expansión en espacio no explorable) y P6 (selección de
-forma). Antes, F1: descomponer las siete capacidades. Sin eso, cualquier resultado de
-memoria es ambiguo.
+**Lo que 007 enseña.** La retención funcionó —el artefacto sobrevivió al reinicio y
+se aplicó— pero no ayudó. Un procedimiento verificado no sustituye la inferencia que
+el modelo ya hace. Para medir acumulación hace falta un dominio donde el clon
+**falle**: horizonte de 20+ pasos, vocabulario abierto o un dominio sin priors
+fuertes. Sin ese margen, cualquier artefacto empata con un placebo.
+
+**El siguiente test.** 007B: familia donde el clon falle de forma estable, artefacto
+necesario (no solo útil), y comparación contra clon y placebo. Después, P1 y P6.
+Antes, F1.
 
 ---
 
@@ -426,6 +457,8 @@ memoria es ambiguo.
 11. **Los IC del 006-A** tratan tareas como independientes con dos semillas.
 12. **No hay recuperación genuina**: `ORACLE-MEMORY` conoce la respuesta y
     `ACTUAL-RETRIEVAL` no se ejecutó.
+13. **007 no es pre-registrado**: la profundidad y el régimen de un ejemplo se
+    eligieron tras ver el techo, y n=12 con un modelo.
 
 ---
 
@@ -484,7 +517,7 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-47 filas en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
+51 afirmaciones en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
 replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró
@@ -495,4 +528,6 @@ replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 - «El intérprete no ayuda» (condición inválida).
 - «96 episodios no caben en una ventana» (no se midió).
 - «JANUS es novedoso» (la verificación operacional ya existe).
+- «El procedimiento retenido ayuda» (007: empata con un placebo falso).
+
 

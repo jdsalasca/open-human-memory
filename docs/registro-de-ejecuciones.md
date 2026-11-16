@@ -129,7 +129,24 @@ decisión del autor y no se usa.
 
 ---
 
-## 4. Revisión de literatura
+## 4. Prototipo 007 (retención y transferencia)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6.1-terra` |
+| `reasoning_effort` | `medium` |
+| CLI | `codex-cli 0.169.0` |
+| Llamadas principales | 111 (3 corridas × 37) |
+| Tareas | 12 por condición |
+| Condiciones | `clone`, `memory`, `placebo` |
+| Resultado | subrutina 9/11/11; programa completo 10/2/11; 3 ejemplos 12/11/12 |
+| Archivos | `prototipo-007-transferencia/results/terra-medium-*.json` |
+
+Los smokes de calibración (n=1, n=3, profundidades 7 y 9, n=4) usaron 53 llamadas
+adicionales y no se reportan como evidencia. El de n=3 se ejecutó con los probes de
+verificación defectuosos; corregidos antes de las corridas principales.
+
+## 5. Revisión de literatura
 
 | Campo | Valor |
 |---|---|
@@ -144,7 +161,7 @@ Reproducir: `resources/investigation/revision-sistematica/busquedas.md`.
 
 ---
 
-## 5. Versiones y artefactos
+## 6. Versiones y artefactos
 
 | Artefacto | Versión / commit |
 |---|---|

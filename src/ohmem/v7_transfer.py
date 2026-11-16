@@ -91,11 +91,11 @@ def session1_prompt() -> str:
     return SESSION1_PROMPT.format(ops=", ".join(OPS), examples=examples)
 
 
-def session2_prompt(task, extra: str) -> str:
+def session2_prompt(task, extra: str, support: int = 3) -> str:
     obs = task.observation
     examples = "\n".join(
         f"{list(x)} -> {list(y)}"
-        for x, y in zip(obs.support_inputs, obs.support_outputs)
+        for x, y in zip(obs.support_inputs[:support], obs.support_outputs[:support])
     )
     return SESSION2_PROMPT.format(
         ops=", ".join(OPS), examples=examples, extra=extra, query=list(obs.query)
@@ -159,6 +159,8 @@ def transfer_tasks(seed: int, n: int, suffix: int = 3) -> list:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--n", type=int, default=12)
+    parser.add_argument("--suffix", type=int, default=3)
+    parser.add_argument("--support", type=int, default=3)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--model", default="gpt-6.1-terra")
     parser.add_argument("--effort", default="medium")
@@ -176,17 +178,25 @@ def main() -> None:
         f"session1 program={program} verified={verified} seconds={learned['seconds']}"
     )
 
-    tasks = transfer_tasks(args.seed, args.n)
+    tasks = transfer_tasks(args.seed, args.n, args.suffix)
     conditions = {
         "clone": "",
-        "memory": f"\nUn programa verificado en experiencias anteriores es: {' -> '.join(program or MOTIF)}.\n",
-        "placebo": f"\nUn programa candidato de experiencias anteriores es: {' -> '.join(PLACEBO)}.\n",
+        "memory": (
+            "\nUna subrutina verificada en experiencias anteriores es: "
+            f"{' -> '.join(program or MOTIF)}. Puede ser parte de la solución; "
+            "el programa completo puede tener más pasos.\n"
+        ),
+        "placebo": (
+            "\nUna subrutina candidata de experiencias anteriores es: "
+            f"{' -> '.join(PLACEBO)}. Puede ser parte de la solución; "
+            "el programa completo puede tener más pasos.\n"
+        ),
     }
     rows = []
     for condition, extra in conditions.items():
         for index, task in enumerate(tasks):
             result = run_codex(
-                session2_prompt(task, extra),
+                session2_prompt(task, extra, args.support),
                 SESSION2_SCHEMA,
                 args.model,
                 args.effort,
@@ -218,6 +228,8 @@ def main() -> None:
         "effort": args.effort,
         "seed": args.seed,
         "n": args.n,
+        "support": args.support,
+        "suffix": args.suffix,
         "session1": {
             "program": program,
             "verified": verified,

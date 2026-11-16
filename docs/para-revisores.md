@@ -18,7 +18,7 @@ no una arquitectura nueva.
 |---|---|---|
 | Manuscrito | `docs/manuscrito.md` | Hipótesis, método, resultados, discusión, límites |
 | Teoría | `docs/teoria.md` | Canales, proposición, predicciones P1–P6 |
-| Registro | `docs/registro-de-afirmaciones.md` | 47 afirmaciones con estado y falsador |
+| Registro | `docs/registro-de-afirmaciones.md` | 51 afirmaciones con estado y falsador |
 | Ejecuciones | `docs/registro-de-ejecuciones.md` | Modelo, esfuerzo, semillas, comandos |
 | Revisión | `resources/investigation/revision-sistematica/` | 31 trabajos, cribado y extracción |
 | Código | `src/ohmem/` | 16 módulos, sin dependencias |
@@ -37,6 +37,7 @@ no una arquitectura nueva.
 | P2 | Una política aprendida **no** supera una regla simple (−1,0 pp, IC −3,1 a 0) | E2 local |
 | P4 | El probe cuesta 41 pasos y ahorra 29: valor neto negativo | E2 local |
 | L1 | `gpt-6-luna` low acierta 30/64 (46,9 %) sin historial | E2 local |
+| G1 | Un procedimiento verificado no supera a un placebo tras el reinicio (11/12 vs 11/12) | E2 local |
 
 **Ninguna alcanza E3** (varias distribuciones), **E4** (reproducción con tareas
 reales) ni **E5** (longitudinal). El manuscrito lo dice.
@@ -101,7 +102,9 @@ datos cambiaron. Los JSON crudos están junto a cada `reproduce.py`.
 | 16 nov | P4 con el signo invertido | `docs/teoria.md` |
 | 16 nov | «Verificado» por «declarado» | `revision-sistematica/extraccion.md` |
 | 16 nov | Revisión externa `gpt-6.1-terra`: 1,42×, F12, ventana, atribución 006-B, corolario 3, presupuesto y JANUS | `respuesta-a-revision-externa.md` |
+| 16 nov | 007: retención + reinicio + placebo; sin ventaja sobre placebo | `prototipo-007-transferencia/` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.
+
 

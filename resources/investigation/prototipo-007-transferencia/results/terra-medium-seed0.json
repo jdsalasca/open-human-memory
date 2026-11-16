@@ -1,0 +1,972 @@
+{
+  "model": "gpt-6.1-terra",
+  "effort": "medium",
+  "seed": 0,
+  "n": 12,
+  "session1": {
+    "program": [
+      "sort_asc",
+      "double"
+    ],
+    "verified": true,
+    "seconds": 5.63
+  },
+  "conditions": {
+    "clone": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "mean_seconds": 6.9
+    },
+    "memory": {
+      "correct": 11,
+      "n": 12,
+      "accuracy": 0.9167,
+      "mean_seconds": 7.7
+    },
+    "placebo": {
+      "correct": 12,
+      "n": 12,
+      "accuracy": 1.0,
+      "mean_seconds": 7.1
+    }
+  },
+  "rows": [
+    {
+      "condition": "clone",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "answer": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "correct": true,
+      "seconds": 6.51,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 6.61,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "answer": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "correct": true,
+      "seconds": 6.63,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "answer": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "correct": true,
+      "seconds": 6.3,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double",
+        "double"
+      ],
+      "expected": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "answer": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "correct": true,
+      "seconds": 6.26,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "answer": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "correct": true,
+      "seconds": 6.1,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc",
+        "reverse"
+      ],
+      "expected": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 8.57,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "answer": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "correct": true,
+      "seconds": 7.15,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "reverse",
+        "double"
+      ],
+      "expected": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "answer": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "correct": true,
+      "seconds": 8.71,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "answer": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "correct": true,
+      "seconds": 6.4,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "seconds": 6.85,
+      "returncode": 0
+    },
+    {
+      "condition": "clone",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "add_one",
+        "negate"
+      ],
+      "expected": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "answer": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "correct": true,
+      "seconds": 7.23,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "answer": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "correct": true,
+      "seconds": 7.17,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 7.69,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "answer": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "correct": true,
+      "seconds": 7.92,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "answer": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "correct": true,
+      "seconds": 7.7,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double",
+        "double"
+      ],
+      "expected": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "answer": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "correct": true,
+      "seconds": 6.87,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "answer": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "correct": true,
+      "seconds": 5.98,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc",
+        "reverse"
+      ],
+      "expected": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 5.94,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "answer": [
+        4,
+        12,
+        14,
+        14
+      ],
+      "correct": false,
+      "seconds": 5.95,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "reverse",
+        "double"
+      ],
+      "expected": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "answer": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "correct": true,
+      "seconds": 6.58,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "answer": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "correct": true,
+      "seconds": 16.42,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "seconds": 6.64,
+      "returncode": 0
+    },
+    {
+      "condition": "memory",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "add_one",
+        "negate"
+      ],
+      "expected": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "answer": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "correct": true,
+      "seconds": 7.1,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 0,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_desc",
+        "sort_asc",
+        "double"
+      ],
+      "expected": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "answer": [
+        4,
+        20,
+        28,
+        36
+      ],
+      "correct": true,
+      "seconds": 6.25,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 1,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -4,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 6.19,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 2,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "answer": [
+        10,
+        10,
+        26,
+        30
+      ],
+      "correct": true,
+      "seconds": 6.29,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 3,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "double",
+        "sort_desc"
+      ],
+      "expected": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "answer": [
+        30,
+        18,
+        14,
+        6
+      ],
+      "correct": true,
+      "seconds": 6.67,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 4,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "double",
+        "double"
+      ],
+      "expected": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "answer": [
+        -16,
+        -40,
+        -64,
+        -72
+      ],
+      "correct": true,
+      "seconds": 6.31,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 5,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "sort_asc",
+        "sort_desc"
+      ],
+      "expected": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "answer": [
+        32,
+        20,
+        4,
+        4
+      ],
+      "correct": true,
+      "seconds": 6.14,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 6,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "sort_asc",
+        "reverse"
+      ],
+      "expected": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "answer": [
+        -6,
+        -10,
+        -12,
+        -16
+      ],
+      "correct": true,
+      "seconds": 6.85,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 7,
+      "program": [
+        "sort_asc",
+        "double",
+        "negate",
+        "reverse",
+        "negate"
+      ],
+      "expected": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "answer": [
+        14,
+        14,
+        12,
+        4
+      ],
+      "correct": true,
+      "seconds": 5.08,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 8,
+      "program": [
+        "sort_asc",
+        "double",
+        "double",
+        "reverse",
+        "double"
+      ],
+      "expected": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "answer": [
+        64,
+        64,
+        48,
+        24
+      ],
+      "correct": true,
+      "seconds": 6.49,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 9,
+      "program": [
+        "sort_asc",
+        "double",
+        "add_one",
+        "negate",
+        "negate"
+      ],
+      "expected": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "answer": [
+        3,
+        7,
+        15,
+        15
+      ],
+      "correct": true,
+      "seconds": 6.47,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 10,
+      "program": [
+        "sort_asc",
+        "double",
+        "sort_asc",
+        "sort_desc",
+        "sort_asc"
+      ],
+      "expected": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "answer": [
+        10,
+        12,
+        14,
+        18
+      ],
+      "correct": true,
+      "seconds": 6.31,
+      "returncode": 0
+    },
+    {
+      "condition": "placebo",
+      "index": 11,
+      "program": [
+        "sort_asc",
+        "double",
+        "reverse",
+        "add_one",
+        "negate"
+      ],
+      "expected": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "answer": [
+        -19,
+        -19,
+        -15,
+        -11
+      ],
+      "correct": true,
+      "seconds": 16.45,
+      "returncode": 0
+    }
+  ]
+}

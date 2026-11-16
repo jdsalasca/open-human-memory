@@ -79,3 +79,21 @@ $env:PYTHONPATH="src"
 python -m ohmem.v7_transfer --n 12 --model gpt-6.1-terra --effort medium `
   --out resources/investigation/prototipo-007-transferencia/results/terra-medium-seed0.json
 ```
+
+## 7. Resultados
+
+### 7.1 Régimen con 3 ejemplos: saturado
+
+`terra-medium-seed0.json`: **clone 12/12, placebo 12/12, memory 11/12**. El clon
+está en techo y el experimento **no discrimina**. La familia de cinco pasos es
+trivial para este modelo. No es evidencia sobre transferencia; es un fallo de
+calibración.
+
+Se probaron profundidades 7 y 9 con 3 ejemplos: **4/4 en las tres condiciones**.
+La familia no crea dificultad suficiente.
+
+### 7.2 Régimen con 1 ejemplo: calibrado
+
+`terra-medium-support1-seed0.json`: en ejecución. Con un solo par de soporte la
+tarea es ambigua; el clon debería caer. Si no cae, la familia no sirve y el 007
+necesita otro dominio.
