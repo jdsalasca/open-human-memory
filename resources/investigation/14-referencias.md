@@ -318,6 +318,20 @@ incluyen volumen y páginas cuando se verificaron.
 - Varela, F. J., Thompson, E., & Rosch, E. (1991). *The embodied mind: Cognitive science and human experience*. MIT Press.
 - Wittgenstein, L. (1953). *Philosophische Untersuchungen*.
 
+## Causalidad y contrafactuales
+
+- Bareinboim, E., & Pearl, J. (2016). Causal inference and the data-fusion problem. *PNAS, 113*(27), 7345–7352.
+- Byrne, R. M. J. (2005). *The rational imagination: How people create alternatives to reality*. MIT Press.
+- Epstude, K., & Roese, N. J. (2008). The functional theory of counterfactual thinking. *Personality and Social Psychology Review, 12*(2), 168–192.
+- Hernán, M. A., & Robins, J. M. (2020). *Causal inference: What if*. CRC Press.
+- Kahneman, D., & Miller, D. T. (1986). Norm theory: Comparing reality to its alternatives. *Cognitive Psychology, 18*(2), 136–168.
+- Lewis, D. (1973). *Counterfactuals*. Blackwell.
+- Pearl, J. (2009). *Causality: Models, reasoning, and inference* (2nd ed.). Cambridge University Press.
+- Roese, N. J. (1997). Counterfactual thinking. *Psychological Bulletin, 121*(1), 133–148.
+- Rosenbaum, P. R., & Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects. *Biometrika, 70*(1), 41–55.
+- Rubin, D. B. (1974). Estimating causal effects of treatments in randomized and nonrandomized studies. *Journal of Educational Psychology, 66*(5), 688–701.
+- Stalnaker, R. C. (1968). A theory of conditionals. En N. Rescher (Ed.), *Studies in logical theory* (pp. 98–112). Blackwell.
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

@@ -1,22 +1,36 @@
 # Papers
 
-Dos versiones del mismo documento de trabajo:
+Documentos de trabajo del proyecto. No arbitrados; no reportan resultados
+empíricos.
 
-| Archivo | Idioma |
-|---|---|
-| [cumulus-en.md](cumulus-en.md) | English |
-| [cumulus-es.md](cumulus-es.md) | Español |
+| Archivo | Tema | Idioma |
+|---|---|---|
+| [cumulus-en.md](cumulus-en.md) | CUMULUS: conocimiento procedimental acumulativo sin reentrenamiento | English |
+| [cumulus-es.md](cumulus-es.md) | CUMULUS: conocimiento procedimental acumulativo sin reentrenamiento | Español |
+| [janus-es.md](janus-es.md) | JANUS: memoria contrafactual y consolidación causal | Español |
 
-**Título:** *CUMULUS: Cumulative Procedural Knowledge Without Retraining — A
-model-agnostic architecture for self-learning and self-collaboration.*
+**Autores:** Juan David Salas Camargo (MIT) y DeepSeek / DeepSeek 4.1 Flash.
 
-**Autores:** Juan David Salas Camargo (MIT) y DeepSeek.
+## CUMULUS
 
-**Estado:** v0.1, noviembre de 2026, no arbitrado. Es una propuesta con
-hipótesis falsables y un plan de evaluación; no reporta resultados empíricos.
+**Pregunta:** ¿puede un agente acumular procedimientos durante meses,
+transferirlos entre modelos y mejorar sin reentrenar el LLM?
 
-**Idea central:** un agente puede acumular conocimiento procedimental durante
-meses y transferirlo entre modelos sin reentrenar el LLM si los procedimientos
-se representan como artefactos ejecutables agnósticos al modelo (SIR),
-compilados desde trazas verificadas por ablación causal, y gobernados por
-verificación ciega, quórum y un ciclo de vida institucional.
+**Idea:** habilidades como artefactos ejecutables agnósticos al modelo (SIR),
+compiladas desde trazas verificadas por ablación causal, y gobernadas por
+auditoría ciega, quórum y un ciclo de vida institucional.
+
+## JANUS
+
+**Pregunta:** ¿puede una memoria agéntica aprender la lección correcta si
+registra lo que no pasó?
+
+**Idea:** contrafactuales como objetos de primera clase; jerarquía de evidencia
+(experimento aleatorio > natural > simulación > juicio del modelo); puerta de
+promoción causal para procedimientos; sueño contrafactual; memoria de
+casi-fallos y arrepentimiento.
+
+## Relación
+
+CUMULUS responde **¿funciona y es portable?** JANUS responde **¿funcionó por esta
+razón?** JANUS usa CUMULUS como sustrato de promoción y portabilidad.

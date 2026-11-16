@@ -15,11 +15,19 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
 
 ### R2 — Documento de diseño
 
-- Entregable: especificación técnica de CUMULUS (esquema SIR, algoritmos de
-  Forja y Puente, protocolo del Pod) derivada de `papers/cumulus-es.md` y
-  `papers/cumulus-en.md`.
+- Entregable: especificación técnica de CUMULUS y JANUS (esquema SIR, ledger de
+  decisiones, contrafactuales, algoritmos de Forja y Puente, protocolo del Pod)
+  derivada de `papers/cumulus-es.md`, `papers/cumulus-en.md` y
+  `papers/janus-es.md`.
 - Criterio: enfoque elegido, alcance del MVP, no-objetivos, modelo de datos y
   decisiones abiertas resueltas o asignadas.
+
+### R2.5 — Validación causal (JANUS)
+
+- Entregable: prototipo del ledger de decisiones + jerarquía de evidencia
+  contrafactual + puerta de promoción causal.
+- Criterio: reduce habilidades espurias ≥30% frente a CUMULUS sin causalidad en
+  un entorno con verdad causal conocida.
 
 ### R3 — Harness de evaluación
 
