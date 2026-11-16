@@ -104,8 +104,10 @@ Es el efecto que la auditoría predijo: la biblioteca puede destruir su propia
 ventaja.
 
 Por acierto, la comparación es un empate: 26,8 candidatos (A3) frente a 27,5 (A1),
-con 10 aciertos menos. El «ahorro del 37 %» del 003 se reduce a **17,8 % de
-candidatos totales**, y a **2,6 % por acierto**.
+con 10 aciertos menos. El ahorro del 37 % que calculó la auditoría correspondía a
+sus 30 programas elegidos; en la rejilla completa el ahorro es **17,8 % de
+candidatos** y **2,6 % por acierto**. No es el mismo denominador y no conviene
+mezclarlos.
 
 ## 7. La curva de adquisición se satura en 6 experiencias
 
