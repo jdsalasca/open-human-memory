@@ -110,19 +110,34 @@ def run_codex(
         f'--output-schema "{schema_path}" -o "{out_path}" --json -'
     )
     started = time.perf_counter()
-    completed = subprocess.run(
+    process = subprocess.Popen(
         command,
-        input=prompt,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
         text=True,
         encoding="utf-8",
-        capture_output=True,
-        timeout=timeout,
         cwd=str(workdir),
         shell=True,
     )
+    timed_out = False
+    try:
+        stdout, stderr = process.communicate(input=prompt, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+        subprocess.run(
+            ["taskkill", "/T", "/F", "/PID", str(process.pid)],
+            capture_output=True,
+            text=True,
+        )
+        try:
+            stdout, stderr = process.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            stdout, stderr = process.communicate()
     seconds = round(time.perf_counter() - started, 2)
     usage = {}
-    for line in completed.stdout.splitlines():
+    for line in stdout.splitlines():
         line = line.strip()
         if not line.startswith("{"):
             continue
@@ -143,8 +158,9 @@ def run_codex(
         "payload": payload,
         "parsed": answer is not None,
         "usage": usage,
+        "timed_out": timed_out,
         "seconds": seconds,
-        "returncode": completed.returncode,
+        "returncode": process.returncode,
     }
 
 

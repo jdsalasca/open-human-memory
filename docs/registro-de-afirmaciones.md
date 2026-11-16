@@ -122,7 +122,10 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
 ## I. Representación con skill larga (LIRE-001b)
 
-> **Evidencia:** `gpt-6-luna` low, 12 casos. La corrida con terra es exploratoria.
+> **Parcialmente retractada.** La tabla de 120 reglas es redundante: una fórmula la
+> reconstruye; el verificador no comprueba la pertenencia del código y el orden de
+> los casos no está aleatorizado. B1–B7 describen el seguimiento de esa tabla, no
+> información independiente. Ver `docs/errata-lire-001b.md` y LIRE-002.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
@@ -133,12 +136,30 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | B5 | Las prosas conservan el acierto | **Refutada parcialmente** | E2 local | Español 8/12, inglés 10/12, chino 11/12 |
 | B6 | Una sola llamada estima el coste de la representación | **Refutada** | E2 local | Smoke 14,8 % vs 1,4 % con 12 casos y mínimo |
 | B7 | Los fallos son de evaluación del umbral, no de búsqueda | Sostenida (local) | E2 local | Alguna respuesta devuelve un código de regla distinto del correcto |
+| B8 | Las 120 reglas de LIRE-001b se reconstruyen con una fórmula: `S{código}` si importe < código | Sostenida (local) | E0 inspección | Una regla que no siga la fórmula |
+| B9 | El verificador de LIRE-001b no comprueba que el código exista: `C999` devuelve `S999` | Sostenida (local) | E0 inspección | Una comprobación de pertenencia en el código |
+| B10 | El orden de casos de LIRE-001b no está aleatorizado: 6 positivos y 6 negativos | Sostenida (local) | E0 inspección | Un orden aleatorio en el código |
+| B11 | LIRE-001b no mide información independiente; sus diferencias no se atribuyen a retención | Sostenida (local) | E2 local | Una tabla no redundante con el mismo resultado |
+
+## J. Información independiente (LIRE-002)
+
+> **Ejecutado con `gpt-6-luna` low, 12 casos.** La corrida principal usa la
+> instrucción que define `NONE`; el piloto sin esa instrucción se conserva como
+> ablación.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| L5 | Sin la tabla, el modelo acierta ≤ 1 de los 7 casos positivos | Sostenida (local) | E2 local | Control sin tabla ≥ 2/7 |
+| L6 | Al menos una representación acierta ≥ 6/7 casos positivos con menos tokens incrementales que el español | Sostenida (local) | E2 local | Ninguna representación logra 6/7 o ninguna ahorra tokens |
+| L7 | La tabla TSV normalizada usa el menor número de tokens incrementales | Sostenida (local) | E2 local | Otra representación usa menos |
+| L8 | La tabla TSV o el JSON no pierden más de un caso positivo frente al español | Sostenida (local) | E2 local | Pierden ≥ 2 casos en la misma corrida |
+| L9 | Las diferencias de acierto entre español, inglés y chino no se establecen con 12 casos | Sostenida (local) | E2 local | Un intervalo que excluya cero con el diseño actual |
 
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **42 sostenidas**: 37 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **51 sostenidas**: 46 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
 - **14 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y la
   hipótesis de ejecución del 007B.

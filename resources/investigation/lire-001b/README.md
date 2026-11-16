@@ -1,5 +1,12 @@
 # LIRE-001b — Skill larga: el ahorro se paga en fidelidad
 
+> **Retractado como medida de información (16 de noviembre de 2026).** Las 120
+> reglas son una sola fórmula (`S{código}` si importe < código), el verificador no
+> comprueba la pertenencia del código y el orden de casos no está aleatorizado. Las
+> cifras se conservan como observación del seguimiento de una tabla redundante, no
+> como evidencia de información retenida. Ver
+> [`docs/errata-lire-001b.md`](../../../docs/errata-lire-001b.md) y **LIRE-002**.
+
 **Fecha:** 16 de noviembre de 2026
 **Estado:** ejecutado con `gpt-6-luna` low. La corrida con terra queda como
 exploratoria y no se usa como evidencia.
@@ -44,6 +51,9 @@ La forma compacta no solo acepta lo que no debe: también **rechaza casos válid
 Eso es peor que un fallo de búsqueda, porque el agente deja de actuar cuando debía.
 
 ## 4. Lectura
+
+> **Aviso:** estas lecturas describen el seguimiento de una tabla redundante. No
+> establecen que una representación conserve mejor información independiente.
 
 1. **El chino es el mejor compromiso en esta muestra:** 11/12 y −1,4 % de tokens.
    No es la forma más barata, pero es la más fiel.

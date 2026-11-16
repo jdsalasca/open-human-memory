@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 70 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 79 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -305,7 +305,8 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
 | 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
 | 007B | información, instrucción o ejecución | 12 tareas, `luna` low | clone, memory, placebo, history, oracle | llamadas | 1/3/6/4/2 | — | Negativo: el oráculo 2/12 |
-| LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Mixto: ahorro real, fidelidad menor |
+| LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Retractado: la tabla era una fórmula |
+| LIRE-002 | información independiente | 12 casos × 8 formas, `luna` low | 7 representaciones + sin tabla | tokens incrementales | sin tabla 0/7; en/DSL 12/12; tabla 8/12 | 1–2 casos | Mixto: condición, no idioma |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -400,18 +401,19 @@ en techo. Las dos corridas, con modelos distintos, coinciden en el diagnóstico:
 familia no tiene margen** para medir transferencia. Sin espacio para fallar, no hay
 nada que transferir.
 
-**007B: el cuello es la ejecución.** El diagnóstico añadió dos condiciones a las
-mismas 12 tareas: **historial de origen** (los 12 pares de la sesión 1) y **oráculo**
-(el programa completo, fuga deliberada). Resultado con `luna` low: clon 1/12, memoria
-3/12, placebo 6/12, historial 4/12, **oráculo 2/12** (réplica: historial 3/12,
-oráculo 3/12). Con el programa completo, el modelo apenas ejecuta 2 de 12
-composiciones de cinco pasos; los errores son permutaciones, operaciones saltadas y
-aritmética. **La memoria no puede ayudar si la ejecución está en el suelo.** El
-resultado del 007 no es evidencia contra la retención: es evidencia de que la familia
-está fuera del alcance del modelo. La memoria tampoco supera al historial (3/12 vs
-4/12), así que el programa verificado no aporta sobre las experiencias crudas.
+**007B: el cuello está en la aplicación del programa.** El diagnóstico añadió dos
+condiciones a las mismas 12 tareas: **historial de origen** (los 12 pares de la
+sesión 1) y **oráculo** (el programa completo, fuga deliberada). Resultado con
+`luna` low: clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**
+(réplica: historial 3/12, oráculo 3/12). Con el programa completo, el modelo apenas
+resuelve 2 de 12 composiciones de cinco pasos; los errores son permutaciones,
+operaciones saltadas y aritmética. **No se identifica un mecanismo único**: puede ser
+ejecución, interpretación de las operaciones, seguimiento de instrucciones o una
+heurística. El control demuestra que conocer el programa no basta. La memoria tampoco
+supera al historial (3/12 vs 4/12), así que el programa verificado no aporta sobre
+las experiencias crudas.
 
-### 5.8 LIRE-001b: representación con skill larga
+### 5.8 LIRE-001b: representación con skill larga (retractado)
 
 La representación de una competencia conocida se midió aparte, con una skill
 sintética de **120 reglas** con código, umbral y estado, en cinco formas: español,
@@ -426,14 +428,36 @@ umbral (`Sxxx`) y seis no (`NONE`). Modelo de experimentos: `gpt-6-luna` low.
 | Español conciso | 8/12 | **3.052** | **26.534** | **−6,1 %** |
 | DSL simbólico | 7/12 | 4.963 | 27.009 | −4,4 % |
 
-El ahorro de tokens es real y **pequeño sobre la llamada** (0,5–6,1 %), porque el
-arnés domina el coste. La fidelidad no acompaña al ahorro: la forma concisa y el
-DSL fallan 4–5 de 12. **Todos los fallos son de evaluación del umbral, no de
-búsqueda**: el modelo devuelve el código correcto con el estado equivocado, o
-`NONE` en un caso válido. Comprimir la representación ahorra tokens y pierde
-excepciones, que es justo lo que la competencia debía conservar. El chino es el
-mejor compromiso de esta muestra (11/12 y −1,4 %), pero la diferencia de acierto
-es de 1–4 casos y no permite significación.
+**Retractación.** Cada regla era `C{i}` / umbral `{i}` / `S{i}`: una sola fórmula
+reconstruye la tabla. El verificador no comprobaba la pertenencia del código y el
+orden de casos no estaba aleatorizado. Las cifras describen el seguimiento de una
+tabla redundante, no información retenida. **No se atribuye la diferencia al idioma.**
+Ver `docs/errata-lire-001b.md`.
+
+### 5.9 LIRE-002: información independiente y condición
+
+Una tabla de 120 reglas con **código, umbral, estado y excepción aleatorios e
+independientes** (~3.759 bits), 12 casos estratificados y un **control sin tabla**.
+Siete representaciones; el coste es la diferencia pareada de tokens contra el control.
+
+| Representación | Positivos | Secundarios | Total | Tokens incr. |
+|---|---|---|---|---|
+| Español | 6/7 | 4/5 | 10/12 | 2.841 |
+| Inglés | **7/7** | **5/5** | **12/12** | 2.605 |
+| Chino | **7/7** | 4/5 | 11/12 | **2.949** |
+| Español conciso | **7/7** | 3/5 | 10/12 | **1.477** |
+| DSL | **7/7** | **5/5** | **12/12** | 2.490 |
+| JSON | 6/7 | 2/5 | 8/12 | 2.356 |
+| Tabla TSV | 6/7 | 2/5 | 8/12 | **1.400** |
+| Sin tabla | **0/7** | 5/5 | 5/12 | 0 |
+
+El control sin tabla acierta **0/7 positivos**: responder siempre `NONE` explota la
+distribución y da 5/12, pero no sabe nada. **La recuperación funciona** (6–7/7
+positivos); **el fallo está en la condición**: el modelo devuelve el estado cuando el
+importe no cumple el umbral, o falla la excepción. El chino no ahorra tokens (2.949
+vs 2.841) ni acierta más (11 vs 10): **la ventaja de LIRE-001b no se replica**. La
+tabla TSV ahorra 51 % de tokens y baja a 8/12; el conciso ahorra 48 % y se queda en
+10/12. No hay una representación que domine fidelidad, tokens y condición.
 
 ---
 
@@ -474,11 +498,13 @@ etapas. Si esa medición no distingue nada, tampoco habrá contribución.
 
 **Lo que 007 enseña.** La retención funcionó —el artefacto sobrevivió al reinicio—
 pero no bastó. El 007B mostró por qué: **con el programa completo, `luna` acierta
-2/12**. El cuello es la **ejecución** de composiciones de cinco pasos, no la
-memoria: el artefacto verificado no supera al historial ni al placebo, y el oráculo
-está en el suelo. Para medir acumulación hace falta primero una tarea que el modelo
-pueda ejecutar; después, una donde el clon no pueda identificar el procedimiento.
-Sin ese margen, cualquier artefacto empata con un placebo.
+2/12**. El cuello está en la **aplicación** de composiciones de cinco pasos, no en la
+memoria; no se identifica si falla la ejecución, la interpretación de las operaciones
+o el seguimiento de instrucciones. El artefacto verificado no supera al historial ni
+al placebo, y el oráculo está en el suelo. Para medir acumulación hace falta primero
+una tarea que el modelo pueda aplicar; después, una donde el clon no pueda
+identificar el procedimiento. Sin ese margen, cualquier artefacto empata con un
+placebo.
 
 **El siguiente test.** F1: descomposición de capacidades y ejecución por profundidad.
 Después, 007C con una tarea ejecutable pero no identificable, y P1/P6.
@@ -560,7 +586,7 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-70 afirmaciones en `docs/registro-de-afirmaciones.md`: 42 sostenidas (37 propias; 5 de
+79 afirmaciones en `docs/registro-de-afirmaciones.md`: 51 sostenidas (46 propias; 5 de
 terceros, no replicadas), 14 refutadas, 14 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 

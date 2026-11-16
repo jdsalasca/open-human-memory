@@ -197,15 +197,24 @@ atribuible al contenido retenido**.
 El diagnóstico **007B** añadió dos condiciones: **historial de origen** (los 12 pares
 de la sesión 1) y **oráculo** (el programa completo). Resultado con `luna` low:
 clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**. Con el
-programa completo, el modelo apenas ejecuta 2 de 12 tareas: **el cuello es la
-ejecución, no la memoria**. La familia de 5 pasos está fuera del alcance de `luna`
-low; el siguiente paso es medir ejecución (F1) antes de volver a la memoria. Detalle
-en [`prototipo-007b-transferencia/`](resources/investigation/prototipo-007b-transferencia/).
+programa completo, el modelo apenas resuelve 2 de 12 tareas: **el cuello está en la
+aplicación del programa, no en la memoria**. No se distingue todavía si falla la
+ejecución, la interpretación de las operaciones, el seguimiento de instrucciones o
+una heurística. La familia de 5 pasos exige más de lo que `luna` low aplica de forma
+fiable; el siguiente paso es medir esa capacidad (EXEC-001) antes de volver a la
+memoria. Detalle en
+[`prototipo-007b-transferencia/`](resources/investigation/prototipo-007b-transferencia/).
 
 La corrida con terra (exploratoria, no evidencia) mostró el mismo problema por
 arriba: clon 9–12/12, memoria 11/12 y placebo 11/12. Tampoco discrimina.
 
-## LIRE-001b: el ahorro de tokens se paga en fidelidad
+## LIRE-001b (retractado): las 120 reglas eran una sola fórmula
+
+> **Retractado como medida de información.** Cada regla era `C{i}` / umbral `{i}` /
+> `S{i}`: una fórmula reconstruye la tabla. El verificador no comprobaba la
+> pertenencia del código y el orden de casos no estaba aleatorizado. Las cifras de
+> abajo describen el seguimiento de una tabla redundante, no información retenida.
+> Ver [`docs/errata-lire-001b.md`](docs/errata-lire-001b.md) y **LIRE-002**.
 
 120 reglas, doce casos, **`gpt-6-luna` low** (modelo de experimentos):
 
@@ -226,6 +235,35 @@ arriba: clon 9–12/12, memoria 11/12 y placebo 11/12. Tampoco discrimina.
 - La corrida con terra (6/6 en todas) es **exploratoria y no se usa**.
 
 Detalle y límites en [`lire-001b/`](resources/investigation/lire-001b/).
+
+## LIRE-002: el idioma no era el problema; la condición sí
+
+Tabla de 120 reglas con **código, umbral, estado y excepción aleatorios e
+independientes** (~3.759 bits), 12 casos estratificados y **control sin tabla**.
+`gpt-6-luna` low:
+
+| Representación | Positivos | Secundarios | Total | Tokens incr. |
+|---|---|---|---|---|
+| Español | 6/7 | 4/5 | 10/12 | 2.841 |
+| Inglés | **7/7** | **5/5** | **12/12** | 2.605 |
+| Chino | **7/7** | 4/5 | 11/12 | **2.949** |
+| Español conciso | **7/7** | 3/5 | 10/12 | **1.477** |
+| DSL | **7/7** | **5/5** | **12/12** | 2.490 |
+| JSON | 6/7 | 2/5 | 8/12 | 2.356 |
+| Tabla TSV | 6/7 | 2/5 | 8/12 | **1.400** |
+| Sin tabla | **0/7** | 5/5 | 5/12 | 0 |
+
+- **La tabla es necesaria:** sin ella, 0/7 positivos. El 5/12 total es la estrategia
+  de responder siempre `NONE`; la métrica estratificada lo desenmascara.
+- **La recuperación funciona; la condición falla:** el modelo encuentra la regla,
+  pero devuelve el estado cuando el importe no cumple el umbral o falla la excepción.
+- **El chino no ahorra tokens** (2.949 vs 2.841) **ni acierta más** (11 vs 10): la
+  ventaja de LIRE-001b no se replica con información independiente.
+- **La compresión cuesta fidelidad:** tabla −51 % de tokens y 8/12; conciso −48 % y
+  10/12; inglés/DSL 12/12 sin compresión.
+- Las diferencias entre idiomas no se establecen con 12 casos.
+
+Detalle y límites en [`lire-002/`](resources/investigation/lire-002/).
 
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 

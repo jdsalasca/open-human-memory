@@ -160,7 +160,7 @@ verificación defectuosos; corregidos antes de las corridas principales.
 | Tareas | 12, soporte 2, profundidad 5 |
 | Condiciones | `history` y `oracle`; se combinan con `clone`, `memory` y `placebo` del 007 |
 | Resultado | clon 1/12, memoria 3/12, placebo 6/12, historial 4/12, **oráculo 2/12**; réplica: historial 3/12, oráculo 3/12 |
-| Lectura | con el programa completo el modelo apenas ejecuta: el cuello es la ejecución |
+| Lectura | con el programa completo el modelo apenas resuelve; el cuello está en la aplicación del programa, no en la memoria |
 | Archivos | `prototipo-007b-transferencia/results/luna-low-support2-history-oracle.json`, `...-attempt1.json`, `prototipo-007-transferencia/results/luna-low-support2-12ex.json` |
 
 La adquisición de motivos de 3–4 operaciones se intentó con 12 y 24 ejemplos y
@@ -169,6 +169,11 @@ verificación. La corrida perdida no escribió el JSON por un fallo de ruta; sus
 se reconstruyeron de los directorios temporales y se guardan como réplica.
 
 ## 5. LIRE-001b (representación con skill larga)
+
+> **Retractado como medida de información.** Las 120 reglas son una fórmula
+> (`S{código}` si importe < código); el verificador no comprueba pertenencia y el
+> orden no está aleatorizado. Ver `docs/errata-lire-001b.md`. El reemplazo es
+> LIRE-002.
 
 | Campo | Valor |
 |---|---|
@@ -181,6 +186,21 @@ se reconstruyeron de los directorios temporales y se guardan como réplica.
 
 LIRE-001 (regla corta) se ejecutó solo con terra y queda como exploratorio: el arnés
 dominaba la medición. No se usa como evidencia.
+
+## 5b. LIRE-002 (información independiente)
+
+| Campo | Valor |
+|---|---|
+| Modelo | `gpt-6-luna` |
+| Esfuerzo | `low` |
+| Llamadas | 225: 16 de smoke + 17 de una corrida perdida + 96 del piloto + 96 de la corrida corregida |
+| Tabla | 120 reglas aleatorias; ~3.759 bits; 12 excepciones |
+| Casos | 12: 7 positivos, 5 negativos/inexistentes |
+| Condiciones | español, inglés, chino, conciso, DSL, JSON, tabla TSV, sin tabla |
+| Métrica | acierto estratificado + tokens incrementales pareados vs sin tabla |
+| Resultado | sin tabla 0/7 positivos; inglés y DSL 12/12; español 10/12; chino 11/12; conciso 10/12; JSON y tabla 8/12 |
+| Lectura | la recuperación funciona; el fallo está en la condición; el chino no ahorra tokens ni acierta más |
+| Archivos | `lire-002/results/luna-low-12cases.json`, `...-pilot-instruction.json` |
 
 ## 6. Revisión de literatura
 

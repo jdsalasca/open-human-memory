@@ -1,4 +1,4 @@
-# 007B — El cuello es la ejecución, no la memoria
+# 007B — El cuello está en la aplicación del programa
 
 **Fecha:** 16 de noviembre de 2026
 **Estado:** **ejecutado, resultado negativo con diagnóstico útil.**
@@ -69,9 +69,12 @@ largo; la comparación iguala información, no longitud.
 
 1. **El oráculo está en el suelo.** Con el programa completo, `luna` acierta **2/12**
    (réplica 3/12). No es un problema de memoria ni de información: el modelo **no
-   ejecuta** composiciones de 5 pasos de forma fiable. Los errores están en la
+   aplica** composiciones de 5 pasos de forma fiable. Los errores están en la
    aplicación del programa (permutaciones, operaciones saltadas), no en su
-   identificación: el programa se le dio completo.
+   identificación: el programa se le dio completo. **No se identifica un mecanismo
+   único**: puede ser ejecución, interpretación de las operaciones, seguimiento de
+   instrucciones o una heurística. El control demuestra que conocer el programa no
+   basta; no dice por qué.
 2. **La memoria no supera al historial.** 3/12 vs 4/12; un par a favor y dos en
    contra. El programa verificado no aporta sobre las experiencias crudas.
 3. **La memoria no supera al placebo.** 3/12 vs 6/12; cuatro pares a favor del
@@ -79,8 +82,10 @@ largo; la comparación iguala información, no longitud.
 4. **La memoria sí supera al clon, pero poco.** Tres pares a favor y uno en contra
    (p = 0,63): una señal débil, compatible con ruido.
 5. **El resultado del 007 se reinterpreta.** No es evidencia contra la retención:
-   es evidencia de que la familia de 5 pasos está **fuera del alcance de ejecución**
-   de `luna` low. Cualquier intervención de memoria está acotada por ese techo.
+   es evidencia de que la familia de 5 pasos exige una aplicación que `luna` low no
+   domina. Cualquier intervención de memoria está acotada por ese techo. El
+   mecanismo exacto (ejecución, interpretación, instrucciones o heurística) queda
+   abierto para EXEC-001.
 
 ## 5. Adquisición de motivos largos (fallo)
 

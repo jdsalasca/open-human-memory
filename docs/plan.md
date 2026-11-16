@@ -100,9 +100,10 @@ ejemplos; todos rechazados por la verificación). La corrida diagnóstica usó e
 de 2 operaciones y añadió `history` (los 12 pares de origen) y `oracle` (el programa
 completo) a las 12 tareas del soporte 2. Resultado: clon 1/12, memoria 3/12, placebo
 6/12, historial 4/12, **oráculo 2/12**. Con el programa completo el modelo apenas
-ejecuta 2 de 12: **el cuello es la ejecución, no la memoria**. El siguiente paso es
-F1 (capacidades y ejecución por profundidad); después, 007C con una tarea ejecutable
-pero no identificable.
+resuelve 2 de 12: **el cuello está en la aplicación del programa, no en la memoria**;
+el mecanismo exacto queda abierto. El siguiente paso es EXEC-001 (aplicación por
+profundidad y complejidad funcional); después, 007C con una tarea aplicable pero no
+identificable.
 
 ---
 

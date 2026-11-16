@@ -62,7 +62,7 @@ por índice de tarea.
 
 | Observación | Lectura |
 |---|---|
-| `oracle` < 10/12 | La ejecución es el cuello; no se interpreta la memoria. |
+| `oracle` < 10/12 | La aplicación del programa es el cuello; no se identifica si es ejecución, interpretación o seguimiento de instrucciones. |
 | `memory` ≤ `clone` | No hay evidencia de uso del artefacto. |
 | `memory` ≤ `history` | El artefacto no aporta sobre las experiencias crudas; a lo sumo comprime. |
 | `memory` ≤ `placebo` | No hay efecto de contenido. |

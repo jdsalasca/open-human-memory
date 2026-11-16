@@ -77,9 +77,10 @@ empeora nada medible, no entra).
 | [prototipo-006-politica/](prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
 | [prototipo-007-transferencia/](prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
-| [prototipo-007b-transferencia/](prototipo-007b-transferencia/) | Historial, oráculo y adquisición: el cuello es la ejecución |
+| [prototipo-007b-transferencia/](prototipo-007b-transferencia/) | Historial, oráculo y adquisición: fallo al aplicar el programa |
 | [lire-001/](lire-001/) | Exploratorio (terra); sustituido por 001b |
-| [lire-001b/](lire-001b/) | Con luna: ahorro 0,5–6,1 %, fallos de umbral |
+| [lire-001b/](lire-001b/) | Retractado: la tabla era una fórmula; ver LIRE-002 |
+| [lire-002/](lire-002/) | Información independiente: sin tabla 0/7; la condición falla |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
 | [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |
