@@ -92,6 +92,14 @@ difieren entre sí en 1 tarea a favor de cada uno.
 - La primera corrida con 1 ejemplo usaba un prompt que presentaba el artefacto como
   programa completo; se corrigió y se reportan ambos.
 - La verificación del artefacto usa 60 entradas; no es una prueba formal.
+- **Sesgo de construcción:** las 12 tareas de la sesión 2 empiezan por el motivo
+  aprendido. Es una prueba de **reutilización favorable**, no de transferencia a una
+  familia independiente. El clon y el placebo mitigan el efecto, pero no lo eliminan.
+- **Longitud de prompt no igualada:** el clon recibe una nota neutra y las otras
+  condiciones reciben la subrutina. No se asegura igualdad de tokens.
+- **Equivalencia conductual:** en una corrida el agente devolvió `double → sort_asc`
+  en lugar de `sort_asc → double`. Son equivalentes en este dominio; la verificación
+  es conductual, no de identidad del programa.
 
 ## 7. Reproducir
 

@@ -75,6 +75,12 @@ herramienta contiene información, cambia la representación y puede modificar l
 política. Sin una regla operacional para asignar efectos, sirven para diseñar
 condiciones, no para atribuir causas.
 
+**Línea LIRE (en curso).** El canal de representación se estudia en
+`../resources/investigation/lire-001/`: la misma regla de cuatro ramas en español,
+inglés, chino, español conciso y DSL simbólico, con **tokens reales** del modelo.
+Mide fidelidad y coste de representar una competencia conocida; no mide adquisición
+y no se presenta como tal.
+
 ---
 
 ## 3. La proposición del espacio explorable

@@ -144,6 +144,11 @@ a igual coste. Si una forma fija iguala o supera, **ese resultado no respalda la
 ventaja del selector evaluado**; las formas todavía podrían diferir entre tareas, y
 el selector podría ser deficiente o demasiado caro.
 
+**LIRE-001 (piloto ejecutado).** La misma regla de cuatro ramas en cinco
+representaciones (español, inglés, chino, español conciso, DSL), con tokens reales
+del modelo. Mide **fidelidad y coste de representar una competencia conocida**, no
+adquisición. Ver `../resources/investigation/lire-001/`.
+
 ---
 
 ## F3 — Universo no explorable (`EXPAND-*`)

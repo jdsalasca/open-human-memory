@@ -156,6 +156,30 @@ def transfer_tasks(seed: int, n: int, suffix: int = 3) -> list:
     return tasks
 
 
+def build_conditions(program: list[str] | None, verified: bool) -> dict[str, str]:
+    """Only a verified artifact may be delivered. No fallback to the true motif."""
+    if not verified or not program:
+        raise ValueError("artifact not verified; refusing to deliver memory")
+    artifact = " -> ".join(program)
+    placebo = " -> ".join(PLACEBO)
+    return {
+        "clone": (
+            "\nNo hay subrutinas de experiencias anteriores disponibles; "
+            "usa únicamente los ejemplos de la tarea actual.\n"
+        ),
+        "memory": (
+            "\nUna subrutina candidata de experiencias anteriores es: "
+            f"{artifact}. Verifícala contra los ejemplos y úsala si encaja; "
+            "el programa completo puede tener más pasos.\n"
+        ),
+        "placebo": (
+            "\nUna subrutina candidata de experiencias anteriores es: "
+            f"{placebo}. Verifícala contra los ejemplos y úsala si encaja; "
+            "el programa completo puede tener más pasos.\n"
+        ),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--n", type=int, default=12)
@@ -178,20 +202,29 @@ def main() -> None:
         f"session1 program={program} verified={verified} seconds={learned['seconds']}"
     )
 
+    if not verified:
+        summary = {
+            "model": args.model,
+            "effort": args.effort,
+            "seed": args.seed,
+            "n": args.n,
+            "support": args.support,
+            "suffix": args.suffix,
+            "session1": {
+                "program": program,
+                "verified": False,
+                "seconds": learned["seconds"],
+            },
+            "error": "artifact not verified; experiment aborted before session 2",
+            "conditions": {},
+            "rows": [],
+        }
+        Path(args.out).write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        print("artifact not verified; aborting before session 2")
+        return
+
     tasks = transfer_tasks(args.seed, args.n, args.suffix)
-    conditions = {
-        "clone": "",
-        "memory": (
-            "\nUna subrutina verificada en experiencias anteriores es: "
-            f"{' -> '.join(program or MOTIF)}. Puede ser parte de la solución; "
-            "el programa completo puede tener más pasos.\n"
-        ),
-        "placebo": (
-            "\nUna subrutina candidata de experiencias anteriores es: "
-            f"{' -> '.join(PLACEBO)}. Puede ser parte de la solución; "
-            "el programa completo puede tener más pasos.\n"
-        ),
-    }
+    conditions = build_conditions(program, verified)
     rows = []
     for condition, extra in conditions.items():
         for index, task in enumerate(tasks):

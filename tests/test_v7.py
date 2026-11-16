@@ -2,10 +2,34 @@
 
 import unittest
 
-from ohmem.v7_transfer import MOTIF, PLACEBO, OPS, transfer_tasks, verify
+from ohmem.v7_transfer import (
+    MOTIF,
+    PLACEBO,
+    OPS,
+    build_conditions,
+    transfer_tasks,
+    verify,
+)
 
 
 class V7Tests(unittest.TestCase):
+    def test_unverified_artifact_is_never_delivered(self):
+        with self.assertRaises(ValueError):
+            build_conditions(None, False)
+        with self.assertRaises(ValueError):
+            build_conditions(list(MOTIF), False)
+        with self.assertRaises(ValueError):
+            build_conditions([], True)
+
+    def test_memory_and_placebo_share_the_same_framing(self):
+        conditions = build_conditions(list(MOTIF), True)
+        self.assertIn("candidata", conditions["memory"])
+        self.assertIn("candidata", conditions["placebo"])
+        self.assertIn("Verifícala", conditions["memory"])
+        self.assertIn("Verifícala", conditions["placebo"])
+        self.assertIn("sort_asc", conditions["memory"])
+        self.assertIn("sort_desc", conditions["placebo"])
+
     def test_motif_verifies(self):
         self.assertTrue(verify(list(MOTIF)))
 
