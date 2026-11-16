@@ -1,7 +1,9 @@
 """Tests for Prototype 005.
 
-Half of these are negative tests: they fail if the project starts claiming that
-memory helps unconditionally, or that ordering is free.
+`V5ReproductionTests` reproduces the frozen 005-A numbers. They are a historical
+record, not invariants: if a future controller beats FROZEN or makes accumulation
+work, that is a finding to record in a new test, not a bug to fix here.
+`AccountingTests` are software invariants and do apply to any implementation.
 """
 
 import unittest
@@ -12,7 +14,7 @@ from ohmem.v3_tasks import make_depth3_grid
 from ohmem.v5_experiment import Agent, behavioral_classes, run, stream_tasks
 
 
-class V5Tests(unittest.TestCase):
+class V5ReproductionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.result = run(seed=0)

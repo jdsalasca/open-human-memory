@@ -1,8 +1,8 @@
 """Validity tests for Prototype 004-A.
 
-These are negative tests: they fail if the project starts claiming more than the
-data supports. If a future change makes learned macros look better than plain
-deeper search, these tests break on purpose.
+These reproduce the frozen 004-A numbers. They are a historical record, not
+invariants: if a future implementation beats plain deeper search, record it in a
+new test instead of treating this one as broken.
 """
 
 import unittest
@@ -13,7 +13,7 @@ from ohmem.v3_solver import solve
 from ohmem.v3_tasks import make_depth3_grid
 
 
-class V4Tests(unittest.TestCase):
+class V4ReproductionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.result = run(seed=0, n_train=60)
