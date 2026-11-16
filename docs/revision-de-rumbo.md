@@ -239,6 +239,23 @@ evidencia.**
 
 ---
 
+## 4.5 Dos horizontes, dos preguntas
+
+La auditoría propone separar lo inmediato de lo fundamental. Se adopta.
+
+**Horizonte inmediato — ¿la memoria cambia una decisión real?**
+Un agente congelado, tareas con verificación ejecutable, comparación pareada:
+sin ayuda, con más ejemplos, con el lenguaje de operaciones, con herramienta de
+ejecución, con verificador, con procedimiento recuperado, con biblioteca.
+Métrica: acierto pareado y coste total. Es el experimento del 006-B ampliado.
+
+**Horizonte fundamental — ¿la experiencia cambia cómo se aprende?**
+Currículos interdependientes, familias reservadas, test de clon. Métrica: `Δ(F)`
+en experiencias hasta competencia. Es el 007.
+
+**Regla:** no se mezclan en una sola puntuación. Un resultado del horizonte
+inmediato no se presenta como evidencia del fundamental.
+
 ## 5. El 007: experimento mínimo
 
 **Pregunta:** ¿una experiencia histórica recuperada reduce el coste de resolver

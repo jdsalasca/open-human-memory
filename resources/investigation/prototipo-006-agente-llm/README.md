@@ -66,7 +66,22 @@ Comparación con nuestros solucionadores en la misma rejilla:
 - Las 64 tareas no son 64 comportamientos: son 14 clases funcionales. La
   exactitud por clase no se reporta aquí.
 
-## 6. Reproducir
+## 7. Diagnóstico en curso (006-B ampliado)
+
+La auditoría pidió distinguir cuatro mecanismos de fallo. Se están ejecutando, en
+las mismas 24 tareas y pareadas contra `base`:
+
+| Condición | Qué distingue |
+|---|---|
+| `base` | Desempeño sin ayuda |
+| `more_examples` | Falta de información (6 ejemplos en vez de 3) |
+| `vocabulary` | Falta de representación (se nombran las cuatro operaciones) |
+| `retrieved` | Memoria: una tarea resuelta de la misma transformación, otros números |
+
+Cuando cierre, cada diferencia se reporta con IC bootstrap pareado, no como un
+porcentaje suelto. El resultado se añadirá a este documento.
+
+## 8. Reproducir
 
 ```bash
 $env:PYTHONPATH="src"
