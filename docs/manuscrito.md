@@ -1,65 +1,103 @@
-# Medir memoria en agentes: seis experimentos negativos y un instrumento metodológico
+# Memoria útil en agentes: información, aplicación y verificación
+
+**Subtítulo:** de los resultados negativos a un protocolo de memoria verificada
 
 **Autor:** Juan David Salas Camargo (MIT)
 **Colaboración:** DeepSeek 4.1 Flash (agente de investigación)
 **Fecha:** 16 de noviembre de 2026
 **Estado:** preprint no arbitrado. Listo para revisión por pares.
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Versión:** `v1.14-review`
+**Versión:** `v1.24-review`
 
 ---
 
 ## Resumen
 
-Este es un **artículo metodológico**. No demuestra aprendizaje acumulativo ni
-expansión de competencia. Su contribución es un estudio de caso replicable sobre
-cómo controles débiles y presupuestos mal contabilizados producen conclusiones
-engañosas en experimentos con agentes, junto con el instrumento que los corrige.
+Este es un **artículo metodológico** sobre memoria en agentes. No demuestra
+aprendizaje acumulativo ni expansión de competencia. Su contribución es un estudio de
+caso replicable de por qué los experimentos de memoria producen conclusiones
+engañosas, y el instrumento que separa información, aplicación, verificación y
+encuadre.
 
-Presentamos seis experimentos con un solucionador de programas sobre cuatro
-operaciones. El resultado central es negativo: en un espacio **explorable,
-identificable y dentro del presupuesto**, la búsqueda sin memoria iguala la
-cobertura de una biblioteca aprendida; la biblioteca solo reduce coste (41,8 % menos
-pasos con continuidad total) y lo pierde todo con continuidad cero (22,1 pp menos).
-Una política aprendida de activación no supera a una regla de una línea y cuesta
-1,42× la búsqueda sin memoria. Un agente real (`gpt-6-luna`, esfuerzo bajo) acierta
-46,9 % en la misma rejilla; las intervenciones probadas no permiten atribuir el
-fallo a la memoria.
+Primero presentamos **seis experimentos negativos** (002–007) con un solucionador de
+programas. En un espacio **explorable, identificable y presupuestado**, la búsqueda
+sin memoria iguala la cobertura de una biblioteca aprendida; la biblioteca solo reduce
+coste (41,8 % menos pasos con continuidad total) y lo pierde todo con continuidad cero
+(22,1 pp menos). Una política aprendida no supera a una regla de una línea y cuesta
+1,42× la búsqueda. Un agente real (`gpt-6-luna`, esfuerzo bajo) acierta 46,9 %.
 
-El instrumento tiene cuatro piezas: clon sin historial, canales separados, métricas
-`E`/`K`/`P` y verificación de herramientas en cinco etapas. La proposición que
-ordena el trabajo explica por qué los negativos eran esperables, pero es una
-consecuencia de la definición bajo supuestos de realizabilidad, no una teoría
-general. La comparación decisiva —recuperación genuina, familias reservadas y coste
-total— **no se ha ejecutado** y es el trabajo futuro inmediato.
+Después de una auditoría externa, el trabajo **retracta** su experimento de
+representación (LIRE-001b): las 120 reglas eran una sola fórmula, el verificador no
+comprobaba pertenencia y el orden no estaba aleatorizado. El reemplazo, LIRE-002, usa
+información independiente y un **control sin tabla**: el control acierta 0/7 casos
+positivos; la recuperación funciona (6–7/7), pero **los fallos que quedan están en
+evaluar la condición**, no en almacenar la regla. El chino no ahorra tokens (2.949 vs
+2.841 del español) ni acierta más: la ventaja anterior era un artefacto.
 
-**Palabras clave:** memoria de agentes, competencia acumulativa, validez
-experimental, resultados negativos, metodología.
+El **diagnóstico de ejecución** muestra que el 007 estaba fuera de régimen: con el
+programa completo, `luna` acierta 11/12 con 2 operaciones, 7/12 con 3, 8/12 con 4 y
+4/12 con 5. Medido por **longitud mínima equivalente**, 2 operaciones aciertan 18/21
+(86 %), 3 aciertan 8/18 (44 %) y 5, 0/1.
+
+El **primer resultado positivo de este programa** aparece en 2 operaciones: un
+artefacto **verificado fuera del prompt** y presentado como **conocimiento aplicable**
+acierta 10–11/12, frente a 3–5/12 del clon, 2–3/12 del placebo y 0/12 de un placebo
+etiquetado como verificado. El mismo programa presentado como «subrutina candidata; verifícala»
+acierta 3–4/12: **el encuadre era el cuello**. El placebo verificado demuestra que la
+etiqueta sola no basta; la ganancia es del contenido verificado.
+
+El resultado es **uso de memoria**, no expansión de competencia: la tarea de 2
+operaciones es enumerable e identificable, y la memoria ahorra el coste de
+identificarla. La pregunta de expansión sigue abierta y exige una tarea que el modelo
+pueda aplicar y que no quepa en el presupuesto. La comparación decisiva
+—recuperación genuina, familias reservadas, coste total y ciclo longitudinal— **no se
+ha ejecutado**.
+
+**Palabras clave:** memoria de agentes, competencia acumulativa, verificación,
+encuadre, información usable, validez experimental, resultados negativos.
 
 ---
 
 ## Abstract
 
-This is a **methodological paper**. It does not demonstrate cumulative learning or
-competence expansion. Its contribution is a replicable case study of how weak
-controls and mis-accounted budgets produce misleading conclusions in agent
-experiments, together with the instrument that corrects them.
+This is a **methodological paper** on memory in agents. It does not demonstrate
+cumulative learning or competence expansion. Its contribution is a replicable case
+study of why memory experiments produce misleading conclusions, and the instrument
+that separates information, application, verification, and framing.
 
-We report six experiments with a program solver over four operations. The central
-result is negative: in an **explorable, identifiable, budgeted** space, memoryless
-search matches the coverage of a learned library; the library only reduces cost
-(41.8% fewer steps at full continuity) and loses it all at zero continuity (22.1 pp
-less). A learned activation policy does not beat a one-line rule and costs 1.42×
-memoryless search (84.3 vs 59.5 steps) and 1.89× macro-first (84.3 vs 44.5). A real
-agent (`gpt-6-luna`, low effort) scores 46.9% on the same grid; the interventions
-tested do not attribute the failure to memory.
+We first report **six negative experiments** (002–007) with a program solver. In an
+**explorable, identifiable, budgeted** space, memoryless search matches the coverage
+of a learned library; the library only reduces cost (41.8% fewer steps at full
+continuity) and loses it all at zero continuity (22.1 pp). A learned activation
+policy does not beat a one-line rule and costs 1.42× memoryless search. A real agent
+(`gpt-6-luna`, low effort) scores 46.9%.
 
-The instrument has four parts: a no-history clone, separated channels, `E`/`K`/`P`
-metrics, and five-stage tool verification. The proposition that organises the work
-explains why the negatives were expected, but it is a consequence of the definition
-under realizability assumptions, not a general theory. The decisive comparison —
-genuine retrieval, reserved families and total cost — **has not been run** and is
-the immediate future work.
+After an external audit, the paper **retracts** its representation experiment
+(LIRE-001b): the 120 rules were one formula, the verifier did not check membership,
+and case order was not randomized. Its replacement, LIRE-002, uses independent
+information and a **no-table control**: the control scores 0/7 positive cases;
+retrieval works (6–7/7), but **the remaining failures are in evaluating the
+condition**, not in storing the rule. Chinese does not save tokens (2,949 vs 2,841 for
+Spanish) or improve accuracy: the earlier advantage was an artifact.
+
+The **execution diagnosis** shows that 007 was outside the regime: with the full
+program, `luna` scores 11/12 with 2 operations, 7/12 with 3, 8/12 with 4, and 4/12
+with 5. Measured by **minimum equivalent length**, 2 operations score 18/21 (86%), 3
+score 8/18 (44%), and 5 score 0/1.
+
+The **first positive result in this project** appears at 2 operations: an artifact
+**verified outside the prompt** and presented as **applicable knowledge** scores
+10–11/12, versus 3–5/12 for the clone, 2–3/12 for the placebo, and 0/12 for a placebo
+labeled as verified.
+The same program presented as a “candidate subroutine; verify it” scores 3–4/12:
+**framing was the bottleneck**. The verified placebo shows that the label alone is not
+enough; the gain comes from verified content.
+
+The result is **memory use**, not competence expansion: the 2-operation task is
+enumerable and identifiable, and memory saves the cost of identifying it. The
+expansion question remains open and requires a task the model can apply and that does
+not fit the budget. The decisive comparison — genuine retrieval, reserved families,
+total cost, and a longitudinal cycle — **has not been run**.
 
 ---
 
@@ -76,19 +114,35 @@ etología y sociología— y terminó en una pregunta más pequeña y más hones
 > Si el agente reinicia su contexto, cambia de tarea y encuentra un problema nuevo,
 > ¿qué aprendizaje adquirido antes modifica su forma de comprenderlo y resolverlo?
 
-La respuesta que podemos sostener hoy es: **en nuestro entorno, ninguno**. Lo que sí
-podemos sostener es por qué, y qué haría falta para que la respuesta cambie.
+La respuesta que podemos sostener hoy es doble. **En las tareas que el modelo no
+puede aplicar, no hay evidencia**: el 007 pedía cinco operaciones y el oráculo mismo
+acertaba 2/12. **En una tarea de dos operaciones efectivas, un artefacto verificado y
+presentado como conocimiento aplicable se usa**: 10–11/12 frente a 3–5/12 del clon.
+Pero eso es **uso de información**, no expansión de competencia: la tarea es
+enumerable e identificable, y la memoria ahorra el coste de identificarla. Lo que sí
+podemos sostener es por qué los negativos no eran interpretables, qué separa el uso
+de la expansión y qué haría falta para que la respuesta cambie.
 
 ### Contribución
 
-Una **demostración metodológica**: seis intentos de mostrar que la memoria expande
-la competencia fallaron por controles débiles, presupuestos mal contabilizados y
-confusión entre información y aprendizaje. El trabajo publica el instrumento que
-hace visibles esos fallos y el registro de qué queda en pie.
+Una **demostración metodológica** con cuatro piezas:
 
-Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 95 afirmaciones. Ninguna se
-presenta como una teoría general de memoria.
+1. **El instrumento:** clon sin historial, canales separados, métricas `E`/`K`/`P`,
+   control sin tabla, acierto estratificado, tokens incrementales pareados, longitud
+   mínima equivalente y **placebo verificado**.
+2. **Los negativos, con diagnóstico:** en espacio enumerable la memoria solo reduce
+   coste; el 007 estaba fuera de la ejecución y presentaba el artefacto como
+   candidato; el LIRE-001b era una tabla redundante.
+3. **El positivo condicionado:** en 2 operaciones, la memoria verificada se usa
+   (10–11/12) si el contenido está verificado fuera del prompt y el encuadre es
+   definitivo; el encuadre de candidata la hunde a 3–4/12.
+4. **La condición de seguridad:** la etiqueta «verificado» no basta; un programa falso
+   etiquetado así acierta 0/12. El modelo no puede ser el verificador de su propia
+   memoria.
+
+Las piezas de apoyo son: la proposición con condiciones, los experimentos, la revisión
+estructurada de 31 trabajos y el registro de 95 afirmaciones. Ninguna se presenta como
+una teoría general de memoria.
 
 ### Lo que no se afirma
 
@@ -96,6 +150,14 @@ presenta como una teoría general de memoria.
 - No se afirma que las habilidades no funcionen.
 - No se afirma novedad algorítmica: ninguna pieza es nueva.
 - No se afirma transferencia entre modelos ni aprendizaje conceptual.
+- **No se afirma expansión de competencia:** el resultado positivo vive en un espacio
+  enumerable e identificable; la memoria ahorra identificación, no amplía el espacio.
+- **No se afirma transferencia a familias reservadas:** las tareas empiezan por el
+  motivo aprendido; es reutilización favorable.
+- **No se afirma generalidad:** n=12 por condición, una semilla, un modelo; la réplica
+  de 24 tareas está pre-registrada y pendiente.
+- **No se afirma que el modelo pueda autoverificarse:** la verificación es externa;
+  un placebo verificado acierta 0/12 y se aplica con confianza.
 
 ---
 
@@ -293,7 +355,9 @@ no está disponible para cuentas ChatGPT. OpenCode se usó con
 ## 5. Resultados
 
 **Tabla 1. Resumen verificable.** Unidad = tareas; la inferencia no es sobre
-familias. Datos crudos en `results/` de cada prototipo.
+familias. Datos crudos en `results/` de cada prototipo. Las filas 002–007 son la fase
+negativa; 007B, EXEC-001 y LIRE-002 la fase de diagnóstico; MEM-002/003/004 la fase
+positiva condicionada.
 
 | Exp | Hipótesis | Unidad | Condiciones | Coste medido | Resultado | Incertidumbre | Estado |
 |---|---|---|---|---|---|---|---|
@@ -306,10 +370,11 @@ familias. Datos crudos en `results/` de cada prototipo.
 | 007 | retención + reinicio + transferencia | 12 tareas, `luna` low | clone, memory, placebo | llamadas | 1 ejemplo: 0/0/2; 2 ejemplos: 1/3/6 | 1–6 tareas | Negativo: el placebo supera a la memoria |
 | 007B | información, instrucción o ejecución | 12 tareas, `luna` low | clone, memory, placebo, history, oracle | llamadas | 1/3/6/4/2 | — | Negativo: el oráculo 2/12 |
 | EXEC-001 | aplicación con el programa dado | 12 tareas × 4 profundidades, `luna` low | oráculo simbólico | llamadas | 2 ops 11/12; 3 ops 7/12; 4 ops 8/12; 5 ops 4/12 | 1–5 tareas | La longitud efectiva manda |
-| MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
-| MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
 | LIRE-001b | representación de una skill larga | 12 casos × 5 formas, `luna` low | español, inglés, chino, conciso, DSL | tokens | chino 11/12 (−1,4 %); conciso 8/12 (−6,1 %); DSL 7/12 (−4,4 %) | 1–4 casos | Retractado: la tabla era una fórmula |
 | LIRE-002 | información independiente | 12 casos × 8 formas, `luna` low | 7 representaciones + sin tabla | tokens incrementales | sin tabla 0/7; en/DSL 12/12; tabla 8/12 | 1–2 casos | Mixto: condición, no idioma |
+| MEM-002 | memoria en 2–3 operaciones | 12 tareas, `luna` low | clon, memoria, placebo, historial, oráculo | llamadas | 3 ops: 2/3/5/4/8; 2 ops: 5/7/4/9/11 | 1–6 pares | 3 ops negativo; 2 ops señal |
+| MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
+| MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -469,7 +534,14 @@ vs 2.841) ni acierta más (11 vs 10): **la ventaja de LIRE-001b no se replica**.
 tabla TSV ahorra 51 % de tokens y baja a 8/12; el conciso ahorra 48 % y se queda en
 10/12. No hay una representación que domine fidelidad, tokens y condición.
 
-### 5.10 MEM-003: la memoria verificada funciona; el encuadre la bloqueaba
+### 5.10 MEM-002/MEM-003: la memoria verificada funciona; el encuadre la bloqueaba
+
+**MEM-002: el régimen y el historial.** En 3 operaciones, la memoria de 2 operaciones
+no superó al clon ni al placebo (clon 2, memoria 3, placebo 5, historial 4, oráculo
+8). En 2 operaciones, la memoria acierta 7/12 frente a 5/12 del clon y 4/12 del
+placebo, pero el **historial 9/12** y el **oráculo 11/12** la superan. La memoria se
+usa, pero el historial crudo es mejor y el oráculo —el mismo programa con otro
+encuadre— despega. Eso motivó MEM-003.
 
 En dos operaciones —el régimen aplicable según EXEC-001— se comparó el **mismo
 programa verificado** con dos encuadres, más clon, placebo, historial y oráculo:
@@ -519,17 +591,23 @@ unidades. El flujo está en `revision-sistematica/cribado.md`.
 
 ## 7. Discusión
 
-**Por qué todos los negativos.** Los seis experimentos viven en el mismo régimen: un
-espacio que cabe en el presupuesto, con tareas mayormente identificables. La
-proposición **explica retrospectivamente** por qué ahí la memoria solo puede
-optimizar coste. No fue una predicción registrada: el 006 incluye políticas, probes
-y costes que no satisfacen todas las premisas. Y eso es lo que
+**Por qué los negativos y qué cambió.** Los seis experimentos negativos viven en el
+mismo régimen: un espacio que cabe en el presupuesto, con tareas mayormente
+identificables. La proposición **explica retrospectivamente** por qué ahí la memoria
+solo puede optimizar coste. No fue una predicción registrada: el 006 incluye
+políticas, probes y costes que no satisfacen todas las premisas. Y eso es lo que
 se observó: 41,8 % menos pasos con continuidad total, nada con continuidad cero.
+
+El 007 añadió dos causas que no eran la memoria: la tarea de cinco pasos estaba fuera
+de la **aplicación** (oráculo 2/12) y el artefacto se presentaba como **candidato** a
+re-verificar. EXEC-001 midió la primera; MEM-003/004, la segunda. Cuando se
+corrigieron las dos, en dos operaciones, la memoria verificada se usó (10–11/12). El
+negativo no era una ley sobre la memoria: era un artefacto de régimen y de encuadre.
 
 **Qué sobrevive.** (i) La ventaja de eficiencia es real pero condicional. (ii) La
 política de activación no paga su señal. (iii) La verificación por ejecución es
-imprescindible y ajena. (iv) El agente real falla por identificación, pero el piloto
-no lo demuestra.
+imprescindible y ajena. (iv) El agente real acierta 46,9 %; el piloto no permite
+atribuir el fallo a una capacidad concreta.
 
 **Sobre la innovación.** No hay innovación algorítmica demostrada. La contribución
 posible es una medición: clon, canales, `E`/`K`/`P`, formas y verificación en cinco
@@ -556,48 +634,117 @@ p = 0,002). El modelo aplica el programa y falla si es falso. La memoria útil e
 **verificación real fuera del prompt** y un encuadre definitivo; el modelo no puede
 ser el verificador de su propia memoria.
 
-**El siguiente test.** F1: descomposición de capacidades y ejecución por profundidad.
-Después, 007C con una tarea ejecutable pero no identificable, y P1/P6.
+**Qué es y qué no es el resultado positivo.** Es **uso de memoria**: el artefacto
+contiene información que el clon no tiene, el modelo puede aplicar la tarea de dos
+operaciones y el encuadre verificado hace que la aplique. **No es expansión de
+competencia**: la tarea es enumerable e identificable; el artefacto ahorra el coste
+de identificarla, no amplía el espacio de lo que el agente puede expresar. **No es
+transferencia**: las tareas empiezan por el motivo aprendido; es reutilización
+favorable. **No es general**: n=12, una semilla, un modelo; la réplica de 24 tareas
+está pre-registrada. La proposición de `teoria.md` sigue siendo el marco: en el
+espacio enumerable, la memoria optimiza coste; el resultado positivo es consistente
+con ella, no la refuta.
+
+**El siguiente test.** Primero, la réplica de **24 tareas y varias semillas** de
+MEM-003/004 (M11/M12), con placebos por clase y posición/longitud del recuerdo.
+Después, **MEM-005** en 3 operaciones con encuadre definitivo: la memoria cubre 2/3 y
+el modelo debe completar la tercera. Más adelante, el **ciclo longitudinal**
+`E`/`K`/`P`, una **familia reservada** y la **comunicación aprendida** (COMM-001). El
+baseline externo (F0) sigue pendiente y es condición para cualquier comparación
+general.
 
 ---
 
 ## 8. Limitaciones
 
-1. **Un solo entorno sintético**, cuatro operaciones, 14 clases conductuales.
-2. **Un solo modelo** (`gpt-6-luna`), un esfuerzo (`low`), una corrida.
-3. **n=24** en el diagnóstico: los IC son de ±20 pp.
-4. **Sin replicación** de ningún competidor.
-5. **Revisión con una base y un revisor**; 88 candidatos sin evaluar.
-6. **Preprints** en la mayoría de 2026.
-7. **Sin medición de tokens** en los experimentos sintéticos.
-8. **La condición de herramienta** no verificó las cinco etapas.
-9. **El presupuesto** puede rebasarse hasta 6 pasos por candidato aceptado.
-10. **El probe no se descuenta** del presupuesto de búsqueda en 006-A.
-11. **Los IC del 006-A** tratan tareas como independientes con dos semillas.
-12. **No hay recuperación genuina**: `ORACLE-MEMORY` conoce la respuesta y
-    `ACTUAL-RETRIEVAL` no se ejecutó.
-13. **007 no es pre-registrado**: la profundidad y el régimen de un ejemplo se
-    eligieron tras ver el techo, y n=12 con un modelo.
+1. **Un solo entorno sintético** de seis operaciones; no es un benchmark de LLM.
+2. **Un solo modelo** (`gpt-6-luna`), un esfuerzo (`low`) y una semilla. Las corridas
+   con `gpt-6.1-terra` son exploratorias y no se usan como evidencia.
+3. **n=12 por condición** en LIRE-002, EXEC-001 y MEM. La réplica de 24 tareas está
+   pre-registrada y pendiente (M11/M12); los intervalos no están ajustados por
+   comparaciones múltiples.
+4. **Las tareas empiezan por el motivo** aprendido: reutilización favorable, no
+   transferencia a una familia reservada.
+5. **La etiqueta «verificado» es una frase del prompt** en el experimento. Un sistema
+   real necesita verificación externa; el placebo verificado (0/12) muestra el riesgo
+   de una etiqueta no respaldada.
+6. **El historial tiene más tokens** que la memoria verificada (853 vs 370); no se
+   iguala longitud.
+7. **LIRE-002**: idioma, longitud, redundancia y estructura siguen confundidos; no es
+   un factorial; LLMLingua-2 no se ejecutó. La instrucción de `NONE` se añadió tras el
+   piloto; el piloto se conserva como ablación, no como evidencia principal.
+8. **EXEC-001**: solo se ejecutó la condición simbólica; `steps` y `nl` están
+   pendientes. La longitud mínima se calcula sobre 60 sondas; no es una prueba formal
+   de equivalencia.
+9. **Sin baseline externo reproducido**, sin `ACTUAL-RETRIEVAL` y sin ciclo
+   longitudinal `E`/`K`/`P`.
+10. **Los negativos del 006** conservan sus límites: el presupuesto puede rebasarse
+    hasta 6 pasos, los IC tratan tareas como independientes con dos semillas y la
+    condición de herramienta no verificó las cinco etapas.
+11. **LIRE-001b está retractado**: sus cifras describen una tabla redundante y no se
+    usan como evidencia de información retenida.
+12. **El mecanismo del fallo del 007B no está identificado**: puede ser ejecución,
+    interpretación de las operaciones, seguimiento de instrucciones o una heurística.
+13. **La revisión de literatura** se hizo con una base y un revisor; 88 candidatos no
+    se evaluaron y la mayoría de los trabajos son preprints de 2026.
 
 ---
 
 ## 9. Reproducibilidad
 
 ```bash
-python -m unittest discover -s tests -v          # 60 tests
-python resources/investigation/prototipo-004-validez/reproduce.py
-python resources/investigation/prototipo-005-presupuesto/reproduce.py
-python resources/investigation/prototipo-006-politica/reproduce_corrected.py
-python resources/investigation/prototipo-006-agente-llm/analyze.py
+python -m unittest discover -s tests -v          # 87 tests
+python docs/verificar_afirmaciones.py            # 95 claims y totales citados
+
+# Experimentos clave (modelo de experimentos: gpt-6-luna low)
+python -m ohmem.lire_002 --model gpt-6-luna --effort low --timeout 120 \
+  --out resources/investigation/lire-002/results/luna-low-12cases.json
+python resources/investigation/lire-002/analyze.py
+
+python -m ohmem.v7_transfer --n 12 --support 2 --suffix 0 \
+  --session1-examples 12 --exact-ops \
+  --conditions clone,memory,memory_verified,placebo,placebo_verified,history,oracle \
+  --model gpt-6-luna --effort low --timeout 120 \
+  --out resources/investigation/mem-004/results/pilot-depth2-verified-placebo.json
+python resources/investigation/mem-004/analyze.py
 ```
 
-Los protocolos congelados verifican sus hashes y abortan si el código cambió. Los
-resultados crudos están en `results/` de cada prototipo. El registro de ejecuciones
-(modelo, esfuerzo, semillas, comandos) está en `docs/registro-de-ejecuciones.md`.
+Los protocolos congelados del 004-A y el 006-A verifican hashes SHA-256 y abortan si
+el código cambió. Los resultados crudos están en `results/` de cada prototipo, con las
+filas por condición y tarea. El registro de ejecuciones (modelo, esfuerzo, semillas,
+comandos y número de llamadas) está en `docs/registro-de-ejecuciones.md`; la tabla de
+trazabilidad, en `docs/para-revisores.md` §5.3. La retractación de LIRE-001b está en
+`docs/errata-lire-001b.md`.
 
 ---
 
-## 10. Referencias
+## 10. Conclusión
+
+En nuestras tareas, la memoria no falla principalmente por almacenar poco: falla por
+**aplicar mal, verificar mal y presentar mal** lo almacenado. En nuestras tareas enumerables, la
+memoria solo puede reducir coste; el 007 pedía cinco operaciones, que el modelo no
+aplica ni con el programa completo (oráculo 2/12), y presentaba el artefacto como
+candidato a re-verificar. Corregidos el régimen (dos operaciones efectivas) y el
+encuadre (conocimiento verificado y aplicable), la memoria se usa: 10–11/12 frente a
+3–5/12 del clon y 2–3/12 del placebo. Un placebo etiquetado como verificado acierta
+0/12: la etiqueta no basta; el contenido verificado sí.
+
+El problema del lenguaje es el mismo problema visto desde el otro lado: no se trata de
+qué idioma ocupa menos caracteres, sino de cuánta información independiente se
+conserva y se aplica bajo una condición. Con información independiente, el control sin
+tabla acierta 0/7; la recuperación funciona, pero falla la condición; el chino no
+ahorra tokens ni acierta más. La compresión ahorra tokens y cuesta excepciones.
+
+No hay evidencia de **expansión de competencia**. El resultado positivo es **uso de
+memoria** en un espacio enumerable: ahorra identificación, no amplía lo expresable. La
+pregunta mayor sigue abierta y exige una tarea que el modelo pueda aplicar, que no
+quepa en el presupuesto y que se pruebe en familias reservadas, con varias semillas,
+un segundo modelo y un ciclo longitudinal. Ese es el trabajo siguiente; este artículo
+deja el instrumento para medirlo sin engañarse.
+
+---
+
+## 11. Referencias
 
 - Angluin, D. (1987). Learning regular sets from queries and counterexamples. *Information and Computation*, 75(2), 87–106.
 - Bowers, M., et al. (2023). Top-down synthesis for library learning. *POPL 2023*.
@@ -648,7 +795,16 @@ Ninguna propia alcanza E3.
 - «El intérprete no ayuda» (condición inválida).
 - «96 episodios no caben en una ventana» (no se midió).
 - «JANUS es novedoso» (la verificación operacional ya existe).
-- «El procedimiento retenido ayuda» (007: empata con un placebo falso).
+- «El procedimiento retenido ayuda en cinco pasos» (007: empata con un placebo falso).
+- «El chino conserva mejor una skill larga» (LIRE-001b: tabla redundante; LIRE-002 no
+  replica la ventaja).
+- «La compresión ahorra tokens y conserva la fidelidad» (LIRE-002: la tabla TSV ahorra
+  51 % y pierde condiciones).
+- «El cuello es la ejecución» (007B: se suaviza a «la aplicación del programa»; el
+  mecanismo no está identificado).
+- «La memoria no funciona tras el reinicio» (007: era un artefacto de régimen de cinco
+  pasos y de encuadre de candidata; MEM-003/004).
+- «La etiqueta “verificado” basta» (MEM-004: un placebo verificado acierta 0/12).
 
 
 

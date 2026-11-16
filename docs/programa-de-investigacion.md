@@ -50,7 +50,7 @@ efectivas**; 3 ya es frágil. La familia de 5 pasos queda cerrada para memoria.
 **11/12** presentado como definitivo, frente a 4/12 como candidata, 3/12 del clon,
 3/12 del placebo y 10/12 del historial. **El encuadre era el cuello.** La memoria
 verificada empata con el historial y casi con el oráculo. El riesgo es la confianza
-en la etiqueta: MEM-004 prueba un placebo con el mismo encuadre. Si también acierta,
+en la etiqueta: MEM-004 probó un placebo con el mismo encuadre. Si también acierta,
 la ganancia es de la etiqueta, no del contenido, y el sistema debe verificar la
 memoria fuera del prompt.
 
@@ -60,6 +60,12 @@ programa falso y falla. La ganancia es del **contenido verificado**. La etiqueta
 provenir de una verificación real fuera del prompt; un artefacto falso etiquetado como
 verificado es un fallo seguro. **El modelo no puede ser el verificador de su propia
 memoria.**
+
+**Coste pendiente.** El piloto mide acierto, no coste total: falta contabilizar
+adquisición, verificación, almacenamiento y uso. La ventaja de la memoria verificada
+sobre el historial (10 vs 9) puede desaparecer al sumar tokens; el artefacto usa 370
+caracteres frente a 853 del historial, pero la adquisición y la verificación cuestan
+llamadas. La comparación a igual coste total es una de las puertas de MEM-005.
 
 **El orden correcto:**
 

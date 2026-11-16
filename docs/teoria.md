@@ -12,9 +12,14 @@
 > problema que nunca ha visto, ¿qué aprendizaje adquirido en sus experiencias
 > anteriores modifica realmente su manera de comprenderlo y resolverlo?
 
-Hoy **no podemos responderla con un experimento**. Este documento explica qué se
-afirma, por qué canales, qué lo refutaría y por qué nuestros seis prototipos no
-podían responderla.
+Hoy podemos responderla **en parte**. En tareas que el modelo no puede aplicar, no hay
+evidencia: el 007 pedía cinco operaciones y el oráculo mismo acertaba 2/12. En una
+tarea de **dos operaciones efectivas**, un artefacto verificado y presentado como
+conocimiento aplicable se usa (10–11/12 frente a 3–5/12 del clon), pero eso es **uso de
+memoria**, no expansión de competencia: la tarea es enumerable y la memoria ahorra
+identificarla. La expansión sigue sin medirse. Este documento explica qué se afirma,
+por qué canales, qué lo refutaría y por qué los experimentos anteriores no podían
+responderla.
 
 ---
 
@@ -66,9 +71,10 @@ canales. Confundirlos produjo nuestros resultados ambiguos.
 | **Herramientas** | Procedimientos compilados y verificados | Amplía lo que el agente puede hacer con el mismo presupuesto |
 | **Parámetros** | Pesos del modelo | No transferible entre modelos sin reentrenar |
 
-Nuestros seis prototipos tocaron, como mucho, **política** (006) y **herramientas**
-(003–005), siempre en el mismo universo. Información, representación y parámetros
-siguen sin probar.
+Nuestros experimentos tocaron, como mucho, **política** (006) y **herramientas**
+(003–005), siempre en el mismo universo. El 007/MEM añadió **retención y uso** de un
+procedimiento verificado en 2 operaciones; LIRE-002 probó **representación** como
+coste/fidelidad, no como expansión. Información y parámetros siguen sin probar.
 
 **No son una descomposición causal identificada.** Los canales se solapan: una
 herramienta contiene información, cambia la representación y puede modificar la
@@ -137,12 +143,12 @@ Un fallo puede venir de siete sitios. Hasta ahora los tratamos como uno.
 
 | Capacidad | Pregunta | Prueba mínima | Estado |
 |---|---|---|---|
-| **Inferencia** | ¿Identifica un programa compatible? | Tareas con solución única | Parcial (46,9 % base) |
+| **Inferencia** | ¿Identifica un programa compatible? | Tareas con solución única | Parcial: 2 ops, clon 3–5/12 (MEM-002/004) |
 | **Desambiguación** | ¿Reconoce varias hipótesis vivas? | ≥2 programas compatibles con consultas divergentes | **Sin medir** |
 | **Experimentación** | ¿Sabe qué ejemplo pedir? | Ejemplos aleatorios vs informativos | **Sin medir** |
-| **Ejecución** | ¿Aplica bien una hipótesis dada? | Dar el programa y pedir la salida | **Sin medir** |
-| **Verificación** | ¿Rechaza una hipótesis falsa? | Inyectar contraejemplo | **Sin medir** |
-| **Memoria** | ¿Usa experiencia sin conocer la respuesta? | `ACTUAL-RETRIEVAL` vs clon | **Sin medir** |
+| **Ejecución** | ¿Aplica bien una hipótesis dada? | Dar el programa y pedir la salida | Parcial: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % (EXEC-001) |
+| **Verificación** | ¿Rechaza una hipótesis falsa? | Inyectar contraejemplo | Parcial/negativa: aplica un placebo verificado (0/12) en vez de rechazarlo (MEM-004) |
+| **Memoria** | ¿Usa experiencia sin conocer la respuesta? | `ACTUAL-RETRIEVAL` vs clon | Parcial: retención/uso verificado 10–11/12 vs clon 3–5/12 en 2 ops; no es recuperación (MEM-003/004) |
 | **Generalización** | ¿Transfiere a otra estructura? | Familia reservada, vocabulario distinto | **Sin medir** |
 
 **Regla:** ningún resultado sobre «el agente» sin decir en cuál de las siete se
@@ -304,12 +310,27 @@ estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 | En espacio enumerable, la memoria no amplía cobertura | E0 + 004/006 | Sostenida |
 | La biblioteca de macros reduce coste con continuidad | E2 local | Sostenida (41,8 %) |
 | La política aprendida no supera una regla simple | E2 local | Nuestra hipótesis, refutada |
-| La memoria recuperada ayuda a un LLM | — | **Sin evidencia** (oráculo) |
+| La aplicación con el programa dado cae con la longitud efectiva | E2 local | Sostenida: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % (EXEC-001) |
+| La memoria verificada se usa en 2 operaciones | E2 local | Sostenida local: 10–11/12 vs 3–5/12 del clon (MEM-003/004) |
+| El encuadre de candidata reduce el uso | E2 local | Sostenida local: 4/12 vs 11/12 (MEM-003) |
+| La etiqueta «verificado» basta sin contenido | E2 local | **Refutada**: placebo verificado 0/12 (MEM-004) |
+| Con información independiente, la recuperación funciona y falla la condición | E2 local | Sostenida local: 6–7/7 positivos, 2–5/5 secundarios (LIRE-002) |
+| El chino conserva mejor la información | E2 local | **Refutada**: no ahorra tokens ni acierta más (LIRE-002) |
+| La memoria recuperada ayuda a un LLM | — | **Sin evidencia** (oráculo; no es `ACTUAL-RETRIEVAL`) |
 | Un intérprete fiable ayuda | — | **Sin evidencia** (condición inválida) |
 | La historia reduce `E(F)` en familias nuevas | — | **Sin medir** |
 | Transferencia entre modelos | — | **Sin medir** |
+| Expansión de competencia | — | **Sin evidencia** |
 
 Ninguna alcanza E3 (varias distribuciones) ni E4 (reproducción con tareas reales).
+
+**El resultado positivo no contradice la proposición.** En MEM-003/004 la tarea es de
+2 operaciones, enumerable e identificable; el artefacto verificado reduce el coste de
+identificarla, no amplía la cobertura. La proposición predice exactamente eso: en el
+espacio enumerable la memoria solo puede reordenar la búsqueda y reducir coste. Para
+probar expansión hace falta una tarea **identificable pero no enumerable bajo el
+presupuesto**, y que el modelo pueda **aplicar**. EXEC-001 muestra que la segunda
+condición falla en 3–5 operaciones; por eso la expansión sigue sin medirse.
 
 ---
 

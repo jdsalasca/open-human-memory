@@ -22,8 +22,20 @@ como evidencia** en el registro.
 `gpt-6-terra` (sin punto) **no existe** para cuentas ChatGPT: se verificó y
 responde «model is not supported». El identificador correcto es `gpt-6.1-terra`.
 
-El baseline del 006-B, el 007 y las dos LIRE usan el mismo modelo de experimento:
-`gpt-6-luna` low. Eso hace comparables los resultados entre prototipos.
+El baseline del 006-B, el 007, las LIRE, EXEC-001 y MEM usan el mismo modelo de
+experimento: `gpt-6-luna` low. Eso hace comparables los resultados entre prototipos.
+
+**Mapa de secciones:**
+
+| Sección | Experimento | Modelo | Evidencia |
+|---|---|---|---|
+| 1–3 | 002–006 (sintéticos y LLM) | `luna` low | Sí (con las limitaciones del 006) |
+| 4 | 007 (retención, reinicio, placebo) | `luna` low | Sí; 5 pasos fuera de régimen |
+| 4b | 007B (historial, oráculo) | `luna` low | Sí; diagnóstico |
+| 5 | LIRE-001b (representación) | `luna` low | **Retractado** |
+| 5b | LIRE-002 (información independiente) | `luna` low | Sí |
+| 5c | EXEC-001 (aplicación) | `luna` low | Sí; simbólico |
+| 5d | MEM-002/003/004 (memoria verificada) | `luna` low | Sí; piloto de 12 tareas |
 
 
 Este documento existe para que un revisor pueda repetir cada experimento sin
@@ -252,7 +264,7 @@ Reproducir: `resources/investigation/revision-sistematica/busquedas.md`.
 | Artefacto | Versión / commit |
 |---|---|
 | Repositorio | `main` (ver `git log`) |
-| Etiqueta de revisión | `v1.14-review` |
+| Etiqueta de revisión | `v1.24-review` |
 | Python | 3.13.15 |
 | `codex-cli` | 0.169.0 |
 | Tests | `python -m unittest discover -s tests -v` (60) |

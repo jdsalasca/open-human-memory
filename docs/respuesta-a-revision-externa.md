@@ -71,11 +71,41 @@ sandbox `read-only`, 16 de noviembre de 2026.
 
 ## 7. Dictamen propio
 
-Con estas correcciones el trabajo **sigue sin demostrar aprendizaje acumulativo**.
-Lo que cambia es que ahora **no afirma lo contrario** y deja medido el instrumento.
-Un revisor humano puede rechazarlo por falta de evidencia principal —es lo que hizo
-el revisor automático— sin que eso obligue a retirar los resultados negativos, que
-son locales y verificables.
+Con estas correcciones el trabajo **sigue sin demostrar aprendizaje acumulativo ni
+expansión de competencia**. Lo que cambia es que ahora **no afirma lo contrario** y
+deja medido el instrumento. Un revisor humano puede rechazarlo por falta de evidencia
+principal —es lo que hizo el revisor automático— sin que eso obligue a retirar los
+resultados negativos, que son locales y verificables.
 
-La respuesta a la pregunta del proyecto sigue siendo: **no lo sabemos, y ahora
-sabemos mejor por qué**.
+La respuesta a la pregunta del proyecto ya no es «no lo sabemos» a secas: **no hay
+evidencia en tareas que el modelo no aplica; hay uso de memoria verificada en una
+tarea de dos operaciones, pero no expansión de competencia.** La diferencia importa y
+está medida.
+
+## 8. Segunda auditoría: LIRE-001b y 007B (16 de noviembre de 2026)
+
+La auditoría posterior encontró tres defectos en LIRE-001b y un exceso de conclusión
+en 007B. Se aceptaron y se corrigieron:
+
+| Hallazgo | Acción |
+|---|---|
+| Las 120 reglas de LIRE-001b son una fórmula (`S{código}` si importe < código) | **Retractado**. `docs/errata-lire-001b.md`; reemplazo LIRE-002 con tabla aleatoria e independiente |
+| `expected()` no comprueba pertenencia (`C999` → `S999`) | LIRE-002 comprueba pertenencia y usa los campos reales |
+| Orden de casos no aleatorizado (6 positivos, 6 negativos) | LIRE-002 baraja casos y representaciones; control sin tabla |
+| El mínimo de tokens incluye el arnés | LIRE-002 usa diferencia pareada contra el control en el mismo caso |
+| «El chino conserva mejor la skill» | **Retirado**: LIRE-002 no replica la ventaja (2.949 vs 2.841 tokens; 11 vs 10) |
+| 007B: «el cuello es la ejecución» | **Suavizado**: «la aplicación del programa»; el mecanismo no está identificado |
+| Dificultad por longitud nominal | EXEC-001 mide **longitud mínima equivalente**; 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % |
+| Placebo único | MEM-004 añade **placebo verificado** (0/12) y separa contenido de etiqueta |
+| Encuadre de la memoria | MEM-003: verificada 11/12 vs candidata 4/12; el encuadre era el cuello |
+
+**Lo que sigue abierto:** la réplica de 24 tareas y varias semillas (M11/M12), el
+segundo modelo, la familia reservada, `ACTUAL-RETRIEVAL`, el baseline externo (F0), el
+ciclo longitudinal `E`/`K`/`P` y la comunicación aprendida (COMM-001). Nada de eso se
+presenta como hecho.
+
+**Dictamen actualizado:** el trabajo no demuestra expansión de competencia. Sí
+demuestra (E2 local) que la memoria verificada se usa en 2 operaciones si el contenido
+está verificado fuera del prompt y el encuadre es definitivo; y demuestra que la
+etiqueta «verificado» sin contenido falla (0/12). Es un resultado positivo
+**condicionado**, no una arquitectura ni una ley.

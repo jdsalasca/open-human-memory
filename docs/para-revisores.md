@@ -1,8 +1,9 @@
 # Guía para revisores
 
-**Versión:** `v1.14-review` · 16 de noviembre de 2026
+**Versión:** `v1.24-review` · 16 de noviembre de 2026
 **Manuscrito:** [`manuscrito.md`](manuscrito.md)
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
+**Tag de referencia:** `v1.24-review`
 
 Esta guía existe para que un revisor externo pueda evaluar el trabajo sin leer
 treinta documentos. Si algo no está aquí, es un defecto del repositorio.
@@ -11,82 +12,172 @@ treinta documentos. Si algo no está aquí, es un defecto del repositorio.
 
 ## 1. Qué se somete
 
-Un **programa experimental con resultado negativo y un instrumento de medición**,
-no una arquitectura nueva.
+Un **programa experimental metodológico** con tres partes:
 
-| Pieza | Dónde | Qué contiene |
-|---|---|---|
-| Manuscrito | `docs/manuscrito.md` | Hipótesis, método, resultados, discusión, límites |
-| Teoría | `docs/teoria.md` | Canales, proposición, predicciones P1–P6 |
-| Registro | `docs/registro-de-afirmaciones.md` | 95 afirmaciones con estado y falsador |
-| Ejecuciones | `docs/registro-de-ejecuciones.md` | Modelo, esfuerzo, semillas, comandos |
-| Revisión | `resources/investigation/revision-sistematica/` | 31 trabajos, cribado y extracción |
-| Código | `src/ohmem/` | 16 módulos, sin dependencias |
-| Resultados | `*/results/` | JSON crudos por semilla |
+1. **Resultados negativos** (002–007): en espacios enumerables, identificables y
+   presupuestados, la memoria no amplía cobertura; solo reduce coste, y de forma
+   condicional.
+2. **Diagnóstico** (007B, EXEC-001, LIRE-002): por qué los negativos no eran
+   interpretables como falta de memoria. La aplicación de programas y la evaluación
+   de condiciones son cuellos separados del almacenamiento.
+3. **Primer resultado positivo condicionado** (MEM-002/003/004): en tareas de **2
+   operaciones efectivas**, un artefacto **verificado fuera del prompt** y presentado
+   como **conocimiento aplicable** se usa: 10–11/12 frente a 3–5/12 del clon, 2–3/12
+   del placebo y 0/12 de un placebo etiquetado como verificado.
+
+No se somete una arquitectura nueva ni una teoría general de memoria. Se somete un
+**instrumento de medición** y la evidencia que produce, incluida la evidencia de que
+el resultado positivo **no** es expansión de competencia.
 
 ---
 
-## 2. Qué se afirma
+## 2. Las tres fases, en una tabla
 
-| ID | Afirmación | Nivel |
+| Fase | Experimentos | Qué establece |
 |---|---|---|
-| T1 | En espacio explorable, identificable y presupuestado, la memoria no amplía cobertura | E0 + E2 local |
-| V1 | Con continuidad total, 41,8 % menos pasos con igual cobertura | E2 local |
-| V2 | Con continuidad cero, 22,1 pp menos de acierto | E2 local |
-| V3 | Congelar lo aprendido ahorra 26,2 % de trabajo con igual precisión | E2 local |
-| P2 | Una política aprendida **no** supera una regla simple (−1,0 pp, IC −3,1 a 0) | E2 local |
-| P4 | El probe cuesta 41 pasos y ahorra 29: valor neto negativo | E2 local |
-| L1 | `gpt-6-luna` low acierta 30/64 (46,9 %) sin historial | E2 local |
-| G1 | Un procedimiento verificado no supera a un placebo tras el reinicio (11/12 vs 11/12) | E2 local |
+| **Negativos** | 002, 003, 004, 005, 006-A′, 006-B, 007 | La memoria episódica/biblioteca no amplía cobertura en el régimen enumerable; reduce coste de forma condicional; la política de activación no paga; el agente real acierta 46,9 % |
+| **Diagnóstico** | 007B, EXEC-001, LIRE-002 | El 007 estaba fuera de la ejecución (oráculo 2/12 en 5 pasos); en 2 operaciones el modelo aplica 86 %, en 3 el 44 %, en 5 el 0–33 %; LIRE-001b era redundante; con información independiente, el control sin tabla acierta 0/7 y el fallo está en la condición |
+| **Positivo condicionado** | MEM-002, MEM-003, MEM-004 | En 2 operaciones, la memoria verificada y presentada como definitiva acierta 10–11/12; el encuadre de candidata la hunde a 3–4/12; un placebo verificado acierta 0/12 |
 
-**Ninguna alcanza E3** (varias distribuciones), **E4** (reproducción con tareas
-reales) ni **E5** (longitudinal). El manuscrito lo dice.
+---
 
-## 3. Qué **no** se afirma
+## 3. Qué se afirma (claims principales)
+
+| ID | Afirmación | Nivel | Dato |
+|---|---|---|---|
+| T1 | En espacio explorable, identificable y presupuestado, la memoria no amplía cobertura | E0 + 004/006 | 004-A: A1 64/64; A3 54/64 |
+| V1 | Con continuidad total, 41,8 % menos pasos con igual cobertura | E2 local | 005 |
+| V2 | Con continuidad cero, 22,1 pp menos de acierto | E2 local | 005 |
+| P2 | La política aprendida no supera una regla simple (−1,0 pp) | E2 local | 006-A′ |
+| L1 | `gpt-6-luna` low acierta 30/64 (46,9 %) sin historial | E2 local | 006-B |
+| L5 | Sin la tabla, el modelo acierta 0/7 casos positivos | E2 local | LIRE-002 |
+| L6 | Hay representaciones con 6–7/7 positivos y menos tokens que el español | E2 local | LIRE-002 |
+| E1 | Con el programa completo, 2 operaciones aciertan ≥10/12 | E2 local | EXEC-001: 11/12 |
+| E2 | La profundidad nominal no es monótona | **Refutada** como orden | EXEC-001: 3 ops 7/12; 4 ops 8/12 |
+| E4 | La longitud mínima equivalente separa mejor que la nominal | E2 local, cualitativa | EXEC-001 |
+| M1–M3 | En 3 operaciones, la memoria de 2 operaciones no supera clon, placebo ni historial | **Refutadas** | MEM-002: 3 vs 2/5/4 |
+| M5 | El encuadre definitivo supera al de candidata en ≥3 pares | E2 local | MEM-003: 11 vs 4 (7 pares) |
+| M8 | La memoria verificada supera al placebo en ≥3 pares | E2 local | MEM-003: 11 vs 3 (8 pares); MEM-004: 10 vs 2 (9 pares) |
+| M10 | La memoria verificada supera al placebo verificado en ≥3 pares | E2 local | MEM-004: 10 vs 0 (10 pares, p=0,002) |
+| M11–M12 | Réplica de 24 tareas: verificada ≥20/24 y > candidata en ≥6 pares | **Abiertas** | No ejecutadas |
+
+**Ninguna alcanza E3** (varias distribuciones), **E4** (tareas reales) ni **E5**
+(longitudinal). El manuscrito lo dice.
+
+---
+
+## 4. Qué **no** se afirma
 
 - Que la memoria no sirva a los agentes.
 - Que las habilidades no funcionen.
 - Que exista novedad algorítmica.
-- Que haya transferencia entre modelos.
-- Que haya formación conceptual.
+- Que haya transferencia entre modelos ni formación conceptual.
+- **Que el resultado de MEM-003/004 sea expansión de competencia.** La tarea de 2
+  operaciones es enumerable e identificable; la memoria ahorra el coste de
+  identificarla, no amplía el espacio de lo que el agente puede expresar.
+- **Que haya transferencia a familias reservadas.** Las tareas empiezan por el motivo
+  aprendido; es reutilización favorable, no generalización.
+- **Que el resultado sea general.** n=12 por condición, una semilla, un modelo
+  (`gpt-6-luna` low); la réplica de 24 tareas está pre-registrada y no ejecutada.
+- **Que el modelo pueda verificar su propia memoria.** La etiqueta «verificado» debe
+  provenir de una verificación externa; un programa falso etiquetado como verificado
+  acierta 0/12 y se aplica con confianza.
 - Que la revisión de literatura sea exhaustiva.
 - Que los resultados de terceros estén replicados.
 
-## 4. Cómo verificar
+---
+
+## 5. Cómo verificar
+
+### 5.1 Tests y registro
 
 ```bash
-python -m unittest discover -s tests -v          # 60 tests
-python resources/investigation/prototipo-004-validez/reproduce.py
-python resources/investigation/prototipo-005-presupuesto/reproduce.py
-python resources/investigation/prototipo-006-politica/reproduce_corrected.py
-python resources/investigation/prototipo-006-agente-llm/analyze.py
+python -m unittest discover -s tests -v          # 87 tests
+python docs/verificar_afirmaciones.py            # 95 claims, totales citados
 ```
 
-Los protocolos 004-A y 006-A verifican hashes SHA-256 y abortan si el código o los
-datos cambiaron. Los JSON crudos están junto a cada `reproduce.py`.
+### 5.2 Reproducir los experimentos clave
 
-## 5. Limitaciones declaradas
+```powershell
+# LIRE-002: información independiente + control sin tabla
+python -m ohmem.lire_002 --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/lire-002/results/luna-low-12cases.json
+python resources/investigation/lire-002/analyze.py
 
-1. Un entorno sintético de cuatro operaciones y 14 clases conductuales.
-2. Un modelo (`gpt-6-luna`), un esfuerzo (`low`), una corrida.
-3. n=24 en el diagnóstico con LLM; IC de ±20 pp.
-4. Ningún competidor reproducido.
-5. Revisión con una base y un revisor; 88 candidatos sin evaluar.
-6. Mayoría de preprints en 2026.
-7. Sin medición de tokens en los experimentos sintéticos.
+# EXEC-001: mapa de aplicación
+foreach ($s in 0,1,2,3) { python -m ohmem.v7_transfer --n 12 --support 2 --suffix $s --session1-examples 12 --exact-ops --conditions oracle --model gpt-6-luna --effort low --timeout 120 --out "resources/investigation/exec-001/results/oracle-depth-$($s+2).json" }
+python resources/investigation/exec-001/analyze.py
 
-## 6. Preguntas para el revisor
+# MEM-003: encuadre
+python -m ohmem.v7_transfer --n 12 --support 2 --suffix 0 --session1-examples 12 --exact-ops --conditions clone,memory,memory_verified,placebo,history,oracle --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-003/results/pilot-depth2-framing.json
+python resources/investigation/mem-003/analyze.py
+
+# MEM-004: placebo verificado
+python -m ohmem.v7_transfer --n 12 --support 2 --suffix 0 --session1-examples 12 --exact-ops --conditions clone,memory,memory_verified,placebo,placebo_verified,history,oracle --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-004/results/pilot-depth2-verified-placebo.json
+python resources/investigation/mem-004/analyze.py
+```
+
+### 5.3 Trazabilidad
+
+| Resultado | Datos crudos | Análisis |
+|---|---|---|
+| LIRE-001b (retractado) | `lire-001b/results/luna-low-12cases.json` | `docs/errata-lire-001b.md` |
+| LIRE-002 | `lire-002/results/luna-low-12cases.json` | `lire-002/analyze.py` |
+| EXEC-001 | `exec-001/results/oracle-depth-{2,3,4,5}.json` | `exec-001/analyze.py` |
+| MEM-002 (3 y 2 ops) | `mem-002/results/pilot-depth{3,2}.json` | `mem-002/analyze.py` |
+| MEM-003 | `mem-003/results/pilot-depth2-framing.json` | `mem-003/analyze.py` |
+| MEM-004 | `mem-004/results/pilot-depth2-verified-placebo.json` | `mem-004/analyze.py` |
+
+Los JSON contienen las filas por condición, tarea y programa, con la respuesta, el
+valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
+
+---
+
+## 6. Limitaciones declaradas
+
+1. **Un entorno sintético** de seis operaciones; no es un benchmark de LLM.
+2. **Un modelo** (`gpt-6-luna`), un esfuerzo (`low`), una semilla; las corridas con
+   `gpt-6.1-terra` son exploratorias y no se usan como evidencia.
+3. **n=12 por condición** en LIRE-002, EXEC-001 y MEM; la réplica de 24 tareas está
+   pre-registrada y pendiente.
+4. **Las tareas empiezan por el motivo** aprendido: reutilización favorable, no
+   transferencia.
+5. **La etiqueta «verificado» es una frase del prompt** en el experimento. Un sistema
+   real necesita verificación externa; el placebo verificado (0/12) muestra el riesgo.
+6. **El historial tiene más tokens** que la memoria verificada; no se iguala longitud.
+7. **LIRE-002**: idioma, longitud y estructura siguen confundidos; no es un factorial;
+   LLMLingua-2 no se ejecutó.
+8. **EXEC-001**: solo condición simbólica; `steps` y `nl` pendientes; la longitud
+   mínima se calcula sobre 60 sondas, no es una prueba formal.
+9. **Sin baseline externo reproducido**, sin `ACTUAL-RETRIEVAL` y sin ciclo
+   longitudinal `E`/`K`/`P`.
+10. **Los negativos del 006** conservan sus limitaciones: presupuesto que puede
+    rebasarse hasta 6 pasos, IC con dos semillas, condición de herramienta inválida.
+
+---
+
+## 7. Preguntas para el revisor
 
 1. ¿La proposición de `teoria.md` §3 es correcta con las tres condiciones
    (explorabilidad, identificabilidad, presupuesto) o falta alguna?
-2. ¿P4 está ahora bien derivada? ¿Distingue información de herramienta/política?
-3. ¿El instrumento (`E`/`K`/`P`, clon, canales, cinco etapas) es suficiente para
-   una contribución metodológica, o sigue siendo demasiado débil?
-4. ¿Qué afirmación del registro no está respaldada por los datos?
-5. ¿Qué habría que añadir para que el trabajo pase de «revisión mayor» a
-   «aceptable»?
+2. ¿El resultado de MEM-003/004 mide **uso de memoria** o una ventaja informacional
+   trivial? Nuestros controles: clon, placebo, historial y placebo verificado. El
+   historial (9–10/12) casi iguala a la memoria verificada (10–11/12): ¿basta eso
+   para hablar de memoria, o solo de información?
+3. ¿El encuadre definitivo es una manipulación legítima o una forma de dar una
+   instrucción privilegiada? El control de placebo verificado (0/12) separa contenido
+   de etiqueta; el historial separa programa de experiencias crudas.
+4. ¿La longitud mínima equivalente es una buena medida de dificultad? Se calcula
+   sobre 60 sondas; no es una prueba formal.
+5. ¿El control sin tabla de LIRE-002 es suficiente? El acierto total del control es
+   5/12 por la estrategia `NONE`; el positivos 0/7 es la métrica principal.
+6. ¿Qué afirmación del registro no está respaldada por los datos?
+7. ¿Qué haría falta para pasar de «revisión mayor» a «aceptable»? Nuestra apuesta:
+   réplica de 24 tareas y varias semillas, segundo modelo, familia reservada,
+   baseline externo y ciclo longitudinal.
 
-## 7. Historia de las correcciones
+---
+
+## 8. Historia de las correcciones
 
 | Fecha | Qué se corrigió | Dónde |
 |---|---|---|
@@ -101,12 +192,13 @@ datos cambiaron. Los JSON crudos están junto a cada `reproduce.py`.
 | 16 nov | Proposición sin identificabilidad | `docs/teoria.md` |
 | 16 nov | P4 con el signo invertido | `docs/teoria.md` |
 | 16 nov | «Verificado» por «declarado» | `revision-sistematica/extraccion.md` |
-| 16 nov | Revisión externa `gpt-6.1-terra`: 1,42×, F12, ventana, atribución 006-B, corolario 3, presupuesto y JANUS | `respuesta-a-revision-externa.md` |
+| 16 nov | Revisión externa `gpt-6.1-terra` | `respuesta-a-revision-externa.md` |
 | 16 nov | 007: retención + reinicio + placebo; sin ventaja sobre placebo | `prototipo-007-transferencia/` |
+| 16 nov | **LIRE-001b retractado**: las 120 reglas eran una fórmula; `expected()` no comprobaba pertenencia; orden no aleatorizado | `docs/errata-lire-001b.md` |
+| 16 nov | **LIRE-002**: información independiente, control sin tabla, tokens pareados | `lire-002/` |
+| 16 nov | **007B**: «el cuello es la ejecución» suavizado a «la aplicación del programa»; mecanismo no identificado | `prototipo-007b-transferencia/` |
+| 16 nov | **EXEC-001**: mapa de aplicación por profundidad y longitud mínima | `exec-001/` |
+| 16 nov | **MEM-002/003/004**: el encuadre era el cuello; la etiqueta no basta | `mem-002/`, `mem-003/`, `mem-004/` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.
-
-
-
-

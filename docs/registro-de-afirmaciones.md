@@ -8,7 +8,16 @@ nivel de evidencia y falsador. Si una afirmación no está aquí, no existe.
 implementado, E2 comparación controlada local, E3 varias distribuciones, E4
 reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 
-**Estados:** sostenida, refutada, abierta, inválida (no interpretable).
+**Estados:** sostenida, refutada, abierta, inválida (no interpretable), declarada
+(afirmación de terceros, no replicada) y no demostrada (nuestra, sin prueba). Una
+afirmación **sostenida (local)** no es una ley: es un resultado de una muestra,
+modelo y semilla. El resumen de totales está al final; el verificador
+`docs/verificar_afirmaciones.py` comprueba que los documentos citen el mismo total.
+
+**Retractaciones:** la sección I (LIRE-001b) está parcialmente retractada; la
+sección L incluye el resultado positivo condicionado de MEM-003/004 y la sección N
+las réplicas pendientes. Las afirmaciones negativas del 007 se conservan; su lectura
+cambia con el diagnóstico de EXEC-001.
 
 ---
 

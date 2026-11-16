@@ -20,8 +20,9 @@ empeora nada medible, no entra).
 > [`precedentes/10-matriz-de-antecedentes.md`](precedentes/10-matriz-de-antecedentes.md).
 > Si un documento de este directorio contradice el registro de afirmaciones, se
 > corrige el documento. La razón está en
-> [`docs/plan.md`](../../docs/plan.md): seis prototipos produjeron correcciones,
-> no una teoría acumulativa.
+> [`docs/plan.md`](../../docs/plan.md): los seis prototipos negativos produjeron
+> correcciones; el 007/MEM produjo el primer resultado positivo condicionado, no una
+> teoría acumulativa.
 
 ## Método
 

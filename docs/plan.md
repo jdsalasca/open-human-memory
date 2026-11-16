@@ -3,7 +3,8 @@
 **Fecha:** 16 de noviembre de 2026
 **Cambio de régimen:** este plan sustituye la secuencia R1–R6, que producía un
 prototipo por auditoría. El patrón era circular: auditoría → fallo → prototipo →
-auditoría. Seis prototipos produjeron correcciones, no una teoría.
+auditoría. Los seis prototipos negativos produjeron correcciones; el 007/MEM produjo
+el primer resultado positivo condicionado.
 
 **Regla nueva:** ninguna ronda empieza con código. Empieza con una deuda de base
 cerrada: teoría, registro, antecedente o reproducción.
@@ -60,6 +61,21 @@ sustituyen por otra arquitectura: se publica y se reduce el alcance.
 6. Ningún resultado sin coste total (`E`, `K`, `P` separados).
 7. Ningún competidor citado como si lo hubiéramos reproducido.
 8. Una sola base de evidencia por afirmación; el resto son registros históricos.
+
+---
+
+## Estado de las rondas (16 de noviembre de 2026)
+
+| Ronda | Estado | Qué falta |
+|---|---|---|
+| **F0** bases y baseline externo | **Bloqueante, no ejecutado** | Reproducir un competidor |
+| **F0.5** retención y transferencia | **Ejecutado; positivo condicionado** | Réplica de 24 tareas y varias semillas (M11/M12) |
+| **F1** descomposición de capacidades | **Parcial**: ejecución medida (EXEC-001); inferencia parcial | Desambiguación, experimentación, verificación y generalización |
+| **F2** recuperación genuina | No ejecutado | `ACTUAL-RETRIEVAL` |
+| **F2.5** forma del conocimiento | **Parcial**: LIRE-002 mide coste/fidelidad, no forma | Factorial idioma × longitud × estructura; LLMLingua-2 |
+| **F3** universo no explorable | No ejecutado | Tarea identificable pero fuera del presupuesto |
+| **F4** currículo interdependiente | No ejecutado | — |
+| **F5** deriva y portabilidad | No ejecutado | — |
 
 ---
 

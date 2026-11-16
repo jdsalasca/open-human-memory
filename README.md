@@ -9,49 +9,51 @@ conviertan en certezas permanentes.
 > problema que nunca ha visto, ¿qué aprendizaje adquirido en sus experiencias
 > anteriores modifica realmente su manera de comprenderlo y resolverlo?
 >
-> Hoy **no podemos responderla con un experimento**. Este repositorio documenta
-> por qué, qué hemos medido en su lugar y qué haría falta para responderla.
-> Ver [`docs/problema-central.md`](docs/problema-central.md).
+> **Respuesta actual, en dos partes.** En tareas que el modelo no puede aplicar, no
+> hay evidencia: el 007 pedía cinco operaciones y el oráculo mismo acertaba 2/12. En
+> una tarea de **dos operaciones efectivas**, un artefacto **verificado fuera del
+> prompt** y presentado como conocimiento aplicable se usa: 10–11/12 frente a 3–5/12
+> del clon. Eso es **uso de memoria**, no expansión de competencia: la tarea es
+> enumerable y la memoria ahorra identificarla. Ver
+> [`docs/programa-de-investigacion.md`](docs/programa-de-investigacion.md).
 
-**Estado:** programa de investigación con un **diagnóstico ejecutable**. No hay
-producto todavía; hay un harness mínimo para decidir qué capa importa antes de
-construir otra arquitectura. Seis prototipos han producido, sobre todo, resultados
-negativos y correcciones metodológicas.
+**Estado:** programa de investigación con un **diagnóstico ejecutable** y un **primer
+resultado positivo condicionado**. No hay producto; hay un harness mínimo para
+separar información, aplicación, verificación y encuadre antes de construir otra
+arquitectura. La memoria verificada funciona en 2 operaciones; la expansión de
+competencia sigue sin demostrarse.
 
 ## Cómo leer este repositorio
 
 El orden importa. Para revisión por pares, empieza por el manuscrito.
 
 0. **[`docs/manuscrito.md`](docs/manuscrito.md)** — el trabajo completo en formato de
-   artículo: hipótesis, método, resultados, discusión, límites y referencias.
+   artículo: hipótesis, método, resultados, diagnóstico, resultado positivo
+   condicionado, discusión, límites y referencias.
+   **[`docs/para-revisores.md`](docs/para-revisores.md)** — mapa, claims, trazabilidad
+   y comandos para verificar cada número.
    **[`docs/registro-de-ejecuciones.md`](docs/registro-de-ejecuciones.md)** — modelo,
-   esfuerzo, semillas, comandos y protocolos de cada experimento.
-   **[`docs/para-revisores.md`](docs/para-revisores.md)** — mapa, afirmaciones y
-   preguntas para un revisor externo.
-   **[`docs/respuesta-a-revision-externa.md`](docs/respuesta-a-revision-externa.md)**
-   — el informe del revisor automático (`gpt-6.1-terra`) y qué se corrigió. El
-   dictamen fue **rechazar en su estado actual**: el trabajo es metodológico y no
-   demuestra aprendizaje acumulativo.
-1. **[`docs/teoria.md`](docs/teoria.md)** — qué se afirma, por qué, qué canales
-   existen y qué predicciones se derivan. Incluye la proposición que explica por
-   qué todos nuestros resultados negativos estaban cantados: en un espacio
-   explorable, identificable y presupuestado, la memoria no puede ampliar cobertura.
-2. **[`docs/registro-de-afirmaciones.md`](docs/registro-de-afirmaciones.md)** — cada
+   esfuerzo, semillas, comandos y número de llamadas de cada experimento.
+1. **[`docs/programa-de-investigacion.md`](docs/programa-de-investigacion.md)** — el
+   programa rector: memoria útil, lenguaje útil y comunicación aprendida.
+2. **[`docs/teoria.md`](docs/teoria.md)** — qué se afirma, por qué, qué canales
+   existen y qué predicciones se derivan. Incluye la proposición del espacio
+   enumerable y la distinción entre **uso de memoria** y **expansión de competencia**.
+3. **[`docs/registro-de-afirmaciones.md`](docs/registro-de-afirmaciones.md)** — cada
    afirmación con estado, nivel de evidencia y falsador. Si no está aquí, no existe.
-3. **[`precedentes/10-matriz-de-antecedentes.md`](resources/investigation/precedentes/10-matriz-de-antecedentes.md)**
-   — sustituida por la revisión real:
-   **[`revision-sistematica/`](resources/investigation/revision-sistematica/README.md)**
-   (7.100 registros identificados, 177 cribados, 31 incluidos, tabla de extracción).
 4. **[`docs/plan.md`](docs/plan.md)** — rondas con puertas. Ninguna empieza con
    código.
 
-Los documentos 01–29, los prototipos y los papers son **registro histórico**. Si
-contradicen la teoría o el registro de afirmaciones, se corrigen ellos.
+Los documentos históricos, los prototipos y los papers son **registro**. Si
+contradicen la teoría o el registro de afirmaciones, se corrigen ellos. Las
+retractaciones están en [`docs/errata-006b.md`](docs/errata-006b.md) y
+[`docs/errata-lire-001b.md`](docs/errata-lire-001b.md).
 
 ## Inicio rápido
 
 ```bash
-python -m unittest discover -s tests -v
+python -m unittest discover -s tests -v          # 87 tests
+python docs/verificar_afirmaciones.py            # 95 claims
 PYTHONPATH=src python -m ohmem.experiment --train 200 --eval 50
 ```
 
@@ -75,11 +77,17 @@ Licencia: MIT (`LICENSE`).
 > transferirlo entre modelos y mejorar sin reentrenar el LLM, sin convertir
 > errores del pasado en conocimiento canónico?
 
-La respuesta corta, después de cinco prototipos: **el mecanismo de macros que
-probamos no amplía lo que el agente puede expresar; abarata encontrarlo, y solo
-mientras el futuro se parezca al pasado.** Con continuidad total, una biblioteca
-aprendida iguala la cobertura y usa 41,8 % menos cómputo. Con continuidad cero, el
-mismo cómputo rinde 22,1 pp menos.
+La respuesta corta, después de los experimentos 002–007 y del diagnóstico
+007B/EXEC-001: **el mecanismo de macros que probamos no amplía lo que el agente puede
+expresar; abarata encontrarlo, y solo mientras el futuro se parezca al pasado.** Con
+continuidad total, una biblioteca aprendida iguala la cobertura y usa 41,8 % menos
+cómputo. Con continuidad cero, el mismo cómputo rinde 22,1 pp menos.
+
+La memoria **verificada** sí se usa en una tarea de dos operaciones: 10–11/12 frente
+a 3–5/12 del clon, 2–3/12 del placebo y 0/12 de un placebo etiquetado como verificado.
+Eso es **uso de información**, no expansión: la tarea es enumerable y la memoria ahorra
+identificarla. La expansión sigue sin demostrarse; exige una tarea que el modelo pueda
+aplicar y que no quepa en el presupuesto.
 
 Eso vale **para ese mecanismo en ese universo**, no como ley sobre aprendizaje. La
 experiencia podría permitir descubrir una herramienta o una representación que el
@@ -345,9 +353,16 @@ que el 004 retiró.
 | [prototipo-005-presupuesto/](resources/investigation/prototipo-005-presupuesto/) | Memoria bajo presupuesto: continuidad, orden y acumulación |
 | [prototipo-006-politica/](resources/investigation/prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](resources/investigation/prototipo-006-agente-llm/) | Línea base del agente: 46,9 % |
-| [prototipo-007-transferencia/](resources/investigation/prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja |
+| [prototipo-007-transferencia/](resources/investigation/prototipo-007-transferencia/) | Retención + reinicio + placebo: sin ventaja en 5 pasos |
+| [prototipo-007b-transferencia/](resources/investigation/prototipo-007b-transferencia/) | Historial, oráculo y aplicación: el cuello no era la memoria |
+| [exec-001/](resources/investigation/exec-001/) | Aplicación: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % |
 | [lire-001/](resources/investigation/lire-001/) | Exploratorio (terra); sustituido por 001b |
-| [lire-001b/](resources/investigation/lire-001b/) | Con luna: ahorro 0,4–6,0 %, fallos de condición |
+| [lire-001b/](resources/investigation/lire-001b/) | **Retractado**: la tabla era una fórmula; ver errata |
+| [lire-002/](resources/investigation/lire-002/) | Información independiente: sin tabla 0/7; la condición falla |
+| [mem-002/](resources/investigation/mem-002/) | 2 ops: memoria 7/12, historial 9/12, oráculo 11/12 |
+| [mem-003/](resources/investigation/mem-003/) | Encuadre: verificada 11/12 vs candidata 4/12 |
+| [mem-004/](resources/investigation/mem-004/) | Placebo verificado: el contenido, no la etiqueta |
+| [errata-lire-001b.md](docs/errata-lire-001b.md) | La retractación de las 120 reglas |
 | [revision-de-rumbo.md](docs/revision-de-rumbo.md) | Respuesta a la auditoría de dirección y decisión del 007 |
 | [teoria.md](docs/teoria.md) | **Documento central:** canales, rivales y predicciones |
 | [registro-de-afirmaciones.md](docs/registro-de-afirmaciones.md) | Qué sostenemos, qué refutamos y qué está abierto |
@@ -382,12 +397,25 @@ que el 004 retiró.
 - Que la memoria contrafactual sea un terreno inexplorado.
 - Que persistir abstracciones siempre mejore al agente.
 - Que la capa social mejore el aprendizaje por sí sola.
+- **Que el resultado de MEM-003/004 sea expansión de competencia.** Es uso de memoria
+  en una tarea enumerable de 2 operaciones; ahorra identificación, no amplía el
+  espacio de lo expresable.
+- **Que haya transferencia a familias reservadas.** Las tareas empiezan por el motivo
+  aprendido; es reutilización favorable.
+- **Que sea general.** n=12 por condición, una semilla, un modelo; la réplica de 24
+  tareas está pre-registrada y pendiente.
+- **Que el modelo pueda verificar su propia memoria.** La etiqueta «verificado» debe
+  provenir de una verificación externa; un placebo verificado acierta 0/12.
+- **Que el chino sea mejor.** LIRE-002 no replica la ventaja; no ahorra tokens ni
+  acierta más con información independiente.
 
 ## Estructura
 
 ```
-docs/plan.md                     rondas y criterios
-resources/investigation/         investigación, precedentes, papers
+docs/                        manuscrito, teoría, registro, plan, guía para revisores
+resources/investigation/     experimentos, datos crudos, revisión sistemática
+src/ohmem/                   harness y experimentos
+tests/                       87 tests, sin llamadas al modelo
 ```
 
 ## Repositorio
