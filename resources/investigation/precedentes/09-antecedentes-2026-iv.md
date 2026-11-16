@@ -178,6 +178,48 @@ costo, cosa que Stitch, LILO y DreamCoder ya persiguen con más maquinaria.
 > SWE-Skills-Bench provienen de la auditoría y están pendientes de lectura directa
 > de la versión primaria. No se citan cifras suyas en papers hasta verificarlas.
 
+## 9.5 Matriz de mecanismos y niveles de evidencia
+
+Una revisión por mecanismos, no por cronología. Cada fila es un cuello de botella
+distinto; ninguna técnica resuelve todas.
+
+| Mecanismo | Antecedente principal | Comparación necesaria |
+|---|---|---|
+| Bibliotecas de conceptos | DreamCoder, Stitch, LILO | Compresión y transferencia |
+| Aprendizaje activo | Angluin (1987), CEGIS | Consultas hasta identificar la hipótesis |
+| Reutilización de búsqueda | LPA*, D* Lite | Cómputo evitado sin perder calidad |
+| Opciones jerárquicas | Sutton, Precup y Singh (1999) | Condiciones de activación y terminación |
+| Aprender a aprender | MAML, metaprendizaje | Experiencias hasta competencia en familias nuevas |
+| Expansión de herramientas | Mem²Evolve | Tareas nuevas resueltas, no solo activos creados |
+| Memoria para programación | VibeMemBench, MemDev-Bench | Éxito real, transferencia negativa y trazas completas |
+| Compresión con utilidad | Information Bottleneck, utilidad condicionada | Desempeño por costo, no solo tamaño |
+
+**MemDev-Bench** (2026) es el antecedente más incómodo para CUMULUS: con 555 tareas
+principales y 4.869 históricas sobre repositorios reales, encuentra que la memoria
+ayuda a localizar y editar, pero también **puede romper tareas antes resolubles**, y
+que las trayectorias completas a veces baten a los sistemas que comprimen. Es
+decir: consolidar puede eliminar el proceso de resolución que todavía hacía falta.
+Eso convierte la compactación en una pregunta sobre qué se puede borrar, no sobre
+cuánto ocupa.
+
+### Niveles de evidencia del proyecto
+
+No es una escala universal de calidad científica; es el alcance de lo que podemos
+afirmar.
+
+| Nivel | Evidencia | Estado del proyecto |
+|---|---|---|
+| E0 | Idea teórica o analogía | CUMULUS, JANUS |
+| E1 | Mecanismo implementado | Macros del 003, controlador del 005 |
+| E2 | Comparación controlada con líneas base fuertes | 004-A y 005-A (locales) |
+| E3 | Beneficio en varias distribuciones | **No alcanzado** |
+| E4 | Reproducción independiente con tareas reales | **No alcanzado** |
+| E5 | Mejora longitudinal con costo controlado | **No alcanzado** |
+
+El 005-A añade un dato E2 que el 004-A no tenía: con continuidad total, misma
+cobertura y **41,8 % menos pasos ejecutados**. Sigue siendo un entorno de cuatro
+primitivas y 14 comportamientos.
+
 ## 10. Lectura de conjunto
 
 | Capacidad | Ya cubierta | Sigue abierto |

@@ -428,6 +428,21 @@ incluyen volumen y páginas cuando se verificaron.
 - SkillLearnBench. (2026). *Benchmarking continual learning methods for agent skill generation on real-world tasks*. arXiv:2604.20087. **[pendiente de verificación primaria]**
 - SWE-Skills-Bench. (2026). arXiv:2603.15401. **[pendiente de verificación primaria]**
 
+## Aprendizaje activo, planificación incremental y metaprendizaje
+
+Tradiciones que no usan la palabra *memory* pero atacan el mismo cuello de botella.
+La auditoría del 004-A las señaló como ausentes; se incorporan como literatura
+fundacional, no como adorno.
+
+- Angluin, D. (1987). Learning regular sets from queries and counterexamples. *Information and Computation*, 75(2), 87–106.
+- Dawid, A. P. (1984). Statistical theory: The prequential approach. *Journal of the Royal Statistical Society A*, 147(2), 278–292.
+- Finn, C., Abbeel, P., & Levine, S. (2017). Model-agnostic meta-learning for fast adaptation of deep networks. *ICML 2017*.
+- Koenig, S., Likhachev, M., & Furcy, D. (2004). Lifelong planning A*. *Artificial Intelligence*, 155(1–2), 93–146.
+- Page, M. J., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ*, 372, n71.
+- Solar-Lezama, A. (2013). Program synthesis by sketching. En *Counterexample-guided inductive synthesis* (CEGIS). Curso del MIT; ver también Alur et al. (2013), *Syntax-guided synthesis*, FMCAD.
+- Tishby, N., Pereira, F. C., & Bialek, W. (1999). The information bottleneck method. *Allerton 1999*.
+- MemDev-Bench. (2026). *Does memory help code agents? Benchmarking memory systems over real repository histories*. arXiv:2610.27524. **[pendiente de verificación primaria]**
+
 ## Nota sobre fuentes
 
 Las referencias de neurociencia y etología son revisiones y estudios primarios

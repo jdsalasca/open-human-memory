@@ -8,6 +8,13 @@
 `v3_tasks.py`.
 **Tests:** `tests/test_v4.py` (10 tests negativos).
 
+> **Fe de erratas (16 nov 2026, auditoría de `fb00e7d`).** Dos correcciones, sin
+> tocar resultados: (1) `primitive_ops` es una **cota superior**, no una medición
+> —la comprobación se cortocircuita en el primer contraejemplo—; el contador
+> medido es `executed_steps` y lo usa el Prototipo 005; (2) **`D8` es post hoc**,
+> no estaba en el protocolo congelado y no debe citarse como confirmatorio.
+> Detalle en `protocolo-addendum.md`.
+
 ## 1. La pregunta
 
 El Prototipo 003 afirmó que la experiencia producía una capacidad nueva: resolver
@@ -141,7 +148,10 @@ candidatos por tarea.
 | D5 | Saturación en `n <= 6` → sin aprendizaje acumulativo | **n = 6** |
 | D6 | A igual presupuesto, gana la búsqueda profunda | **Sí, desde 60** |
 | D7 | A3 falla tareas que A1 resuelve → compilación con pérdida | **10 tareas** |
-| D8 | La biblioteca encarece la búsqueda en profundidad 3 | **+27,6 %** |
+| D8 | La biblioteca encarece la búsqueda en profundidad 3 | **+27,6 %** (post hoc) |
+
+`D8` se añadió después del congelamiento; ver `protocolo-addendum.md`. Las siete
+reglas fijadas antes de la corrida se cumplieron.
 
 ## 9. Qué queda en pie
 

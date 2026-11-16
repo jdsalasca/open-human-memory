@@ -171,6 +171,28 @@ El repositorio incluye un **diagnóstico sintético** en `src/ohmem/`:
 No es un benchmark de LLM. Es un **banco de pruebas del instrumento**: verifica
 que el experimento distingue las condiciones antes de invertir en modelos.
 
+## 6.5 Prototipo 005-A: el valor de la memoria es condicional
+
+Documento: `prototipo-005-presupuesto/`. Exploratorio, no pre-registrado.
+
+Tres mediciones que cambian la lectura del 004-A:
+
+1. **La rejilla no tiene 64 problemas: tiene 14.** Firmando cada programa por su
+   salida sobre 40 entradas, 64 sintaxis colapsan a 14 comportamientos. La
+   biblioteca aprendida cubre 9/14; la búsqueda profunda, 14/14.
+2. **La continuidad decide.** Con continuidad 1,0 (todo lo evaluado reutiliza
+   motivos del entrenamiento), la biblioteca iguala el 100 % de cobertura con
+   **41,8 % menos pasos ejecutados**. Con continuidad 0,0, el mismo trabajo rinde
+   **22,1 pp menos**.
+3. **Acumular no es aprender.** En un flujo de 96 tareas con deriva, congelar tras
+   la primera fase da **76,0 % con 26,2 % menos trabajo** que no tener memoria;
+   seguir aprendiendo baja a **67,0 %** y un tope con desalojo por uso a **64,6 %**.
+
+Traducción para el problema del contexto: un artefacto de ocho macros sustituye a
+96 episodios sin pérdida de precisión en este entorno, pero solo mientras el futuro
+se parezca al pasado. La política que decide *cuándo* confiar en el artefacto sigue
+sin existir: el primer intento la empeoró.
+
 ## 7. Qué decisión toma cada resultado
 
 - Si **C ≫ B**: invertir en selección/activación, no en más almacenamiento.

@@ -326,6 +326,14 @@ JANUS sigue sin probarse: el prototipo muestra que compilar abstracciones puede
 servir como prior bajo presupuesto acotado, no que la hipótesis causal se sostenga.
 Detalles en `prototipo-004-validez/`.
 
+El 005-A ataca justo el problema de JANUS y lo deja abierto. En un flujo de 96
+tareas con deriva, **acumular sin criterio baja el acierto 8,7 pp** frente a
+congelar lo aprendido, y un tope con desalojo por uso **lo baja 10,8 pp más**: la
+heurística de confianza no funciona. Lo que JANUS tendría que demostrar —decidir
+cuándo confiar, revisar o retirar un conocimiento— sigue sin medirse, pero ahora
+sabemos que la respuesta ingenua empeora el sistema. Detalles en
+`prototipo-005-presupuesto/`.
+
 ## 12. Límites, seguridad y gobernanza
 
 - Estado parcialmente oculto: la identificación puede ser imposible.

@@ -272,6 +272,15 @@ funciona como **prior barato bajo cómputo acotado**, no como ampliación de
 competencia. CUMULUS no puede citarlo como validación de portabilidad ni de
 expansión. Es un resultado sintético, no de un LLM.
 
+El Prototipo 005-A añade la condición que faltaba. Medido por comportamiento, la
+rejilla son **14 funciones**, no 64. Con continuidad total entre pasado y futuro, la
+biblioteca iguala la cobertura con **41,8 % menos pasos ejecutados**; con
+continuidad cero, el mismo trabajo rinde **22,1 pp menos**. En un flujo de 96 tareas
+con deriva, **congelar lo aprendido ahorra 26,2 % de trabajo con la misma
+precisión**, mientras seguir acumulando baja el acierto 8,7 pp. Para CUMULUS eso es
+una hipótesis sobre artefactos acotados —útiles mientras la distribución se
+mantiene—, no una validación de portabilidad.
+
 ## 8. Límites y seguridad
 
 - La transferencia puede ser parcial; hay que reportarla.

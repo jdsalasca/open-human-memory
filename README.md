@@ -35,13 +35,41 @@ Licencia: MIT (`LICENSE`).
 > transferirlo entre modelos y mejorar sin reentrenar el LLM, sin convertir
 > errores del pasado en conocimiento canónico?
 
-La respuesta corta: **no hay todavía evidencia de que la experiencia amplíe la
-competencia.** El prototipo más honesto del programa midió su propio mecanismo
-contra un control sin memoria y perdió: las abstracciones aprendidas ahorran
-cómputo bajo presupuesto acotado, pero no resuelven nada que la búsqueda profunda
-no resuelva. La validación causal sigue abierta.
+La respuesta corta, después del 005-A: **la experiencia no amplía lo que el agente
+puede expresar; abarata encontrarlo, y solo mientras el futuro se parezca al
+pasado.** Con continuidad total, una biblioteca aprendida iguala la cobertura y usa
+41,8 % menos cómputo. Con continuidad cero, el mismo cómputo rinde 22,1 pp menos.
+No hay todavía evidencia de expansión de competencia ni de validación causal.
 
-## Resultado de validez: las macros no amplían la capacidad (sintético)
+## Lo que sí sabemos: el valor de la memoria es condicional
+
+Prototipo 005-A. 64 programas de tres primitivas que, medidos por comportamiento,
+son **14 funciones distintas**. Media de 3 semillas, pasos primitivos ejecutados
+(medidos, no estimados):
+
+| Continuidad pasado→futuro | Sin memoria d3 | Macros d2 |
+|---|---|---|
+| 0,00 | **100 %** · 58,0 pasos | 78 % · 57,8 |
+| 0,25 | **100 %** · 66,5 | 88 % · 51,5 |
+| 0,50 | **100 %** · 81,1 | 80 % · 63,1 |
+| 0,75 | **100 %** · 88,4 | 93 % · 56,9 |
+| **1,00** | **100 %** · 91,0 | **100 % · 52,9** |
+
+En un flujo de 96 tareas con deriva:
+
+| Política | Acierto | Pasos | Biblioteca |
+|---|---|---|---|
+| Sin memoria | 76,0 % | 6.877 | 4 |
+| **Congelar lo aprendido** | **76,0 %** | **5.074 (−26,2 %)** | 8 |
+| Aprender siempre | 67,0 % | 5.621 | 12 |
+| Tope con desalojo por uso | 64,6 % | 5.562 | 9 |
+
+Traducido al problema del contexto: **96 episodios no caben en una ventana; 8
+macros sí, y hacen el mismo trabajo con 26 % menos cómputo** — mientras la
+distribución se mantenga. Acumular sin criterio empeora. El controlador que debía
+decidir *cuándo* confiar en lo guardado falló y lo publico como fallo.
+
+## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64
 programas de profundidad 3, media de 3 semillas:
@@ -62,11 +90,12 @@ programas de profundidad 3, media de 3 semillas:
 - El control `RANDOM` del 003 estaba amañado: **250/560** bibliotecas arbitrarias
   del mismo lenguaje eran perfectas en su conjunto de evaluación.
 - La curva se satura en **6 experiencias**.
-- Única ganancia defendible: con presupuesto ≤ 40 candidatos por tarea, la
-  biblioteca acierta más. Es un **prior barato**, no una capacidad nueva.
+- Los contadores son una **cota superior**; la medición con cortocircuito está en
+  el 005. `D8` es post hoc (ver fe de erratas del 004).
 
-Detalles, resultados crudos y protocolo en
-[`prototipo-004-validez/`](resources/investigation/prototipo-004-validez/).
+Detalles, resultados crudos y protocolos en
+[`prototipo-004-validez/`](resources/investigation/prototipo-004-validez/) y
+[`prototipo-005-presupuesto/`](resources/investigation/prototipo-005-presupuesto/).
 
 El Prototipo 002 fue un **benchmark de solucionador**: `MEM-A0` (mismo
 solucionador sin historial) empató con `MEM-E` en todo. El 001 quedó invalidado
@@ -83,6 +112,7 @@ que el 004 retiró.
 | [prototipo-002-diagnostico/](resources/investigation/prototipo-002-diagnostico/) | Benchmark de solucionador; A0 == E sin historial |
 | [prototipo-003-aprendizaje/](resources/investigation/prototipo-003-aprendizaje/) | Registro exploratorio; su conclusión fue retirada por el 004 |
 | [prototipo-004-validez/](resources/investigation/prototipo-004-validez/) | Validación con protocolo congelado: las macros no amplían capacidad |
+| [prototipo-005-presupuesto/](resources/investigation/prototipo-005-presupuesto/) | Memoria bajo presupuesto: continuidad, orden y acumulación |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

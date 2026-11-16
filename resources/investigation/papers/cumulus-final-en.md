@@ -249,6 +249,14 @@ Conclusion for this paper: macro learning as implemented is a **cheap prior unde
 a tight compute budget**, not competence expansion. CUMULUS cannot cite it as
 evidence of portability or expansion. This is a synthetic result, not an LLM one.
 
+Prototype 005-A adds the missing condition. Measured by behaviour, the grid is
+**14 functions**, not 64. At full continuity between past and future the library
+matches coverage with **41.8% fewer executed steps**; at zero continuity the same
+work yields **22.1 pp less**. In a 96-task stream with drift, **freezing what was
+learned saves 26.2% of the work at equal accuracy**, while keeping on accumulating
+drops accuracy by 8.7 pp. For CUMULUS that is a hypothesis about bounded
+artefacts —useful while the distribution holds—, not a validation of portability.
+
 ## 8. Limits and safety
 
 - Transfer may be partial; report it.

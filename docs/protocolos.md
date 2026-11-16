@@ -82,6 +82,27 @@ total con rendimiento comparable).
 **Estado:** ejecutado (3 semillas, 64 tareas). **H1 refutada; H2 solo a
 presupuesto ≤ 40 candidatos por tarea.**
 
+### `BUDGET-*` — memoria bajo presupuesto (Prototipo 005-A, exploratorio)
+
+Documento: `prototipo-005-presupuesto/`.
+
+| ID | Condición |
+|---|---|
+| BUDGET-C0 | Sin memoria, profundidad 3, presupuesto de pasos |
+| BUDGET-C1 | Macros aprendidas, profundidad 2, sin tope |
+| BUDGET-C2 | Macros aprendidas, profundidad 2, con presupuesto |
+| BUDGET-C3 | Macros priorizadas en el orden de búsqueda |
+| BUDGET-C4 | Biblioteca congelada tras la primera fase (flujo) |
+| BUDGET-C5 | Aprendizaje en línea sin tope (flujo) |
+| BUDGET-C6 | Aprendizaje en línea con tope y desalojo por uso (flujo) |
+| BUDGET-SWEEP | 560 bibliotecas del mismo lenguaje, selección en desarrollo y prueba reservada |
+
+**Hipótesis que contrasta:** el valor de la memoria depende de la continuidad entre
+pasado y futuro, no de su tamaño.
+**Estado:** ejecutado (3 semillas, 96 tareas en flujo). C1 gana 41,8 % de pasos con
+cobertura idéntica en continuidad total y pierde 22,1 pp en continuidad cero. C5 y
+C6 **empeoran** frente a C4. **No es confirmatorio: no hubo congelamiento previo.**
+
 ### `CAUSAL-A..E` — experimento causal (histórico)
 
 Documento: `resources/investigation/24-programa-de-investigacion-v2.md`
@@ -129,8 +150,10 @@ nada.
 
 ## Prioridad actual
 
-1. `VALID-*` — hecho (Prototipo 004-A). H1 refutada; H2 acotada a presupuesto bajo.
-2. `COMP-*` — siguiente: tareas adversariales, actualización online y comparación
-   con Stitch/DreamCoder. Protocolo congelado antes de medir.
-3. `MAIN-*` — solo si `COMP-*` muestra que la memoria/procedimiento es el cuello.
-4. `CAUSAL-*` — solo si `COMP-*` muestra que la identificación causal es el cuello.
+1. `BUDGET-*` — hecho (005-A, exploratorio). El valor de la memoria es condicional
+   a la continuidad; acumular sin criterio empeora.
+2. `VALID-*` — hecho (004-A). H1 refutada; H2 acotada a presupuesto bajo.
+3. `COMP-*` — siguiente: política de activación aprendida, contraejemplos, tareas
+   reservadas y protocolo congelado con hash de código y datos.
+4. `MAIN-*` — solo si `COMP-*` muestra que la memoria/procedimiento es el cuello.
+5. `CAUSAL-*` — solo si `COMP-*` muestra que la identificación causal es el cuello.

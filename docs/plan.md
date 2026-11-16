@@ -48,7 +48,21 @@ se instale en un computador y corra en Docker, consumible por agentes vía MCP.
   arbitrarias del mismo lenguaje eran perfectas en su D3).
 - Registro de IDs: `docs/protocolos.md` (`VALID-*`).
 
-### R2.6 — Experimento de competencia `COMP-*`
+### R2.6 — Memoria bajo presupuesto `BUDGET-*` (005-A, exploratorio)
+
+- Entregable: `prototipo-005-presupuesto/` con contabilidad de pasos ejecutados,
+  deduplicación conductual, curvas de continuidad, control de orden de búsqueda,
+  selección por desarrollo y flujo prequential con cuatro políticas.
+- Criterio: si con continuidad total la biblioteca no ahorra trabajo a igual
+  cobertura, o si acumular supera a congelar, se retira la línea.
+- Resultado: **41,8 % menos pasos con cobertura idéntica en continuidad total**;
+  **−22,1 pp en continuidad cero**; **congelar ahorra 26,2 % de trabajo**;
+  **acumular cuesta −8,7 pp** y el controlador con tope **−10,8 pp** (hipótesis
+  propia refutada).
+- Requisito para el 005-B: protocolo congelado con hash de código y datos, tareas
+  reservadas y una política de activación aprendida, no heurística.
+
+### R2.7 — Experimento de competencia `COMP-*`
 
 - Entregable: sandbox con verdad causal conocida, tareas adversariales (ruido,
   ambigüedad, equivalencias, deriva, macros perjudiciales) y actualización online
