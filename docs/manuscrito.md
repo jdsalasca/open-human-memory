@@ -1,4 +1,4 @@
-# Memoria y competencia en agentes: seis experimentos, un resultado negativo y un instrumento
+# Medir memoria en agentes: seis experimentos negativos y un instrumento metodológico
 
 **Autor:** Juan David Salas Camargo (MIT)
 **Colaboración:** DeepSeek 4.1 Flash (agente de investigación)
@@ -11,13 +11,10 @@
 
 ## Resumen
 
-Los agentes basados en modelos de lenguaje están limitados por el contexto y por la
-dificultad de conservar competencia entre sesiones. La literatura reciente propone
-bibliotecas de habilidades, memoria episódica, verificación por ejecución y
-benchmarks de aprendizaje continuo. Este trabajo no propone un mecanismo nuevo:
-pone a prueba la hipótesis de que la experiencia acumulada expande la competencia
-de un agente y documenta por qué esa hipótesis no se sostiene en el régimen
-experimental habitual.
+Este es un **artículo metodológico**. No demuestra aprendizaje acumulativo ni
+expansión de competencia. Su contribución es un estudio de caso replicable sobre
+cómo controles débiles y presupuestos mal contabilizados producen conclusiones
+engañosas en experimentos con agentes, junto con el instrumento que los corrige.
 
 Presentamos seis experimentos con un solucionador de programas sobre cuatro
 operaciones. El resultado central es negativo: en un espacio **explorable,
@@ -25,44 +22,44 @@ identificable y dentro del presupuesto**, la búsqueda sin memoria iguala la
 cobertura de una biblioteca aprendida; la biblioteca solo reduce coste (41,8 % menos
 pasos con continuidad total) y lo pierde todo con continuidad cero (22,1 pp menos).
 Una política aprendida de activación no supera a una regla de una línea y cuesta
-1,9× más. Un agente real (`gpt-6-luna`, esfuerzo bajo) acierta 46,9 % en la misma
-rejilla; las intervenciones probadas no permiten atribuir el fallo a la memoria.
+1,42× la búsqueda sin memoria. Un agente real (`gpt-6-luna`, esfuerzo bajo) acierta
+46,9 % en la misma rejilla; las intervenciones probadas no permiten atribuir el
+fallo a la memoria.
 
-La contribución es doble: (i) una **proposición** que explica por qué los negativos
-estaban cantados —enumerar candidatos no garantiza cobertura si hay ambigüedad o si
-el presupuesto no alcanza— y seis predicciones falsables para salir de ese régimen;
-(ii) un **instrumento** de medición con clon, canales separados, coste total y
-verificación de herramientas en cinco etapas. Una revisión estructurada de 31
-trabajos sitúa el resultado: el campo ya tiene los mecanismos, pero no una medición
-longitudinal que los separe.
+El instrumento tiene cuatro piezas: clon sin historial, canales separados, métricas
+`E`/`K`/`P` y verificación de herramientas en cinco etapas. La proposición que
+ordena el trabajo explica por qué los negativos eran esperables, pero es una
+consecuencia de la definición bajo supuestos de realizabilidad, no una teoría
+general. La comparación decisiva —recuperación genuina, familias reservadas y coste
+total— **no se ha ejecutado** y es el trabajo futuro inmediato.
 
-**Palabras clave:** memoria de agentes, competencia acumulativa, aprendizaje de
-bibliotecas, metacognición, resultados negativos.
+**Palabras clave:** memoria de agentes, competencia acumulativa, validez
+experimental, resultados negativos, metodología.
 
 ---
 
 ## Abstract
 
-LLM agents are constrained by context and by the difficulty of preserving competence
-across sessions. Recent work proposes skill libraries, episodic memory,
-execution-based verification and continual-learning benchmarks. This paper does not
-propose a new mechanism: it tests whether accumulated experience expands agent
-competence and documents why that hypothesis fails in the usual experimental regime.
+This is a **methodological paper**. It does not demonstrate cumulative learning or
+competence expansion. Its contribution is a replicable case study of how weak
+controls and mis-accounted budgets produce misleading conclusions in agent
+experiments, together with the instrument that corrects them.
 
 We report six experiments with a program solver over four operations. The central
 result is negative: in an **explorable, identifiable, budgeted** space, memoryless
 search matches the coverage of a learned library; the library only reduces cost
 (41.8% fewer steps at full continuity) and loses it all at zero continuity (22.1 pp
-less). A learned activation policy does not beat a one-line rule and costs 1.9×
-more. A real agent (`gpt-6-luna`, low effort) scores 46.9% on the same grid;
-the interventions tested do not attribute the failure to memory.
+less). A learned activation policy does not beat a one-line rule and costs 1.42×
+memoryless search (84.3 vs 59.5 steps) and 1.89× macro-first (84.3 vs 44.5). A real
+agent (`gpt-6-luna`, low effort) scores 46.9% on the same grid; the interventions
+tested do not attribute the failure to memory.
 
-The contribution is twofold: (i) a **proposition** explaining why the negatives were
-predictable —enumerating candidates does not guarantee coverage under ambiguity or
-budget— plus six falsifiable predictions to leave that regime; (ii) a **measurement
-instrument** with a clone, separated channels, total cost and five-stage tool
-verification. A structured review of 31 works locates the result: the field has the
-mechanisms, but not a longitudinal measurement that separates them.
+The instrument has four parts: a no-history clone, separated channels, `E`/`K`/`P`
+metrics, and five-stage tool verification. The proposition that organises the work
+explains why the negatives were expected, but it is a consequence of the definition
+under realizability assumptions, not a general theory. The decisive comparison —
+genuine retrieval, reserved families and total cost — **has not been run** and is
+the immediate future work.
 
 ---
 
@@ -82,20 +79,16 @@ etología y sociología— y terminó en una pregunta más pequeña y más hones
 La respuesta que podemos sostener hoy es: **en nuestro entorno, ninguno**. Lo que sí
 podemos sostener es por qué, y qué haría falta para que la respuesta cambie.
 
-### Contribuciones
+### Contribución
 
-1. **Una proposición con condiciones.** En un espacio explorable, identificable y
-   dentro del presupuesto, la memoria no puede ampliar cobertura; solo reordenar
-   coste. Los negativos de los seis experimentos son consecuencias, no sorpresas.
-2. **Seis experimentos documentados**, con protocolos congelados, resultados crudos
-   y contabilidad de coste. Cinco son negativos o condicionales.
-3. **Una revisión estructurada de 31 trabajos** que sitúa el proyecto frente a
-   DreamCoder, Stitch, LILO, CEGIS, Mem²Evolve, EvoAgentBench, MemDev-Bench, MemUse
-   y Proof-Gated, entre otros.
-4. **Un instrumento**: clon sin historial, canales separados, métricas `E`/`K`/`P`,
-   muestras por clase conductual y verificación de herramientas en cinco etapas.
-5. **Un registro público de 44 afirmaciones** con estado, nivel de evidencia y
-   falsador.
+Una **demostración metodológica**: seis intentos de mostrar que la memoria expande
+la competencia fallaron por controles débiles, presupuestos mal contabilizados y
+confusión entre información y aprendizaje. El trabajo publica el instrumento que
+hace visibles esos fallos y el registro de qué queda en pie.
+
+Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
+revisión estructurada de 31 trabajos y el registro de 44 afirmaciones. Ninguna se
+presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
 
@@ -241,6 +234,16 @@ Búsqueda en anchura sobre secuencias de operaciones. Dos contadores:
 ejecutadas hasta el primer contraejemplo). El segundo es el usado en 005 y 006; el
 004 conserva `primitive_ops` como cota superior por trazabilidad.
 
+**El presupuesto es aproximado.** Se comprueba antes de evaluar cada candidato, así
+que el candidato aceptado puede rebasar el límite. Medido en las condiciones del
+006: exceso máximo **6 pasos**, media ≤ 0,83, en ≤ 4 de 24 tareas
+(`prototipo-006-politica/results/budget-overshoot.json`). No es un límite estricto
+de 120 aplicaciones.
+
+**El probe no se descuenta de la búsqueda.** En 006-A se contabiliza después de
+resolver: la comparación de la política es de **coste ex post**, no de presupuesto
+total igual. Una evaluación con presupuesto compartido queda pendiente.
+
 ### 4.3 Condiciones
 
 - `MEM-A0`: mismo solucionador composicional, sin historial.
@@ -287,6 +290,18 @@ no está disponible para cuentas ChatGPT. OpenCode se usó con
 ---
 
 ## 5. Resultados
+
+**Tabla 1. Resumen verificable.** Unidad = tareas; la inferencia no es sobre
+familias. Datos crudos en `results/` de cada prototipo.
+
+| Exp | Hipótesis | Unidad | Condiciones | Coste medido | Resultado | Incertidumbre | Estado |
+|---|---|---|---|---|---|---|---|
+| 002 | `MEM-E` usa historial | 200/50, 3 semillas | A, A0, B, C, D, E | candidatos | A0 = E (1,000) | 3 semillas | Refutada |
+| 003 | macros amplían D3 | 60/30, 3 semillas | NOLEARN, RANDOM, LEARNED, ABLATED | candidatos | 1,000 vs 0,000 | 3 semillas | Retirado por 004 |
+| 004 | cobertura vs coste | 64 programas | A0–A4 + 560 bibliotecas | candidatos, steps | A1 64/64; A3 54/64; −17,8 % candidatos | 3 semillas | Negativo |
+| 005 | valor condicional | 96 tareas, 4 fases | NOLEARN, FROZEN, ONLINE, GATED | steps | FROZEN 76 % con −26,2 % trabajo | 3 semillas | Condicional |
+| 006-A′ | la política aprende | 48 tareas, semillas 1–2 | 7 condiciones | steps + probe | 92,7 % vs regla 93,8 %; 1,42× | bootstrap optimista | Negativo |
+| 006-B | agente real | 24–64 tareas | 6 condiciones | llamadas, tiempo | 46,9 %; ninguna Δ ≠ 0 | IC ±20 pp | Inconcluso |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -340,6 +355,10 @@ frente a 76,0 % con 6.877 sin memoria (−26,2 % de trabajo). Aprender siempre b
 La política pierde contra la regla simple (−1,0 pp, IC −3,1 a 0); gana a buscar
 (+9,4 pp, IC 3,1–15,6) y a su control barajado (+5,2 pp, IC 1,0–9,4). El probe
 cuesta 41,2 pasos y el ahorro es 29: **valor neto negativo**.
+
+**Advertencia estadística.** El bootstrap trata 96 tareas como independientes, pero
+comparten generador, programas equivalentes, biblioteca y política; con dos semillas,
+los IC son optimistas. No se usan para afirmar equivalencia ni ausencia de efecto.
 
 ### 5.6 Prototipo 006-B: el agente real
 
@@ -399,6 +418,11 @@ memoria es ambiguo.
 6. **Preprints** en la mayoría de 2026.
 7. **Sin medición de tokens** en los experimentos sintéticos.
 8. **La condición de herramienta** no verificó las cinco etapas.
+9. **El presupuesto** puede rebasarse hasta 6 pasos por candidato aceptado.
+10. **El probe no se descuenta** del presupuesto de búsqueda en 006-A.
+11. **Los IC del 006-A** tratan tareas como independientes con dos semillas.
+12. **No hay recuperación genuina**: `ORACLE-MEMORY` conoce la respuesta y
+    `ACTUAL-RETRIEVAL` no se ejecutó.
 
 ---
 

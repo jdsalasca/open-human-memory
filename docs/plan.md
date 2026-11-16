@@ -133,8 +133,9 @@ P6. Es la hipótesis nueva del programa.
 - Métricas `E`, `K` y `P` separadas; coste de construir cada forma incluido.
 
 **Criterio:** la selección aprendida se acerca al oráculo y supera a toda forma fija
-a igual coste. Si una forma fija iguala o supera, la forma no importa y solo importa
-el contenido.
+a igual coste. Si una forma fija iguala o supera, **ese resultado no respalda la
+ventaja del selector evaluado**; las formas todavía podrían diferir entre tareas, y
+el selector podría ser deficiente o demasiado caro.
 
 ---
 

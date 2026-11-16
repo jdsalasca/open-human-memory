@@ -68,7 +68,11 @@ Diferencias pareadas (bootstrap sobre 96 tareas, IC 95 %):
    Es el único efecto que sobrevive a los controles.
 3. **La economía es negativa.** El probe cuesta 41,2 pasos por tarea y el ahorro
    frente a buscar es de 29. Con el probe contabilizado, la política total cuesta
-   **1,9× más** que no decidir.
+   **1,42× la búsqueda sin memoria** (84,3 vs 59,5) y **1,89× macros primero**
+    (84,3 vs 44,5). Además, el presupuesto no descuenta el probe durante la
+    búsqueda: la comparación es de coste ex post, no de presupuesto total igual.
+    El exceso de pasos del solucionador es de 0 a 6 por tarea
+    (`results/budget-overshoot.json`).
 4. **La versión congelada estaba inflada por sus propios controles defectuosos.**
    El 93,8 % frente a 90,6 % de la corrida congelada no resiste la corrección.
 

@@ -55,8 +55,9 @@ Comparación con nuestros solucionadores en la misma rejilla:
   familia, la tarea es inducción exacta de programas, no razonamiento en lenguaje
   natural. El agente comete errores de orden y de aritmética: por ejemplo, en
   `sort_asc → double` devuelve los valores correctos desordenados.
-- **Los fallos son de resolución, no de memoria.** No dicen nada sobre
-  acumulación; dicen que el agente no identifica el programa con tres ejemplos.
+- **El fallo observado es de salida incorrecta; el diseño no identifica su causa.**
+  No separa identificación, aplicación, aritmética ni formato. Solo permite decir
+  que el agente no resolvió la tarea, no *por qué*.
 - Esto **abre** el experimento que importa: dar al agente un procedimiento
   recuperado o compilado y medir si sube del 47 % al techo. Si no sube, la memoria
   no ayuda al agente aunque el procedimiento sea correcto.

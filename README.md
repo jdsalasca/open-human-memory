@@ -28,6 +28,10 @@ El orden importa. Para revisión por pares, empieza por el manuscrito.
    esfuerzo, semillas, comandos y protocolos de cada experimento.
    **[`docs/para-revisores.md`](docs/para-revisores.md)** — mapa, afirmaciones y
    preguntas para un revisor externo.
+   **[`docs/respuesta-a-revision-externa.md`](docs/respuesta-a-revision-externa.md)**
+   — el informe del revisor automático (`gpt-6.1-terra`) y qué se corrigió. El
+   dictamen fue **rechazar en su estado actual**: el trabajo es metodológico y no
+   demuestra aprendizaje acumulativo.
 1. **[`docs/teoria.md`](docs/teoria.md)** — qué se afirma, por qué, qué canales
    existen y qué predicciones se derivan. Incluye la proposición que explica por
    qué todos nuestros resultados negativos estaban cantados: en un espacio
@@ -136,7 +140,8 @@ pareada por tarea:
 - **La política pierde contra la regla simple**: −1,0 pp (IC pareado −3,1 a 0).
 - Supera a buscar en acierto (+9,4 pp, IC 3,1–15,6) y a su control barajado
   (+5,2 pp, IC 1,0–9,4). La señal aporta algo, pero poco y caro.
-- **Cuesta 1,9× más** que no decidir: el probe son 41 pasos y el ahorro 29.
+- **Cuesta 1,42× la búsqueda sin memoria** (84,3 vs 59,5 pasos) y **1,89× macros
+  primero** (84,3 vs 44,5). El probe son 41 pasos y el ahorro frente a buscar, 29.
 
 Se retira la afirmación de que una política aprendida aporta. El 006 corregido es
 un resultado negativo, y así queda en el repositorio.

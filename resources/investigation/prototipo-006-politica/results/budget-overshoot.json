@@ -1,0 +1,125 @@
+{
+  "budget": 120,
+  "rows": [
+    {
+      "seed": 1,
+      "set": "similar",
+      "action": "memory",
+      "n": 24,
+      "mean_executed": 53.4,
+      "mean_overshoot": 0.17,
+      "max_overshoot": 4,
+      "tasks_over_budget": 1
+    },
+    {
+      "seed": 1,
+      "set": "similar",
+      "action": "memory_first",
+      "n": 24,
+      "mean_executed": 43.0,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 1,
+      "set": "similar",
+      "action": "search",
+      "n": 24,
+      "mean_executed": 71.7,
+      "mean_overshoot": 0.58,
+      "max_overshoot": 6,
+      "tasks_over_budget": 3
+    },
+    {
+      "seed": 1,
+      "set": "novel",
+      "action": "memory",
+      "n": 24,
+      "mean_executed": 57.6,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 1,
+      "set": "novel",
+      "action": "memory_first",
+      "n": 24,
+      "mean_executed": 52.5,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 1,
+      "set": "novel",
+      "action": "search",
+      "n": 24,
+      "mean_executed": 58.0,
+      "mean_overshoot": 0.62,
+      "max_overshoot": 6,
+      "tasks_over_budget": 3
+    },
+    {
+      "seed": 2,
+      "set": "similar",
+      "action": "memory",
+      "n": 24,
+      "mean_executed": 53.3,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 2,
+      "set": "similar",
+      "action": "memory_first",
+      "n": 24,
+      "mean_executed": 43.0,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 2,
+      "set": "similar",
+      "action": "search",
+      "n": 24,
+      "mean_executed": 72.0,
+      "mean_overshoot": 0.83,
+      "max_overshoot": 6,
+      "tasks_over_budget": 4
+    },
+    {
+      "seed": 2,
+      "set": "novel",
+      "action": "memory",
+      "n": 24,
+      "mean_executed": 40.2,
+      "mean_overshoot": 0.17,
+      "max_overshoot": 4,
+      "tasks_over_budget": 1
+    },
+    {
+      "seed": 2,
+      "set": "novel",
+      "action": "memory_first",
+      "n": 24,
+      "mean_executed": 39.6,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    },
+    {
+      "seed": 2,
+      "set": "novel",
+      "action": "search",
+      "n": 24,
+      "mean_executed": 36.7,
+      "mean_overshoot": 0.0,
+      "max_overshoot": 0,
+      "tasks_over_budget": 0
+    }
+  ]
+}

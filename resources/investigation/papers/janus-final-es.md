@@ -76,7 +76,7 @@ y rechazó **486 fabricaciones**. Eso no refuta a JANUS; le quita la novedad y l
 fija el estándar: cualquier propuesta de confianza debe medirse contra ejecución
 independiente, no contra la palabra del modelo.
 
-## 3. Los cinco niveles
+## 3. Los seis niveles
 
 | Nivel | Qué sabemos |
 |---|---|
@@ -89,6 +89,10 @@ independiente, no contra la palabra del modelo.
 
 Un `Counterfactual Record` con `evidence_type: model_judgment` es una hipótesis,
 no un hecho sobre un mundo alternativo.
+
+Los dos últimos niveles no son observables directamente: el resultado alternativo
+ejecutado requiere otra ejecución (experimento o simulación), y el efecto causal
+requiere supuestos de identificación que **no se comprueban con los datos**.
 
 ## 4. Identificabilidad
 
@@ -125,25 +129,33 @@ decision:
   outcome: {y, verifier, time}
 ```
 
-Sin propensión no se pueden aplicar estimadores fuera de política (IPS, SNIPS,
-doubly robust).
+Sin probabilidades de comportamiento no se pueden aplicar IPS, SNIPS ni doubly
+robust; hay otros estimadores basados en modelos. El sistema registra qué estimador
+usa y qué supuestos requiere, en lugar de presentar la propensión como única vía.
 
 ### 4.4 Procedimiento de identificabilidad
 
-No basta con escribir `identifiability: identified`. El sistema ejecuta cinco
-chequeos y registra el resultado:
+No basta con escribir `identifiability: identified`. El sistema registra **seis
+condiciones** y distingue las que se comprueban de las que se asumen:
 
-1. **Consistencia:** la acción registrada coincide con la intervención.
-2. **Positividad:** ambas acciones tienen probabilidad positiva en el estado.
-3. **Ignorabilidad:** no hay confusores no medidos relevantes, o se controlan.
-4. **No interferencia:** el resultado no depende de acciones de otros agentes.
-5. **Restauración:** el certificado de replay pasa el umbral del estimando.
+| # | Condición | Cómo se establece |
+|---|---|---|
+| 1 | Consistencia | **Se comprueba:** la acción registrada coincide con la intervención |
+| 2 | Positividad | **Se comprueba:** ambas acciones tienen probabilidad positiva en el estado |
+| 3 | Ignorabilidad | **Se asume o se garantiza por diseño.** No se verifica con datos observacionales; se registra el supuesto y su justificación |
+| 4 | No interferencia | Se comprueba si el diseño lo permite; si no, se asume |
+| 5 | Transporte | Se asume; se reportan bounds si falla |
+| 6 | Restauración | **Se comprueba:** el certificado de replay pasa el umbral |
 
 | Resultado | Condición |
 |---|---|
-| `identified` | los cinco pasan |
+| `identified` | las seis se cumplen y las asumidas están justificadas |
 | `partially_identified` | falla ignorabilidad o transporte, pero hay bounds |
 | `not_identified` | falla consistencia, positividad, no interferencia o restauración |
+
+La ignorabilidad **no es una propiedad que un algoritmo certifique a partir de los
+datos**: es un supuesto de diseño. Presentarla como un chequeo automático sería el
+error que este marco quiere evitar.
 
 Si es `not_identified`, se guarda como hipótesis y pregunta abierta, no como
 claim causal.

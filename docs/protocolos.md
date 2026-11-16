@@ -129,7 +129,7 @@ memoria y búsqueda.
 implementación (control pseudoaleatorio, contaminación de estado, regla manual sin
 `macro_first`, mixto concatenado, coste del probe como cota). Corregido y pareado
 (semillas 1–2): la política **no supera la regla de una línea** (−1,0 pp, IC −3,1 a
-0) y **cuesta 1,9× más** que no decidir. El único efecto que sobrevive es +5,2 pp
+0) y **cuesta 1,42× la búsqueda sin memoria** (84,3 vs 59,5). El único efecto que sobrevive es +5,2 pp
 sobre el control barajado. Ver `results/corrected/`.
 
 ### `LLM-CEILING` — test de techo con agente real (Prototipo 006-B)

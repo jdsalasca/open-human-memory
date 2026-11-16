@@ -163,8 +163,10 @@ justamente lo que se está midiendo.
 
 ## 8. Qué significa para el problema del contexto
 
-El historial completo de 96 tareas no cabe en una ventana. Ocho macros sí. En este
-entorno, ese artefacto de ocho elementos:
+En este entorno, el artefacto de ocho elementos reduce el trabajo un 26 % con la
+misma precisión. **No medimos tokens ni ventanas de contexto**, así que no
+afirmamos que el historial completo «no quepa». Lo que se midió es trabajo
+ejecutado, no tamaño de contexto. Ese artefacto:
 
 - reproduce el 76 % de acierto del solucionador sin memoria,
 - con 26 % menos cómputo,

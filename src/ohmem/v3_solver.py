@@ -25,6 +25,7 @@ class SolveResult:
     ops: tuple[str, ...] = ()
     macros: tuple[str, ...] = ()
     executed_steps: int = 0
+    overshoot: int = 0
 
 
 def solve(
@@ -63,7 +64,14 @@ def solve(
                     break
             if matched:
                 used = tuple(name for name in sequence if name in macro_names)
+                overshoot = max(0, executed - budget_steps) if budget_steps else 0
                 return SolveResult(
-                    expanded, candidates, primitive_ops, sequence, used, executed
+                    expanded,
+                    candidates,
+                    primitive_ops,
+                    sequence,
+                    used,
+                    executed,
+                    overshoot,
                 )
     return SolveResult(None, candidates, primitive_ops, (), (), executed)

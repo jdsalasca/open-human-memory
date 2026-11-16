@@ -81,6 +81,7 @@ empeora nada medible, no entra).
 | [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |
 | [registro-de-ejecuciones.md](../../docs/registro-de-ejecuciones.md) | Modelo, esfuerzo, semillas y comandos por experimento |
 | [para-revisores.md](../../docs/para-revisores.md) | Mapa y preguntas para el revisor |
+| [revision-externa/](revision-externa/README.md) | Informe del revisor `gpt-6.1-terra` y respuesta punto por punto |
 | [../../docs/problema-central.md](../../docs/problema-central.md) | Análisis previo: capacidades, confundidores y escalera |
 | [../../docs/errata-006b.md](../../docs/errata-006b.md) | Errata del diagnóstico con LLM |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |

@@ -24,7 +24,7 @@ Nuestra macro de dos pasos es una versión de juguete de esa idea, sin condicion
 de aplicabilidad ni terminación. El Prototipo 003 no descubrió nada que el campo no
 tuviera; lo redescubrió en un universo de cuatro operadores.
 
-### H2. La verificación independiente no es una idea nuestra, y ya demostró que es imprescindible
+### H2. La verificación independiente no es una idea nuestra, y el estudio citado motiva controles independientes
 
 **Proof-Gated Skill Compilation** (NeurIPS 2026 workshop) implementa la parte
 **operacional** de lo que JANUS proponía: que solo persistan programas ejecutados
@@ -92,7 +92,7 @@ Nuestro JANUS apuntaba a la confianza; el campo ya mide el daño y el olvido.
 
 ### H7. El hueco real es estrecho, y es de integración, no de mecanismo
 
-Ninguno de los 31 trabajos reporta, a la vez:
+Ninguno de los 31 trabajos **de esta muestra** reporta, a la vez:
 
 1. `E(F)` — experiencias hasta competencia — en **familias estructurales
    reservadas**;
@@ -104,7 +104,8 @@ Ninguno de los 31 trabajos reporta, a la vez:
 6. verificación de herramientas en **cinco etapas**.
 
 EvoAgentBench y SelfImprove-Bench cubren partes de 1 y 2. MemDev-Bench cubre 5 y 6
-parcialmente. STRATUM cubre 4. **La integración no está hecha.** Eso es lo único
+parcialmente. STRATUM cubre 4. **No identificamos esa combinación en la muestra
+revisada**; la búsqueda no permite excluir trabajos omitidos. Eso es lo único
 defendible, y es una contribución de medición, no de arquitectura.
 
 ---
@@ -135,11 +136,13 @@ defendible, y es una contribución de medición, no de arquitectura.
 
 1. **`E(F)` con clon y familias estructurales reservadas.** EvoAgentBench y
    SelfImprove-Bench se acercan; ninguno reporta el coste de adquisición por familia.
-2. **Separación de canales.** Nadie descompone información / representación /
+2. **Separación de canales.** No identificamos en la muestra un trabajo que
+   descomponga información / representación /
    política / herramientas / parámetros en el mismo experimento.
 3. **Portabilidad entre modelos.** VibeMemBench transfiere experiencia verificada a
    5 solvers; Mem²Evolve no mide cambio de modelo. Sigue abierto.
-4. **Coste total con mantenimiento.** STRATUM mide representación; nadie suma
+4. **Coste total con mantenimiento.** STRATUM mide representación; no identificamos
+   un trabajo que sume
    adquisición + verificación + recuperación + mantenimiento + corrección.
 5. **Deriva con retirada medida.** Skill Drift y MemEvoBench miden el fallo; no
    miden la recuperación de competencia tras retirar el artefacto obsoleto.

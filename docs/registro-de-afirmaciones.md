@@ -86,7 +86,8 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | F9 | Las bibliotecas de skills degradan al crecer | **Declarada por terceros; no replicada** |
 | F10 | El lift agregado de retrieval no implica uso efectivo | **Declarada por terceros; no replicada** |
 | F11 | La memoria episódica no mejora el resolve rate en código | **Declarada por terceros; no replicada** |
-| F12 | Las cifras de la revisión están verificadas documentalmente, no replicadas | **Sostenida** (extraccion.md) |
+| F12 | Solo tres filas de la revisión están verificadas documentalmente; el resto son declaradas por los autores | **Sostenida** (extraccion.md) |
+| F13 | Ninguna cifra de la revisión está replicada | **Sostenida** |
 
 ---
 

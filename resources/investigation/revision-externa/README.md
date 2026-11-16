@@ -41,8 +41,17 @@ Get-Content prompt.txt -Raw | codex exec --ephemeral --skip-git-repo-check `
   -o "resources\investigation\revision-externa\codex-gpt-6.1-terra-medium.md" -
 ```
 
+## Resultado
+
+**Dictamen: rechazar en su estado actual.** El revisor considera que el trabajo es
+un programa de investigación con correcciones visibles, pero que no demuestra la
+hipótesis principal y que la contribución defendible es metodológica. La respuesta
+punto por punto está en
+[`../../../docs/respuesta-a-revision-externa.md`](../../../docs/respuesta-a-revision-externa.md).
+
 ## Uso
 
 El informe es **entrada para la revisión humana**, no un aval. Sus hallazgos se
 integran o se rebaten en `docs/manuscrito.md` y `docs/registro-de-afirmaciones.md`,
 con la trazabilidad de cada cambio.
+

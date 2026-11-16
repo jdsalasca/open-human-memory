@@ -18,7 +18,7 @@ sin replicar era una imprecisión.
 
 | ID | Trabajo | Año | Qué mide | Resultado declarado (abstract) | Límite |
 |---|---|---|---|---|---|
-| B1 | **SkillsBench** (arXiv:2602.12670) | 2026 | Skills curadas vs sin skills | **87 tareas, 8 dominios, 18 configuraciones; 33,9 % → 50,5 % (+16,6 pp)**; ≤3 módulos mejor que bundles grandes | La auditoría reporta 86 tareas/11 dominios/+16,2 pp para otra versión: **hay versiones** |
+| B1 | **SkillsBench v1.1** (arXiv:2602.12670; skillsbench.ai) | 2026 | Skills curadas vs sin skills | **v1.1: 87 tareas, 8 dominios, 18 configuraciones; 33,9 % → 50,5 % (+16,6 pp)**. El resumen de arXiv declara **86 tareas, 11 dominios, +16,2 pp**: son versiones distintas y no se mezclan | ≤3 módulos mejor que bundles grandes |
 | B2 | **MemDev-Bench** (arXiv:2610.27524) | 2026 | Memoria sobre historiales de repo con relevancia anotada | **555 tareas base + 4.869 históricas**; mejora localización/edición; **también causa fallos en tareas antes resolubles** | Preprint |
 | B3 | **VibeMemBench** (arXiv:2609.23570) | 2026 | Memoria en tareas ejecutables de repo | **111 objetivos, 90 repos, 3.634 trayectorias**; experiencia verificada por ejecución y transferida a **5 solvers held-out** | Preprint |
 | B4 | **ContinualSkillBench** (arXiv:2608.03874) | 2026 | Aprendizaje continuo de skills en flujo | **5 dominios × 100 tareas**; contexto+feedback ≈ biblioteca explícita; GPT-4o acumula más y reutiliza menos | Preprint |
@@ -87,9 +87,10 @@ sin replicar era una imprecisión.
 
 ## Nota de verificación
 
-- **B1**: la versión indexada (consultada 2026-11-16) declara 87 tareas/8
-  dominios/+16,6 pp. La auditoría reporta 86/11/+16,2 para la versión arXiv que
-  consultó. **Se cita la versión consultada y se deja constancia del desacuerdo.**
+- **B1**: hay dos versiones y no se mezclan. El resumen de **arXiv:2602.12670**
+  (consultado 2026-11-16) declara **86 tareas, 11 dominios y +16,2 pp**. El
+  **registro oficial v1.1** (skillsbench.ai) declara **87 tareas, 8 dominios,
+  18 configuraciones y +16,6 pp**. En la tabla se cita **v1.1** con esa etiqueta.
 - **S1**: los porcentajes están en el resumen del ACL Anthology; la cifra de GAIA
   (+57,84 %) que citaba nuestro documento **no aparece** en el resumen y se retira.
 - **AdaMem** se excluyó: controla qué **escribir**, no la adquisición de

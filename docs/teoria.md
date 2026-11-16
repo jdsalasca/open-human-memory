@@ -45,6 +45,12 @@ Tres métricas, nunca una sola:
 La afirmación del programa: existe un historial `H` tal que `E(A_H,F) < E(A_∅,F)`
 o `P(A_H,F) > P(A_∅,F)`, **a igual `K`**. No es «la memoria ayuda».
 
+**Qué es un clon.** Mismo modelo, mismas herramientas iniciales, mismo presupuesto y
+la misma información de la tarea actual. La única diferencia es el historial. Si la
+intervención recibe artefactos derivados del historial, el clon debe recibir el
+mismo coste de adquisición o declararse que se mide el **paquete completo**, no el
+mecanismo de memoria.
+
 ---
 
 ## 2. Los cinco canales
@@ -63,6 +69,11 @@ canales. Confundirlos produjo nuestros resultados ambiguos.
 Nuestros seis prototipos tocaron, como mucho, **política** (006) y **herramientas**
 (003–005), siempre en el mismo universo. Información, representación y parámetros
 siguen sin probar.
+
+**No son una descomposición causal identificada.** Los canales se solapan: una
+herramienta contiene información, cambia la representación y puede modificar la
+política. Sin una regla operacional para asignar efectos, sirven para diseñar
+condiciones, no para atribuir causas.
 
 ---
 
@@ -98,10 +109,18 @@ identificables.
 **solo en el régimen identificable y presupuestado**. Fuera de él, la teoría no
 dice nada; no se puede usar para cerrar la línea.
 
-**Corolario 3.** Para probar expansión hacen falta dos cosas a la vez: un espacio
-que no quepa en `B` **y** tareas donde la búsqueda exhaustiva no baste por
-ambigüedad. Si las tareas son identificables y el espacio cabe, la memoria solo
-puede optimizar coste.
+**Corolario 3.** Para probar expansión basta con que el espacio no quepa en `B`:
+una tarea **identificable** cuya solución aparezca después del corte puede
+resolverse con una herramienta que la mueva dentro del presupuesto. La ambigüedad
+es un problema **adicional**, no una condición necesaria.
+
+**Supuestos de realizabilidad.** La proposición asume que existe al menos un
+programa correcto, que la enumeración alcanza la longitud pertinente, que los
+operadores y el verificador son correctos, y que `B` incluye los costes que se
+comparan. Bajo esos supuestos es una consecuencia de la definición, no una teoría
+general de memoria. Con `executed_steps` medido, el exceso máximo observado es de
+6 pasos sobre 120: el presupuesto es un corte antes del candidato, no un límite
+estricto.
 
 ---
 
@@ -163,7 +182,7 @@ sería convertir una hipótesis de implementación en un límite de la investiga
 |---|---|---|
 | **P1** | En un espacio no explorable bajo `B`, una herramienta compilada amplía la cobertura a igual presupuesto | La cobertura no sube, o sube también sin historial |
 | **P2** | A igual información, un procedimiento verificado bate a un episodio recuperado | Empatan |
-| **P3** | `E(F)` baja tras `N` familias solo si comparten **estructura**, no vocabulario | Baja con vocabulario compartido y estructura distinta |
+| **P3** | La ventaja de adquisición es mayor cuando las familias comparten **estructura** que cuando solo comparten vocabulario | La ventaja es igual o mayor con vocabulario compartido y estructura distinta |
 | **P4** | **Discriminante:** si la ventaja es informacional, dar los mismos ejemplos al clon la elimina; si es de herramienta o política, **persiste** | Persiste con la misma información y no hay herramienta ni política distinta |
 | **P5** | El efecto sobrevive a un cambio de modelo | Desaparece al cambiar de LLM |
 | **P6** | Elegir la **forma** del conocimiento (episodio, procedimiento, herramienta, concepto) según utilidad futura bate a cualquier forma fija a igual coste | Una forma fija iguala o supera a la selección |

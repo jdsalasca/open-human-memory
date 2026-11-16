@@ -100,6 +100,7 @@ datos cambiaron. Los JSON crudos están junto a cada `reproduce.py`.
 | 16 nov | Proposición sin identificabilidad | `docs/teoria.md` |
 | 16 nov | P4 con el signo invertido | `docs/teoria.md` |
 | 16 nov | «Verificado» por «declarado» | `revision-sistematica/extraccion.md` |
+| 16 nov | Revisión externa `gpt-6.1-terra`: 1,42×, F12, ventana, atribución 006-B, corolario 3, presupuesto y JANUS | `respuesta-a-revision-externa.md` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.
