@@ -87,7 +87,7 @@ confusión entre información y aprendizaje. El trabajo publica el instrumento q
 hace visibles esos fallos y el registro de qué queda en pie.
 
 Las piezas de apoyo son: la proposición con condiciones, los seis experimentos, la
-revisión estructurada de 31 trabajos y el registro de 44 afirmaciones. Ninguna se
+revisión estructurada de 31 trabajos y el registro de 47 afirmaciones. Ninguna se
 presenta como una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -180,10 +180,11 @@ Tres precisiones que la versión anterior de este trabajo no hacía:
    `B`.
 
 **Corolarios.** (i) El 100 % del Prototipo 003 era el experimentador bajando la
-profundidad a dos, no una capacidad del agente. (ii) Los negativos de 004–006 son
-predicciones de la teoría en el régimen identificable y presupuestado; fuera de él,
-la teoría no dice nada y no puede cerrar la línea. (iii) Para probar expansión hacen
-falta un espacio que no quepa en `B` **y** ambigüedad que la búsqueda no resuelva.
+profundidad a dos, no una capacidad del agente. (ii) Los negativos de 004–006 son **coherentes con la teoría** en el régimen
+identificable y presupuestado; fuera de él, la teoría no dice nada y no puede
+cerrar la línea. (iii) Para probar expansión basta con que la solución caiga fuera
+del presupuesto; la ambigüedad es un problema **adicional**, no una condición
+necesaria.
 
 ### 3.3 Las siete capacidades
 
@@ -390,7 +391,9 @@ unidades. El flujo está en `revision-sistematica/cribado.md`.
 
 **Por qué todos los negativos.** Los seis experimentos viven en el mismo régimen: un
 espacio que cabe en el presupuesto, con tareas mayormente identificables. La
-proposición predice que ahí la memoria solo puede optimizar coste. Y eso es lo que
+proposición **explica retrospectivamente** por qué ahí la memoria solo puede
+optimizar coste. No fue una predicción registrada: el 006 incluye políticas, probes
+y costes que no satisfacen todas las premisas. Y eso es lo que
 se observó: 41,8 % menos pasos con continuidad total, nada con continuidad cero.
 
 **Qué sobrevive.** (i) La ventaja de eficiencia es real pero condicional. (ii) La
@@ -481,7 +484,7 @@ resultados crudos están en `results/` de cada prototipo. El registro de ejecuci
 
 ## Apéndice A. Registro de afirmaciones
 
-44 filas en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
+47 filas en `docs/registro-de-afirmaciones.md`: 29 sostenidas (5 de terceros, no
 replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró
@@ -492,3 +495,4 @@ replicadas), 8 refutadas, 7 abiertas o inválidas. Ninguna propia alcanza E3.
 - «El intérprete no ayuda» (condición inválida).
 - «96 episodios no caben en una ventana» (no se midió).
 - «JANUS es novedoso» (la verificación operacional ya existe).
+

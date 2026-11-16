@@ -43,7 +43,7 @@ def main() -> None:
                         budget_steps=BUDGET,
                         macro_first=action == "memory_first",
                     )
-                    overshoots.append(result.overshoot)
+                    overshoots.append(max(0, result.executed_steps - BUDGET))
                     executed.append(result.executed_steps)
                 rows.append(
                     {

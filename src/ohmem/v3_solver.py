@@ -28,6 +28,11 @@ class SolveResult:
     overshoot: int = 0
 
 
+def _over(executed: int, budget_steps: int | None) -> int:
+    """Steps past the limit, measured from what actually ran."""
+    return max(0, executed - budget_steps) if budget_steps else 0
+
+
 def solve(
     obs: Observation,
     library: Library,
@@ -48,9 +53,25 @@ def solve(
     for length in range(1, max_steps + 1):
         for sequence in product(ops, repeat=length):
             if budget is not None and candidates >= budget:
-                return SolveResult(None, candidates, primitive_ops, (), (), executed)
+                return SolveResult(
+                    None,
+                    candidates,
+                    primitive_ops,
+                    (),
+                    (),
+                    executed,
+                    _over(executed, budget_steps),
+                )
             if budget_steps is not None and executed >= budget_steps:
-                return SolveResult(None, candidates, primitive_ops, (), (), executed)
+                return SolveResult(
+                    None,
+                    candidates,
+                    primitive_ops,
+                    (),
+                    (),
+                    executed,
+                    _over(executed, budget_steps),
+                )
             candidates += 1
             expanded = tuple(
                 primitive for name in sequence for primitive in library.expand(name)
@@ -64,7 +85,7 @@ def solve(
                     break
             if matched:
                 used = tuple(name for name in sequence if name in macro_names)
-                overshoot = max(0, executed - budget_steps) if budget_steps else 0
+                overshoot = _over(executed, budget_steps)
                 return SolveResult(
                     expanded,
                     candidates,
@@ -74,4 +95,6 @@ def solve(
                     executed,
                     overshoot,
                 )
-    return SolveResult(None, candidates, primitive_ops, (), (), executed)
+    return SolveResult(
+        None, candidates, primitive_ops, (), (), executed, _over(executed, budget_steps)
+    )

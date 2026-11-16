@@ -62,7 +62,7 @@ canales. Confundirlos produjo nuestros resultados ambiguos.
 |---|---|---|
 | **Información** | Episodios, ejemplos, documentos | El efecto desaparece si el clon recibe la misma información |
 | **Representación** | Conceptos, vocabulario, relaciones | Transfiere a otra superficie sin traducción humana |
-| **Política** | Qué buscar, cuándo parar, qué activar | Mejora el coste, no la cobertura |
+| **Política** | Qué buscar, cuándo parar, qué activar | Puede cambiar coste y, bajo presupuesto fijo, la cobertura alcanzable |
 | **Herramientas** | Procedimientos compilados y verificados | Amplía lo que el agente puede hacer con el mismo presupuesto |
 | **Parámetros** | Pesos del modelo | No transferible entre modelos sin reentrenar |
 
@@ -216,7 +216,21 @@ Eso es un problema de **selección de representación**, no de almacenamiento:
 - cota superior: un oráculo que conoce la forma óptima por tarea.
 
 Si la selección aprendida se acerca al oráculo y supera a toda forma fija, hay una
-contribución. Si no, la forma no importa y solo importa el contenido.
+contribución. Si no, **ese resultado no respalda la ventaja del selector**; las
+formas todavía podrían diferir entre tareas.
+
+**Advertencia de identificación.** Las cuatro formas no conservan la misma
+información: una herramienta ejecutable incorpora el resultado de su verificación;
+un concepto puede ser una abstracción inferida que no estaba literal en las
+experiencias. Por eso se separan dos preguntas:
+
+- **Representación:** dada una competencia ya conocida, ¿qué forma la conserva con
+  mayor fidelidad, menor coste y mejor transferencia? Esto mide P6.
+- **Adquisición:** dadas experiencias, ¿qué mecanismo descubre conocimiento nuevo?
+  Eso es P1–P3, no P6.
+
+No se presenta P6 como evidencia de aprendizaje: mide cómo se conserva, no cómo se
+descubre.
 
 ### 7.3 Regla de cierre
 
@@ -308,4 +322,5 @@ Ninguna alcanza E3 (varias distribuciones) ni E4 (reproducción con tareas reale
 No es una arquitectura. No es una revisión de literatura
 (`../resources/investigation/revision-sistematica/`). No es un plan (`plan.md`). Es la afirmación que el plan
 debe poner a prueba, con sus canales, rivales y falsadores.
+
 

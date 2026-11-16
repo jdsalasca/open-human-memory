@@ -36,7 +36,8 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 | H5 | La cobertura conductual de la biblioteca es 9/14 | Sostenida | E2 | — |
 | H6 | La adquisición satura en 6 experiencias | Sostenida | E2 | — |
 | H7 | El ahorro por acierto es 2,6 % | Sostenida | E2 | — |
-| H8 | Las macros amplían la capacidad del agente | **Refutada** | — | 004-A |
+| H8 | Las macros del 003 amplían la cobertura máxima en su D3 | **Refutada** | — | 004-A |
+| H9 | La memoria puede mejorar competencia efectiva bajo presupuesto limitado | **Abierta** | — | P1, P2 |
 
 ## C. Afirmaciones sobre el valor de la memoria
 

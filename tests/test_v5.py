@@ -90,6 +90,17 @@ class AccountingTests(unittest.TestCase):
             _, executed = agent.step(task, max_steps=3, budget_steps=60)
             self.assertLessEqual(executed, 60)
 
+    def test_overshoot_is_recorded_on_failed_candidates(self):
+        from ohmem.v3_library import Macro
+        from ohmem.v3_tasks import make_task
+
+        library = Library([Macro("m", ("sort_asc", "double"))])
+        task = make_task(0, "delta", 0, ("reverse", "negate"), "overshoot")
+        result = solve(task.observation, library, max_steps=1, budget_steps=5)
+        self.assertIsNone(result.program)
+        self.assertGreater(result.overshoot, 0)
+        self.assertEqual(result.overshoot, result.executed_steps - 5)
+
     def test_agent_caps_its_library(self):
         agent = Agent(learn=True, cap=3)
         for _, phase in stream_tasks(0):

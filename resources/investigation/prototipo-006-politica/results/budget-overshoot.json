@@ -7,9 +7,9 @@
       "action": "memory",
       "n": 24,
       "mean_executed": 53.4,
-      "mean_overshoot": 0.17,
+      "mean_overshoot": 0.33,
       "max_overshoot": 4,
-      "tasks_over_budget": 1
+      "tasks_over_budget": 3
     },
     {
       "seed": 1,
@@ -27,9 +27,9 @@
       "action": "search",
       "n": 24,
       "mean_executed": 71.7,
-      "mean_overshoot": 0.58,
+      "mean_overshoot": 0.62,
       "max_overshoot": 6,
-      "tasks_over_budget": 3
+      "tasks_over_budget": 4
     },
     {
       "seed": 1,
@@ -37,9 +37,9 @@
       "action": "memory",
       "n": 24,
       "mean_executed": 57.6,
-      "mean_overshoot": 0.0,
-      "max_overshoot": 0,
-      "tasks_over_budget": 0
+      "mean_overshoot": 0.5,
+      "max_overshoot": 2,
+      "tasks_over_budget": 6
     },
     {
       "seed": 1,
@@ -47,9 +47,9 @@
       "action": "memory_first",
       "n": 24,
       "mean_executed": 52.5,
-      "mean_overshoot": 0.0,
-      "max_overshoot": 0,
-      "tasks_over_budget": 0
+      "mean_overshoot": 0.5,
+      "max_overshoot": 2,
+      "tasks_over_budget": 6
     },
     {
       "seed": 1,
@@ -67,9 +67,9 @@
       "action": "memory",
       "n": 24,
       "mean_executed": 53.3,
-      "mean_overshoot": 0.0,
-      "max_overshoot": 0,
-      "tasks_over_budget": 0
+      "mean_overshoot": 0.17,
+      "max_overshoot": 2,
+      "tasks_over_budget": 2
     },
     {
       "seed": 2,
@@ -97,9 +97,9 @@
       "action": "memory",
       "n": 24,
       "mean_executed": 40.2,
-      "mean_overshoot": 0.17,
+      "mean_overshoot": 0.42,
       "max_overshoot": 4,
-      "tasks_over_budget": 1
+      "tasks_over_budget": 4
     },
     {
       "seed": 2,
@@ -107,9 +107,9 @@
       "action": "memory_first",
       "n": 24,
       "mean_executed": 39.6,
-      "mean_overshoot": 0.0,
-      "max_overshoot": 0,
-      "tasks_over_budget": 0
+      "mean_overshoot": 0.25,
+      "max_overshoot": 2,
+      "tasks_over_budget": 3
     },
     {
       "seed": 2,
@@ -117,9 +117,9 @@
       "action": "search",
       "n": 24,
       "mean_executed": 36.7,
-      "mean_overshoot": 0.0,
-      "max_overshoot": 0,
-      "tasks_over_budget": 0
+      "mean_overshoot": 0.04,
+      "max_overshoot": 1,
+      "tasks_over_budget": 1
     }
   ]
 }

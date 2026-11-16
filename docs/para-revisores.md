@@ -18,7 +18,7 @@ no una arquitectura nueva.
 |---|---|---|
 | Manuscrito | `docs/manuscrito.md` | Hipótesis, método, resultados, discusión, límites |
 | Teoría | `docs/teoria.md` | Canales, proposición, predicciones P1–P6 |
-| Registro | `docs/registro-de-afirmaciones.md` | 44 afirmaciones con estado y falsador |
+| Registro | `docs/registro-de-afirmaciones.md` | 47 afirmaciones con estado y falsador |
 | Ejecuciones | `docs/registro-de-ejecuciones.md` | Modelo, esfuerzo, semillas, comandos |
 | Revisión | `resources/investigation/revision-sistematica/` | 31 trabajos, cribado y extracción |
 | Código | `src/ohmem/` | 16 módulos, sin dependencias |
@@ -104,3 +104,4 @@ datos cambiaron. Los JSON crudos están junto a cada `reproduce.py`.
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.
+
