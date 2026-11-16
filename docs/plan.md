@@ -36,11 +36,14 @@ antecedentes antes de medir otra cosa.
 | `docs/registro-de-afirmaciones.md` con estados y niveles | Hecho |
 | `precedentes/10-matriz-de-antecedentes.md` | Hecho |
 | `docs/problema-central.md` con las siete capacidades | Hecho |
-| Revisión sistemática ejecutada (cadenas, cribado, conteo) | **Pendiente** |
-| Una línea base reproducida (Stitch, CEGIS mínimo o retrieval) | **Pendiente** |
+| Revisión estructurada: 7.100 identificados, 177 cribados, 31 incluidos | **Hecho**, con límites declarados (`revision-sistematica/`) |
+| Una línea base reproducida (SkillGen, Proof-Gated, CEGIS o retrieval) | **Pendiente** |
 
-**Puerta F0:** sin los dos pendientes no se pasa a F1. Si no se puede reproducir
-ninguna línea base, se documenta por qué y se reduce el alcance.
+**Puerta F0:** falta la reproducción. Sin ella no se pasa a F1. Si no se puede
+reproducir ninguna línea base, se documenta por qué y se reduce el alcance.
+
+**Candidatos de reproducción, por coste:** CEGIS mínimo (bajo), SkillGen (medio),
+Proof-Gated (medio), EvoAgentBench (alto), DreamCoder (alto).
 
 ---
 

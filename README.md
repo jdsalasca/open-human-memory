@@ -29,8 +29,9 @@ El orden importa. Primero la teoría, después el registro, después los experim
 2. **[`docs/registro-de-afirmaciones.md`](docs/registro-de-afirmaciones.md)** — cada
    afirmación con estado, nivel de evidencia y falsador. Si no está aquí, no existe.
 3. **[`precedentes/10-matriz-de-antecedentes.md`](resources/investigation/precedentes/10-matriz-de-antecedentes.md)**
-   — qué demuestra cada línea rival, bajo qué condiciones y qué nos falta para
-   compararnos.
+   — sustituida por la revisión real:
+   **[`revision-sistematica/`](resources/investigation/revision-sistematica/README.md)**
+   (7.100 registros identificados, 177 cribados, 31 incluidos, tabla de extracción).
 4. **[`docs/plan.md`](docs/plan.md)** — rondas con puertas. Ninguna empieza con
    código.
 
@@ -213,7 +214,8 @@ que el 004 retiró.
 | [plan.md](docs/plan.md) | Rondas F0–F5 con puertas |
 | [problema-central.md](docs/problema-central.md) | Análisis previo: las siete capacidades, los cinco confundidores y la escalera |
 | [errata-006b.md](docs/errata-006b.md) | Las tres inferencias invalidadas del diagnóstico con LLM |
-| [precedentes/10-matriz-de-antecedentes.md](resources/investigation/precedentes/10-matriz-de-antecedentes.md) | Diálogo con las líneas rivales y qué falta para compararnos |
+| [precedentes/10-matriz-de-antecedentes.md](resources/investigation/precedentes/10-matriz-de-antecedentes.md) | Puntero a la revisión; corrige tres errores de la matriz anterior |
+| [revision-sistematica/](resources/investigation/revision-sistematica/README.md) | **Revisión ejecutada:** búsquedas, cribado, extracción y síntesis |
 | [15-respuesta-directa.md](resources/investigation/15-respuesta-directa.md) | La respuesta corta a la pregunta central |
 | [21-revision-critica-fuentes.md](resources/investigation/21-revision-critica-fuentes.md) | Qué evidencia sostiene qué, en dos ejes |
 | [23-marco-de-validez.md](resources/investigation/23-marco-de-validez.md) | Fenómeno, traducción y ventaja comparativa |

@@ -83,6 +83,25 @@ después de seis prototipos, y por eso los seis giraron en el mismo sitio.
 
 ---
 
+## 3.5 Lo que el campo ya demostró
+
+La revisión estructurada (`resources/investigation/revision-sistematica/`) cambia
+el punto de partida. Cuatro resultados ajenos que debemos incorporar:
+
+1. **La verificación independiente es imprescindible.** Proof-Gated (NeurIPS 2026
+   workshop): 538 aserciones de verificación de modelos teacher, **52 confirmadas
+   por ejecución, 486 fabricaciones rechazadas**. JANUS no es nuevo.
+2. **Las bibliotecas de skills degradan al crecer.** *Skill shadowing*: hasta
+   **−21 %** al pasar a 202 skills.
+3. **Entregar no es usar.** MemUse: 8.000 episodios, resolve a **±0,4 pp** del
+   baseline sin memoria; **23,2 %** de los usos beneficiosos igual fallaron.
+4. **El coste del contexto está medido.** STRATUM: **~4 GB de texto frente a ~298 TB
+   de estado KV** por 1e9 tokens en un modelo de 70B.
+
+Esto no invalida la teoría de §3; la sitúa. Nuestros negativos son locales, pero
+coinciden con los del campo. El hueco defendible no es un mecanismo: es una
+medición longitudinal con clon, canales separados y coste total.
+
 ## 4. Las cinco explicaciones rivales
 
 Ninguna de nuestras observaciones es única de nuestra hipótesis. Cada rival hace

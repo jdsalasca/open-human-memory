@@ -77,6 +77,7 @@ empeora nada medible, no entra).
 | [prototipo-006-politica/](prototipo-006-politica/) | Política de activación congelada: acierta, no paga el probe |
 | [prototipo-006-agente-llm/](prototipo-006-agente-llm/) | Techo de un agente real: 46,9 % |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
+| [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
 | [../../docs/problema-central.md](../../docs/problema-central.md) | Análisis previo: capacidades, confundidores y escalera |
 | [../../docs/errata-006b.md](../../docs/errata-006b.md) | Errata del diagnóstico con LLM |
 | [precedentes/](precedentes/) | Catálogo de lo ya intentado, incluidos competidores 2026 |

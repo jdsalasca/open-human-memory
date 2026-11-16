@@ -76,25 +76,34 @@ reproducción independiente con tareas reales, E5 longitudinal y transferencia.
 |---|---|---|
 | F1 | DreamCoder, Stitch y LILO cubren aprendizaje de bibliotecas | Sostenida (lectura) |
 | F2 | CEGIS y Angluin cubren aprendizaje activo y contraejemplos | Sostenida (lectura) |
-| F3 | MemDev-Bench muestra que la memoria puede romper tareas antes resolubles | Sostenida (lectura) |
+| F3 | MemDev-Bench muestra que la memoria puede romper tareas antes resolubles | **Sostenida y verificada** |
 | F4 | La neurociencia y la sociología han aportado hipótesis comprobables | **Refutada**: solo analogías |
-| F5 | Se ha ejecutado una revisión sistemática | **Refutada**: no ejecutada |
+| F5 | Se ha ejecutado una revisión sistemática exhaustiva | **Refutada**: estructurada, una base, un revisor |
 | F6 | Se ha reproducido un competidor | **Refutada**: ninguno |
+| F7 | Existe una revisión estructurada con búsquedas y cribado registrados | **Sostenida** (`revision-sistematica/`) |
+| F8 | La verificación independiente de skills ya está implementada y es imprescindible | **Sostenida (terceros)**: Proof-Gated, 52/538 aserciones confirmadas |
+| F9 | Las bibliotecas de skills degradan al crecer | **Sostenida (terceros)**: hasta −21 % con 202 skills |
+| F10 | El lift agregado de retrieval no implica uso efectivo | **Sostenida (terceros)**: RAE negativo en varios modelos |
+| F11 | La memoria episódica no mejora el resolve rate en código | **Sostenida (terceros)**: ±0,4 pp en 8.000 episodios |
 
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **14 afirmaciones sostenidas**, casi todas E2 y locales.
-- **6 refutadas**, incluidas nuestras dos hipótesis principales.
-- **5 abiertas**, y son justo las que responderían la pregunta del proyecto.
-- **0 en E3, E4 o E5.**
+- **29 afirmaciones sostenidas**, casi todas E2 locales; **5 de ellas son de
+  terceros** y las acabamos de verificar.
+- **8 refutadas**, incluidas nuestras dos hipótesis principales.
+- **7 abiertas o inválidas**, y son justo las que responderían la pregunta del
+  proyecto.
+- **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**
 
 El patrón es claro: somos buenos refutando nuestros propios mecanismos y malos
 construyendo evidencia acumulativa. La causa está en `docs/teoria.md`: seis
 prototipos en el mismo régimen enumerable, donde la teoría predice que no puede
-haber expansión.
+haber expansión. La revisión de antecedentes confirma que el campo ya pasó por
+donde nosotros estamos: bibliotecas con aplicabilidad y terminación, verificación
+por ejecución, benchmarks de transferencia y resultados negativos a escala.
 
 ## Regla de mantenimiento
 
