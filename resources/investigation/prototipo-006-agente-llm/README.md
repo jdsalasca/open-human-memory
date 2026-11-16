@@ -57,9 +57,13 @@ Comparación con nuestros solucionadores en la misma rejilla:
 
 ## 5. Límites
 
-- Un modelo, un esfuerzo (`low`), una corrida, semilla 0.
-- Sin self-consistency, sin herramientas, sin few-shot de la familia.
+- Un modelo, un esfuerzo (`low`), una corrida, semilla 0 para el techo de 64 tareas.
+- El diagnóstico usa **24 tareas**: los intervalos son de ±20 pp y no permiten
+  detectar efectos pequeños. Los signos son indicativos, no concluyentes.
+- Sin self-consistency, sin few-shot de la familia, sin `high` effort.
 - `low` es el ajuste más barato; con más esfuerzo el techo subiría.
+- El sandbox es efímero: los archivos escritos no persisten, así que la única
+  verificación válida del uso de herramientas es el transcript.
 - Comparación con nuestros solvers: ellos ven exactamente los mismos tres
   ejemplos, pero conocen el lenguaje de operaciones. El LLM no. No es una
   comparación de inteligencia; es una comparación de ajuste al dominio.
@@ -76,10 +80,28 @@ Mismas 24 tareas, comparación pareada, `gpt-6-luna` low, una llamada por tarea:
 | `more_examples` (6 ejemplos) | 16/24 | 66,7 % | +8,3 pp | −20,8 a +33,3 |
 | `vocabulary` (se nombran las 4 operaciones) | 15/24 | 62,5 % | +4,2 pp | −12,5 a +25,0 |
 | `retrieved` (una tarea resuelta de la misma transformación) | 16/24 | 66,7 % | +8,3 pp | −12,5 a +33,3 |
-| `tool` (intérprete Python) | en ejecución | — | — | — |
+| `tool` (intérprete disponible, sin exigir uso) | 10/24 | 41,7 % | no usado | ver nota |
+| `tool-forced` (uso exigido y verificado por transcript) | 14/24 | 58,3 % | 0,0 pp | −29,2 a +29,2 |
 
 Pares discordantes frente a `base`: `more_examples` 7 mejora / 5 empeora;
-`vocabulary` 3 / 2; `retrieved` 5 / 3.
+`vocabulary` 3 / 2; `retrieved` 5 / 3; `tool-forced` **6 / 6**.
+
+### Nota sobre `tool`: disponibilidad no es uso, y archivos no son ejecución
+
+La primera versión de la condición con intérprete dio **10/24 (41,7 %)**, *peor* que
+`base`, con tiempos idénticos (7,2 s vs 8,8 s) y **13 de 24 respuestas
+byte-idénticas**. El agente **no usó la herramienta**. Se retira como evidencia
+sobre herramientas; solo muestra que «tener un intérprete» no implica «ejecutar».
+
+La segunda versión exigió escribir y ejecutar un script. El transcript de Codex
+confirma `python .\solution.py` con código 0 y salida correcta, y la latencia subió
+a **29,4 s** (3,3×). Sin embargo, el chequeo de archivos dio 0/24: el sandbox es
+efímero y no persiste lo escrito. Por tanto, **la verificación válida es el
+transcript, no los archivos**.
+
+Resultado: **14/24 (58,3 %), idéntico a `base`**, con 6 tareas que mejoran y 6 que
+empeoran, y 5 respuestas vacías (el script no llegó a reproducir los ejemplos y el
+agente se rindió).
 
 ### Lectura
 
@@ -91,12 +113,19 @@ Pares discordantes frente a `base`: `more_examples` 7 mejora / 5 empeora;
    memoria en vez de a información.
 3. **Nombrar el lenguaje de operaciones casi no ayuda** (+4,2 pp): el fallo no es
    de representación.
-4. **El agente sigue fallando 8/24 con una tarea resuelta delante.** El patrón de
-   errores es de ejecución: ordena mal, aplica una operación de más o pierde un
-   elemento. Eso apunta a que el cuello no es la memoria.
+4. **El intérprete, usado de verdad, no mejora nada** (0,0 pp) y cuesta 3,3× más
+   tiempo. El fallo tampoco es de cálculo exacto.
+5. **El agente sigue fallando 8/24 con una tarea resuelta delante y 10/24 con un
+   script ejecutado.** El patrón es de **identificación del programa**: con tres
+   ejemplos hay muchas transformaciones compatibles, y el agente elige una que
+   falla en la consulta.
 
-Por eso la condición decisiva es `tool`: si un intérprete sube el acierto, el
-problema era ejecución exacta y la memoria no era la intervención correcta.
+Conclusión del diagnóstico: el cuello de botella del agente en este banco es
+**inducir la transformación correcta**, no recordar, ni representar, ni ejecutar.
+La consecuencia para el 007 es que la memoria solo puede ayudar si entrega un
+**procedimiento verificado** —no más ejemplos ni un intérprete—, y que su valor
+debe medirse contra el clon sin historial, no contra el agente sin ayuda.
+
 
 
 ## 8. Reproducir

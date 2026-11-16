@@ -114,6 +114,18 @@ Dos consecuencias:
   que de verdad importa: darle un procedimiento recuperado y medir si sube del
   47 % al techo.
 
+Diagnóstico pareado en 24 de esas tareas: más ejemplos **+8,3 pp**, una
+experiencia resuelta de la misma transformación **+8,3 pp**, nombrar el lenguaje
+de operaciones **+4,2 pp**, intérprete Python exigido y ejecutado **0,0 pp** con
+3,3× más tiempo. Ningún intervalo excluye cero, y memoria y más información dan el
+mismo efecto: con este diseño **no se pueden distinguir**.
+
+El cuello del agente es **identificar la transformación**, no recordar, ni
+representar, ni ejecutar. Eso redefine el 007: la memoria solo puede ayudar si
+entrega un **procedimiento verificado**, y su valor se mide contra un clon sin
+historial. Detalle en
+[`prototipo-006-agente-llm/`](resources/investigation/prototipo-006-agente-llm/).
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64

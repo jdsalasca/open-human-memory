@@ -27,6 +27,13 @@
       "parsed": 24,
       "mean_seconds": 6.62,
       "n": 24
+    },
+    "tool_forced": {
+      "accuracy": 0.5833,
+      "correct": 14,
+      "parsed": 24,
+      "mean_seconds": 29.41,
+      "n": 24
     }
   },
   "paired_vs_base": {
@@ -58,6 +65,16 @@
       "a_only": 5,
       "b_only": 3,
       "neither": 5,
+      "n": 24
+    },
+    "tool_forced": {
+      "diff": 0.0,
+      "ci_low": -0.2917,
+      "ci_high": 0.2917,
+      "both_correct": 8,
+      "a_only": 6,
+      "b_only": 6,
+      "neither": 4,
       "n": 24
     }
   }

@@ -182,8 +182,8 @@ evidencia.**
 
 | # | Respuesta breve |
 |---|---|
-| 16 | En el agente real, el cuello es **resolver** (46,9 %), no recordar. En el sintético, la búsqueda. |
-| 17 | Ninguna. El 006-B mostró fallos de ejecución, no de memoria. |
+| 16 | En el agente real, el cuello es **identificar la transformación**: ni más ejemplos, ni vocabulario, ni un intérprete forzado lo arreglan de forma distinguible. |
+| 17 | Diagnóstico 006-B: el fallo persiste con script ejecutado. No es falta de cómputo ni de memoria. |
 | 18 | Una política de dos acciones sí; con cuatro (recuperar, razonar, experimentar, crear) no hay evidencia. |
 | 19 | El 006-A' lo midió: decidir cuesta 41 pasos y ahorra 29. **La decisión no paga.** |
 | 20 | Sí, en parte: el 005 midió la curva de continuidad. Predecir el cambio, no. |
@@ -255,6 +255,25 @@ en experiencias hasta competencia. Es el 007.
 
 **Regla:** no se mezclan en una sola puntuación. Un resultado del horizonte
 inmediato no se presenta como evidencia del fundamental.
+
+## 4.6 Lo que ya respondió el diagnóstico del agente
+
+Cinco condiciones, 24 tareas pareadas, mismo modelo:
+
+| Intervención | Δ acierto | IC 95 % | Coste |
+|---|---|---|---|
+| Más ejemplos | +8,3 pp | −20,8 a +33,3 | 6,2 s |
+| Vocabulario de operaciones | +4,2 pp | −12,5 a +25,0 | 6,8 s |
+| Experiencia resuelta (memoria) | +8,3 pp | −12,5 a +33,3 | 6,6 s |
+| Intérprete Python exigido y ejecutado | **0,0 pp** | −29,2 a +29,2 | **29,4 s (3,3×)** |
+
+Ninguna se distingue de cero. La memoria y más ejemplos producen el mismo efecto:
+son la misma intervención disfrazada. Y el intérprete, verificado por transcript,
+no mejora nada.
+
+**El cuello es identificar el programa correcto.** Eso obliga a que el 007 entregue
+un procedimiento verificado —no más contexto, no más ejemplos, no herramientas— y
+a que lo compare con un clon sin historial. Cualquier otra cosa mide otra cosa.
 
 ## 5. El 007: experimento mínimo
 

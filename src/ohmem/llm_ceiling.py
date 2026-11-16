@@ -52,9 +52,12 @@ Responde solo con la lista de enteros resultante."""
 
 PROMPT_TOOL = """Resuelve esta tarea de síntesis por ejemplos.
 
-Tienes pares entrada -> salida. Infiere la transformación y aplícala a la entrada
-final. Puedes escribir y ejecutar código Python en el directorio de trabajo para
-comprobar tu hipótesis. No modifiques nada fuera de él.
+Tienes pares entrada -> salida. Infiere la transformación.
+
+OBLIGATORIO: escribe un script Python en el directorio de trabajo, ejecútalo con
+`python` para comprobar tu hipótesis contra los tres ejemplos, y solo cuando tu
+script reproduzca los tres pares, úsalo para calcular la respuesta. No modifiques
+nada fuera del directorio de trabajo.
 
 {examples}
 {extra}
@@ -181,16 +184,24 @@ def main() -> None:
         if args.condition == "tool":
             prompt = prompt_for_tool(task)
             sandbox = "workspace-write"
+            taskdir = workdir / f"task-{index}"
+            taskdir.mkdir(parents=True, exist_ok=True)
         else:
             prompt = prompt_for(task, args.condition, memory)
             sandbox = "read-only"
+            taskdir = workdir
         result = run_codex(
             prompt,
-            workdir,
+            taskdir,
             args.model,
             args.effort,
             args.timeout,
             sandbox=sandbox,
+        )
+        files = sorted(
+            p.name
+            for p in taskdir.iterdir()
+            if p.name not in ("schema.json", "last.json")
         )
         expected = list(apply_program(task.solution.program, task.observation.query))
         ok = result["answer"] == expected
@@ -207,6 +218,7 @@ def main() -> None:
                 "correct": ok,
                 "seconds": result["seconds"],
                 "returncode": result["returncode"],
+                "files_created": files,
                 "raw": result["raw"],
                 "stderr_tail": result["stderr_tail"],
             }

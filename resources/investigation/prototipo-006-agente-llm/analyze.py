@@ -8,7 +8,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
-CONDITIONS = ("base", "more_examples", "vocabulary", "retrieved")
+CONDITIONS = ("base", "more_examples", "vocabulary", "retrieved", "tool_forced")
 BOOTSTRAP = 2000
 
 
