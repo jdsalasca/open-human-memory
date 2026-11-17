@@ -7,7 +7,7 @@
 **Fecha:** 16 de noviembre de 2026
 **Estado:** preprint no arbitrado. Listo para revisión por pares.
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Versión:** `v1.25-review`
+**Versión:** `v1.26-review`
 
 ---
 
@@ -54,8 +54,9 @@ un hecho desconocido; entrega el programa explícito en lugar de exigir inferirl
 resultado mide **inferir frente a recibir**, no memoria de algo que solo estuviera en
 la experiencia. **MEM-005** separa contenido, estado e instrucción: el efecto grande
 solo aparece en verificado+aplicar (12/12 vs 1/12), y un **programa escrito por un
-programador, sin aprendizaje previo, acierta 12/12**. La adquisición no añade nada en
-esta tarea; el positivo es instrucción y contenido, no memoria. No hay recuperación
+programador, sin aprendizaje previo, acierta 12/12**. No hay evidencia de ventaja de
+adquisición en esta tarea, pero el control cambia procedencia y orden: no es una
+equivalencia. El positivo es instrucción y contenido, no memoria. No hay recuperación
 autónoma entre varias memorias.
 
 El resultado es **uso de memoria**, no expansión de competencia: la tarea de 2
@@ -403,7 +404,7 @@ positiva condicionada.
 | MEM-002 | memoria en 2–3 operaciones | 12 tareas, `luna` low | clon, memoria, placebo, historial, oráculo | llamadas | 3 ops: 2/3/5/4/8; 2 ops: 5/7/4/9/11 | 1–6 pares | 3 ops negativo; 2 ops señal |
 | MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
 | MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
-| MEM-005 | factorial contenido × estado × instrucción | 12 tareas, `luna` low | 10 condiciones, semilla 1 | llamadas | verificado+aplicar 12/12; placebo verificado+aplicar 1/12; escrito 12/12 | 0–11 pares | La adquisición no añade; el contenido+instrucción sí |
+| MEM-005 | factorial contenido × estado × instrucción | 12 tareas, `luna` low | 10 condiciones, semilla 1 | llamadas | verificado+aplicar 12/12; placebo verificado+aplicar 1/12; escrito 12/12 | 0–11 pares | Sin evidencia de ventaja de adquisición; contenido+instrucción |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -625,13 +626,17 @@ instrucción de aplicar (12 vs 1; 11 pares, p = 0,001). En candidata+verificar e
 contenido apenas separa (8 vs 6; 3/1, p = 0,625). Los efectos individuales son
 direccionales, no significativos: verificado vs candidata con instrucción de aplicar,
 12 vs 9 (3/0, p = 0,25); aplicar vs verificar con estado verificado, 12 vs 8 (4/0,
-p = 0,125).
+p = 0,125). **La interacción triple es 0,50 con bootstrap 95 % [−0,17, 1,17]**, que
+incluye cero (10.000 remuestreos). El resultado bien respaldado es
+**verificado+aplicar frente a su placebo**; cuánto aporta causalmente cada factor y si
+la interacción se reproduce con otras habilidades sigue abierto.
 
-**El control escrito es el hallazgo decisivo:** un programa escrito por un programador,
-sin sesión previa de aprendizaje, acierta **12/12**, exactamente igual que el programa
-aprendido. **La adquisición previa no añade nada en esta tarea.** El resultado es del
-contenido correcto más la instrucción definitiva, no de la memoria ni del proceso de
-aprendizaje. La formulación defendible es: *entregar el procedimiento correcto como
+**El control escrito es informativo, no una equivalencia:** un programa escrito por un
+programador, sin sesión previa de aprendizaje, acierta **12/12**, igual que el
+aprendido. **No hay evidencia de ventaja de adquisición en esta tarea.** Pero el
+control cambia la procedencia declarada y el orden (`double → sort_asc` aprendido vs
+`sort_asc → double` escrito), así que no prueba que la procedencia sea irrelevante en
+general. La formulación defendible es: *entregar el procedimiento correcto como
 instrucción autoritativa y aplicable mejora la ejecución local en una transformación
 identificable*, no *la memoria acumulativa funciona*.
 
@@ -717,7 +722,8 @@ sola celda: contenido correcto, estado verificado e instrucción de aplicar (12 
 11 pares, p = 0,001). En candidata+verificar el contenido apenas separa (8 vs 6). Los
 efectos individuales son direccionales, no significativos. Y el control decisivo: un
 **programa escrito por un programador, sin aprendizaje previo, acierta 12/12**, igual
-que el aprendido. **La adquisición no añade nada en esta tarea.** El positivo es
+que el aprendido. **No hay evidencia de ventaja de adquisición en esta tarea**; el
+control cambia procedencia y orden, así que no es una equivalencia. El positivo es
 contenido correcto más instrucción definitiva, no memoria.
 
 **Qué es y qué no es el resultado positivo.** Es **uso de un procedimiento correcto
@@ -786,6 +792,19 @@ obsoletos y contradictorios. Después, la réplica de **24 tareas y varias semil
 18. **MEM-004 vs clon no alcanza p < 0,05** (p = 0,0625); los valores p no corrigen
     por comparaciones múltiples y el orden de condiciones era fijo en MEM-002/003/004.
     MEM-005 aleatoriza el orden por tarea.
+19. **La interacción triple de MEM-005 no está establecida**: 0,50 con bootstrap 95 %
+    [−0,17, 1,17], que incluye cero. El resultado bien respaldado es
+    verificado+aplicar frente a su placebo.
+20. **La manipulación textual mezcla factores**: autoridad declarada, completitud
+    sugerida («el programa completo puede tener más pasos») e instrucción operativa.
+    Con `suffix=0` el programa no está incompleto, así que la sugerencia es un
+    confundidor.
+21. **MEM-005 no es pre-registro independiente**: protocolo, código, resultados y
+    análisis entraron en el mismo commit. MEM-006 se pre-registrará con hash antes de
+    la corrida.
+22. **No hay coste total**: no se guardaron tokens por condición y la adquisición se
+    ejecuta antes de todas las condiciones. Falta el beneficio neto
+    `N·(C_sin − C_con) − C_adq − C_ver − C_mant`.
 
 ---
 
@@ -827,8 +846,9 @@ artefacto como candidato a re-verificar. Corregidos el régimen (dos operaciones
 efectivas) y el encuadre (procedimiento correcto presentado como verificado y
 aplicable), la ejecución mejora: 10–11/12 frente a 3–5/12 del clon y 2–3/12 del
 placebo. Pero **MEM-005 muestra que un programa escrito por un programador, sin
-aprendizaje previo, acierta 12/12**, igual que el aprendido: la adquisición no añade
-nada en esta tarea. El «positivo» es **contenido correcto más instrucción definitiva**,
+aprendizaje previo, acierta 12/12**, igual que el aprendido: no hay evidencia de
+ventaja de adquisición en esta tarea, y el control cambia procedencia y orden. El
+«positivo» es **contenido correcto más instrucción definitiva**,
 no memoria acumulativa. Un placebo etiquetado como verificado acierta 0–1/12: la
 etiqueta no basta y puede inducir errores sistemáticos.
 

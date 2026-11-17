@@ -235,11 +235,18 @@ cambia con el diagnóstico de EXEC-001.
 
 > **Lectura:** el efecto grande solo aparece en la celda verificado+aplicar
 > (12 vs 1). El programa escrito por un programador rinde igual que el aprendido
-> (12/12 vs 12/12): **la ventaja es del contenido correcto más la instrucción
-> definitiva, no de la adquisición ni de la memoria.** La formulación defendible es
-> «entregar el procedimiento correcto como instrucción autoritativa mejora la
-> ejecución local en una transformación identificable», no «la memoria acumulativa
-> funciona».
+> (12/12 vs 12/12), pero el control cambia procedencia y orden: **no hay evidencia de
+> ventaja de adquisición en esta tarea**, no una prueba de que la procedencia sea
+> irrelevante. La interacción triple es 0,50 con bootstrap 95 % [−0,17, 1,17], que
+> incluye cero; el resultado bien respaldado es verificado+aplicar frente a su
+> placebo. La formulación defendible es «entregar el procedimiento correcto como
+> instrucción autoritativa mejora la ejecución local en una transformación
+> identificable», no «la memoria acumulativa funciona».
+>
+> **Límites metodológicos:** protocolo, código, resultados y análisis entraron en el
+> mismo commit (exploratorio, no pre-registro independiente); no se guardaron tokens
+> por condición; la instrucción de verificar sugiere completitud que con `suffix=0` no
+> existe.
 
 ---
 

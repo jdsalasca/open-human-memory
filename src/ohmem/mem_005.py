@@ -171,6 +171,9 @@ def main() -> None:
                     "answer": answer,
                     "correct": ok,
                     "prompt_chars": len(prompt),
+                    "input_tokens": result["usage"].get("input_tokens"),
+                    "cached_tokens": result["usage"].get("cached_input_tokens"),
+                    "output_tokens": result["usage"].get("output_tokens"),
                     "seconds": result["seconds"],
                     "timed_out": result["timed_out"],
                 }

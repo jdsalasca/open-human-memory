@@ -62,12 +62,14 @@ verificado es un fallo seguro. **El modelo no puede ser el verificador de su pro
 memoria.**
 
 **Lo que añadió MEM-005.** El factorial contenido × estado × instrucción muestra que
-el efecto grande está solo en verificado+aplicar (12 vs 1, p = 0,001). Y el control
-decisivo: un **programa escrito por un programador, sin aprendizaje previo, acierta
-12/12**, igual que el aprendido. **La adquisición no añade nada en esta tarea.** El
-«positivo» es contenido correcto más instrucción definitiva, no memoria acumulativa.
-El siguiente paso no es otro formato de entrega: es **MEM-006** (varias memorias y
-recuperación autónoma) y **META-001** (ciclo longitudinal).
+el efecto grande está solo en verificado+aplicar (12 vs 1, p = 0,001), con una
+interacción triple de 0,50 e IC bootstrap [−0,17, 1,17]. Y el control informativo: un
+**programa escrito por un programador, sin aprendizaje previo, acierta 12/12**, igual
+que el aprendido. **No hay evidencia de ventaja de adquisición en esta tarea**, pero
+el control cambia procedencia y orden. El «positivo» es contenido correcto más
+instrucción definitiva, no memoria acumulativa. El siguiente paso no es otro formato de
+entrega: es **MEM-006** (varias memorias y recuperación autónoma) y **META-001** (ciclo
+longitudinal).
 
 **Coste pendiente.** El piloto mide acierto, no coste total: falta contabilizar
 adquisición, verificación, almacenamiento y uso. La ventaja de la memoria verificada

@@ -265,7 +265,7 @@ Reproducir: `resources/investigation/revision-sistematica/busquedas.md`.
 | Artefacto | Versión / commit |
 |---|---|
 | Repositorio | `main` (ver `git log`) |
-| Etiqueta de revisión | `v1.25-review` |
+| Etiqueta de revisión | `v1.26-review` |
 | Python | 3.13.15 |
 | `codex-cli` | 0.169.0 |
 | Tests | `python -m unittest discover -s tests -v` (60) |

@@ -332,8 +332,9 @@ por un programador** sin sesión previa, con orden aleatorizado por tarea y semi
 - **El efecto grande está en una sola celda:** verificado+aplicar 12/12 vs placebo 1/12
   (11 pares, p = 0,001). Candidato+verificar apenas separa (8 vs 6).
 - **El programa escrito por un programador acierta lo mismo que el aprendido**
-  (12/12 vs 12/12). **La adquisición previa no añade nada en esta tarea.** El positivo
-  es contenido correcto más instrucción definitiva, no memoria acumulativa.
+  (12/12 vs 12/12). **No hay evidencia de ventaja de adquisición en esta tarea**, pero
+  el control cambia procedencia y orden: no es una equivalencia. El positivo es
+  contenido correcto más instrucción definitiva, no memoria acumulativa.
 - **La autoridad sobre contenido falso es peligrosa:** placebo+verificado+aplicar
   acierta 1/12. El modelo aplica el programa falso porque la etiqueta dice «verificado».
 
