@@ -316,6 +316,8 @@ estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 | La recuperación autónoma supera al clon en 2 operaciones | E2 local | **Refutada**: 7/10 vs 8/10; selección 5/10 (MEM-006) |
 | El solucionador simbólico resuelve las tareas de 2 operaciones | E2 local | Sostenida: 10/10 (MEM-006) |
 | La memoria se amortiza en 2 operaciones | E2 local | **Refutada**: 209.871 tokens de adquisición, sin ahorro de uso (MEM-006) |
+| La precondición de aplicabilidad evita falsos positivos | E2 local | Sostenida: 13/16; 7/8 rechazos vs 0/8 sin metadata (MEM-007) |
+| La metadata falsa u obsoleta se detecta | E2 local | **Sin medir** (MEM-008) |
 | El encuadre de candidata reduce el uso | E2 local | Sostenida local: 4/12 vs 11/12 (MEM-003) |
 | La etiqueta «verificado» basta sin contenido | E2 local | **Refutada**: placebo verificado 0/12 (MEM-004) |
 | Con información independiente, la recuperación funciona y falla la condición | E2 local | Sostenida local: 6–7/7 positivos, 2–5/5 secundarios (LIRE-002) |

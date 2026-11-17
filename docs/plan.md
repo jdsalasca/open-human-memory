@@ -74,6 +74,7 @@ sustituyen por otra arquitectura: se publica y se reduce el alcance.
 | **F2** recuperación genuina | **Pre-registrada (MEM-006), no ejecutada** | Implementar y correr 8 habilidades, retrieval, simbólico y experto |
 | **F2.5** forma del conocimiento | **Parcial**: LIRE-002 mide coste/fidelidad, no forma | Factorial idioma × longitud × estructura; LLMLingua-2 |
 | **MEM-006** múltiples habilidades y recuperación | **Ejecutado; negativo** | En 2 ops, simbólico 10/10; retrieval 7/10 (selección 5/10); clon 8/10; no se amortiza |
+| **MEM-007** aplicabilidad y rechazo | **Ejecutado; positivo** | Metadata 13/16 (7/8 rechazos); sin metadata 5/16; simbólico 8/16. Siguiente: MEM-008 precondición falsa/obsoleta |
 | **F3** universo no explorable | No ejecutado | Tarea identificable pero fuera del presupuesto |
 | **F4** currículo interdependiente | No ejecutado | — |
 | **F5** deriva y portabilidad | No ejecutado | — |

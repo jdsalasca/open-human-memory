@@ -263,11 +263,24 @@ cambia con el diagnóstico de EXEC-001.
 | R5 | La recuperación y `expert_written` no difieren en más de 2 pares | Sostenida (local) | E2 local | 7 vs 5; selección 5 vs 5 |
 | R6 | El sistema rechaza ≥ 3 de las 4 habilidades obsoletas | Abierta | E2 local | No ejecutado |
 
+## Q. Aplicabilidad y rechazo (MEM-007)
+
+> **Pre-registrado con hash antes de la corrida.** 4 habilidades, 16 tareas, semilla 1.
+> Protocolo: `mem-007/protocolo.md`; hash: `mem-007/protocolo.sha256`.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| A1 | `skill_meta` rechaza ≥ 3 de las 8 tareas inaplicables | Sostenida (local) | E2 local | 7/8 |
+| A2 | `skill_meta` supera a `skill_no_meta` en las inaplicables en ≥ 3 pares | Sostenida (local) | E2 local | 7/0 (p = 0,016) |
+| A3 | `skill_meta` y `skill_no_meta` no difieren en más de 2 pares en las aplicables | Sostenida (local) | E2 local | 6 vs 5 |
+| A4 | `skill_meta` supera a clon y simbólico en las inaplicables en ≥ 3 pares | Sostenida (local) | E2 local | 6/0 y 7/0 |
+| A5 | El solucionador simbólico aplica en ≥ 3 de las 8 inaplicables | Sostenida (local) | E2 local | 8/8 |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **68 sostenidas**: 63 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **73 sostenidas**: 68 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
 - **20 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE, las
   tres hipótesis de memoria en 3 operaciones y las dos de recuperación en 2.

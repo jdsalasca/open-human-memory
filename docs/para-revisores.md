@@ -1,9 +1,9 @@
 # Guía para revisores
 
-**Versión:** `v1.27-review` · 17 de noviembre de 2026
+**Versión:** `v1.28-review` · 17 de noviembre de 2026
 **Manuscrito:** [`manuscrito.md`](manuscrito.md)
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Tag de referencia:** `v1.27-review`
+**Tag de referencia:** `v1.28-review`
 
 Esta guía existe para que un revisor externo pueda evaluar el trabajo sin leer
 treinta documentos. Si algo no está aquí, es un defecto del repositorio.
@@ -39,6 +39,7 @@ el resultado positivo **no** es expansión de competencia.
 | **Diagnóstico** | 007B, EXEC-001, LIRE-002 | El 007 estaba fuera de la ejecución (oráculo 2/12 en 5 pasos); en 2 operaciones el modelo aplica 86 %, en 3 el 44 %, en 5 el 0–33 %; LIRE-001b era redundante; con información independiente, el control sin tabla acierta 0/7 y el fallo está en la condición |
 | **Positivo condicionado** | MEM-002, MEM-003, MEM-004, MEM-005 | En 2 operaciones, un procedimiento correcto presentado como verificado se usa (10–12/12); el encuadre de candidata lo hunde a 3–4/12; un placebo verificado acierta 0–1/12. **MEM-005 muestra que un programa escrito por un programador, sin aprendizaje previo, rinde igual (12/12): no hay evidencia de ventaja de adquisición en esta tarea; el control cambia procedencia y orden, no es una equivalencia.** Las tareas ya son identificables desde los dos ejemplos |
 | **Límite del régimen** | MEM-006 | En 2 operaciones con 5 habilidades, el solucionador simbólico acierta 10/10; el clon, 8/10; la recuperación, 7/10 con selección 5/10; la biblioteca de experto, 5/10. La adquisición cuesta 209.871 tokens y no se amortiza. **En tareas identificables, la búsqueda barata gana.** |
+| **Aplicabilidad** | MEM-007 | Con 4 habilidades y precondiciones, la metadata acierta 13/16: rechaza 7/8 inaplicables y conserva 6/8 aplicables. Sin metadata, el modelo aplica 8/8; el simbólico ejecuta 8/8 aplicables pero aplica 8/8 inaplicables. **El valor es aplicar condicionalmente, no ejecutar.** La precondición es verdadera; falsa/obsoleta es MEM-008. |
 
 ---
 
@@ -70,6 +71,11 @@ el resultado positivo **no** es expansión de competencia.
 | R4 | El solucionador simbólico acierta ≥90 % | Sostenida | MEM-006: 10/10 |
 | R5 | Recuperación y experto no difieren en más de 2 pares | Sostenida | MEM-006: 7 vs 5; selección 5 vs 5 |
 | R6 | Rechaza ≥3 de 4 habilidades obsoletas | **Abierta** | No ejecutado |
+| A1 | `skill_meta` rechaza ≥3/8 inaplicables | Sostenida | MEM-007: 7/8 |
+| A2 | `skill_meta` > `skill_no_meta` en inaplicables en ≥3 pares | Sostenida | MEM-007: 7/0 (p=0,016) |
+| A3 | `skill_meta` ≈ `skill_no_meta` en aplicables (≤2 pares) | Sostenida | MEM-007: 6 vs 5 |
+| A4 | `skill_meta` > clon y simbólico en inaplicables en ≥3 pares | Sostenida | MEM-007: 6/0 y 7/0 |
+| A5 | El simbólico aplica en ≥3/8 inaplicables | Sostenida | MEM-007: 8/8 |
 | M11–M12 | Réplica de 24 tareas: verificada ≥20/24 y > candidata en ≥6 pares | **Abiertas** | No ejecutadas |
 
 **Ninguna alcanza E3** (varias distribuciones), **E4** (tareas reales) ni **E5**
@@ -115,7 +121,7 @@ el resultado positivo **no** es expansión de competencia.
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 106 claims, totales citados
+python docs/verificar_afirmaciones.py            # 111 claims, totales citados
 ```
 
 ### 5.2 Reproducir los experimentos clave
@@ -144,6 +150,11 @@ python resources/investigation/mem-005/analyze.py
 # MEM-006: 8 habilidades, retrieval, simbólico
 python -m ohmem.mem_006 --tasks-per-skill 2 --support 2 --seed 1 --session1-examples 12 --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-006/results/retrieval-seed1.json
 python resources/investigation/mem-006/analyze.py
+
+# MEM-007: aplicabilidad y rechazo
+python -m ohmem.mem_007 --support 2 --seed 1 --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-007/results/pilot-seed1.json
+python -m ohmem.mem_007 --support 2 --seed 1 --conditions clone --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-007/results/clone-fixed.json
+python resources/investigation/mem-007/analyze.py
 ```
 
 ### 5.3 Trazabilidad
@@ -158,6 +169,7 @@ python resources/investigation/mem-006/analyze.py
 | MEM-004 | `mem-004/results/pilot-depth2-verified-placebo.json` | `mem-004/analyze.py` |
 | MEM-005 | `mem-005/results/factorial-seed1.json` | `mem-005/analyze.py` |
 | MEM-006 | `mem-006/results/retrieval-seed1.json` | `mem-006/analyze.py` |
+| MEM-007 | `mem-007/results/pilot-seed1-corrected.json` | `mem-007/analyze.py` |
 
 Los JSON contienen las filas por condición, tarea y programa, con la respuesta, el
 valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
@@ -204,6 +216,10 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
     modelo. El solucionador simbólico resuelve 10/10 y el clon 8/10: las tareas no
     requieren memoria. La obsolescencia (R6) no se ejecutó. La adquisición costó
     209.871 tokens y no se amortiza.
+17. **MEM-007**: 4 habilidades, 16 tareas, una semilla, un modelo. La precondición es
+    verdadera y explícita; no se probó una **falsa** ni **obsoleta**. La habilidad se
+    entrega identificada; no hay recuperación entre habilidades. El clon se re-ejecutó
+    con el prompt corregido (`APPLY`/`NONE`); la corrida original no es válida.
 
 ---
 
@@ -266,6 +282,7 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
 | 16 nov | **MEM-002/003/004**: el encuadre era el cuello; la etiqueta no basta | `mem-002/`, `mem-003/`, `mem-004/` |
 | 16 nov | **MEM-005**: factorial contenido × estado × instrucción; el programa escrito rinde igual (12/12); sin evidencia de ventaja de adquisición | `mem-005/` |
 | 17 nov | **MEM-006**: 5 habilidades, recuperación autónoma; simbólico 10/10, retrieval 7/10, clon 8/10; no se amortiza | `mem-006/` |
+| 17 nov | **MEM-007**: aplicabilidad; metadata 13/16 (7/8 rechazos), sin metadata 5/16, simbólico 8/16 | `mem-007/` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.

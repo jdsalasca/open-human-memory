@@ -88,6 +88,7 @@ empeora nada medible, no entra).
 | [mem-004/](mem-004/) | Placebo verificado: ¿contenido o etiqueta? |
 | [mem-005/](mem-005/) | Factorial: el programa escrito rinde igual; la adquisición no añade |
 | [mem-006/](mem-006/) | Ejecutado: simbólico 10/10; retrieval 7/10; negativo |
+| [mem-007/](mem-007/) | Ejecutado: metadata 13/16; 7/8 rechazos; positivo condicionado |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
 | [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |

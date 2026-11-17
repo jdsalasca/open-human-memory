@@ -63,7 +63,8 @@ def prompt_for(task, skill: dict, mode: str, support: int = 2) -> str:
         return (
             f"Resuelve esta tarea de transformación de listas.\n{examples}\n"
             f"Entrada a transformar: {list(task.observation.query)}\n\n"
-            "Si la tarea no se puede resolver, devuelve status NONE y una lista vacía."
+            "Si la tarea se puede resolver, devuelve status APPLY y la lista "
+            "resultante. Si no, devuelve status NONE y una lista vacía."
         )
     procedure = " -> ".join(skill["program"])
     if mode == "skill_no_meta":
@@ -127,6 +128,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--support", type=int, default=2)
     parser.add_argument("--seed", type=int, default=1)
+    parser.add_argument("--conditions", default="clone,skill_no_meta,skill_meta")
     parser.add_argument("--model", default="gpt-6.1-terra")
     parser.add_argument("--effort", default="medium")
     parser.add_argument("--timeout", type=int, default=300)
@@ -140,6 +142,11 @@ def main() -> None:
                 tasks.append(
                     (skill, applicable, task_for(skill, applicable, j, args.seed))
                 )
+    selected_conditions = [
+        condition.strip()
+        for condition in args.conditions.split(",")
+        if condition.strip()
+    ]
     order_rng = random.Random(f"mem007-order:{args.seed}")
     rows = []
     for task_index, (skill, applicable, task) in enumerate(tasks):
@@ -167,6 +174,9 @@ def main() -> None:
             }
         )
         conditions = ["clone", "skill_no_meta", "skill_meta"]
+        conditions = [
+            condition for condition in conditions if condition in selected_conditions
+        ]
         order_rng.shuffle(conditions)
         for position, condition in enumerate(conditions):
             prompt = prompt_for(task, skill, condition, args.support)

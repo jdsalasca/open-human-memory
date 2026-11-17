@@ -1,0 +1,965 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 1,
+  "support": 2,
+  "conditions": {
+    "clone": {
+      "correct": 5,
+      "n": 16,
+      "applicable_correct": 4,
+      "applicable_n": 8,
+      "inapplicable_correct": 1,
+      "inapplicable_n": 8
+    },
+    "skill_no_meta": {
+      "correct": 0,
+      "n": 0,
+      "applicable_correct": 0,
+      "applicable_n": 0,
+      "inapplicable_correct": 0,
+      "inapplicable_n": 0
+    },
+    "skill_meta": {
+      "correct": 0,
+      "n": 0,
+      "applicable_correct": 0,
+      "applicable_n": 0,
+      "inapplicable_correct": 0,
+      "inapplicable_n": 0
+    },
+    "symbolic_solver": {
+      "correct": 8,
+      "n": 16,
+      "applicable_correct": 8,
+      "applicable_n": 8,
+      "inapplicable_correct": 0,
+      "inapplicable_n": 8
+    }
+  },
+  "rows": [
+    {
+      "condition": "symbolic_solver",
+      "task_index": 0,
+      "skill_id": "p1",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "status": "APPLY",
+      "answer": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 0,
+      "skill_id": "p1",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "status": "APPLY",
+      "answer": [
+        2,
+        6,
+        18,
+        8
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 269,
+      "input_tokens": 26651,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 7.76,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 1,
+      "skill_id": "p1",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "status": "APPLY",
+      "answer": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 1,
+      "skill_id": "p1",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        6,
+        8,
+        16,
+        18
+      ],
+      "status": "APPLY",
+      "answer": [
+        8,
+        6,
+        18,
+        8
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 269,
+      "input_tokens": 26651,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 8.84,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 2,
+      "skill_id": "p1",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        14,
+        14,
+        16,
+        18
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 2,
+      "skill_id": "p1",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        4,
+        6,
+        14,
+        16
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 269,
+      "input_tokens": 26653,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 9.89,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 3,
+      "skill_id": "p1",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        14,
+        14,
+        16,
+        18
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 3,
+      "skill_id": "p1",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        6,
+        18,
+        14,
+        28
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 269,
+      "input_tokens": 53543,
+      "output_tokens": 92,
+      "timed_out": false,
+      "seconds": 13.55,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 4,
+      "skill_id": "p2",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "status": "APPLY",
+      "answer": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "correct": true,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 4,
+      "skill_id": "p2",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "status": "APPLY",
+      "answer": [
+        4,
+        2,
+        1,
+        3
+      ],
+      "correct": false,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 266,
+      "input_tokens": 26651,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 7.7,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 5,
+      "skill_id": "p2",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "status": "APPLY",
+      "answer": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "correct": true,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 5,
+      "skill_id": "p2",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        5,
+        6,
+        9,
+        7
+      ],
+      "status": "APPLY",
+      "answer": [
+        4,
+        2,
+        2,
+        5
+      ],
+      "correct": false,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 266,
+      "input_tokens": 26658,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 9.04,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 6,
+      "skill_id": "p2",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        9,
+        5,
+        4,
+        6
+      ],
+      "correct": false,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 6,
+      "skill_id": "p2",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        4,
+        6,
+        8,
+        3
+      ],
+      "correct": false,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 267,
+      "input_tokens": 26656,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 9.46,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 7,
+      "skill_id": "p2",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        9,
+        5,
+        4,
+        6
+      ],
+      "correct": false,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 7,
+      "skill_id": "p2",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "NONE",
+      "answer": [],
+      "correct": true,
+      "solver_program": [
+        "add_one",
+        "reverse"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 267,
+      "input_tokens": 25750,
+      "output_tokens": 19,
+      "timed_out": false,
+      "seconds": 6.75,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 8,
+      "skill_id": "p3",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 8,
+      "skill_id": "p3",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 274,
+      "input_tokens": 25750,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 7.54,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 9,
+      "skill_id": "p3",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 9,
+      "skill_id": "p3",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -6,
+        -3,
+        -2
+      ],
+      "correct": true,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 274,
+      "input_tokens": 26662,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 9.53,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 10,
+      "skill_id": "p3",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -7,
+        -6,
+        -1
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 10,
+      "skill_id": "p3",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -7,
+        -6,
+        -1
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 274,
+      "input_tokens": 25748,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 7.9,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 11,
+      "skill_id": "p3",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -7,
+        -6,
+        -1
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 11,
+      "skill_id": "p3",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        -8,
+        -7,
+        -6,
+        -1
+      ],
+      "correct": false,
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 274,
+      "input_tokens": 25750,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 8.58,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 12,
+      "skill_id": "p4",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "status": "APPLY",
+      "answer": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "correct": true,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 12,
+      "skill_id": "p4",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "status": "APPLY",
+      "answer": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "correct": true,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 268,
+      "input_tokens": 26649,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 8.42,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 13,
+      "skill_id": "p4",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "status": "APPLY",
+      "answer": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "correct": true,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 13,
+      "skill_id": "p4",
+      "applicable": true,
+      "expected_status": "APPLY",
+      "expected": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "status": "APPLY",
+      "answer": [
+        9,
+        15,
+        15,
+        11
+      ],
+      "correct": true,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 268,
+      "input_tokens": 26631,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 15.69,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 14,
+      "skill_id": "p4",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        13,
+        3,
+        15,
+        17
+      ],
+      "correct": false,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 14,
+      "skill_id": "p4",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        13,
+        3,
+        15,
+        17
+      ],
+      "correct": false,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 271,
+      "input_tokens": 26607,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 14.83,
+      "order": 0
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 15,
+      "skill_id": "p4",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        13,
+        3,
+        15,
+        17
+      ],
+      "correct": false,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 15,
+      "skill_id": "p4",
+      "applicable": false,
+      "expected_status": "NONE",
+      "expected": [],
+      "status": "APPLY",
+      "answer": [
+        13,
+        3,
+        15,
+        17
+      ],
+      "correct": false,
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 271,
+      "input_tokens": 26651,
+      "output_tokens": 27,
+      "timed_out": false,
+      "seconds": 11.47,
+      "order": 0
+    }
+  ]
+}

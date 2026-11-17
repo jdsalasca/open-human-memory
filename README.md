@@ -24,6 +24,9 @@ separar información, aplicación, verificación y encuadre antes de construir o
 arquitectura. Un procedimiento correcto presentado como verificado se usa en 2
 operaciones; las tareas ya son identificables desde los ejemplos y un programa escrito
 por un programador rinde igual, así que no es adquisición ni expansión de competencia.
+La **metadata de aplicabilidad** sí aporta: permite rechazar 7/8 tareas inaplicables
+sin perder precisión aplicable (MEM-007); el siguiente control es una precondición
+falsa u obsoleta.
 
 ## Cómo leer este repositorio
 
@@ -367,6 +370,29 @@ Detalle en [`mem-002/`](resources/investigation/mem-002/),
   aplicabilidad/obsolescencia sea el problema.
 
 Detalle en [`mem-006/`](resources/investigation/mem-006/).
+
+### MEM-007: la precondición evita el falso positivo
+
+4 habilidades con precondiciones, 16 tareas (8 aplicables, 8 inaplicables). La
+habilidad se entrega identificada; se mide **aplicabilidad**, no recuperación.
+
+| Condición | Total | Aplicables | Inaplicables | Falsos positivos |
+|---|---|---|---|---|
+| Clon | 5/16 | 4/8 | 1/8 | 7/8 |
+| Habilidad sin metadata | 5/16 | 5/8 | 0/8 | 8/8 |
+| **Habilidad con precondición** | **13/16** | **6/8** | **7/8** | **1/8** |
+| Solucionador simbólico | 8/16 | 8/8 | 0/8 | 8/8 |
+
+- **La precondición permite rechazar 7/8 inaplicables**; sin metadata, el modelo y el
+  simbólico aplican 8/8. La precisión aplicable no cae (6/8 vs 5/8).
+- **El valor de la memoria aquí no es ejecutar ni recuperar: es aplicar
+  condicionalmente.** El solucionador simbólico ejecuta 8/8 aplicables pero no sabe
+  cuándo no usar la habilidad.
+- **Cautela:** la precondición es verdadera y explícita. Una precondición **falsa** u
+  **obsoleta** es el control obligatorio de MEM-008; si el modelo la usa sin
+  comprobarla, rechazará cuando no debe.
+
+Detalle en [`mem-007/`](resources/investigation/mem-007/).
 
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 

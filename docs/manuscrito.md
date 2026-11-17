@@ -7,7 +7,7 @@
 **Fecha:** 16 de noviembre de 2026
 **Estado:** preprint no arbitrado. Listo para revisión por pares.
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Versión:** `v1.27-review`
+**Versión:** `v1.28-review`
 
 ---
 
@@ -170,7 +170,7 @@ Una **demostración metodológica** con cuatro piezas:
    memoria.
 
 Las piezas de apoyo son: la proposición con condiciones, los experimentos, la revisión
-estructurada de 31 trabajos y el registro de 106 afirmaciones. Ninguna se presenta como
+estructurada de 31 trabajos y el registro de 111 afirmaciones. Ninguna se presenta como
 una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -406,6 +406,7 @@ positiva condicionada.
 | MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
 | MEM-005 | factorial contenido × estado × instrucción | 12 tareas, `luna` low | 10 condiciones, semilla 1 | llamadas | verificado+aplicar 12/12; placebo verificado+aplicar 1/12; escrito 12/12 | 0–11 pares | Sin evidencia de ventaja de adquisición; contenido+instrucción |
 | MEM-006 | múltiples habilidades y recuperación | 10 tareas, 5 habilidades, `luna` low | clon, oráculo, retrieval, aleatoria, experto, simbólico | tokens | retrieval 7/10 (selección 5/10); simbólico 10/10; clon 8/10 | 0–6 pares | Negativo: la búsqueda barata gana |
+| MEM-007 | aplicabilidad y rechazo | 16 tareas, 4 habilidades, `luna` low | clon, sin metadata, con precondición, simbólico | tokens | con metadata 13/16 (7/8 rechazos); sin metadata 5/16; simbólico 8/16 | 0–7 pares | Positivo: la metadata evita falsos positivos |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -676,6 +677,30 @@ tendría que aportar en tareas donde la búsqueda no quepa en el presupuesto o d
 aplicabilidad y la obsolescencia sean el problema. No es otro formato de entrega; es
 otro régimen de tarea.
 
+### 5.13 MEM-007: la metadata de aplicabilidad evita el falso positivo
+
+4 habilidades de 2 operaciones con precondiciones comprobables (sin duplicados,
+primer elemento > 5, suma < 20, contiene el 5), 16 tareas (8 aplicables, 8
+inaplicables). La habilidad se entrega identificada: se aísla **aplicabilidad**, no
+recuperación.
+
+| Condición | Total | Aplicables | Inaplicables | Falsos positivos |
+|---|---|---|---|---|
+| Clon | 5/16 | 4/8 | 1/8 | 7/8 |
+| Habilidad sin metadata | 5/16 | 5/8 | 0/8 | 8/8 |
+| **Habilidad con precondición** | **13/16** | **6/8** | **7/8** | **1/8** |
+| Solucionador simbólico | 8/16 | 8/8 | 0/8 | 8/8 |
+
+La precondición permite **rechazar 7/8 inaplicables**; sin metadata, el modelo y el
+símbolo aplican 8/8. La precisión aplicable no cae (6/8 vs 5/8). El solucionador
+simbólico ejecuta 8/8 aplicables pero no puede saber cuándo no usar la habilidad:
+aplica en 8/8 inaplicables.
+
+**Lectura:** el valor de la memoria aquí no es ejecutar ni recuperar, sino **aplicar
+condicionalmente**. La precondición es una frase del prompt y es verdadera; no se probó
+una precondición falsa u obsoleta. Si el modelo la usa sin comprobarla, una metadata
+falsa produciría rechazos incorrectos; es el control obligatorio de MEM-008.
+
 ---
 
 ## 6. Revisión de antecedentes
@@ -761,6 +786,13 @@ búsqueda barata gana.** La memoria tendría que aportar en tareas donde la bús
 quepa en el presupuesto o donde la aplicabilidad/obsolescencia sea el problema, no en
 otro formato de entrega de la misma habilidad.
 
+**Lo que MEM-007 añade.** Con 4 habilidades y precondiciones, la **metadata de
+aplicabilidad** acierta 13/16: rechaza 7/8 inaplicables y conserva 6/8 aplicables. Sin
+metadata, el modelo aplica 8/8; el solucionador simbólico ejecuta 8/8 aplicables pero
+también aplica 8/8 inaplicables. **El valor de la memoria aquí es aplicar
+condicionalmente**, no ejecutar ni recuperar. La precondición es verdadera y explícita;
+una precondición falsa u obsoleta es el siguiente control (MEM-008).
+
 **Qué es y qué no es el resultado positivo.** Es **uso de un procedimiento correcto
 presentado como verificado**: el artefacto contiene el programa que el clon tendría
 que inferir, el modelo puede aplicarlo y el encuadre definitivo hace que lo aplique.
@@ -774,13 +806,12 @@ réplica de 24 tareas está pendiente. La proposición de `teoria.md` sigue sien
 marco: en el espacio enumerable, la memoria optimiza coste; el resultado positivo es
 consistente con ella, no la refuta.
 
-**El siguiente test.** MEM-006 ya mostró que en 2 operaciones la búsqueda simbólica
-gana. El siguiente es **F3 / MEM-007**: tareas donde la búsqueda de 2–4 operaciones no
-quepa en el presupuesto y el modelo pueda aplicarlas (medir el punto exacto con
-EXEC-001), más **aplicabilidad y obsolescencia** (rechazar una habilidad que dejó de
-ser válida). Después, **META-001** (ciclo longitudinal), la réplica de **24 tareas y
-varias semillas**, la **comunicación aprendida** (COMM-001) y el baseline externo
-(F0), que sigue pendiente y es condición para cualquier comparación general.
+**El siguiente test.** **MEM-008**: precondición **falsa** y **obsoleta**; si el
+modelo rechaza cuando no debe, la metadata es peligrosa. **F3 / MEM-009**: tareas donde
+la búsqueda de 2–4 operaciones no quepa en el presupuesto y el modelo pueda aplicarlas.
+Después, **META-001** (ciclo longitudinal), la réplica de **24 tareas y varias
+semillas**, la **comunicación aprendida** (COMM-001) y el baseline externo (F0), que
+sigue pendiente y es condición para cualquier comparación general.
 
 ---
 
@@ -841,6 +872,11 @@ varias semillas**, la **comunicación aprendida** (COMM-001) y el baseline exter
 22. **No hay coste total**: no se guardaron tokens por condición y la adquisición se
     ejecuta antes de todas las condiciones. Falta el beneficio neto
     `N·(C_sin − C_con) − C_adq − C_ver − C_mant`.
+23. **MEM-007**: 4 habilidades, 16 tareas, una semilla, un modelo. La precondición es
+    verdadera y explícita; no se probó una **falsa** ni **obsoleta**. La habilidad se
+    entrega identificada; no hay recuperación entre habilidades. El prompt del clon se
+    corrigió tras un bug de vocabulario (`OK` en vez de `APPLY`); la corrida original
+    no es válida y se conserva como registro.
 
 ---
 
@@ -848,7 +884,7 @@ varias semillas**, la **comunicación aprendida** (COMM-001) y el baseline exter
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 106 claims y totales citados
+python docs/verificar_afirmaciones.py            # 111 claims y totales citados
 
 # Experimentos clave (modelo de experimentos: gpt-6-luna low)
 python -m ohmem.lire_002 --model gpt-6-luna --effort low --timeout 120 \
@@ -897,6 +933,11 @@ ahorra tokens ni acierta más. La compresión ahorra tokens y cuesta excepciones
 **MEM-006 cierra el régimen de 2 operaciones:** el solucionador simbólico acierta
 10/10, el clon 8/10 y la recuperación 7/10 con selección 5/10; la adquisición costó
 209.871 tokens y el uso no ahorra. En tareas identificables, la búsqueda barata gana.
+
+**MEM-007 abre una rendija:** la **precondición de aplicabilidad** permite rechazar
+7/8 tareas inaplicables sin perder precisión aplicable (6/8 vs 5/8). Sin metadata, el
+modelo y el solucionador simbólico aplican 8/8 cuando no deben. El valor de la memoria
+no es ejecutar ni recuperar: es **saber cuándo no usar** lo que se tiene.
 
 No hay evidencia de **expansión de competencia** ni de **adquisición acumulativa**. El
 resultado positivo es **uso de un procedimiento correcto en un espacio enumerable**:
@@ -947,7 +988,7 @@ este artículo deja el instrumento para medirlo sin engañarse.
 
 ## Apéndice A. Registro de afirmaciones
 
-106 afirmaciones en `docs/registro-de-afirmaciones.md`: 68 sostenidas (63 propias; 5 de
+111 afirmaciones en `docs/registro-de-afirmaciones.md`: 73 sostenidas (68 propias; 5 de
 terceros, no replicadas), 20 refutadas, 18 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 

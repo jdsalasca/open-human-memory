@@ -77,6 +77,13 @@ búsqueda barata gana.** El siguiente paso no es otro formato de entrega: es **F
 MEM-007** (tareas donde la búsqueda no quepa en el presupuesto, con aplicabilidad y
 obsolescencia) y **META-001** (ciclo longitudinal).
 
+**Lo que añadió MEM-007.** Con 4 habilidades y precondiciones, la **metadata de
+aplicabilidad** acierta 13/16: rechaza 7/8 inaplicables y conserva 6/8 aplicables. Sin
+metadata, el modelo aplica 8/8; el solucionador simbólico ejecuta 8/8 aplicables pero
+también aplica 8/8 inaplicables. **El valor de la memoria aquí es aplicar
+condicionalmente**, no ejecutar ni recuperar. La precondición es verdadera y explícita;
+una precondición **falsa u obsoleta** es el control obligatorio de MEM-008.
+
 **Coste pendiente.** El piloto mide acierto, no coste total: falta contabilizar
 adquisición, verificación, almacenamiento y uso. La ventaja de la memoria verificada
 sobre el historial (10 vs 9) puede desaparecer al sumar tokens; el artefacto usa 370
