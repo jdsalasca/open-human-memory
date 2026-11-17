@@ -1,0 +1,2290 @@
+{
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "seed": 1,
+  "tasks_per_skill": 2,
+  "support": 2,
+  "n_skills": 5,
+  "library": [
+    {
+      "id": "s1",
+      "program": [
+        "double",
+        "sort_asc"
+      ]
+    },
+    {
+      "id": "s3",
+      "program": [
+        "negate",
+        "sort_asc"
+      ]
+    },
+    {
+      "id": "s4",
+      "program": [
+        "double",
+        "add_one"
+      ]
+    },
+    {
+      "id": "s6",
+      "program": [
+        "negate",
+        "sort_desc"
+      ]
+    },
+    {
+      "id": "s7",
+      "program": [
+        "sort_desc",
+        "add_one"
+      ]
+    }
+  ],
+  "acquisition": [
+    {
+      "skill_id": "s1",
+      "program": [
+        "sort_asc",
+        "double"
+      ],
+      "learned": [
+        "double",
+        "sort_asc"
+      ],
+      "verified": true,
+      "seconds": 8.94,
+      "input_tokens": 26000
+    },
+    {
+      "skill_id": "s2",
+      "program": [
+        "reverse",
+        "add_one"
+      ],
+      "learned": [
+        "negate",
+        "reverse"
+      ],
+      "verified": false,
+      "seconds": 5.89,
+      "input_tokens": 26011
+    },
+    {
+      "skill_id": "s3",
+      "program": [
+        "sort_desc",
+        "negate"
+      ],
+      "learned": [
+        "negate",
+        "sort_asc"
+      ],
+      "verified": true,
+      "seconds": 5.83,
+      "input_tokens": 26009
+    },
+    {
+      "skill_id": "s4",
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "learned": [
+        "double",
+        "add_one"
+      ],
+      "verified": true,
+      "seconds": 6.06,
+      "input_tokens": 26910
+    },
+    {
+      "skill_id": "s5",
+      "program": [
+        "reverse",
+        "double"
+      ],
+      "learned": [
+        "reverse",
+        "double",
+        "negate"
+      ],
+      "verified": false,
+      "seconds": 7.09,
+      "input_tokens": 26910
+    },
+    {
+      "skill_id": "s6",
+      "program": [
+        "sort_asc",
+        "negate"
+      ],
+      "learned": [
+        "negate",
+        "sort_desc"
+      ],
+      "verified": true,
+      "seconds": 8.5,
+      "input_tokens": 26011
+    },
+    {
+      "skill_id": "s7",
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "learned": [
+        "sort_desc",
+        "add_one"
+      ],
+      "verified": true,
+      "seconds": 7.4,
+      "input_tokens": 26013
+    },
+    {
+      "skill_id": "s8",
+      "program": [
+        "sort_desc",
+        "double"
+      ],
+      "learned": [
+        "double",
+        "reverse"
+      ],
+      "verified": false,
+      "seconds": 8.07,
+      "input_tokens": 26007
+    }
+  ],
+  "conditions": {
+    "clone": {
+      "correct": 8,
+      "n": 10,
+      "accuracy": 0.8,
+      "skill_correct": 0
+    },
+    "oracle_skill": {
+      "correct": 8,
+      "n": 10,
+      "accuracy": 0.8,
+      "skill_correct": 10
+    },
+    "retrieval": {
+      "correct": 7,
+      "n": 10,
+      "accuracy": 0.7,
+      "skill_correct": 5
+    },
+    "random_skill": {
+      "correct": 1,
+      "n": 10,
+      "accuracy": 0.1,
+      "skill_correct": 0
+    },
+    "expert_written": {
+      "correct": 5,
+      "n": 10,
+      "accuracy": 0.5,
+      "skill_correct": 5
+    },
+    "symbolic_solver": {
+      "correct": 10,
+      "n": 10,
+      "accuracy": 1.0,
+      "skill_correct": 10
+    }
+  },
+  "rows": [
+    {
+      "condition": "symbolic_solver",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": "symbolic",
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": null,
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        2,
+        4,
+        16,
+        8
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 394,
+      "input_tokens": 26675,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 7.08,
+      "order": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": "s1",
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 364,
+      "input_tokens": 26676,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.77,
+      "order": 1
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": "s1",
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 659,
+      "input_tokens": 25867,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.09,
+      "order": 2
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": "s7",
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        9,
+        5,
+        3,
+        2
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 366,
+      "input_tokens": 25775,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.16,
+      "order": 3
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 0,
+      "skill_id": "s1",
+      "chosen_skill": "s1",
+      "expected": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "answer": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 645,
+      "input_tokens": 25867,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.82,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": "symbolic",
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        8,
+        9,
+        9,
+        11
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 661,
+      "input_tokens": 26766,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.15,
+      "order": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": null,
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 396,
+      "input_tokens": 25774,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.41,
+      "order": 1
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        13,
+        11,
+        9,
+        9
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 365,
+      "input_tokens": 25756,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 7.22,
+      "order": 2
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        9,
+        9,
+        11,
+        13
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 647,
+      "input_tokens": 25928,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 7.23,
+      "order": 3
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 1,
+      "skill_id": "s1",
+      "chosen_skill": "s1",
+      "expected": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "answer": [
+        8,
+        8,
+        10,
+        12
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "double"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 366,
+      "input_tokens": 26809,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 8.69,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": "symbolic",
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 663,
+      "input_tokens": 26768,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.64,
+      "order": 0
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 649,
+      "input_tokens": 25863,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 7.83,
+      "order": 1
+    },
+    {
+      "condition": "clone",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": null,
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 398,
+      "input_tokens": 26677,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 6.15,
+      "order": 2
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": "s1",
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        4,
+        10,
+        14,
+        16
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 368,
+      "input_tokens": 25775,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.23,
+      "order": 3
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 2,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "answer": [
+        -8,
+        -7,
+        -5,
+        -2
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 368,
+      "input_tokens": 26674,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 7.45,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": "symbolic",
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 649,
+      "input_tokens": 25863,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 7.65,
+      "order": 0
+    },
+    {
+      "condition": "clone",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": null,
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 398,
+      "input_tokens": 25754,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 9.07,
+      "order": 1
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 368,
+      "input_tokens": 26678,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 6.54,
+      "order": 2
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": "s3",
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 663,
+      "input_tokens": 25867,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.51,
+      "order": 3
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 3,
+      "skill_id": "s3",
+      "chosen_skill": "s7",
+      "expected": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "answer": [
+        -8,
+        -2,
+        -2,
+        -1
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_asc"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 370,
+      "input_tokens": 26676,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 6.19,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": "symbolic",
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 658,
+      "input_tokens": 26768,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 5.84,
+      "order": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 362,
+      "input_tokens": 25774,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 5.92,
+      "order": 1
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 644,
+      "input_tokens": 25865,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.03,
+      "order": 2
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": "s1",
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        4,
+        12,
+        12,
+        14
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 363,
+      "input_tokens": 25775,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.5,
+      "order": 3
+    },
+    {
+      "condition": "clone",
+      "task_index": 4,
+      "skill_id": "s4",
+      "chosen_skill": null,
+      "expected": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "answer": [
+        13,
+        15,
+        13,
+        5
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 393,
+      "input_tokens": 25772,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.96,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": "symbolic",
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 363,
+      "input_tokens": 25776,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.97,
+      "order": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 659,
+      "input_tokens": 25847,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.27,
+      "order": 1
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": "s1",
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        8,
+        8,
+        8,
+        14
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 364,
+      "input_tokens": 25779,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.95,
+      "order": 2
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": "s4",
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 645,
+      "input_tokens": 25863,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 6.09,
+      "order": 3
+    },
+    {
+      "condition": "clone",
+      "task_index": 5,
+      "skill_id": "s4",
+      "chosen_skill": null,
+      "expected": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "answer": [
+        9,
+        15,
+        9,
+        9
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "double",
+        "add_one"
+      ],
+      "solver_program": [
+        "double",
+        "add_one"
+      ],
+      "n_consistent": 1,
+      "prompt_chars": 394,
+      "input_tokens": 25772,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.51,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": "symbolic",
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": "s6",
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 369,
+      "input_tokens": 26675,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 6.17,
+      "order": 0
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": "s3",
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 649,
+      "input_tokens": 25926,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.4,
+      "order": 1
+    },
+    {
+      "condition": "clone",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": null,
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 398,
+      "input_tokens": 25817,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 5.8,
+      "order": 2
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": "s3",
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -6,
+        -5,
+        -3,
+        -1
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 368,
+      "input_tokens": 25773,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 5.62,
+      "order": 3
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 6,
+      "skill_id": "s6",
+      "chosen_skill": "s3",
+      "expected": [
+        -1,
+        -3,
+        -5,
+        -6
+      ],
+      "answer": [
+        -1,
+        -2,
+        -3,
+        -5,
+        -6
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 663,
+      "input_tokens": 25869,
+      "output_tokens": 31,
+      "timed_out": false,
+      "seconds": 5.47,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": "symbolic",
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": "s4",
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        5,
+        17,
+        11,
+        19
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 367,
+      "input_tokens": 25774,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.67,
+      "order": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": "s6",
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        -9,
+        -8,
+        -5,
+        -2
+      ],
+      "correct": false,
+      "skill_correct": true,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 369,
+      "input_tokens": 26738,
+      "output_tokens": 23,
+      "timed_out": false,
+      "seconds": 5.25,
+      "order": 1
+    },
+    {
+      "condition": "clone",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": null,
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 398,
+      "input_tokens": 26655,
+      "output_tokens": 244,
+      "timed_out": false,
+      "seconds": 9.62,
+      "order": 2
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": "s3",
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        -3,
+        -5,
+        -8,
+        -9
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 663,
+      "input_tokens": 25930,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.17,
+      "order": 3
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 7,
+      "skill_id": "s6",
+      "chosen_skill": "s3",
+      "expected": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "answer": [
+        -2,
+        -5,
+        -8,
+        -9
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "negate",
+        "sort_desc"
+      ],
+      "solver_program": [
+        "sort_asc",
+        "negate"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 649,
+      "input_tokens": 25924,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.21,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": "symbolic",
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": "s6",
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        -7,
+        -6,
+        -6,
+        -5
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 643,
+      "input_tokens": 25867,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.47,
+      "order": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": "s3",
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        -9,
+        -8,
+        -6,
+        -5
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 657,
+      "input_tokens": 26000,
+      "output_tokens": 29,
+      "timed_out": false,
+      "seconds": 6.6,
+      "order": 1
+    },
+    {
+      "condition": "clone",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": null,
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "correct": true,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 392,
+      "input_tokens": 25772,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.11,
+      "order": 2
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        13,
+        11,
+        15,
+        13
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 361,
+      "input_tokens": 25778,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.43,
+      "order": 3
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 8,
+      "skill_id": "s7",
+      "chosen_skill": "s7",
+      "expected": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "answer": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 364,
+      "input_tokens": 26739,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 6.97,
+      "order": 4
+    },
+    {
+      "condition": "symbolic_solver",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": "symbolic",
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "correct": true,
+      "skill_correct": true,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "timed_out": false,
+      "seconds": 0
+    },
+    {
+      "condition": "oracle_skill",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": "s7",
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        6,
+        6,
+        2,
+        8
+      ],
+      "correct": false,
+      "skill_correct": true,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 362,
+      "input_tokens": 25777,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 8.38,
+      "order": 0
+    },
+    {
+      "condition": "expert_written",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        8,
+        12,
+        12,
+        4
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 655,
+      "input_tokens": 25867,
+      "output_tokens": 28,
+      "timed_out": false,
+      "seconds": 7.63,
+      "order": 1
+    },
+    {
+      "condition": "clone",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": null,
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        6,
+        6,
+        2,
+        2
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 390,
+      "input_tokens": 25776,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 7.43,
+      "order": 2
+    },
+    {
+      "condition": "retrieval",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": "s4",
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        15,
+        11,
+        11
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 641,
+      "input_tokens": 25865,
+      "output_tokens": 26,
+      "timed_out": false,
+      "seconds": 6.01,
+      "order": 3
+    },
+    {
+      "condition": "random_skill",
+      "task_index": 9,
+      "skill_id": "s7",
+      "chosen_skill": "s1",
+      "expected": [
+        8,
+        6,
+        6,
+        2
+      ],
+      "answer": [
+        2,
+        10,
+        10,
+        14
+      ],
+      "correct": false,
+      "skill_correct": false,
+      "program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "solver_program": [
+        "sort_desc",
+        "add_one"
+      ],
+      "n_consistent": 2,
+      "prompt_chars": 360,
+      "input_tokens": 25777,
+      "output_tokens": 22,
+      "timed_out": false,
+      "seconds": 5.98,
+      "order": 4
+    }
+  ]
+}

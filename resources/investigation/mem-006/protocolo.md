@@ -29,7 +29,7 @@ el artefacto y una sola transformación.
 | `s4` | `double → add_one` | double, add_one |
 | `s5` | `reverse → double` | reverse, double |
 | `s6` | `sort_asc → negate` | sort, negate |
-| `s7` | `add_one → reverse` | add_one, reverse |
+| `s7` | `sort_desc → add_one` | sort, add_one |
 | `s8` | `sort_desc → double` | sort, double |
 
 Cada habilidad se aprende en una sesión 1 con 12 ejemplos y se verifica con 60 sondas.

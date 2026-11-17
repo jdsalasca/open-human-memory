@@ -313,6 +313,9 @@ estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 | La aplicación con el programa dado cae con la longitud efectiva | E2 local | Sostenida: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % (EXEC-001) |
 | Un procedimiento correcto presentado como verificado se usa en 2 operaciones | E2 local | Sostenida local: 10–12/12 vs 3–5/12 del clon; las tareas son identificables, mide inferir vs recibir (MEM-003/004/005) |
 | La adquisición previa añade algo en esta tarea | E2 local | **No demostrada**: el programa escrito rinde igual (12/12 vs 12/12), pero el control cambia procedencia y orden (MEM-005) |
+| La recuperación autónoma supera al clon en 2 operaciones | E2 local | **Refutada**: 7/10 vs 8/10; selección 5/10 (MEM-006) |
+| El solucionador simbólico resuelve las tareas de 2 operaciones | E2 local | Sostenida: 10/10 (MEM-006) |
+| La memoria se amortiza en 2 operaciones | E2 local | **Refutada**: 209.871 tokens de adquisición, sin ahorro de uso (MEM-006) |
 | El encuadre de candidata reduce el uso | E2 local | Sostenida local: 4/12 vs 11/12 (MEM-003) |
 | La etiqueta «verificado» basta sin contenido | E2 local | **Refutada**: placebo verificado 0/12 (MEM-004) |
 | Con información independiente, la recuperación funciona y falla la condición | E2 local | Sostenida local: 6–7/7 positivos, 2–5/5 secundarios (LIRE-002) |

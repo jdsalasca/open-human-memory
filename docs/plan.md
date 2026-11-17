@@ -73,7 +73,7 @@ sustituyen por otra arquitectura: se publica y se reduce el alcance.
 | **F1** descomposición de capacidades | **Parcial**: ejecución medida (EXEC-001); inferencia parcial | Desambiguación, experimentación, verificación y generalización |
 | **F2** recuperación genuina | **Pre-registrada (MEM-006), no ejecutada** | Implementar y correr 8 habilidades, retrieval, simbólico y experto |
 | **F2.5** forma del conocimiento | **Parcial**: LIRE-002 mide coste/fidelidad, no forma | Factorial idioma × longitud × estructura; LLMLingua-2 |
-| **MEM-006** múltiples habilidades y recuperación | **Pre-registrado con hash**, no ejecutado | Implementar, correr y comparar con simbólico/experto |
+| **MEM-006** múltiples habilidades y recuperación | **Ejecutado; negativo** | En 2 ops, simbólico 10/10; retrieval 7/10 (selección 5/10); clon 8/10; no se amortiza |
 | **F3** universo no explorable | No ejecutado | Tarea identificable pero fuera del presupuesto |
 | **F4** currículo interdependiente | No ejecutado | — |
 | **F5** deriva y portabilidad | No ejecutado | — |

@@ -1,9 +1,9 @@
 # Guía para revisores
 
-**Versión:** `v1.26-review` · 17 de noviembre de 2026
+**Versión:** `v1.27-review` · 17 de noviembre de 2026
 **Manuscrito:** [`manuscrito.md`](manuscrito.md)
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Tag de referencia:** `v1.26-review`
+**Tag de referencia:** `v1.27-review`
 
 Esta guía existe para que un revisor externo pueda evaluar el trabajo sin leer
 treinta documentos. Si algo no está aquí, es un defecto del repositorio.
@@ -38,6 +38,7 @@ el resultado positivo **no** es expansión de competencia.
 | **Negativos** | 002, 003, 004, 005, 006-A′, 006-B, 007 | La memoria episódica/biblioteca no amplía cobertura en el régimen enumerable; reduce coste de forma condicional; la política de activación no paga; el agente real acierta 46,9 % |
 | **Diagnóstico** | 007B, EXEC-001, LIRE-002 | El 007 estaba fuera de la ejecución (oráculo 2/12 en 5 pasos); en 2 operaciones el modelo aplica 86 %, en 3 el 44 %, en 5 el 0–33 %; LIRE-001b era redundante; con información independiente, el control sin tabla acierta 0/7 y el fallo está en la condición |
 | **Positivo condicionado** | MEM-002, MEM-003, MEM-004, MEM-005 | En 2 operaciones, un procedimiento correcto presentado como verificado se usa (10–12/12); el encuadre de candidata lo hunde a 3–4/12; un placebo verificado acierta 0–1/12. **MEM-005 muestra que un programa escrito por un programador, sin aprendizaje previo, rinde igual (12/12): no hay evidencia de ventaja de adquisición en esta tarea; el control cambia procedencia y orden, no es una equivalencia.** Las tareas ya son identificables desde los dos ejemplos |
+| **Límite del régimen** | MEM-006 | En 2 operaciones con 5 habilidades, el solucionador simbólico acierta 10/10; el clon, 8/10; la recuperación, 7/10 con selección 5/10; la biblioteca de experto, 5/10. La adquisición cuesta 209.871 tokens y no se amortiza. **En tareas identificables, la búsqueda barata gana.** |
 
 ---
 
@@ -63,6 +64,12 @@ el resultado positivo **no** es expansión de competencia.
 | M14 | Con contenido correcto e instrucción de aplicar, el estado verificado supera a la candidata | E2 local | MEM-005: 12 vs 9 (3/0, p=0,25; direccional) |
 | M15 | Con contenido correcto y estado verificado, aplicar supera a verificar | E2 local | MEM-005: 12 vs 8 (4/0, p=0,125; direccional) |
 | M16 | El programa escrito por un programador queda a ≤2 pares del aprendido | E2 local | MEM-005: 12/12 vs 12/12 (0 pares) |
+| R1 | La recuperación elige la habilidad correcta en ≥70 % | **Refutada** | MEM-006: 5/10 (50 %) |
+| R2 | La recuperación supera al clon y a la aleatoria en ≥3 pares | **Refutada** | MEM-006: 1/2 vs clon; 6/0 vs aleatoria |
+| R3 | La recuperación no supera al oráculo | Sostenida | MEM-006: 7/10 vs 8/10 |
+| R4 | El solucionador simbólico acierta ≥90 % | Sostenida | MEM-006: 10/10 |
+| R5 | Recuperación y experto no difieren en más de 2 pares | Sostenida | MEM-006: 7 vs 5; selección 5 vs 5 |
+| R6 | Rechaza ≥3 de 4 habilidades obsoletas | **Abierta** | No ejecutado |
 | M11–M12 | Réplica de 24 tareas: verificada ≥20/24 y > candidata en ≥6 pares | **Abiertas** | No ejecutadas |
 
 **Ninguna alcanza E3** (varias distribuciones), **E4** (tareas reales) ni **E5**
@@ -108,7 +115,7 @@ el resultado positivo **no** es expansión de competencia.
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 100 claims, totales citados
+python docs/verificar_afirmaciones.py            # 106 claims, totales citados
 ```
 
 ### 5.2 Reproducir los experimentos clave
@@ -133,6 +140,10 @@ python resources/investigation/mem-004/analyze.py
 # MEM-005: factorial + programa escrito
 python -m ohmem.mem_005 --n 12 --seed 1 --support 2 --session1-examples 12 --exact-ops --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-005/results/factorial-seed1.json
 python resources/investigation/mem-005/analyze.py
+
+# MEM-006: 8 habilidades, retrieval, simbólico
+python -m ohmem.mem_006 --tasks-per-skill 2 --support 2 --seed 1 --session1-examples 12 --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-006/results/retrieval-seed1.json
+python resources/investigation/mem-006/analyze.py
 ```
 
 ### 5.3 Trazabilidad
@@ -146,6 +157,7 @@ python resources/investigation/mem-005/analyze.py
 | MEM-003 | `mem-003/results/pilot-depth2-framing.json` | `mem-003/analyze.py` |
 | MEM-004 | `mem-004/results/pilot-depth2-verified-placebo.json` | `mem-004/analyze.py` |
 | MEM-005 | `mem-005/results/factorial-seed1.json` | `mem-005/analyze.py` |
+| MEM-006 | `mem-006/results/retrieval-seed1.json` | `mem-006/analyze.py` |
 
 Los JSON contienen las filas por condición, tarea y programa, con la respuesta, el
 valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
@@ -188,6 +200,10 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
     individuales de estado e instrucción son direccionales, no significativos; la
     interacción triple es 0,50 con IC bootstrap [−0,17, 1,17]. n=12, semilla 1; sin
     tokens por condición y sin pre-registro independiente.
+16. **MEM-006**: solo 5 de 8 habilidades verificaron; 10 tareas, una semilla, un
+    modelo. El solucionador simbólico resuelve 10/10 y el clon 8/10: las tareas no
+    requieren memoria. La obsolescencia (R6) no se ejecutó. La adquisición costó
+    209.871 tokens y no se amortiza.
 
 ---
 
@@ -249,6 +265,7 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
 | 16 nov | **EXEC-001**: mapa de aplicación por profundidad y longitud mínima | `exec-001/` |
 | 16 nov | **MEM-002/003/004**: el encuadre era el cuello; la etiqueta no basta | `mem-002/`, `mem-003/`, `mem-004/` |
 | 16 nov | **MEM-005**: factorial contenido × estado × instrucción; el programa escrito rinde igual (12/12); sin evidencia de ventaja de adquisición | `mem-005/` |
+| 17 nov | **MEM-006**: 5 habilidades, recuperación autónoma; simbólico 10/10, retrieval 7/10, clon 8/10; no se amortiza | `mem-006/` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.

@@ -248,15 +248,30 @@ cambia con el diagnóstico de EXEC-001.
 > por condición; la instrucción de verificar sugiere completitud que con `suffix=0` no
 > existe.
 
+## P. Múltiples habilidades y recuperación (MEM-006)
+
+> **Pre-registrado con hash antes de la corrida.** 8 habilidades, 16 tareas, semilla 1,
+> 5 condiciones LLM + solucionador simbólico. Protocolo:
+> `mem-006/protocolo.md`; hash: `mem-006/protocolo.sha256`.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| R1 | La recuperación elige la habilidad correcta en ≥ 70 % de las 16 tareas | **Refutada** | E2 local | 5/10 = 50 % (5 habilidades) |
+| R2 | La recuperación supera al clon y a la habilidad aleatoria en ≥ 3 pares | **Refutada** | E2 local | 1/2 frente al clon; 6/0 frente a la aleatoria |
+| R3 | La recuperación no supera a `oracle_skill` | Sostenida (local) | E2 local | 7/10 vs 8/10 |
+| R4 | El solucionador simbólico acierta ≥ 90 % en las tareas de 2 operaciones | Sostenida (local) | E2 local | 10/10 |
+| R5 | La recuperación y `expert_written` no difieren en más de 2 pares | Sostenida (local) | E2 local | 7 vs 5; selección 5 vs 5 |
+| R6 | El sistema rechaza ≥ 3 de las 4 habilidades obsoletas | Abierta | E2 local | No ejecutado |
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **65 sostenidas**: 60 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **68 sostenidas**: 63 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
-- **18 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y las
-  tres hipótesis de memoria en 3 operaciones.
-- **17 abiertas, inválidas o no demostradas**, y son justo las que responderían la
+- **20 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE, las
+  tres hipótesis de memoria en 3 operaciones y las dos de recuperación en 2.
+- **18 abiertas, inválidas o no demostradas**, y son justo las que responderían la
   pregunta del proyecto.
 - **0 en E3, E4 o E5 propias.**
 - **0 competidores reproducidos.**

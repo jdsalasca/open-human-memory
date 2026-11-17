@@ -343,6 +343,31 @@ Detalle en [`mem-002/`](resources/investigation/mem-002/),
 [`mem-004/`](resources/investigation/mem-004/) y
 [`mem-005/`](resources/investigation/mem-005/).
 
+### MEM-006: múltiples habilidades; la búsqueda barata gana
+
+8 habilidades de 2 operaciones (5 verificadas), 10 tareas, recuperación autónoma, y un
+**solucionador simbólico** que enumera los 36 programas de 2 operaciones:
+
+| Condición | Acierto | Selección |
+|---|---|---|
+| Clon | 8/10 | — |
+| Oráculo (habilidad correcta) | 8/10 | 10/10 |
+| **Recuperación autónoma** | **7/10** | **5/10** |
+| Habilidad aleatoria | 1/10 | 0/10 |
+| Biblioteca de experto | 5/10 | 5/10 |
+| **Solucionador simbólico** | **10/10** | — |
+
+- **El solucionador simbólico resuelve todo (10/10):** las tareas son identificables
+  desde los dos ejemplos; no requieren memoria.
+- **La recuperación no supera al clon** (7 vs 8) y selecciona la habilidad correcta
+  5/10 (azar 20 %). La biblioteca de experto empata con la aprendida.
+- **La memoria no se amortiza:** 209.871 tokens de adquisición y ningún ahorro de uso.
+- **Lectura:** en 2 operaciones identificables, la búsqueda barata gana. La memoria
+  tendría que aportar donde la búsqueda no quepa en el presupuesto o donde la
+  aplicabilidad/obsolescencia sea el problema.
+
+Detalle en [`mem-006/`](resources/investigation/mem-006/).
+
 ## Resultado de validez del 004-A: las macros no amplían la capacidad
 
 Prototipo 004-A, protocolo congelado antes de medir, rejilla completa de 64

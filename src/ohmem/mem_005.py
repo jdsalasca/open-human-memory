@@ -20,13 +20,13 @@ import json
 import random
 from pathlib import Path
 
+from .lire_001 import run_codex
 from .v7_transfer import (
     MOTIF,
     PLACEBO,
     SESSION1_SCHEMA,
     SESSION2_SCHEMA,
     extra_examples,
-    run_codex,
     session1_prompt,
     session2_prompt,
     transfer_tasks,
@@ -98,12 +98,13 @@ def main() -> None:
 
     learned = run_codex(
         session1_prompt(args.session1_examples, args.exact_ops, MOTIF),
-        SESSION1_SCHEMA,
         args.model,
         args.effort,
         args.timeout,
+        schema=SESSION1_SCHEMA,
+        answer_key="program",
     )
-    program = (learned["payload"] or {}).get("program")
+    program = learned["answer"]
     verified = verify(program, MOTIF)
     print(
         f"session1 program={program} verified={verified} seconds={learned['seconds']}"
@@ -151,10 +152,11 @@ def main() -> None:
             prompt = session2_prompt(task, extra, args.support)
             result = run_codex(
                 prompt,
-                SESSION2_SCHEMA,
                 args.model,
                 args.effort,
                 args.timeout,
+                schema=SESSION2_SCHEMA,
+                answer_key="query_output",
             )
             expected = list(
                 apply_program(task.solution.program, task.observation.query)

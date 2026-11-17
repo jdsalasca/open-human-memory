@@ -234,15 +234,16 @@ dominaba la medición. No se usa como evidencia.
 |---|---|
 | Modelo | `gpt-6-luna` |
 | Esfuerzo | `low` |
-| Llamadas | MEM-002: 122 (61 de 3 ops + 61 de 2 ops) · MEM-003: 73 · MEM-004: 85 · MEM-005: 121 |
-| Tareas | 12 por condición, 2 ejemplos de soporte |
-| Condiciones | clon, memoria candidata, memoria verificada, placebo, placebo verificado, historial, oráculo; MEM-005 añade factorial 2×2×2 y programa escrito |
+| Llamadas | MEM-002: 122 (61 de 3 ops + 61 de 2 ops) · MEM-003: 73 · MEM-004: 85 · MEM-005: 121 · MEM-006: 58 (8 adquisiciones + 50 de evaluación) |
+| Tareas | 12 por condición, 2 ejemplos de soporte; MEM-006: 10 tareas, 5 habilidades |
+| Condiciones | clon, memoria candidata, memoria verificada, placebo, placebo verificado, historial, oráculo; MEM-005 añade factorial 2×2×2 y programa escrito; MEM-006 añade retrieval, aleatoria, experto y simbólico |
 | Resultado MEM-002 (3 ops) | clon 2, memoria 3, placebo 5, historial 4, oráculo 8 |
 | Resultado MEM-002 (2 ops) | clon 5, memoria 7, placebo 4, historial 9, oráculo 11 |
 | Resultado MEM-003 | clon 3, candidata 4, verificada 11, placebo 3, historial 10, oráculo 12 |
 | Resultado MEM-004 | clon 5, candidata 3, verificada 10, placebo 2, placebo verificado 0, historial 9, oráculo 12 |
 | Resultado MEM-005 | clon 6; correcto candidato verificar 8, aplicar 9; verificado verificar 8, aplicar 12; placebo verificado aplicar 1; escrito 12 |
-| Lectura | el efecto grande es contenido+verificado+aplicar; el programa escrito rinde igual: la adquisición no añade |
+| Resultado MEM-006 | clon 8/10; oráculo 8/10; retrieval 7/10 (selección 5/10); aleatoria 1/10; experto 5/10; simbólico 10/10 |
+| Lectura | el efecto grande es contenido+verificado+aplicar; el programa escrito rinde igual; en 2 ops con biblioteca, la búsqueda simbólica gana |
 | Archivos | `mem-002/results/*.json`, `mem-003/results/*.json`, `mem-004/results/*.json` |
 
 ## 6. Revisión de literatura
@@ -265,7 +266,7 @@ Reproducir: `resources/investigation/revision-sistematica/busquedas.md`.
 | Artefacto | Versión / commit |
 |---|---|
 | Repositorio | `main` (ver `git log`) |
-| Etiqueta de revisión | `v1.26-review` |
+| Etiqueta de revisión | `v1.27-review` |
 | Python | 3.13.15 |
 | `codex-cli` | 0.169.0 |
 | Tests | `python -m unittest discover -s tests -v` (60) |

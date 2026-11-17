@@ -7,7 +7,7 @@
 **Fecha:** 16 de noviembre de 2026
 **Estado:** preprint no arbitrado. Listo para revisión por pares.
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Versión:** `v1.26-review`
+**Versión:** `v1.27-review`
 
 ---
 
@@ -170,7 +170,7 @@ Una **demostración metodológica** con cuatro piezas:
    memoria.
 
 Las piezas de apoyo son: la proposición con condiciones, los experimentos, la revisión
-estructurada de 31 trabajos y el registro de 100 afirmaciones. Ninguna se presenta como
+estructurada de 31 trabajos y el registro de 106 afirmaciones. Ninguna se presenta como
 una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -405,6 +405,7 @@ positiva condicionada.
 | MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
 | MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
 | MEM-005 | factorial contenido × estado × instrucción | 12 tareas, `luna` low | 10 condiciones, semilla 1 | llamadas | verificado+aplicar 12/12; placebo verificado+aplicar 1/12; escrito 12/12 | 0–11 pares | Sin evidencia de ventaja de adquisición; contenido+instrucción |
+| MEM-006 | múltiples habilidades y recuperación | 10 tareas, 5 habilidades, `luna` low | clon, oráculo, retrieval, aleatoria, experto, simbólico | tokens | retrieval 7/10 (selección 5/10); simbólico 10/10; clon 8/10 | 0–6 pares | Negativo: la búsqueda barata gana |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -649,6 +650,32 @@ memoria; demuestra que la instrucción y el contenido correcto mejoran la ejecuc
 pregunta de memoria acumulativa exige **MEM-006** (varias memorias, recuperación
 autónoma) y **META-001** (ciclo longitudinal), no otro formato de entrega.
 
+### 5.12 MEM-006: múltiples habilidades; la búsqueda barata gana
+
+8 habilidades de 2 operaciones, aprendidas por separado y verificadas; 2 tareas por
+habilidad con 2 ejemplos de soporte; el evaluador no dice qué habilidad usar. Solo
+**5 de 8** habilidades verificaron; la biblioteca quedó en 5 y las tareas en 10.
+
+| Condición | Acierto | Selección |
+|---|---|---|
+| Clon | 8/10 | — |
+| Oráculo (habilidad correcta) | 8/10 | 10/10 |
+| **Recuperación autónoma** | **7/10** | **5/10** |
+| Habilidad aleatoria | 1/10 | 0/10 |
+| Biblioteca de experto | 5/10 | 5/10 |
+| **Solucionador simbólico** | **10/10** | — |
+
+El **solucionador simbólico** enumera los 36 programas de 2 operaciones y acierta
+**10/10**: las tareas son identificables y no requieren memoria. La recuperación no
+supera al clon (7 vs 8) y selecciona la habilidad correcta 5/10 (azar 20 %). La
+biblioteca de experto empata con la aprendida. La adquisición costó **209.871 tokens**
+y el uso no ahorra tokens: el beneficio neto es negativo en este régimen.
+
+**Lectura:** en 2 operaciones identificables, la búsqueda barata gana. La memoria
+tendría que aportar en tareas donde la búsqueda no quepa en el presupuesto o donde la
+aplicabilidad y la obsolescencia sean el problema. No es otro formato de entrega; es
+otro régimen de tarea.
+
 ---
 
 ## 6. Revisión de antecedentes
@@ -726,6 +753,14 @@ que el aprendido. **No hay evidencia de ventaja de adquisición en esta tarea**;
 control cambia procedencia y orden, así que no es una equivalencia. El positivo es
 contenido correcto más instrucción definitiva, no memoria.
 
+**Lo que MEM-006 añade.** Con 8 habilidades de 2 operaciones (5 verificadas) y
+recuperación autónoma, el **solucionador simbólico acierta 10/10**; el clon, 8/10; la
+recuperación, 7/10 con selección 5/10; la biblioteca de experto, 5/10. La adquisición
+costó 209.871 tokens y el uso no ahorra. **En 2 operaciones identificables, la
+búsqueda barata gana.** La memoria tendría que aportar en tareas donde la búsqueda no
+quepa en el presupuesto o donde la aplicabilidad/obsolescencia sea el problema, no en
+otro formato de entrega de la misma habilidad.
+
 **Qué es y qué no es el resultado positivo.** Es **uso de un procedimiento correcto
 presentado como verificado**: el artefacto contiene el programa que el clon tendría
 que inferir, el modelo puede aplicarlo y el encuadre definitivo hace que lo aplique.
@@ -739,11 +774,12 @@ réplica de 24 tareas está pendiente. La proposición de `teoria.md` sigue sien
 marco: en el espacio enumerable, la memoria optimiza coste; el resultado positivo es
 consistente con ella, no la refuta.
 
-**El siguiente test.** **MEM-006**: varias memorias, recuperación autónoma y selección
-entre candidatos, sin que el evaluador entregue el artefacto. **META-001**: ciclo
-longitudinal con familias nuevas, menos experiencias para el umbral, artefactos
-obsoletos y contradictorios. Después, la réplica de **24 tareas y varias semillas**, la
-**familia reservada**, la **comunicación aprendida** (COMM-001) y el baseline externo
+**El siguiente test.** MEM-006 ya mostró que en 2 operaciones la búsqueda simbólica
+gana. El siguiente es **F3 / MEM-007**: tareas donde la búsqueda de 2–4 operaciones no
+quepa en el presupuesto y el modelo pueda aplicarlas (medir el punto exacto con
+EXEC-001), más **aplicabilidad y obsolescencia** (rechazar una habilidad que dejó de
+ser válida). Después, **META-001** (ciclo longitudinal), la réplica de **24 tareas y
+varias semillas**, la **comunicación aprendida** (COMM-001) y el baseline externo
 (F0), que sigue pendiente y es condición para cualquier comparación general.
 
 ---
@@ -812,7 +848,7 @@ obsoletos y contradictorios. Después, la réplica de **24 tareas y varias semil
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 100 claims y totales citados
+python docs/verificar_afirmaciones.py            # 106 claims y totales citados
 
 # Experimentos clave (modelo de experimentos: gpt-6-luna low)
 python -m ohmem.lire_002 --model gpt-6-luna --effort low --timeout 120 \
@@ -857,6 +893,10 @@ qué idioma ocupa menos caracteres, sino de cuánta información independiente s
 conserva y se aplica bajo una condición. Con información independiente, el control sin
 tabla acierta 0/7; la recuperación funciona, pero falla la condición; el chino no
 ahorra tokens ni acierta más. La compresión ahorra tokens y cuesta excepciones.
+
+**MEM-006 cierra el régimen de 2 operaciones:** el solucionador simbólico acierta
+10/10, el clon 8/10 y la recuperación 7/10 con selección 5/10; la adquisición costó
+209.871 tokens y el uso no ahorra. En tareas identificables, la búsqueda barata gana.
 
 No hay evidencia de **expansión de competencia** ni de **adquisición acumulativa**. El
 resultado positivo es **uso de un procedimiento correcto en un espacio enumerable**:
@@ -907,8 +947,8 @@ este artículo deja el instrumento para medirlo sin engañarse.
 
 ## Apéndice A. Registro de afirmaciones
 
-100 afirmaciones en `docs/registro-de-afirmaciones.md`: 65 sostenidas (60 propias; 5 de
-terceros, no replicadas), 18 refutadas, 17 abiertas, inválidas o no demostradas.
+106 afirmaciones en `docs/registro-de-afirmaciones.md`: 68 sostenidas (63 propias; 5 de
+terceros, no replicadas), 20 refutadas, 18 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 
 ## Apéndice B. Qué se retiró

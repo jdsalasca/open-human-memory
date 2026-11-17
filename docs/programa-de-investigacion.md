@@ -67,9 +67,15 @@ interacción triple de 0,50 e IC bootstrap [−0,17, 1,17]. Y el control informa
 **programa escrito por un programador, sin aprendizaje previo, acierta 12/12**, igual
 que el aprendido. **No hay evidencia de ventaja de adquisición en esta tarea**, pero
 el control cambia procedencia y orden. El «positivo» es contenido correcto más
-instrucción definitiva, no memoria acumulativa. El siguiente paso no es otro formato de
-entrega: es **MEM-006** (varias memorias y recuperación autónoma) y **META-001** (ciclo
-longitudinal).
+instrucción definitiva, no memoria acumulativa.
+
+**Lo que añadió MEM-006.** Con 8 habilidades de 2 operaciones (5 verificadas) y
+recuperación autónoma, el **solucionador simbólico acierta 10/10**; el clon, 8/10; la
+recuperación, 7/10 con selección 5/10; la biblioteca de experto, 5/10. La adquisición
+costó 209.871 tokens y el uso no ahorra. **En 2 operaciones identificables, la
+búsqueda barata gana.** El siguiente paso no es otro formato de entrega: es **F3 /
+MEM-007** (tareas donde la búsqueda no quepa en el presupuesto, con aplicabilidad y
+obsolescencia) y **META-001** (ciclo longitudinal).
 
 **Coste pendiente.** El piloto mide acierto, no coste total: falta contabilizar
 adquisición, verificación, almacenamiento y uso. La ventaja de la memoria verificada
