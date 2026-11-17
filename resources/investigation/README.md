@@ -86,6 +86,7 @@ empeora nada medible, no entra).
 | [mem-002/](mem-002/) | 2 ops: memoria 7/12, historial 9/12, oráculo 11/12 |
 | [mem-003/](mem-003/) | Encuadre: verificada 11/12 vs candidata 4/12 |
 | [mem-004/](mem-004/) | Placebo verificado: ¿contenido o etiqueta? |
+| [mem-005/](mem-005/) | Factorial: el programa escrito rinde igual; la adquisición no añade |
 | [../../docs/revision-de-rumbo.md](../../docs/revision-de-rumbo.md) | Revisión de dirección y decisión del 007 |
 | [revision-sistematica/](revision-sistematica/README.md) | Revisión ejecutada: 31 trabajos, búsquedas y extracción |
 | [manuscrito.md](../../docs/manuscrito.md) | **Artículo completo para revisión por pares** |

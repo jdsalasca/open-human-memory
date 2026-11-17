@@ -61,11 +61,27 @@ provenir de una verificación real fuera del prompt; un artefacto falso etiqueta
 verificado es un fallo seguro. **El modelo no puede ser el verificador de su propia
 memoria.**
 
+**Lo que añadió MEM-005.** El factorial contenido × estado × instrucción muestra que
+el efecto grande está solo en verificado+aplicar (12 vs 1, p = 0,001). Y el control
+decisivo: un **programa escrito por un programador, sin aprendizaje previo, acierta
+12/12**, igual que el aprendido. **La adquisición no añade nada en esta tarea.** El
+«positivo» es contenido correcto más instrucción definitiva, no memoria acumulativa.
+El siguiente paso no es otro formato de entrega: es **MEM-006** (varias memorias y
+recuperación autónoma) y **META-001** (ciclo longitudinal).
+
 **Coste pendiente.** El piloto mide acierto, no coste total: falta contabilizar
 adquisición, verificación, almacenamiento y uso. La ventaja de la memoria verificada
 sobre el historial (10 vs 9) puede desaparecer al sumar tokens; el artefacto usa 370
 caracteres frente a 853 del historial, pero la adquisición y la verificación cuestan
 llamadas. La comparación a igual coste total es una de las puertas de MEM-005.
+
+**Lo que el resultado no muestra.** Las doce tareas ya están determinadas por los dos
+ejemplos de soporte: el clon tiene la información. El artefacto entrega el programa
+explícito en lugar de exigir inferirlo; el resultado mide **inferir frente a
+recibir**, no memoria de un hecho que solo estuviera en la experiencia. Tampoco hay
+recuperación autónoma entre varias memorias ni control de un programa escrito por un
+programador sin sesión previa. MEM-005 separa contenido, estado e instrucción y añade
+ese control.
 
 **El orden correcto:**
 

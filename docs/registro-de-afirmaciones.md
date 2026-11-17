@@ -182,9 +182,9 @@ cambia con el diagnóstico de EXEC-001.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
-| M1 | La memoria verificada supera al clon en ≥ 3 pares | **Refutada** | E2 local | 1 par a favor, 0 en contra |
-| M2 | La memoria verificada supera al placebo en ≥ 3 pares | **Refutada** | E2 local | 2 a favor y 4 en contra |
-| M3 | La memoria verificada supera al historial en ≥ 3 pares | **Refutada** | E2 local | 1 a favor y 2 en contra |
+| M1 | La memoria **candidata** de 2 operaciones supera al clon en ≥ 3 pares | **Refutada** | E2 local | 1 par a favor, 0 en contra |
+| M2 | La memoria **candidata** supera al placebo en ≥ 3 pares | **Refutada** | E2 local | 2 a favor y 4 en contra |
+| M3 | La memoria **candidata** supera al historial en ≥ 3 pares | **Refutada** | E2 local | 1 a favor y 2 en contra |
 | M4 | El oráculo de 3 operaciones acierta ≥ 7/12 | Sostenida (local) | E2 local | 8/12 |
 
 > **Observación exploratoria (2 operaciones, no pre-registrada):** memoria 7/12 vs
@@ -195,6 +195,11 @@ cambia con el diagnóstico de EXEC-001.
 ## M. Encuadre de la memoria (MEM-003)
 
 > **Pre-registrado antes de la corrida.** 2 operaciones, 12 tareas, `gpt-6-luna` low.
+
+> **Alcance:** las 12 tareas son identificables desde los 2 ejemplos; el clon tiene la
+> información y el artefacto entrega el programa explícito. El resultado mide
+> **inferir frente a recibir**, no memoria de un hecho desconocido. MEM-004 vs clon
+> p = 0,0625; los valores p no corrigen por comparaciones múltiples.
 
 | ID | Afirmación | Estado | Nivel | Falsador |
 |---|---|---|---|---|
@@ -215,11 +220,32 @@ cambia con el diagnóstico de EXEC-001.
 | M11 | En 24 tareas, `memory_verified` acierta ≥ 20/24 | Abierta | E2 local | < 20/24 |
 | M12 | En 24 tareas, `memory_verified` supera a `memory_candidate` en ≥ 6 pares | Abierta | E2 local | < 6 pares |
 
+## O. Factorial de contenido, estado e instrucción (MEM-005)
+
+> **Pre-registrado antes de la corrida.** 2 operaciones, 12 tareas, semilla 1,
+> 10 condiciones con orden aleatorizado por tarea.
+
+| ID | Afirmación | Estado | Nivel | Falsador |
+|---|---|---|---|---|
+| M13 | Con contenido correcto, estado verificado e instrucción de aplicar, el contenido correcto supera al placebo en ≥ 3 pares | Sostenida (local) | E2 local | 11 pares a favor, 0 en contra (p = 0,001) |
+| M14 | Con contenido correcto e instrucción de aplicar, el estado verificado supera a la candidata en ≥ 3 pares | Sostenida (local) | E2 local | 3 pares a favor, 0 en contra (p = 0,25; direccional, no significativo) |
+| M15 | Con contenido correcto y estado verificado, la instrucción de aplicar supera a la de verificar en ≥ 3 pares | Sostenida (local) | E2 local | 4 pares a favor, 0 en contra (p = 0,125; direccional, no significativo) |
+| M16 | El programa escrito por un programador queda a ≤ 2 pares del programa aprendido verificado | Sostenida (local) | E2 local | 12/12 vs 12/12; cero pares discordantes; la adquisición no añade nada en esta tarea |
+| M17 | La condición correcta+verificada+aplicar acierta ≥ 9/12 en la semilla 1 | Sostenida (local) | E2 local | 12/12 |
+
+> **Lectura:** el efecto grande solo aparece en la celda verificado+aplicar
+> (12 vs 1). El programa escrito por un programador rinde igual que el aprendido
+> (12/12 vs 12/12): **la ventaja es del contenido correcto más la instrucción
+> definitiva, no de la adquisición ni de la memoria.** La formulación defendible es
+> «entregar el procedimiento correcto como instrucción autoritativa mejora la
+> ejecución local en una transformación identificable», no «la memoria acumulativa
+> funciona».
+
 ---
 
 ## Lo que este registro dice del proyecto
 
-- **60 sostenidas**: 55 propias (casi todas E2 locales) y 5 declaradas por terceros,
+- **65 sostenidas**: 60 propias (casi todas E2 locales) y 5 declaradas por terceros,
   no replicadas.
 - **18 refutadas**, incluidas nuestras dos hipótesis principales, tres de LIRE y las
   tres hipótesis de memoria en 3 operaciones.

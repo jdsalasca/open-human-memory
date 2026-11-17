@@ -148,7 +148,7 @@ Un fallo puede venir de siete sitios. Hasta ahora los tratamos como uno.
 | **Experimentación** | ¿Sabe qué ejemplo pedir? | Ejemplos aleatorios vs informativos | **Sin medir** |
 | **Ejecución** | ¿Aplica bien una hipótesis dada? | Dar el programa y pedir la salida | Parcial: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % (EXEC-001) |
 | **Verificación** | ¿Rechaza una hipótesis falsa? | Inyectar contraejemplo | Parcial/negativa: aplica un placebo verificado (0/12) en vez de rechazarlo (MEM-004) |
-| **Memoria** | ¿Usa experiencia sin conocer la respuesta? | `ACTUAL-RETRIEVAL` vs clon | Parcial: retención/uso verificado 10–11/12 vs clon 3–5/12 en 2 ops; no es recuperación (MEM-003/004) |
+| **Memoria** | ¿Usa experiencia sin conocer la respuesta? | `ACTUAL-RETRIEVAL` vs clon | Parcial: un procedimiento correcto presentado como verificado acierta 10–12/12 vs clon 3–6/12 en 2 ops; el programa escrito rinde igual (12/12), así que mide **inferir vs recibir**, no adquisición (MEM-003/004/005) |
 | **Generalización** | ¿Transfiere a otra estructura? | Familia reservada, vocabulario distinto | **Sin medir** |
 
 **Regla:** ningún resultado sobre «el agente» sin decir en cuál de las siete se
@@ -311,7 +311,8 @@ estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 | La biblioteca de macros reduce coste con continuidad | E2 local | Sostenida (41,8 %) |
 | La política aprendida no supera una regla simple | E2 local | Nuestra hipótesis, refutada |
 | La aplicación con el programa dado cae con la longitud efectiva | E2 local | Sostenida: 2 ops 86 %, 3 ops 44 %, 5 ops 0–33 % (EXEC-001) |
-| La memoria verificada se usa en 2 operaciones | E2 local | Sostenida local: 10–11/12 vs 3–5/12 del clon (MEM-003/004) |
+| Un procedimiento correcto presentado como verificado se usa en 2 operaciones | E2 local | Sostenida local: 10–12/12 vs 3–5/12 del clon; las tareas son identificables, mide inferir vs recibir (MEM-003/004/005) |
+| La adquisición previa añade algo en esta tarea | E2 local | **Refutada**: el programa escrito por un programador rinde igual (12/12 vs 12/12) (MEM-005) |
 | El encuadre de candidata reduce el uso | E2 local | Sostenida local: 4/12 vs 11/12 (MEM-003) |
 | La etiqueta «verificado» basta sin contenido | E2 local | **Refutada**: placebo verificado 0/12 (MEM-004) |
 | Con información independiente, la recuperación funciona y falla la condición | E2 local | Sostenida local: 6–7/7 positivos, 2–5/5 secundarios (LIRE-002) |
@@ -325,12 +326,14 @@ estrecha: EvoAgentBench y SelfImprove-Bench ya miden partes de la pregunta.
 Ninguna alcanza E3 (varias distribuciones) ni E4 (reproducción con tareas reales).
 
 **El resultado positivo no contradice la proposición.** En MEM-003/004 la tarea es de
-2 operaciones, enumerable e identificable; el artefacto verificado reduce el coste de
-identificarla, no amplía la cobertura. La proposición predice exactamente eso: en el
-espacio enumerable la memoria solo puede reordenar la búsqueda y reducir coste. Para
-probar expansión hace falta una tarea **identificable pero no enumerable bajo el
-presupuesto**, y que el modelo pueda **aplicar**. EXEC-001 muestra que la segunda
-condición falla en 3–5 operaciones; por eso la expansión sigue sin medirse.
+2 operaciones, enumerable e identificable; el clon tiene la información en los dos
+ejemplos y el artefacto verificado reduce el coste de identificarla, no amplía la
+cobertura. El resultado mide **inferir frente a recibir**. La proposición predice
+exactamente eso: en el espacio enumerable la memoria solo puede reordenar la búsqueda
+y reducir coste. Para probar expansión hace falta una tarea **identificable pero no
+enumerable bajo el presupuesto**, y que el modelo pueda **aplicar**. EXEC-001 muestra
+que la segunda condición falla en 3–5 operaciones; por eso la expansión sigue sin
+medirse.
 
 ---
 

@@ -85,7 +85,26 @@ frase del prompt.** El siguiente experimento debe incluir un **placebo verificad
 un programa falso con el mismo encuadre definitivo. Si ese placebo también acierta
 11/12, la ganancia es de la etiqueta, no del contenido, y el resultado no sirve.
 
-## 6. Límites
+## 6. Qué no muestra
+
+- **Las doce tareas ya son identificables desde los dos ejemplos.** El clon tiene la
+  información; el artefacto entrega el programa explícito. El resultado mide
+  **inferir frente a recibir**, no memoria de un hecho que solo estuviera en la
+  experiencia.
+- **El programa aprendido es la solución completa** (`--suffix 0`), no una subrutina
+  parcial que el modelo deba completar.
+- **El contraste candidata/verificada cambia dos variables**: el estado comunicado y
+  la instrucción operativa. MEM-005 las separa en un factorial.
+- **No hay control de un programa escrito por un programador** sin sesión previa;
+  MEM-005 lo incluye.
+- **No hay recuperación autónoma**: el evaluador entrega el artefacto; no se elige
+  entre varias memorias.
+- **MEM-002/003/004 comparten las mismas 12 tareas y semilla**: no son réplicas
+  independientes.
+- **MEM-004 vs clon no alcanza p < 0,05** (p = 0,0625); los valores p no corrigen por
+  comparaciones múltiples y el orden de condiciones era fijo.
+
+## 7. Límites
 
 - Una semilla, 12 tareas, un modelo. No es confirmatorio; hay que replicar con 24
   tareas y varias semillas.
@@ -94,9 +113,10 @@ un programa falso con el mismo encuadre definitivo. Si ese placebo también acie
 - El oráculo es una fuga deliberada.
 - El historial tiene más tokens (853) que la memoria verificada (370).
 - Las tareas empiezan por el motivo; es reutilización favorable.
-- No se probó el **placebo verificado**; es el control crítico pendiente.
+- El placebo verificado se probó en MEM-004 (0/12): el modelo no verifica por sí
+  mismo; la etiqueta debe provenir de una verificación externa.
 
-## 7. Reproducir
+## 8. Reproducir
 
 ```powershell
 $env:PYTHONPATH="src"

@@ -1,9 +1,9 @@
 # Guía para revisores
 
-**Versión:** `v1.24-review` · 16 de noviembre de 2026
+**Versión:** `v1.25-review` · 16 de noviembre de 2026
 **Manuscrito:** [`manuscrito.md`](manuscrito.md)
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Tag de referencia:** `v1.24-review`
+**Tag de referencia:** `v1.25-review`
 
 Esta guía existe para que un revisor externo pueda evaluar el trabajo sin leer
 treinta documentos. Si algo no está aquí, es un defecto del repositorio.
@@ -37,7 +37,7 @@ el resultado positivo **no** es expansión de competencia.
 |---|---|---|
 | **Negativos** | 002, 003, 004, 005, 006-A′, 006-B, 007 | La memoria episódica/biblioteca no amplía cobertura en el régimen enumerable; reduce coste de forma condicional; la política de activación no paga; el agente real acierta 46,9 % |
 | **Diagnóstico** | 007B, EXEC-001, LIRE-002 | El 007 estaba fuera de la ejecución (oráculo 2/12 en 5 pasos); en 2 operaciones el modelo aplica 86 %, en 3 el 44 %, en 5 el 0–33 %; LIRE-001b era redundante; con información independiente, el control sin tabla acierta 0/7 y el fallo está en la condición |
-| **Positivo condicionado** | MEM-002, MEM-003, MEM-004 | En 2 operaciones, la memoria verificada y presentada como definitiva acierta 10–11/12; el encuadre de candidata la hunde a 3–4/12; un placebo verificado acierta 0/12 |
+| **Positivo condicionado** | MEM-002, MEM-003, MEM-004, MEM-005 | En 2 operaciones, un procedimiento correcto presentado como verificado se usa (10–12/12); el encuadre de candidata lo hunde a 3–4/12; un placebo verificado acierta 0–1/12. **MEM-005 muestra que un programa escrito por un programador, sin aprendizaje previo, rinde igual (12/12): la ventaja es contenido + instrucción, no adquisición.** Las tareas ya son identificables desde los dos ejemplos |
 
 ---
 
@@ -59,6 +59,10 @@ el resultado positivo **no** es expansión de competencia.
 | M5 | El encuadre definitivo supera al de candidata en ≥3 pares | E2 local | MEM-003: 11 vs 4 (7 pares) |
 | M8 | La memoria verificada supera al placebo en ≥3 pares | E2 local | MEM-003: 11 vs 3 (8 pares); MEM-004: 10 vs 2 (9 pares) |
 | M10 | La memoria verificada supera al placebo verificado en ≥3 pares | E2 local | MEM-004: 10 vs 0 (10 pares, p=0,002) |
+| M13 | Con contenido correcto, estado verificado e instrucción de aplicar, el contenido supera al placebo | E2 local | MEM-005: 12 vs 1 (11 pares, p=0,001) |
+| M14 | Con contenido correcto e instrucción de aplicar, el estado verificado supera a la candidata | E2 local | MEM-005: 12 vs 9 (3/0, p=0,25; direccional) |
+| M15 | Con contenido correcto y estado verificado, aplicar supera a verificar | E2 local | MEM-005: 12 vs 8 (4/0, p=0,125; direccional) |
+| M16 | El programa escrito por un programador queda a ≤2 pares del aprendido | E2 local | MEM-005: 12/12 vs 12/12 (0 pares) |
 | M11–M12 | Réplica de 24 tareas: verificada ≥20/24 y > candidata en ≥6 pares | **Abiertas** | No ejecutadas |
 
 **Ninguna alcanza E3** (varias distribuciones), **E4** (tareas reales) ni **E5**
@@ -72,9 +76,20 @@ el resultado positivo **no** es expansión de competencia.
 - Que las habilidades no funcionen.
 - Que exista novedad algorítmica.
 - Que haya transferencia entre modelos ni formación conceptual.
-- **Que el resultado de MEM-003/004 sea expansión de competencia.** La tarea de 2
+- **Que el resultado de MEM-003/004/005 sea expansión de competencia.** La tarea de 2
   operaciones es enumerable e identificable; la memoria ahorra el coste de
   identificarla, no amplía el espacio de lo que el agente puede expresar.
+- **Que las tareas requieran información que el clon no tenga.** Las doce tareas ya
+  están determinadas por los dos ejemplos de soporte; el artefacto entrega el programa
+  explícito. El resultado mide **inferir frente a recibir**.
+- **Que la adquisición previa aporte algo.** MEM-005: un programa escrito por un
+  programador, sin aprendizaje previo, acierta 12/12, igual que el aprendido. La
+  ventaja es contenido + instrucción, no memoria.
+- **Que el modelo verifique por sí mismo.** El placebo verificado (0–1/12) muestra que
+  aplica un programa falso si la etiqueta dice «verificado». La verificación es
+  externa; el modelo no puede ser el verificador de su propia memoria.
+- **Que haya recuperación autónoma.** El evaluador entrega el artefacto; no hay
+  selección entre varias memorias.
 - **Que haya transferencia a familias reservadas.** Las tareas empiezan por el motivo
   aprendido; es reutilización favorable, no generalización.
 - **Que el resultado sea general.** n=12 por condición, una semilla, un modelo
@@ -93,7 +108,7 @@ el resultado positivo **no** es expansión de competencia.
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 95 claims, totales citados
+python docs/verificar_afirmaciones.py            # 100 claims, totales citados
 ```
 
 ### 5.2 Reproducir los experimentos clave
@@ -114,6 +129,10 @@ python resources/investigation/mem-003/analyze.py
 # MEM-004: placebo verificado
 python -m ohmem.v7_transfer --n 12 --support 2 --suffix 0 --session1-examples 12 --exact-ops --conditions clone,memory,memory_verified,placebo,placebo_verified,history,oracle --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-004/results/pilot-depth2-verified-placebo.json
 python resources/investigation/mem-004/analyze.py
+
+# MEM-005: factorial + programa escrito
+python -m ohmem.mem_005 --n 12 --seed 1 --support 2 --session1-examples 12 --exact-ops --model gpt-6-luna --effort low --timeout 120 --out resources/investigation/mem-005/results/factorial-seed1.json
+python resources/investigation/mem-005/analyze.py
 ```
 
 ### 5.3 Trazabilidad
@@ -126,6 +145,7 @@ python resources/investigation/mem-004/analyze.py
 | MEM-002 (3 y 2 ops) | `mem-002/results/pilot-depth{3,2}.json` | `mem-002/analyze.py` |
 | MEM-003 | `mem-003/results/pilot-depth2-framing.json` | `mem-003/analyze.py` |
 | MEM-004 | `mem-004/results/pilot-depth2-verified-placebo.json` | `mem-004/analyze.py` |
+| MEM-005 | `mem-005/results/factorial-seed1.json` | `mem-005/analyze.py` |
 
 Los JSON contienen las filas por condición, tarea y programa, con la respuesta, el
 valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
@@ -152,6 +172,19 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
    longitudinal `E`/`K`/`P`.
 10. **Los negativos del 006** conservan sus limitaciones: presupuesto que puede
     rebasarse hasta 6 pasos, IC con dos semillas, condición de herramienta inválida.
+11. **Las doce tareas de MEM son identificables desde los dos ejemplos**: el clon
+    tiene la información; el artefacto entrega el programa explícito. El resultado
+    mide **inferir frente a recibir**, no un hecho que solo estuviera en la memoria.
+12. **MEM-002/003/004 comparten las mismas 12 tareas y semilla**: no son réplicas
+    independientes; la réplica de 24 tareas y varias semillas está pendiente.
+13. **El contraste candidata/verificado cambia estado e instrucción**; MEM-005 los
+    separa en un factorial 2×2×2 con control de programa escrito por un programador.
+14. **No hay recuperación autónoma**: el evaluador entrega el artefacto. **MEM-004 vs
+    clon no alcanza p < 0,05** (p = 0,0625); los p no corrigen por comparaciones
+    múltiples y el orden era fijo en MEM-002/003/004.
+15. **MEM-005**: un programa escrito por un programador rinde igual que el aprendido
+    (12/12 vs 12/12); la adquisición no añade en esta tarea. Los efectos individuales
+    de estado e instrucción son direccionales, no significativos; n=12, semilla 1.
 
 ---
 
@@ -170,10 +203,20 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
    sobre 60 sondas; no es una prueba formal.
 5. ¿El control sin tabla de LIRE-002 es suficiente? El acierto total del control es
    5/12 por la estrategia `NONE`; el positivos 0/7 es la métrica principal.
-6. ¿Qué afirmación del registro no está respaldada por los datos?
-7. ¿Qué haría falta para pasar de «revisión mayor» a «aceptable»? Nuestra apuesta:
-   réplica de 24 tareas y varias semillas, segundo modelo, familia reservada,
-   baseline externo y ciclo longitudinal.
+6. ¿Qué aprendió el agente que no pudiera reconstruir a partir de los ejemplos
+   presentes en la tarea?
+7. ¿La ventaja depende de la experiencia previa o simplemente de recibir el programa
+   correcto? MEM-005 incluye el control de programa escrito por un programador.
+8. Si un procedimiento está verificado, ¿cómo se establece su ámbito de aplicabilidad,
+   su procedencia y el momento en que deja de ser válido?
+9. ¿Puede el agente seleccionar el conocimiento correcto entre cien memorias, sin que
+   el evaluador le entregue la respuesta?
+10. Después de mil experiencias, ¿aprende problemas nuevos con menos ejemplos, menos
+    cómputo y mayor fiabilidad que un clon idéntico?
+11. ¿Qué afirmación del registro no está respaldada por los datos?
+12. ¿Qué haría falta para pasar de «revisión mayor» a «aceptable»? Nuestra apuesta:
+    réplica de 24 tareas y varias semillas, segundo modelo, familia reservada,
+    baseline externo y ciclo longitudinal.
 
 ---
 
@@ -199,6 +242,7 @@ valor esperado, los tokens y los segundos. No se publican solo los resúmenes.
 | 16 nov | **007B**: «el cuello es la ejecución» suavizado a «la aplicación del programa»; mecanismo no identificado | `prototipo-007b-transferencia/` |
 | 16 nov | **EXEC-001**: mapa de aplicación por profundidad y longitud mínima | `exec-001/` |
 | 16 nov | **MEM-002/003/004**: el encuadre era el cuello; la etiqueta no basta | `mem-002/`, `mem-003/`, `mem-004/` |
+| 16 nov | **MEM-005**: factorial contenido × estado × instrucción; el programa escrito rinde igual (12/12); la adquisición no añade | `mem-005/` |
 
 El repositorio conserva los resultados antiguos y las erratas. No se reescribió la
 historia.

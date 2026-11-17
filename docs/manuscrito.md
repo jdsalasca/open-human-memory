@@ -7,7 +7,7 @@
 **Fecha:** 16 de noviembre de 2026
 **Estado:** preprint no arbitrado. Listo para revisión por pares.
 **Repositorio:** https://github.com/jdsalasca/open-human-memory
-**Versión:** `v1.24-review`
+**Versión:** `v1.25-review`
 
 ---
 
@@ -42,9 +42,21 @@ programa completo, `luna` acierta 11/12 con 2 operaciones, 7/12 con 3, 8/12 con 
 El **primer resultado positivo de este programa** aparece en 2 operaciones: un
 artefacto **verificado fuera del prompt** y presentado como **conocimiento aplicable**
 acierta 10–11/12, frente a 3–5/12 del clon, 2–3/12 del placebo y 0/12 de un placebo
-etiquetado como verificado. El mismo programa presentado como «subrutina candidata; verifícala»
-acierta 3–4/12: **el encuadre era el cuello**. El placebo verificado demuestra que la
-etiqueta sola no basta; la ganancia es del contenido verificado.
+etiquetado como verificado. El mismo programa presentado como «subrutina candidata;
+verifícala» acierta 3–4/12: **el encuadre y la instrucción explican parte de la
+diferencia**. El placebo verificado demuestra que la etiqueta sola no basta; el
+contenido correcto supera al incorrecto bajo el mismo encuadre, pero un procedimiento
+falso declarado verificado induce errores sistemáticos.
+
+**El alcance es más estrecho de lo que parece.** Las doce tareas ya están determinadas
+por los dos ejemplos de soporte: el clon tiene la información. El artefacto no aporta
+un hecho desconocido; entrega el programa explícito en lugar de exigir inferirlo. El
+resultado mide **inferir frente a recibir**, no memoria de algo que solo estuviera en
+la experiencia. **MEM-005** separa contenido, estado e instrucción: el efecto grande
+solo aparece en verificado+aplicar (12/12 vs 1/12), y un **programa escrito por un
+programador, sin aprendizaje previo, acierta 12/12**. La adquisición no añade nada en
+esta tarea; el positivo es instrucción y contenido, no memoria. No hay recuperación
+autónoma entre varias memorias.
 
 El resultado es **uso de memoria**, no expansión de competencia: la tarea de 2
 operaciones es enumerable e identificable, y la memoria ahorra el coste de
@@ -88,13 +100,25 @@ score 8/18 (44%), and 5 score 0/1.
 The **first positive result in this project** appears at 2 operations: an artifact
 **verified outside the prompt** and presented as **applicable knowledge** scores
 10–11/12, versus 3–5/12 for the clone, 2–3/12 for the placebo, and 0/12 for a placebo
-labeled as verified.
-The same program presented as a “candidate subroutine; verify it” scores 3–4/12:
-**framing was the bottleneck**. The verified placebo shows that the label alone is not
-enough; the gain comes from verified content.
+labeled as verified. The same program presented as a “candidate subroutine; verify
+it” scores 3–4/12: **framing and instruction explain part of the difference**. The
+verified placebo shows that the label alone is not enough; correct content beats
+incorrect content under the same framing, but a false procedure declared verified
+induces systematic errors.
 
-The result is **memory use**, not competence expansion: the 2-operation task is
-enumerable and identifiable, and memory saves the cost of identifying it. The
+**The scope is narrower than it looks.** The twelve tasks are already determined by
+the two support examples: the clone has the information. The artifact does not supply
+an unknown fact; it supplies the explicit program instead of requiring inference. The
+result measures **inferring versus receiving**, not memory of something that only the
+experience contained. **MEM-005** separates content, status, and instruction: the
+large effect appears only under verified+apply (12/12 vs 1/12), and a
+**programmer-written program with no prior learning scores 12/12**. Acquisition adds
+nothing in this task; the positive result is instruction and content, not memory.
+There is no autonomous retrieval across multiple memories.
+
+The result is **instruction/content use**, not memory acquisition and not competence
+expansion: the 2-operation task is enumerable and identifiable, and the artifact saves
+the cost of identifying it. The
 expansion question remains open and requires a task the model can apply and that does
 not fit the budget. The decisive comparison — genuine retrieval, reserved families,
 total cost, and a longitudinal cycle — **has not been run**.
@@ -119,9 +143,11 @@ puede aplicar, no hay evidencia**: el 007 pedía cinco operaciones y el oráculo
 acertaba 2/12. **En una tarea de dos operaciones efectivas, un artefacto verificado y
 presentado como conocimiento aplicable se usa**: 10–11/12 frente a 3–5/12 del clon.
 Pero eso es **uso de información**, no expansión de competencia: la tarea es
-enumerable e identificable, y la memoria ahorra el coste de identificarla. Lo que sí
-podemos sostener es por qué los negativos no eran interpretables, qué separa el uso
-de la expansión y qué haría falta para que la respuesta cambie.
+enumerable e identificable, el clon ya tiene la información en los dos ejemplos y la
+memoria ahorra el coste de identificarla. El resultado mide **inferir frente a
+recibir**, no un hecho que solo estuviera en la experiencia. Lo que sí podemos
+sostener es por qué los negativos no eran interpretables, qué separa el uso de la
+expansión y qué haría falta para que la respuesta cambie.
 
 ### Contribución
 
@@ -133,15 +159,17 @@ Una **demostración metodológica** con cuatro piezas:
 2. **Los negativos, con diagnóstico:** en espacio enumerable la memoria solo reduce
    coste; el 007 estaba fuera de la ejecución y presentaba el artefacto como
    candidato; el LIRE-001b era una tabla redundante.
-3. **El positivo condicionado:** en 2 operaciones, la memoria verificada se usa
-   (10–11/12) si el contenido está verificado fuera del prompt y el encuadre es
-   definitivo; el encuadre de candidata la hunde a 3–4/12.
+3. **El positivo condicionado:** en 2 operaciones, un procedimiento correcto
+   presentado como verificado se usa (10–11/12) si el contenido está verificado fuera
+   del prompt y el encuadre es definitivo; el encuadre de candidata lo hunde a 3–4/12.
+   Las tareas son identificables desde los ejemplos: el artefacto entrega el programa,
+   no un hecho desconocido.
 4. **La condición de seguridad:** la etiqueta «verificado» no basta; un programa falso
    etiquetado así acierta 0/12. El modelo no puede ser el verificador de su propia
    memoria.
 
 Las piezas de apoyo son: la proposición con condiciones, los experimentos, la revisión
-estructurada de 31 trabajos y el registro de 95 afirmaciones. Ninguna se presenta como
+estructurada de 31 trabajos y el registro de 100 afirmaciones. Ninguna se presenta como
 una teoría general de memoria.
 
 ### Lo que no se afirma
@@ -375,6 +403,7 @@ positiva condicionada.
 | MEM-002 | memoria en 2–3 operaciones | 12 tareas, `luna` low | clon, memoria, placebo, historial, oráculo | llamadas | 3 ops: 2/3/5/4/8; 2 ops: 5/7/4/9/11 | 1–6 pares | 3 ops negativo; 2 ops señal |
 | MEM-003 | encuadre de la memoria verificada | 12 tareas, `luna` low | clon, candidata, verificada, placebo, historial, oráculo | llamadas | 3/4/11/3/10/12 | 0–7 pares | Positivo: el encuadre era el cuello |
 | MEM-004 | placebo con etiqueta «verificado» | 12 tareas, `luna` low | 7 condiciones | llamadas | verificada 10/12; placebo verificado 0/12 | 0–10 pares | El contenido, no la etiqueta |
+| MEM-005 | factorial contenido × estado × instrucción | 12 tareas, `luna` low | 10 condiciones, semilla 1 | llamadas | verificado+aplicar 12/12; placebo verificado+aplicar 1/12; escrito 12/12 | 0–11 pares | La adquisición no añade; el contenido+instrucción sí |
 
 ### 5.1 Prototipo 002: el solucionador, no la memoria
 
@@ -534,7 +563,7 @@ vs 2.841) ni acierta más (11 vs 10): **la ventaja de LIRE-001b no se replica**.
 tabla TSV ahorra 51 % de tokens y baja a 8/12; el conciso ahorra 48 % y se queda en
 10/12. No hay una representación que domine fidelidad, tokens y condición.
 
-### 5.10 MEM-002/MEM-003: la memoria verificada funciona; el encuadre la bloqueaba
+### 5.10 MEM-002/MEM-003: un procedimiento correcto presentado como verificado
 
 **MEM-002: el régimen y el historial.** En 3 operaciones, la memoria de 2 operaciones
 no superó al clon ni al placebo (clon 2, memoria 3, placebo 5, historial 4, oráculo
@@ -560,15 +589,60 @@ verificado; aplícalo» en vez de «subrutina candidata; verifícala» (7 pares,
 p = 0,016). Con el encuadre definitivo, el contenido importa: verificada 11/12 vs
 placebo 3/12 (8 pares, p = 0,008). La memoria verificada empata con el historial
 (10/12) y con el oráculo (12/12). El encuadre de candidata es tóxico: 4/12, peor que
-el historial (6 pares, p = 0,031). **La memoria no era el cuello: lo era pedirle al
-modelo que re-verificara en cada uso un artefacto ya verificado.**
+el historial (6 pares, p = 0,031). **El encuadre y la instrucción explican parte de la
+diferencia; este diseño no separa cuánto corresponde al estado comunicado y cuánto a
+la instrucción de aplicar.** MEM-005 hace el factorial.
 
 **MEM-004: la etiqueta no basta.** Un programa falso etiquetado «retenido y
 verificado» acierta **0/12**, peor que el clon (5/12); la memoria verificada acierta
-10/12 (10 pares, p = 0,002). El modelo no confía ciegamente en la etiqueta: aplica el
-programa y falla si es falso. La ganancia es del **contenido verificado**, y la
-verificación debe ser real, fuera del prompt. Un sistema que permita al modelo
-etiquetar su propia memoria como verificada es vulnerable a este fallo.
+10/12 (10 pares, p = 0,002). El modelo no verifica por sí mismo: **aplica el programa
+falso y falla**. La ganancia es del contenido correcto bajo el mismo encuadre; el
+placebo verificado muestra **obediencia peligrosa a la autoridad declarada**, no
+seguridad. La verificación debe ser real y externa al prompt; un sistema que permita
+al modelo etiquetar su propia memoria como verificada es vulnerable.
+
+### 5.11 MEM-005: el factorial reencuadra el positivo
+
+MEM-005 separó contenido, estado e instrucción en un factorial 2×2×2, con un control
+de **programa escrito por un programador** y orden de condiciones aleatorizado por
+tarea. Doce tareas, semilla 1, 2 operaciones.
+
+| Condición | Acierto |
+|---|---|
+| Clon | 6/12 |
+| Correcto · candidata · verificar | 8/12 |
+| Correcto · candidata · aplicar | 9/12 |
+| Correcto · verificada · verificar | 8/12 |
+| **Correcto · verificada · aplicar** | **12/12** |
+| Placebo · candidata · verificar | 6/12 |
+| Placebo · candidata · aplicar | 4/12 |
+| Placebo · verificada · verificar | 6/12 |
+| **Placebo · verificada · aplicar** | **1/12** |
+| **Escrito por un programador** | **12/12** |
+
+El efecto grande está en **una sola celda**: contenido correcto, estado verificado e
+instrucción de aplicar (12 vs 1; 11 pares, p = 0,001). En candidata+verificar el
+contenido apenas separa (8 vs 6; 3/1, p = 0,625). Los efectos individuales son
+direccionales, no significativos: verificado vs candidata con instrucción de aplicar,
+12 vs 9 (3/0, p = 0,25); aplicar vs verificar con estado verificado, 12 vs 8 (4/0,
+p = 0,125).
+
+**El control escrito es el hallazgo decisivo:** un programa escrito por un programador,
+sin sesión previa de aprendizaje, acierta **12/12**, exactamente igual que el programa
+aprendido. **La adquisición previa no añade nada en esta tarea.** El resultado es del
+contenido correcto más la instrucción definitiva, no de la memoria ni del proceso de
+aprendizaje. La formulación defendible es: *entregar el procedimiento correcto como
+instrucción autoritativa y aplicable mejora la ejecución local en una transformación
+identificable*, no *la memoria acumulativa funciona*.
+
+El placebo verificado+aplicar acierta **1/12**: la autoridad declarada aplicada a
+contenido falso produce errores sistemáticos. Es **obediencia peligrosa**, no
+verificación. El modelo no distingue por sí mismo el contenido correcto del falso.
+
+Con esto, el «positivo» de MEM-003/004 queda reencuadrado: no demuestra adquisición ni
+memoria; demuestra que la instrucción y el contenido correcto mejoran la ejecución. La
+pregunta de memoria acumulativa exige **MEM-006** (varias memorias, recuperación
+autónoma) y **META-001** (ciclo longitudinal), no otro formato de entrega.
 
 ---
 
@@ -601,8 +675,9 @@ se observó: 41,8 % menos pasos con continuidad total, nada con continuidad cero
 El 007 añadió dos causas que no eran la memoria: la tarea de cinco pasos estaba fuera
 de la **aplicación** (oráculo 2/12) y el artefacto se presentaba como **candidato** a
 re-verificar. EXEC-001 midió la primera; MEM-003/004, la segunda. Cuando se
-corrigieron las dos, en dos operaciones, la memoria verificada se usó (10–11/12). El
-negativo no era una ley sobre la memoria: era un artefacto de régimen y de encuadre.
+corrigieron las dos, en dos operaciones, un procedimiento correcto presentado como
+verificado se usó (10–11/12). El negativo no era una ley sobre la memoria: era un
+artefacto de régimen y de encuadre.
 
 **Qué sobrevive.** (i) La ventaja de eficiencia es real pero condicional. (ii) La
 política de activación no paga su señal. (iii) La verificación por ejecución es
@@ -626,32 +701,44 @@ identificar el procedimiento.
 verificado acierta **11/12** si se presenta como definitivo, frente a 3/12 del clon,
 3/12 del placebo y 4/12 si se presenta como candidata. Empata con el historial
 (10/12) y con el oráculo (12/12). **El 007 no era evidencia contra la memoria:** la
-tarea estaba fuera de la ejecución y el artefacto se presentaba como candidato.
+tarea estaba fuera de la ejecución y el artefacto se presentaba como candidato. Pero
+las doce tareas ya están determinadas por los dos ejemplos: el artefacto entrega el
+programa explícito, no un hecho que el clon no pudiera saber.
 
 **Lo que MEM-004 añade.** La etiqueta «verificado» no basta: un programa falso
 etiquetado así acierta 0/12, mientras la memoria verificada acierta 10/12 (10 pares,
-p = 0,002). El modelo aplica el programa y falla si es falso. La memoria útil exige
-**verificación real fuera del prompt** y un encuadre definitivo; el modelo no puede
-ser el verificador de su propia memoria.
+p = 0,002). El modelo no verifica por sí mismo: aplica el programa falso y falla. La
+memoria útil exige **verificación real fuera del prompt** y un encuadre definitivo; el
+modelo no puede ser el verificador de su propia memoria. El placebo verificado es
+**obediencia peligrosa**, no seguridad.
 
-**Qué es y qué no es el resultado positivo.** Es **uso de memoria**: el artefacto
-contiene información que el clon no tiene, el modelo puede aplicar la tarea de dos
-operaciones y el encuadre verificado hace que la aplique. **No es expansión de
-competencia**: la tarea es enumerable e identificable; el artefacto ahorra el coste
-de identificarla, no amplía el espacio de lo que el agente puede expresar. **No es
-transferencia**: las tareas empiezan por el motivo aprendido; es reutilización
-favorable. **No es general**: n=12, una semilla, un modelo; la réplica de 24 tareas
-está pre-registrada. La proposición de `teoria.md` sigue siendo el marco: en el
-espacio enumerable, la memoria optimiza coste; el resultado positivo es consistente
-con ella, no la refuta.
+**Lo que MEM-005 añade.** El factorial 2×2×2 muestra que el efecto grande está en una
+sola celda: contenido correcto, estado verificado e instrucción de aplicar (12 vs 1;
+11 pares, p = 0,001). En candidata+verificar el contenido apenas separa (8 vs 6). Los
+efectos individuales son direccionales, no significativos. Y el control decisivo: un
+**programa escrito por un programador, sin aprendizaje previo, acierta 12/12**, igual
+que el aprendido. **La adquisición no añade nada en esta tarea.** El positivo es
+contenido correcto más instrucción definitiva, no memoria.
 
-**El siguiente test.** Primero, la réplica de **24 tareas y varias semillas** de
-MEM-003/004 (M11/M12), con placebos por clase y posición/longitud del recuerdo.
-Después, **MEM-005** en 3 operaciones con encuadre definitivo: la memoria cubre 2/3 y
-el modelo debe completar la tercera. Más adelante, el **ciclo longitudinal**
-`E`/`K`/`P`, una **familia reservada** y la **comunicación aprendida** (COMM-001). El
-baseline externo (F0) sigue pendiente y es condición para cualquier comparación
-general.
+**Qué es y qué no es el resultado positivo.** Es **uso de un procedimiento correcto
+presentado como verificado**: el artefacto contiene el programa que el clon tendría
+que inferir, el modelo puede aplicarlo y el encuadre definitivo hace que lo aplique.
+**No es memoria de un hecho desconocido**: las doce tareas ya están determinadas por
+los dos ejemplos; el clon tiene la información. **No es adquisición**: el programa
+escrito por un programador rinde igual; no hay ventaja del proceso de aprendizaje.
+**No es expansión de competencia**: la tarea es enumerable e identificable; el
+artefacto ahorra el coste de identificarla. **No es transferencia**: las tareas
+empiezan por el motivo aprendido. **No es general**: n=12, una semilla, un modelo; la
+réplica de 24 tareas está pendiente. La proposición de `teoria.md` sigue siendo el
+marco: en el espacio enumerable, la memoria optimiza coste; el resultado positivo es
+consistente con ella, no la refuta.
+
+**El siguiente test.** **MEM-006**: varias memorias, recuperación autónoma y selección
+entre candidatos, sin que el evaluador entregue el artefacto. **META-001**: ciclo
+longitudinal con familias nuevas, menos experiencias para el umbral, artefactos
+obsoletos y contradictorios. Después, la réplica de **24 tareas y varias semillas**, la
+**familia reservada**, la **comunicación aprendida** (COMM-001) y el baseline externo
+(F0), que sigue pendiente y es condición para cualquier comparación general.
 
 ---
 
@@ -687,6 +774,18 @@ general.
     interpretación de las operaciones, seguimiento de instrucciones o una heurística.
 13. **La revisión de literatura** se hizo con una base y un revisor; 88 candidatos no
     se evaluaron y la mayoría de los trabajos son preprints de 2026.
+14. **Las tareas de MEM son identificables desde los dos ejemplos**: el clon tiene la
+    información; el artefacto entrega el programa explícito. El resultado mide
+    **inferir frente a recibir**, no un hecho que solo estuviera en la experiencia.
+15. **MEM-002/003/004 usan las mismas 12 tareas y la misma semilla**: no son réplicas
+    independientes; la réplica de 24 tareas y varias semillas está pendiente.
+16. **El contraste candidata/verificada cambió dos variables** (estado comunicado e
+    instrucción operativa); MEM-005 las separa en un factorial 2×2×2.
+17. **No hay recuperación autónoma**: el evaluador entrega el artefacto; no hay
+    selección entre varias memorias ni decisión de cuándo recordar.
+18. **MEM-004 vs clon no alcanza p < 0,05** (p = 0,0625); los valores p no corrigen
+    por comparaciones múltiples y el orden de condiciones era fijo en MEM-002/003/004.
+    MEM-005 aleatoriza el orden por tarea.
 
 ---
 
@@ -694,7 +793,7 @@ general.
 
 ```bash
 python -m unittest discover -s tests -v          # 87 tests
-python docs/verificar_afirmaciones.py            # 95 claims y totales citados
+python docs/verificar_afirmaciones.py            # 100 claims y totales citados
 
 # Experimentos clave (modelo de experimentos: gpt-6-luna low)
 python -m ohmem.lire_002 --model gpt-6-luna --effort low --timeout 120 \
@@ -721,13 +820,17 @@ trazabilidad, en `docs/para-revisores.md` §5.3. La retractación de LIRE-001b e
 ## 10. Conclusión
 
 En nuestras tareas, la memoria no falla principalmente por almacenar poco: falla por
-**aplicar mal, verificar mal y presentar mal** lo almacenado. En nuestras tareas enumerables, la
-memoria solo puede reducir coste; el 007 pedía cinco operaciones, que el modelo no
-aplica ni con el programa completo (oráculo 2/12), y presentaba el artefacto como
-candidato a re-verificar. Corregidos el régimen (dos operaciones efectivas) y el
-encuadre (conocimiento verificado y aplicable), la memoria se usa: 10–11/12 frente a
-3–5/12 del clon y 2–3/12 del placebo. Un placebo etiquetado como verificado acierta
-0/12: la etiqueta no basta; el contenido verificado sí.
+**aplicar mal, verificar mal y presentar mal** lo almacenado. En nuestras tareas
+enumerables, la memoria solo puede reducir coste; el 007 pedía cinco operaciones, que
+el modelo no aplica ni con el programa completo (oráculo 2/12), y presentaba el
+artefacto como candidato a re-verificar. Corregidos el régimen (dos operaciones
+efectivas) y el encuadre (procedimiento correcto presentado como verificado y
+aplicable), la ejecución mejora: 10–11/12 frente a 3–5/12 del clon y 2–3/12 del
+placebo. Pero **MEM-005 muestra que un programa escrito por un programador, sin
+aprendizaje previo, acierta 12/12**, igual que el aprendido: la adquisición no añade
+nada en esta tarea. El «positivo» es **contenido correcto más instrucción definitiva**,
+no memoria acumulativa. Un placebo etiquetado como verificado acierta 0–1/12: la
+etiqueta no basta y puede inducir errores sistemáticos.
 
 El problema del lenguaje es el mismo problema visto desde el otro lado: no se trata de
 qué idioma ocupa menos caracteres, sino de cuánta información independiente se
@@ -735,12 +838,13 @@ conserva y se aplica bajo una condición. Con información independiente, el con
 tabla acierta 0/7; la recuperación funciona, pero falla la condición; el chino no
 ahorra tokens ni acierta más. La compresión ahorra tokens y cuesta excepciones.
 
-No hay evidencia de **expansión de competencia**. El resultado positivo es **uso de
-memoria** en un espacio enumerable: ahorra identificación, no amplía lo expresable. La
-pregunta mayor sigue abierta y exige una tarea que el modelo pueda aplicar, que no
-quepa en el presupuesto y que se pruebe en familias reservadas, con varias semillas,
-un segundo modelo y un ciclo longitudinal. Ese es el trabajo siguiente; este artículo
-deja el instrumento para medirlo sin engañarse.
+No hay evidencia de **expansión de competencia** ni de **adquisición acumulativa**. El
+resultado positivo es **uso de un procedimiento correcto en un espacio enumerable**:
+ahorra identificación, no amplía lo expresable, y no requiere que el procedimiento
+haya sido aprendido. La pregunta mayor sigue abierta y exige una tarea que el modelo
+pueda aplicar, que no quepa en el presupuesto, y un recuperador que elija entre varias
+memorias sin que el evaluador le entregue la respuesta. Ese es el trabajo siguiente;
+este artículo deja el instrumento para medirlo sin engañarse.
 
 ---
 
@@ -783,7 +887,7 @@ deja el instrumento para medirlo sin engañarse.
 
 ## Apéndice A. Registro de afirmaciones
 
-95 afirmaciones en `docs/registro-de-afirmaciones.md`: 60 sostenidas (55 propias; 5 de
+100 afirmaciones en `docs/registro-de-afirmaciones.md`: 65 sostenidas (60 propias; 5 de
 terceros, no replicadas), 18 refutadas, 17 abiertas, inválidas o no demostradas.
 Ninguna propia alcanza E3.
 
